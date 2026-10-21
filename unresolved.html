@@ -105,7 +105,7 @@
   <footer>
     <div class="footer-inner">
       <div>
-        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated 6-hour refresh via GitHub Actions.
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated refresh every 4–6 hours via GitHub Actions.
       </div>
       <div>
         <a href="methodology.html">Methodology & Sources</a> · 
@@ -162,6 +162,7 @@
     }
 
     fetchPicksData().then(data => {
+      showStaleBanner(data);
       const dt = new Date(data.generated_at);
       document.getElementById('last-updated').textContent = `Updated: ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()}`;
 

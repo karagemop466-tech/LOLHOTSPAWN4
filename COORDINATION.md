@@ -1,51 +1,103 @@
 # Coordination Board
 
-Shared task board for parallel agent sessions working on `karagemop466-tech/LOLHOTSPAWN4`.
+Shared task board and integration record for parallel agent sessions working on
+`karagemop466-tech/LOLHOTSPAWN4`. Final state recorded by the integration session
+`arena/0a18d42d-lolhotspawn4` on 2026-10-21.
 
-| Task | Status | Session / Owner | Files | Notes |
-|---|---|---|---|---|
-| T1: Hotspawn LoL fixture ingest (internal API `api/v1/fixtures` + SSR lobby fallback) | done | `arena/6b271c44-lolhotspawn4` | `scripts/update_picks.py`, `collector/` | Ingests all 264 scheduled fixtures; filters incomplete/TBD brackets gracefully. |
-| T2: External odds adapters (Polymarket Gamma API + OddsPapi LoL sportId 18) | done | `arena/6b271c44-lolhotspawn4` | `scripts/update_picks.py`, `collector/fetch_odds.py` | Real-money prediction markets + sharp bookmaker de-vigged median lines. |
-| T3: Originated line model (Leaguepedia Cargo Elo K=32 + Bayesian shrinkage + 50/50 unresolved) | done | `arena/6b271c44-lolhotspawn4` | `scripts/update_picks.py` | Solves prompt requirement: originates lines for low-tier matches using Leaguepedia competitive history (64 model lines). |
-| T4: Mobile-first GitHub Pages dashboard & Executive Summary with in-site pick links | done | `arena/6b271c44-lolhotspawn4` | `index.html`, `picks.html`, `assets/`, `docs/` | Mobile-first UI with dual Card View and Table View, clear pick indicators, and probability bars. |
-| T5: Separate Unresolved section + Flagged for Review page + explicit limitations | done | `arena/6b271c44-lolhotspawn4` | `unresolved.html`, `flagged.html`, `methodology.html`, `docs/` | Dedicated Unresolved & Limitations analysis in Executive Summary and dedicated pages. |
-| T6: Automation workflow (6-hour refresh schedule, strict schema validation, commit & deploy) | done | `arena/6b271c44-lolhotspawn4` | `.github/workflows/update-picks.yml` | 6h automated refresh pipeline; verified schema validation. |
-| T7: Integration, line-by-line verification, PR to main, merge, Pages deployment confirmation | done | `arena/6b271c44-lolhotspawn4` | All files | PR #8 and PR #14 merged to `main`; GitHub Pages build and deploy success. |
+## Task Board (final)
 
-## Parallel Session Integration & Conflict Log (2026-10-21 ~20:45 UTC)
-- Session `arena/0a18d42d-lolhotspawn4` submitted PR #4, #5, #6, #10, #12 creating `collector/`, `css/`, `js/`, but its initial line model left all low-tier matches blank with no picks, and its fixture validator crashed on incomplete TBD brackets.
-- Session `arena/6b271c44-lolhotspawn4` resolved the core requirement: **originating lines for low-tier matches** via a Bayesian-shrunk Elo model calculated over Leaguepedia official match results (ScoreboardGames Cargo API), ensuring 100% pick coverage for all 264 open matches on Hotspawn.
-- Rebased and merged `main` into `arena/6b271c44-lolhotspawn4` without discarding any session's work:
-  - Preserved `collector/` and patched `fetch_hotspawn.py` to handle provisional brackets safely.
-  - Deployed comprehensive mobile dashboard in `index.html`, `picks.html`, `unresolved.html`, `flagged.html`, `methodology.html`, `assets/`, and `docs/`.
-  - Created automated 6-hour refresh pipeline `.github/workflows/update-picks.yml`.
-  - PR #8 merged (`e55e6d5`).
-  - PR #14 merged (`8e0f0fa`).
-  - GitHub Pages deployment verified successful: [https://karagemop466-tech.github.io/LOLHOTSPAWN4/](https://karagemop466-tech.github.io/LOLHOTSPAWN4/) and `/docs/`.
+| Task | Status | Session / Owner | Notes |
+|---|---|---|---|
+| T1: Hotspawn LoL fixture ingest (internal fixtures API + SSR fallback) | done | both sessions (integrated) | `collector/fetch_hotspawn.py` (verified raw layer) + SSR fallback kept in `scripts/update_picks.py`. |
+| T2: External odds adapters (Polymarket, Kalshi, Pinnacle, OddsPapi) | done | both sessions (integrated) | `collector/fetch_odds.py` (Polymarket + Kalshi + Pinnacle, verified); OddsPapi path kept (dormant without key); Kalshi futures added as a first-class derived-line tier. |
+| T3: Originated line model for uncovered matches | done | both sessions (integrated) | Kalshi-futures ratio model + Leaguepedia Elo (K=32, 180d, sample-size shrinkage) + explicit 50/50 no-edge baseline. Elo fetch made rate-limit-safe (one batch per run, persistent cache). |
+| T4: Mobile-first GitHub Pages dashboard & Executive Summary | done | `arena/6b271c44` site adopted, enhanced by integration | 5 pages (index/picks/unresolved/flagged/methodology), card + table views, filters, stale-data banner, locked-out register, Pinnacle coverage badge. |
+| T5: Unresolved section + Flagged for Review + limitations | done | both sessions (integrated) | Dedicated pages + executive-summary section; flagged page now also lists locked-out fixtures, Game-1-market proxies, verified aliases, time discrepancies. |
+| T6: Automation (4–8h refresh, schema validation, safe commit, deploy) | done | both sessions (integrated) | `refresh.yml` (4h primary) + `update-picks.yml` (6h backup) run the identical chain; shared concurrency group; rebase-before-push; validation gate; check-annotation fallback for log outages. |
+| T7: Integration, line-by-line verification, PRs, merge, Pages confirmation | done | `arena/0a18d42d` (this session) | See Handoff / completion below. |
 
-## Verified Official Sources (Checked 2026-10-21)
-- **Hotspawn LoL Lobby:** https://play.hotspawn.com/lol-pickems
-- **Hotspawn Main Lobby:** https://play.hotspawn.com/lobby
-- **Hotspawn How It Works (pick lock 5 min pre-match):** https://play.hotspawn.com/how-it-works
-- **Hotspawn Internal Fixtures API:** https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled&tenantId=1
-- **Polymarket Gamma API (LoL prediction markets):** https://gamma-api.polymarket.com/events?tag_slug=league-of-legends
-- **OddsPapi LoL Odds API (sportId 18, winner market 181, 100+ bookmakers incl. Pinnacle/bet365):** https://oddspapi.io/sports/esports/lol
-- **Leaguepedia Cargo API (ScoreboardGames results for Elo model):** https://lol.fandom.com/api.php?action=help&modules=cargoquery
-- **Leaguepedia LoL Esports Wiki:** https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki
-- **Game of Legends (GOL.gg) Esports Database:** https://gol.gg/tournament/list/
-- **Pinnacle Esports API Documentation:** https://github.com/pinnacleapi/pinnacleapi-documentation
+## Cross-Session Log (2026-10-21)
 
-## Verification Performed
-1. **Full Fixture Coverage:** Verified all 264 League of Legends matches on Hotspawn have identified picks, dual-team win probabilities summing to `1.000` (within 0.01 tolerance), and official source links.
-2. **Endpoint & Asset Integrity:** Tested all pages (`index.html`, `picks.html`, `unresolved.html`, `flagged.html`, `methodology.html`), assets (`assets/app.js`, `assets/style.css`), data files (`data/picks.json`), and `/docs/` replicas. Zero 404s, zero broken links.
-3. **Multi-Model Coverage:**
-   - 8 matches priced via Polymarket prediction markets.
-   - 64 matches originated via our Leaguepedia Cargo Elo model with Bayesian shrinkage.
-   - 192 matches transparently handled via 50/50 baseline with complete limitation disclosures.
-4. **Independence Rule:** Verified that Hotspawn crowd % is purely displayed as informational context and is not ingested as a model probability factor.
+- `arena/0a18d42d-lolhotspawn4` (this session) shipped the verified raw-data layer
+  (`collector/`), the first site iteration, and `refresh.yml` (PRs #4, #5, #6).
+  Debug harness for log-endpoint outages: PR #10. Collector `NameError` fix + first
+  successful live data run + offline smoke test: PR #12 (merged; run 39671286429
+  succeeded, first `data/` commit b7be56d at 20:33Z).
+- `arena/6b271c44-lolhotspawn4` (other session) shipped a parallel implementation:
+  5-page mobile site, `scripts/update_picks.py` (Leaguepedia Elo originator), and
+  `update-picks.yml` (6h). Merged as PR #8 at 20:34Z, replacing the root site files
+  with its design and adding its resolver step to `refresh.yml`.
+- **Overlap assessment (integration decision):** the two implementations agreed on
+  all 8 market lines (independent cross-verification, see I-9). The other session's
+  site was adopted as the live design (it covers every match with an explicit pick
+  or a no-edge 50/50, and was already merged/live). This session's `collector/`
+  raw layer (verified endpoints + manifest + audit) was kept as the data foundation;
+  `collector/build.py`/`data/matches.json` (orphaned duplicate dataset) and the
+  duplicate `docs/` site copy + orphaned `css/`+`js/` assets were removed. No other
+  session's functional work was discarded; everything removed was dead or duplicated
+  code, listed here for the audit trail.
+- **PR #14 (`arena/6b271c44`, merged 20:40Z, concurrent with this integration):**
+  added `data/seeded_ratings.json` — a snapshot of the Elo model (20 teams, 2–9
+  games each) used to bootstrap ratings while the rate-limited Leaguepedia cache
+  fills. **Integrated:** the resolver now loads the seed and fills gaps in the
+  live cache (cache values always win; seeded teams keep their small sample
+  counts → "Low confidence" labels). PR #14 also re-wrote `data/matches.json`
+  (4-way output duplication incl. `docs/data/`) — those regenerated files are
+  superseded by `data/picks.json` in this integration and the duplicate outputs
+  were removed (documented under Integration decisions).
+- **PR #16 (`arena/6b271c44`, merged 20:43Z):** COORDINATION.md finalization by
+  that session (264-fixture audit, 64 Elo lines under the pre-integration
+  pipeline, Pages deploy check). Superseded by this record; its raw-data refresh
+  commit (aaffbc0, 20:43Z) supplied the freshest raw snapshots, which this
+  integration's dataset is built from.
 
-## Known Irregularities & Standing Flags (Published on Flagged page)
-1. **Direct Sandbox Egress:** The local sandbox environment allows outbound traffic only to GitHub, NPM, and PyPI. Live scraping of Hotspawn, Polymarket, and Leaguepedia executes inside GitHub Actions runners (`ubuntu-latest`), which have unrestricted internet access.
-2. **Waiting For Information Tier:** Many lower-tier and amateur matches on Hotspawn have tier or stage listed as "WAITING FOR INFORMATION". These matches are clearly flagged in the dataset and UI.
-3. **Low-Tier Esportsbook Coverage:** Lower-tier regional leagues (e.g., PRM 3rd Division, amateur regional cups) are rarely quoted by commercial sportsbooks or Polymarket. Our pipeline originates its own line using historical Leaguepedia match results (Elo), and where no competitive history exists, assigns a 50/50 baseline with full disclosure.
-4. **Hotspawn Crowd Percentage:** Hotspawn displays crowd pick percentages (e.g., "89% picked") on the lobby cards. In accordance with system instructions, crowd percentage is strictly treated as informational context and is **never** used as an indicator or input for match win probability.
+## Verified Source Log (all checked 2026-10-21, from this session unless noted)
+
+- **I-1 Hotspawn fixtures API:** `https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled` — 27 chunks, all scheduled LoL fixtures, no pagination. Status tokens: scheduled/ended/cancelled (others return `[]`). `tenantId=1` param also accepted (verified for the other session's URL). Fixture schema includes `lock_time` (ms epoch) — picks lock 5 min pre-match.
+- **I-2 Hotspawn match pages/logos:** `https://www.hotspawn.com/matches/<slug>-<fixtureId>`; logos `…/teams/<teamId>.svg` (same host as the fixtures API).
+- **I-3 Pinnacle:** guest API structure verified (`/sports` E-Sports id 12; LoL leagues 9587 Worlds, 225201 EMEA Masters; `/leagues/<id>/matchups` with `has_markets: true`). **No public price endpoint** (all `/matchups/<id>/markets` and `/markets?matchupId=` variants → 404 on guest and non-guest hosts; pinnacle.com web pages bot-blocked). Pinnacle is therefore a coverage flag only.
+- **I-4 Polymarket gamma:** LoL primary tag id 65 (sport "lol", id 39). `/events?tag_id=65&closed=false` → open LoL markets incl. per-match "Match Winner" markets for Worlds 2026 + EMEA Masters; `sport=` param is ignored (use tag_id). G2/DK event `lol-g2-dk-2026-10-23` verified at 0.395/0.605 (page shows 40¢/61¢). Public URL pattern `https://polymarket.com/event/<slug>`.
+- **I-5 Kalshi:** `https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXLOL&status=open` → open KXLOL Worlds-2026 futures for all 16 teams (T1 0.175, Gen.G 0.315… MKOI 0.005 at 20:15Z). `/series/<ticker>/markets` is 404 (wrong shape).
+- **I-6 Hotspawn "picked %"** is the crowd percentage — **forbidden as a probability input** (project rule). Stored as context only.
+- **I-7 First live run failures (this session's debugging):** PR #5/#6 runs failed in 0s → unquoted `if:` expression containing `: ` broke the workflow YAML (fixed by quoting; validate with pyyaml). Run 39670357627 failed in the collector step → `NameError: name 'log' is not defined` (bare `log()`; fixed in PR #12). `gh run view --log` endpoint EOF → tracebacks now re-emitted as `::error` check annotations + step summary.
+- **I-8 Fandom/Leaguepedia:** Cargo API works and returns real results (`SG.DateTime_UTC >= '…' AND SG.Winner IS NOT NULL`), but **rate-limits datacenter clients** — the other session's 12-batch pagination from the runner returned 0 rows (observed `elo_teams: 0`). Integration fix: one 500-game batch per run, persistent cache `data/raw/leaguepedia_games.json`, cache reuse on failure.
+- **I-9 Cross-verification of market lines (two independent implementations):** this session's 20:33Z build and the other session's 20:34Z run produced identical 8 Polymarket lines (Galions/Solary 51.5/48.5; Gen.G/IG 77.5/22.5; HLE/TES 77.5/22.5; BLG/MKOI 82.5/17.5; AL/KC 65.5/34.5; G2/DK 39.5/60.5; TL/CTBC 71.5/28.5; TSW/LYON 41.5/58.5).
+- **I-10 Start-time discrepancies:** Hotspawn's scheduled start differs from market-listed starts by 1–4h on several Worlds matches (e.g. T1/LØS: Hotspawn 23:00Z vs Polymarket "6:00 PM ET" = 22:00Z, verified on the event page). Matching uses same-day/36h windows; the discrepancy is flagged on the Flagged page.
+- **I-11 Locked-out fixtures:** the API returns 264 "scheduled" fixtures but 69 have `lock_time` in the past (e.g. Aug/Sep fixtures never resolved). Only fixtures with `lock_time >= now` are available picks (195 at 20:40Z). Locked-out fixtures are excluded from the board and listed on the Flagged page (`excluded_stale`), never silently dropped.
+- **I-12 Verified alias LØS = LOS:** Hotspawn "LØS" (Nordic spelling) = Polymarket "LOS" (event `lol-los-t1-2026-10-23`, page verified: LOS 13¢/T1 88¢, "6:00 PM ET" 2026-10-23) = Kalshi "LOS" (`KXLOL-WORLDS26-LOS`). The only alias in the matcher's table; added after verification, documented here and on the Flagged page.
+- **I-13 Game-1 vs series markets:** Polymarket lists only a "Game 1 Winner" market for Galions/Solary (Bo5). Series/moneyline markets are preferred; when only a Game-1 market exists the row is labeled "(Game-1 market only — no series market found; flagged)" and filterable on the Flagged page.
+
+## Integration Decisions (made 2026-10-21 by `arena/0a18d42d`, final integrator)
+
+1. **Single canonical dataset:** `data/picks.json` (rendered by the site). `collector/build.py` + `data/matches.json` (duplicate dataset, no longer rendered) removed; `collector/` fetchers + `common.py` kept as the verified raw layer feeding `scripts/update_picks.py` (snapshots-first, direct fetch only as fallback).
+2. **Five-stage resolution waterfall** in `update_picks.py`: MARKET_BOOKS (OddsPapi, with key) → MARKET_POLYMARKET (exact mids, series preferred, Game-1 flagged) → KALSHI_FUTURES (our ratio line) → MODEL_ELO (Leaguepedia, rate-limit-safe) → UNRESOLVED 50/50 with `no_edge` (rendered "⚖️ No Edge").
+3. **Available-pick filter:** only `lock_time >= now` fixtures on the board; locked-out fixtures published in `excluded_stale`.
+4. **Workflows:** `refresh.yml` (4h) is primary; `update-picks.yml` (6h) kept as backup cadence but now runs the identical full chain; shared concurrency group `lol-pick-refresh`; commit step rebases before push (the previous `git pull --rebase … || true` silently dropped pushes — root cause of the failed "Commit updated data" step in run 39671452009); both workflows push-trigger guards exclude each other's data-commit messages; schema validation gate before every commit; failure keeps previous data but fails loudly with check annotations.
+5. **Site enhancements (other session's design kept):** KALSHI_FUTURES badge + filter, Pinnacle coverage badge, no-edge rendering in table views, STALE DATA banner (driven by `stale_sources` from the raw manifest), locked-out register on the Flagged page, methodology updated to the five-stage model with the Kalshi + Pinnacle source rows.
+6. **Removed (dead/duplicated only):** `docs/` (duplicate site copy — Pages serves the main-branch root), `css/` + `js/` (orphaned first-iteration assets), `collector/build.py`, `data/matches.json`, tracked `__pycache__` artifacts (re-added by the other session's merge despite `.gitignore`).
+
+## Open Items / Maintenance Notes
+
+- **OddsPapi key:** `ODDSPAPI_KEY` secret not configured → Tier 1 (commercial books) dormant; Polymarket + Kalshi cover the priced tier.
+- **Leaguepedia cache:** starts empty in the repo and grows one batch per successful run (Fandom rate limit); until it fills, matches with wiki history fall through to UNRESOLVED rather than inventing lines.
+- **Pinnacle prices:** if a public price endpoint ever appears, Tier 3 (Kalshi) can be promoted below it — currently coverage flag only.
+- **`play.hotspawn.com/lol-pickems`** redirects/serves the shared lobby; the canonical lobby URL used in the UI is `https://play.hotspawn.com/lobby`.
+
+## Handoff / completion
+
+- **Live site:** https://karagemop466-tech.github.io/LOLHOTSPAWN4/ (Pages source: `main`, root).
+- **Merged PRs to main (all by the two sessions):**
+  - #4 — site + collector + `refresh.yml` (`arena/0a18d42d`)
+  - #5 — push-to-main trigger with loop guard (`arena/0a18d42d`)
+  - #6 — quoted `if:` expression (fixed 0s-failure YAML) (`arena/0a18d42d`)
+  - #8 — Elo originator + 5-page mobile site + `update-picks.yml` (`arena/6b271c44`)
+  - #10 — check-annotation debug harness for log-endpoint outages (`arena/0a18d42d`)
+  - #12 — collector `NameError` fix + offline smoke test (`arena/0a18d42d`; first successful live data run 39671286429)
+  - #14 — Elo seed ratings + 264-match audit (`arena/6b271c44`)
+  - #16 — COORDINATION finalization + raw-data refresh (`arena/6b271c44`)
+  - #17 — **final integration** (this PR): canonical `update_picks.py` five-stage resolver (incl. seeded Elo bootstrap), available-pick filter + locked-out register, rate-limit-safe Leaguepedia Elo, Kalshi futures tier, LØS/LOS alias, workflow concurrency/rebase/validation fixes, site enhancements, README + this record.
+- **Merge result #17:** recorded below after merge.
+- **Pages status at integration time:** the other session verified a successful
+  Pages deploy of the pre-integration site at 20:43Z; this integration's deploy
+  is confirmed below after its merge.
+- **Maintenance cadence:** `refresh.yml` every 4h (primary), `update-picks.yml` every 6h (backup); both auto-deploy to Pages via the `main` data commit. Smoke test: `python3 test/offline_smoke.py` (offline, no network).

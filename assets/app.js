@@ -44,6 +44,8 @@ function getMethodBadge(method) {
       return '<span class="meta-badge market">💰 Esportsbook Line</span>';
     case 'MARKET_POLYMARKET':
       return '<span class="meta-badge market">💰 Polymarket Line</span>';
+    case 'KALSHI_FUTURES':
+      return '<span class="meta-badge model">📊 Our Derived Line (Kalshi futures)</span>';
     case 'MODEL_ELO':
       return '<span class="meta-badge model">🧮 Our Elo Model</span>';
     case 'UNRESOLVED':
@@ -54,8 +56,25 @@ function getMethodBadge(method) {
 
 function getCardClass(method) {
   if (method && method.startsWith('MARKET')) return 'market';
-  if (method === 'MODEL_ELO') return 'model';
+  if (method === 'MODEL_ELO' || method === 'KALSHI_FUTURES') return 'model';
   return 'unresolved';
+}
+
+// Warning banner when any data source fell back to a previous snapshot
+// (fetch failure on the last refresh). Data is still shown, but labeled stale.
+function showStaleBanner(data) {
+  const stale = (data && data.stale_sources) || [];
+  if (stale.length === 0) return;
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+  const div = document.createElement('div');
+  div.className = 'stale-banner';
+  div.style.cssText = 'background:#7c2d12;color:#fde68a;padding:10px 16px;font-size:0.9rem;';
+  div.innerHTML = '⚠️ <b>STALE DATA:</b> fetch failed for ' +
+    stale.map(s => '<code>' + s.replace(/\.json$/, '') + '</code>').join(', ') +
+    ' on the last refresh — showing the previous snapshot. ' +
+    'See <a href="flagged.html" style="color:#fde68a;">Flagged for Review</a>.';
+  nav.parentNode.insertBefore(div, nav.nextSibling);
 }
 
 function renderCard(m) {
@@ -120,6 +139,7 @@ function renderCard(m) {
     
     <div class="card-footer-meta">
       ${getMethodBadge(m.method)}
+      ${m.pinnacle_listed ? '<span class="meta-badge" style="background:#1e3a5f; color:#93c5fd;" title="Pinnacle lists a professional line for this matchup (coverage confirmation only; no public price endpoint)">📌 Pinnacle lists it</span>' : ''}
       <span class="meta-badge" style="background:#1e2943; color:#cbd5e1;">${m.confidence || 'Standard'}</span>
       <div style="margin-left:auto; display:flex; gap:10px;">
         ${sourceLinkHtml}
@@ -149,8 +169,8 @@ function renderTableRow(m) {
     <td>${m.tournament || 'LoL'}</td>
     <td><span class="tier-badge" style="font-size:0.75rem;">${m.tier || '?'}</span></td>
     <td><b>${m.team1}</b> (${p1}%) vs <b>${m.team2}</b> (${p2}%)</td>
-    <td class="table-pick-highlight">✅ ${m.pick} (${Math.round((m.pick_prob || 0.5)*100)}%)</td>
-    <td>${getMethodBadge(m.method)}</td>
+    <td class="table-pick-highlight">${isCoinflip ? '⚖️ No Edge' : `✅ ${m.pick} (${Math.round((m.pick_prob || 0.5)*100)}%)`}</td>
+    <td>${getMethodBadge(m.method)}${m.pinnacle_listed ? ' <span title="Pinnacle lists a line (coverage only)">📌</span>' : ''}</td>
     <td><small>${m.confidence || '—'}</small></td>
     <td>${sourceLinkHtml}</td>
     <td>${hotspawnLink}</td>
