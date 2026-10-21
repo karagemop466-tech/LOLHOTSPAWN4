@@ -5,6 +5,12 @@
 - **Latest-main integration:** imported `origin/main@e814cde` (including PRs #18/#19). Only `COORDINATION.md` conflicted. Resolved by retaining **both complete boards** below; no code conflict or session work was discarded. This heading is the current status; the root-site deployments/coverage in earlier records are historical, not acceptance of the new artifact.
 - **Acceptance status:** first live original-source run `39677260400` passed. Expanded native-history run `39679017944` also passed (54 tests + static + 28 viewport/14 functional checks). Its 11 community-wiki routes returned 403; no native-wiki result was admitted. New implementation now has 57 passing local unit/artifact tests, static integrity and 28 viewport + 14 functional browser checks, including exact HTML/JSON version reconciliation and expected-public-run guards. PR #2 remains draft/open; verified-only Pages deployment has **not** yet occurred. Next: finish live gate, finalize PR, merge, set workflow Pages publication, and verify actual public artifact.
 
+### Settings permission observation (21:38 UTC)
+
+- `gh pr ready 2` succeeded: PR #2 is now ready for review, not merged yet.
+- Direct connected-app `PUT /repos/karagemop466-tech/LOLHOTSPAWN4/pages` to select `build_type=workflow` returned **403 Resource not accessible by integration**; the setting was not changed. This is a confirmed settings-permission result, not a source fact or an authentication prompt.
+- Production deploy now requests the standard repository workflow's explicit **`pages: write`** permission to update the **existing** Pages site's build type before deploying. No new token, user credentials, access bypass or alternative branch is used. That authorized workflow operation is still untested; a denial must remain a failure, never a successful-deployment claim.
+
 ### Production acceptance preparation (21:37 UTC)
 
 - Latest tested source receipt bot: `078cd9a`, generated at 21:28:10Z by run `39679017944`. **264 IDs / 264 canonical links; 195 upcoming, 69 elapsed; 26 directional picks; 2 bookmaker + 6 prediction-market rows; 22 same-format partial-history estimates including 4 ties; 169 upcoming without a directional pick.** 31 source attempts: 15 HTTP successes (some are only shells), 16 access failures including all 11 native-wiki routes. A failed/native-shell request never became a result or probability.

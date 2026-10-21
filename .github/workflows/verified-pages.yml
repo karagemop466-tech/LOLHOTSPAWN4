@@ -115,6 +115,14 @@ jobs:
       group: verified-pages-production
       cancel-in-progress: false
     steps:
+      - name: Select Actions publication for the existing Pages site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --method PUT "repos/${{ github.repository }}/pages" -f build_type=workflow --jq '{build_type,source,status,html_url}' > "$RUNNER_TEMP/verified-public-settings.json"
+          python -c 'import json,os; p=json.load(open(os.environ["RUNNER_TEMP"]+"/verified-public-settings.json")); assert p["build_type"]=="workflow", p; print(p)'
       - name: Deploy the tested verified-only artifact
         id: deployment
         uses: actions/deploy-pages@v4
