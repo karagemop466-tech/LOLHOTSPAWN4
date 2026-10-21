@@ -234,8 +234,8 @@
    "yes_bid": 0.06,
    "yes_ask": 0.07,
    "mid": 0.065,
-   "last_price": 0.06,
-   "volume": "73454.06",
+   "last_price": 0.07,
+   "volume": "73544.05",
    "rules_primary": "If Dplus KIA is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-DK",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-DK"

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T20:40:51.486853+00:00",
+ "generated_at": "2026-10-21T20:43:42.733319+00:00",
  "lobby": "https://play.hotspawn.com/lol-pickems",
  "count": 264,
  "counts_by_method": {
@@ -9,7 +9,7 @@
   "UNRESOLVED": 192
  },
  "debug": {
-  "generated_at": "2026-10-21T20:40:51.486853+00:00",
+  "generated_at": "2026-10-21T20:43:42.733319+00:00",
   "lobby": "https://play.hotspawn.com/lol-pickems",
   "fixtures_api": "https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled&tenantId=1",
   "lobby_http": 200,
