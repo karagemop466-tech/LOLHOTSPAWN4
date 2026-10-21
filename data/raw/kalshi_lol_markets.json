@@ -48,7 +48,7 @@
    "yes_ask": 0.02,
    "mid": 0.015,
    "last_price": 0.01,
-   "volume": "69552.06",
+   "volume": "69652.06",
    "rules_primary": "If Team Liquid is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-TL",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-TL"
@@ -81,8 +81,8 @@
    "yes_bid": 0.17,
    "yes_ask": 0.18,
    "mid": 0.175,
-   "last_price": 0.18,
-   "volume": "118394.71",
+   "last_price": 0.17,
+   "volume": "119884.71",
    "rules_primary": "If T1 is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-T1",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-T1"
@@ -183,8 +183,8 @@
    "yes_bid": 0.19,
    "yes_ask": 0.2,
    "mid": 0.195,
-   "last_price": 0.19,
-   "volume": "85589.93",
+   "last_price": 0.2,
+   "volume": "85906.94",
    "rules_primary": "If Hanwha Life Esports is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-HLE",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-HLE"
@@ -201,7 +201,7 @@
    "yes_ask": 0.32,
    "mid": 0.315,
    "last_price": 0.32,
-   "volume": "53492.79",
+   "volume": "54692.79",
    "rules_primary": "If Gen.G is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-GEN",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-GEN"
@@ -217,8 +217,8 @@
    "yes_bid": 0.02,
    "yes_ask": 0.03,
    "mid": 0.025,
-   "last_price": 0.03,
-   "volume": "86526.38",
+   "last_price": 0.02,
+   "volume": "87930.38",
    "rules_primary": "If G2 Esports is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-G2",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-G2"
@@ -234,8 +234,8 @@
    "yes_bid": 0.06,
    "yes_ask": 0.07,
    "mid": 0.065,
-   "last_price": 0.06,
-   "volume": "73454.06",
+   "last_price": 0.07,
+   "volume": "74467.33",
    "rules_primary": "If Dplus KIA is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-DK",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-DK"

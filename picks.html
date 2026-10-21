@@ -21,9 +21,12 @@
     <div class="nav-inner">
       <a href="index.html">🏠 Executive Summary</a>
       <a href="picks.html" class="active">✅ All Picks</a>
+      <a href="featured.html">⭐ S/A-Tier Bookmaker Deep-Dive</a>
+      <a href="originated.html">📊 Regional Originated Tables</a>
       <a href="unresolved.html">⚠️ Unresolved Picks</a>
       <a href="flagged.html">🚩 Flagged for Review</a>
       <a href="methodology.html">📖 Method & Sources</a>
+      <a href="automation.html">⚙️ API & 264-vs-213 Audit</a>
     </div>
   </nav>
 
@@ -43,6 +46,8 @@
         <select id="filter-method" class="filter-select" aria-label="Filter by method">
           <option value="">All Resolution Methods</option>
           <option value="MARKET">💰 Betting Markets (Polymarket / Books)</option>
+          <option value="OUR">🧮 Our Originated Lines (Elo + Futures)</option>
+          <option value="KALSHI_FUTURES">📊 Derived Line (Kalshi Futures)</option>
           <option value="MODEL_ELO">🧮 Our Originated Elo Model</option>
           <option value="UNRESOLVED">⚠️ Unresolved (50/50 Baseline)</option>
         </select>
@@ -136,6 +141,8 @@
         if (methodFilter) {
           if (methodFilter === 'MARKET') {
             if (!m.method || !m.method.startsWith('MARKET')) return false;
+          } else if (methodFilter === 'OUR') {
+            if (m.method !== 'MODEL_ELO' && m.method !== 'KALSHI_FUTURES') return false;
           } else if (m.method !== methodFilter) {
             return false;
           }
@@ -181,7 +188,8 @@
     fetchPicksData().then(data => {
       GLOBAL_DATA = data;
       ALL_MATCHES = data.matches || [];
-      
+      showStaleBanner(data);
+
       const dt = new Date(data.generated_at);
       document.getElementById('last-updated').textContent = `Updated: ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()} (${ALL_MATCHES.length} matches)`;
 

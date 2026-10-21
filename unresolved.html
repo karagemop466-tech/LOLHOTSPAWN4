@@ -21,9 +21,12 @@
     <div class="nav-inner">
       <a href="index.html">🏠 Executive Summary</a>
       <a href="picks.html">✅ All Picks</a>
+      <a href="featured.html">⭐ S/A-Tier Bookmaker Deep-Dive</a>
+      <a href="originated.html">📊 Regional Originated Tables</a>
       <a href="unresolved.html" class="active">⚠️ Unresolved Picks</a>
       <a href="flagged.html">🚩 Flagged for Review</a>
       <a href="methodology.html">📖 Method & Sources</a>
+      <a href="automation.html">⚙️ API & 264-vs-213 Audit</a>
     </div>
   </nav>
 
@@ -105,7 +108,7 @@
   <footer>
     <div class="footer-inner">
       <div>
-        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated 6-hour refresh via GitHub Actions.
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated refresh every 4–6 hours via GitHub Actions.
       </div>
       <div>
         <a href="methodology.html">Methodology & Sources</a> · 
@@ -162,6 +165,7 @@
     }
 
     fetchPicksData().then(data => {
+      showStaleBanner(data);
       const dt = new Date(data.generated_at);
       document.getElementById('last-updated').textContent = `Updated: ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()}`;
 

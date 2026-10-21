@@ -1,14 +1,20 @@
 name: Update Hotspawn LoL Picks (every 6h)
 
+# Backup refresh cadence (within the required 4-8h window): runs the SAME
+# pipeline chain as refresh.yml (verified raw fetchers + pick resolver).
+# refresh.yml (every 4h) is the primary cadence. Both workflows share the
+# "lol-pick-refresh" concurrency group so they never run concurrently.
+
 on:
   schedule:
-    - cron: "0 */6 * * *"  # every 6 hours (within the required 4-8h window)
+    - cron: "0 */6 * * *"
   workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - "scripts/**"
+      - "collector/**"
       - ".github/workflows/update-picks.yml"
 
 permissions:
@@ -17,59 +23,95 @@ permissions:
   id-token: write
 
 concurrency:
-  group: picks-update
+  group: lol-pick-refresh
   cancel-in-progress: false
 
 jobs:
   update-picks:
+    if: "!startsWith(github.event.head_commit.message || '', 'data: refresh') && !startsWith(github.event.head_commit.message || '', 'picks: scheduled')"
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Ingest Hotspawn fixtures and originate lines
+      - name: Ingest Hotspawn fixtures and external lines, resolve picks
         env:
           ODDSPAPI_KEY: "${{ secrets.ODDSPAPI_KEY }}"
         run: |
-          python3 scripts/update_picks.py
+          set +e
+          {
+            echo '## fetch_hotspawn'
+            python collector/fetch_hotspawn.py || echo "FAILED_WITH_EXIT_$?"
+            echo '## fetch_odds'
+            python collector/fetch_odds.py || echo "FAILED_WITH_EXIT_$?"
+            echo '## update_picks (resolve every fixture into picks.json)'
+            python3 scripts/update_picks.py || echo "FAILED_WITH_EXIT_$?"
+          } 2>&1 | tee "$GITHUB_STEP_SUMMARY"
+          if grep -q "FAILED_WITH_EXIT_" "$GITHUB_STEP_SUMMARY"; then
+            echo "::error::one or more steps failed; previous data is preserved (site unchanged until fixed)"
+            tail -40 "$GITHUB_STEP_SUMMARY" | while IFS= read -r line; do
+              echo "::error file=collector/detail.txt::${line}"
+            done
+            exit 1
+          fi
 
       - name: Verify data integrity (picks, probabilities, and schema)
         run: |
           python3 - <<'PY'
-          import json, sys
+          import json
 
-          for path in ['data/picks.json', 'docs/data/picks.json']:
-              with open(path, 'r', encoding='utf-8') as f:
-                  data = json.load(f)
-              count = data.get('count', 0)
-              assert count > 0, f"No matches found in {path}"
-              matches = data.get('matches', [])
-              assert len(matches) == count, f"Mismatch count vs matches len in {path}"
-              
-              for m in matches:
-                  assert m.get('team1'), f"Missing team1 in {m}"
-                  assert m.get('team2'), f"Missing team2 in {m}"
-                  assert m.get('pick') in (m['team1'], m['team2']), f"Pick not in teams: {m}"
-                  p1 = m.get('prob_team1', 0)
-                  p2 = m.get('prob_team2', 0)
-                  assert abs((p1 + p2) - 1.0) < 0.01, f"Probabilities do not sum to 1.0: {m}"
-                  assert m.get('method') in ('MARKET_BOOKS', 'MARKET_POLYMARKET', 'MODEL_ELO', 'UNRESOLVED'), f"Invalid method in {m}"
-                  assert m.get('source_url') or m.get('market_url') or m.get('hotspawn_url'), f"Missing source link in {m}"
+          data = json.load(open('data/picks.json', 'r', encoding='utf-8'))
+          count = data.get('count', 0)
+          matches = data.get('matches', [])
+          assert count > 0, "No matches found in data/picks.json"
+          assert len(matches) == count, "count vs matches len mismatch"
 
-          print(f"Data verification passed successfully for {count} matches!")
-          print("Method counts:", data.get('counts_by_method'))
+          allowed = {'MARKET_BOOKS', 'MARKET_POLYMARKET', 'KALSHI_FUTURES',
+                     'MODEL_ELO', 'UNRESOLVED'}
+          for m in matches:
+              assert m.get('team1'), "Missing team1: %s" % m
+              assert m.get('team2'), "Missing team2: %s" % m
+              assert m.get('pick') in (m['team1'], m['team2']), "Pick not in teams: %s" % m
+              p1 = m.get('prob_team1', 0)
+              p2 = m.get('prob_team2', 0)
+              assert abs((p1 + p2) - 1.0) < 0.01, "Probabilities do not sum to 1.0: %s" % m
+              assert m.get('method') in allowed, "Invalid method: %s" % m
+              assert m.get('source_url') or m.get('market_url') or m.get('hotspawn_url'), \
+                  "Missing source link: %s" % m
+
+          c = data.get('counts_by_method', {})
+          assert c.get('UNRESOLVED', -1) == sum(1 for m in matches if m['method'] == 'UNRESOLVED')
+          print("Data verification passed: %d matches. %s" % (count, c))
           PY
 
       - name: Commit and push updated picks
         run: |
-          git config user.name "picks-bot"
-          git config user.email "actions@github.com"
-          git add data docs/data
-          git diff --cached --quiet || git commit -m "picks: scheduled 6h automated update [skip ci]"
-          git pull --rebase origin ${{ github.ref_name }} || true
-          git push origin HEAD:${{ github.ref_name }} || true
+          git config user.name "LOL Hotspawn pick desk"
+          git config user.email "pickdesk@users.noreply.github.com"
+          if git status --porcelain -- data | grep -q .; then
+            git add data
+            git commit -m "picks: scheduled 6h automated update $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              # A sibling refresh (other cadence) committed regenerated data in
+              # the meantime; the only conflict is regenerated timestamp fields.
+              # Its data is equally fresh, so it wins and we skip the push.
+              git rebase --abort
+              git reset --hard "origin/${GITHUB_REF_NAME}"
+              echo "Sibling refresh committed newer data; keeping its version (no push)."
+            else
+              git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
+            fi
+          else
+            echo "No data changes; nothing to commit."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

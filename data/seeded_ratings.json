@@ -1,0 +1,1252 @@
+{
+ "teamvds": {
+  "team": "Team VDS",
+  "elo": 1531,
+  "games": 2
+ },
+ "pegasusesports": {
+  "team": "Pegasus Esports",
+  "elo": 1515,
+  "games": 3
+ },
+ "revealmultigaming": {
+  "team": "Reveal Multigaming",
+  "elo": 1483,
+  "games": 3
+ },
+ "hannoveresportsev": {
+  "team": "Hannover Esports e.V.",
+  "elo": 1485,
+  "games": 3
+ },
+ "nextgenerationesports": {
+  "team": "NextGeneration Esports",
+  "elo": 1517,
+  "games": 3
+ },
+ "acegaming": {
+  "team": "AceGaming",
+  "elo": 1485,
+  "games": 3
+ },
+ "babosgaming": {
+  "team": "Babos Gaming",
+  "elo": 1531,
+  "games": 2
+ },
+ "ls": {
+  "team": "LØS",
+  "elo": 1469,
+  "games": 2
+ },
+ "t1": {
+  "team": "T1",
+  "elo": 1560,
+  "games": 9
+ },
+ "jskesports": {
+  "team": "JSK Esports",
+  "elo": 1469,
+  "games": 2
+ },
+ "jskacademy": {
+  "team": "JSK Academy",
+  "elo": 1483,
+  "games": 3
+ },
+ "spongecordprime": {
+  "team": "spongecord prime",
+  "elo": 1469,
+  "games": 2
+ },
+ "looksmaxxer": {
+  "team": "LOOKSMAXXER",
+  "elo": 1549,
+  "games": 8
+ },
+ "vfbesports": {
+  "team": "VfB eSports",
+  "elo": 1442,
+  "games": 4
+ },
+ "dkbxperionnxt": {
+  "team": "DKB XPERION NXT",
+  "elo": 1444,
+  "games": 4
+ },
+ "regnum4games": {
+  "team": "regnum4games",
+  "elo": 1535,
+  "games": 12
+ },
+ "teamorangegamingacademy": {
+  "team": "TeamOrangeGaming Academy",
+  "elo": 1531,
+  "games": 2
+ },
+ "mt1esports": {
+  "team": "MT1 Esports",
+  "elo": 1515,
+  "games": 3
+ },
+ "groundzerogaming": {
+  "team": "Ground Zero Gaming",
+  "elo": 1444,
+  "games": 4
+ },
+ "frankesports": {
+  "team": "Frank Esports",
+  "elo": 1558,
+  "games": 8
+ },
+ "mixlag fra trondheim": {
+  "team": "mixlag fra trondheim",
+  "elo": 1525,
+  "games": 6
+ },
+ "your saviours": {
+  "team": "your saviours",
+  "elo": 1472,
+  "games": 6
+ },
+ "volda e sport": {
+  "team": "volda e sport",
+  "elo": 1459,
+  "games": 15
+ },
+ "lazy in life": {
+  "team": "lazy in life",
+  "elo": 1580,
+  "games": 14
+ },
+ "bnk fearx": {
+  "team": "bnk fearx",
+  "elo": 1586,
+  "games": 16
+ },
+ "lgd gaming": {
+  "team": "lgd gaming",
+  "elo": 1486,
+  "games": 9
+ },
+ "nongshim redforce academy": {
+  "team": "nongshim redforce academy",
+  "elo": 1466,
+  "games": 22
+ },
+ "eunpyeong meditech high school": {
+  "team": "eunpyeong meditech high school",
+  "elo": 1324,
+  "games": 22
+ },
+ "hanjin brion academy": {
+  "team": "hanjin brion academy",
+  "elo": 1460,
+  "games": 21
+ },
+ "dn soopers academy": {
+  "team": "dn soopers academy",
+  "elo": 1586,
+  "games": 23
+ },
+ "gen g scholars": {
+  "team": "gen g scholars",
+  "elo": 1484,
+  "games": 21
+ },
+ "hanwha life esports academy": {
+  "team": "hanwha life esports academy",
+  "elo": 1479,
+  "games": 21
+ },
+ "dplus kia youth": {
+  "team": "dplus kia youth",
+  "elo": 1632,
+  "games": 21
+ },
+ "t1 esports academy rookies": {
+  "team": "t1 esports academy rookies",
+  "elo": 1643,
+  "games": 22
+ },
+ "kt rolster academy": {
+  "team": "kt rolster academy",
+  "elo": 1586,
+  "games": 21
+ },
+ "kiwoom drx academy": {
+  "team": "kiwoom drx academy",
+  "elo": 1339,
+  "games": 20
+ },
+ "kt rolster": {
+  "team": "kt rolster",
+  "elo": 1522,
+  "games": 11
+ },
+ "red canids": {
+  "team": "red canids",
+  "elo": 1420,
+  "games": 6
+ },
+ "team we": {
+  "team": "team we",
+  "elo": 1523,
+  "games": 17
+ },
+ "hanjin brion": {
+  "team": "hanjin brion",
+  "elo": 1529,
+  "games": 15
+ },
+ "ucam esports": {
+  "team": "ucam esports",
+  "elo": 1489,
+  "games": 5
+ },
+ "movistar koi f nix": {
+  "team": "movistar koi f nix",
+  "elo": 1527,
+  "games": 16
+ },
+ "solary": {
+  "team": "solary",
+  "elo": 1623,
+  "games": 14
+ },
+ "bar a esports": {
+  "team": "bar a esports",
+  "elo": 1456,
+  "games": 3
+ },
+ "the secret club": {
+  "team": "the secret club",
+  "elo": 1456,
+  "games": 3
+ },
+ "galions": {
+  "team": "galions",
+  "elo": 1657,
+  "games": 12
+ },
+ "marere e sports": {
+  "team": "marere e sports",
+  "elo": 1517,
+  "games": 3
+ },
+ "invictus team": {
+  "team": "invictus team",
+  "elo": 1471,
+  "games": 4
+ },
+ "team liquid": {
+  "team": "team liquid",
+  "elo": 1527,
+  "games": 4
+ },
+ "lyon 2024 american team": {
+  "team": "lyon 2024 american team",
+  "elo": 1473,
+  "games": 4
+ },
+ "l s academy": {
+  "team": "l s academy",
+  "elo": 1516,
+  "games": 3
+ },
+ "sharkbite furious gaming white": {
+  "team": "sharkbite furious gaming white",
+  "elo": 1438,
+  "games": 4
+ },
+ "embraza esports": {
+  "team": "embraza esports",
+  "elo": 1531,
+  "games": 2
+ },
+ "sharkbite furious gaming black": {
+  "team": "sharkbite furious gaming black",
+  "elo": 1485,
+  "games": 3
+ },
+ "smoke tram": {
+  "team": "smoke tram",
+  "elo": 1545,
+  "games": 3
+ },
+ "smoke tram ascension": {
+  "team": "smoke tram ascension",
+  "elo": 1485,
+  "games": 3
+ },
+ "juventus gaming red": {
+  "team": "juventus gaming red",
+  "elo": 1468,
+  "games": 2
+ },
+ "neon esports brazilian team": {
+  "team": "neon esports brazilian team",
+  "elo": 1531,
+  "games": 2
+ },
+ "team vitality": {
+  "team": "team vitality",
+  "elo": 1530,
+  "games": 9
+ },
+ "gam esports": {
+  "team": "gam esports",
+  "elo": 1411,
+  "games": 6
+ },
+ "flyquest": {
+  "team": "flyquest",
+  "elo": 1518,
+  "games": 14
+ },
+ "natus vincere": {
+  "team": "natus vincere",
+  "elo": 1489,
+  "games": 8
+ },
+ "jd gaming": {
+  "team": "jd gaming",
+  "elo": 1501,
+  "games": 12
+ },
+ "shopify rebellion": {
+  "team": "shopify rebellion",
+  "elo": 1483,
+  "games": 7
+ },
+ "mighty eagles": {
+  "team": "mighty eagles",
+  "elo": 1474,
+  "games": 8
+ },
+ "exile esports academy": {
+  "team": "exile esports academy",
+  "elo": 1479,
+  "games": 5
+ },
+ "fenrir icelandic team": {
+  "team": "fenrir icelandic team",
+  "elo": 1564,
+  "games": 4
+ },
+ "cool beans team": {
+  "team": "cool beans team",
+  "elo": 1475,
+  "games": 6
+ },
+ "gr sirnir": {
+  "team": "gr sirnir",
+  "elo": 1500,
+  "games": 4
+ },
+ "rift runners": {
+  "team": "rift runners",
+  "elo": 1436,
+  "games": 4
+ },
+ "sm nibu": {
+  "team": "sm nibu",
+  "elo": 1528,
+  "games": 6
+ },
+ "whisky": {
+  "team": "whisky",
+  "elo": 1505,
+  "games": 4
+ },
+ "9z globant": {
+  "team": "9z globant",
+  "elo": 1468,
+  "games": 4
+ },
+ "kabum ilha das lendas": {
+  "team": "kabum ilha das lendas",
+  "elo": 1507,
+  "games": 13
+ },
+ "maryville university": {
+  "team": "maryville university",
+  "elo": 1546,
+  "games": 14
+ },
+ "zeu5 esports": {
+  "team": "zeu5 esports",
+  "elo": 1471,
+  "games": 4
+ },
+ "frites esports club": {
+  "team": "frites esports club",
+  "elo": 1475,
+  "games": 4
+ },
+ "berlin international gaming": {
+  "team": "berlin international gaming",
+  "elo": 1462,
+  "games": 3
+ },
+ "valerion": {
+  "team": "valerion",
+  "elo": 1462,
+  "games": 3
+ },
+ "bushido wildcats": {
+  "team": "bushido wildcats",
+  "elo": 1456,
+  "games": 3
+ },
+ "tln pirates": {
+  "team": "tln pirates",
+  "elo": 1516,
+  "games": 7
+ },
+ "estral esports": {
+  "team": "estral esports",
+  "elo": 1495,
+  "games": 5
+ },
+ "cupid esports": {
+  "team": "cupid esports",
+  "elo": 1459,
+  "games": 9
+ },
+ "fuego": {
+  "team": "fuego",
+  "elo": 1415,
+  "games": 6
+ },
+ "karmine corp blue": {
+  "team": "karmine corp blue",
+  "elo": 1496,
+  "games": 6
+ },
+ "skillcamp": {
+  "team": "skillcamp",
+  "elo": 1456,
+  "games": 3
+ },
+ "ruddy corporation": {
+  "team": "ruddy corporation",
+  "elo": 1489,
+  "games": 5
+ },
+ "anubis gaming": {
+  "team": "anubis gaming",
+  "elo": 1536,
+  "games": 12
+ },
+ "team heretics academy": {
+  "team": "team heretics academy",
+  "elo": 1489,
+  "games": 5
+ },
+ "g2 nord": {
+  "team": "g2 nord",
+  "elo": 1493,
+  "games": 9
+ },
+ "unicorns of love sexy edition": {
+  "team": "unicorns of love sexy edition",
+  "elo": 1468,
+  "games": 4
+ },
+ "kaufland hangry knights": {
+  "team": "kaufland hangry knights",
+  "elo": 1494,
+  "games": 7
+ },
+ "disguised": {
+  "team": "disguised",
+  "elo": 1608,
+  "games": 13
+ },
+ "fuse": {
+  "team": "fuse",
+  "elo": 1468,
+  "games": 4
+ },
+ "once upon a team": {
+  "team": "once upon a team",
+  "elo": 1532,
+  "games": 4
+ },
+ "ntnui kometkameratene": {
+  "team": "ntnui kometkameratene",
+  "elo": 1531,
+  "games": 2
+ },
+ "void walkers": {
+  "team": "void walkers",
+  "elo": 1606,
+  "games": 24
+ },
+ "jsk academy": {
+  "team": "jsk academy",
+  "elo": 1521,
+  "games": 16
+ },
+ "chuds": {
+  "team": "chuds",
+  "elo": 1492,
+  "games": 4
+ },
+ "new era team": {
+  "team": "new era team",
+  "elo": 1503,
+  "games": 19
+ },
+ "team vds": {
+  "team": "team vds",
+  "elo": 1456,
+  "games": 10
+ },
+ "part timers": {
+  "team": "part timers",
+  "elo": 1455,
+  "games": 9
+ },
+ "west point esports philippines": {
+  "team": "west point esports philippines",
+  "elo": 1486,
+  "games": 14
+ },
+ "playwell": {
+  "team": "playwell",
+  "elo": 1462,
+  "games": 12
+ },
+ "fyllingen": {
+  "team": "fyllingen",
+  "elo": 1427,
+  "games": 11
+ },
+ "northern wolves esports": {
+  "team": "northern wolves esports",
+  "elo": 1445,
+  "games": 4
+ },
+ "rich gang sweden": {
+  "team": "rich gang sweden",
+  "elo": 1449,
+  "games": 9
+ },
+ "absolved": {
+  "team": "absolved",
+  "elo": 1559,
+  "games": 10
+ },
+ "the bandits uk": {
+  "team": "the bandits uk",
+  "elo": 1413,
+  "games": 8
+ },
+ "crownless": {
+  "team": "crownless",
+  "elo": 1506,
+  "games": 11
+ },
+ "brod n friends": {
+  "team": "brod n friends",
+  "elo": 1559,
+  "games": 11
+ },
+ "nextgeneration esports": {
+  "team": "nextgeneration esports",
+  "elo": 1418,
+  "games": 10
+ },
+ "dkb xperion nxt": {
+  "team": "dkb xperion nxt",
+  "elo": 1470,
+  "games": 6
+ },
+ "the bandits prime": {
+  "team": "the bandits prime",
+  "elo": 1584,
+  "games": 10
+ },
+ "vfb x engines stuttgart": {
+  "team": "vfb x engines stuttgart",
+  "elo": 1525,
+  "games": 6
+ },
+ "mt1 vision": {
+  "team": "mt1 vision",
+  "elo": 1441,
+  "games": 4
+ },
+ "levelers": {
+  "team": "levelers",
+  "elo": 1558,
+  "games": 4
+ },
+ "mtn esports team": {
+  "team": "mtn esports team",
+  "elo": 1482,
+  "games": 5
+ },
+ "rugby club hav ov": {
+  "team": "rugby club hav ov",
+  "elo": 1497,
+  "games": 6
+ },
+ "essences": {
+  "team": "essences",
+  "elo": 1509,
+  "games": 20
+ },
+ "nothinhere": {
+  "team": "nothinhere",
+  "elo": 1550,
+  "games": 15
+ },
+ "bdl esports": {
+  "team": "bdl esports",
+  "elo": 1456,
+  "games": 3
+ },
+ "itu rangers": {
+  "team": "itu rangers",
+  "elo": 1581,
+  "games": 6
+ },
+ "boostgate esports": {
+  "team": "boostgate esports",
+  "elo": 1452,
+  "games": 8
+ },
+ "shark attack": {
+  "team": "shark attack",
+  "elo": 1511,
+  "games": 5
+ },
+ "hl tauri esports": {
+  "team": "hl tauri esports",
+  "elo": 1428,
+  "games": 9
+ },
+ "bulldog esports": {
+  "team": "bulldog esports",
+  "elo": 1521,
+  "games": 10
+ },
+ "furia": {
+  "team": "furia",
+  "elo": 1457,
+  "games": 16
+ },
+ "los": {
+  "team": "los",
+  "elo": 1544,
+  "games": 9
+ },
+ "rich gang uk": {
+  "team": "rich gang uk",
+  "elo": 1557,
+  "games": 11
+ },
+ "good chi": {
+  "team": "good chi",
+  "elo": 1507,
+  "games": 11
+ },
+ "team reds": {
+  "team": "team reds",
+  "elo": 1470,
+  "games": 25
+ },
+ "pegasus esports": {
+  "team": "pegasus esports",
+  "elo": 1415,
+  "games": 15
+ },
+ "dmg esports sweden": {
+  "team": "dmg esports sweden",
+  "elo": 1508,
+  "games": 11
+ },
+ "team vertex": {
+  "team": "team vertex",
+  "elo": 1466,
+  "games": 11
+ },
+ "fritt fall": {
+  "team": "fritt fall",
+  "elo": 1413,
+  "games": 9
+ },
+ "team lucidity esports": {
+  "team": "team lucidity esports",
+  "elo": 1514,
+  "games": 9
+ },
+ "impel": {
+  "team": "impel",
+  "elo": 1427,
+  "games": 5
+ },
+ "blackdivision": {
+  "team": "blackdivision",
+  "elo": 1573,
+  "games": 7
+ },
+ "dmg no": {
+  "team": "dmg no",
+  "elo": 1417,
+  "games": 9
+ },
+ "rich no": {
+  "team": "rich no",
+  "elo": 1606,
+  "games": 11
+ },
+ "onlywinbyff": {
+  "team": "onlywinbyff",
+  "elo": 1379,
+  "games": 10
+ },
+ "reveal multigaming": {
+  "team": "reveal multigaming",
+  "elo": 1519,
+  "games": 14
+ },
+ "regold esport": {
+  "team": "regold esport",
+  "elo": 1476,
+  "games": 14
+ },
+ "duplex silva pigeons edition": {
+  "team": "duplex silva pigeons edition",
+  "elo": 1560,
+  "games": 4
+ },
+ "emperors bremen": {
+  "team": "emperors bremen",
+  "elo": 1452,
+  "games": 5
+ },
+ "infinity gaming": {
+  "team": "infinity gaming",
+  "elo": 1455,
+  "games": 22
+ },
+ "celol b league average": {
+  "team": "celol b league average",
+  "elo": 1463,
+  "games": 179
+ },
+ "draamaklubi": {
+  "team": "draamaklubi",
+  "elo": 1483,
+  "games": 3
+ },
+ "b rnu beksu clubi": {
+  "team": "b rnu beksu clubi",
+  "elo": 1469,
+  "games": 2
+ },
+ "ydrazs party": {
+  "team": "ydrazs party",
+  "elo": 1501,
+  "games": 4
+ },
+ "no temptation cats": {
+  "team": "no temptation cats",
+  "elo": 1468,
+  "games": 2
+ },
+ "jaaa jaaa": {
+  "team": "jaaa jaaa",
+  "elo": 1516,
+  "games": 7
+ },
+ "kaur k rrib": {
+  "team": "kaur k rrib",
+  "elo": 1469,
+  "games": 2
+ },
+ "team invicta": {
+  "team": "team invicta",
+  "elo": 1515,
+  "games": 5
+ },
+ "asg support group": {
+  "team": "asg support group",
+  "elo": 1484,
+  "games": 3
+ },
+ "lomiks": {
+  "team": "lomiks",
+  "elo": 1561,
+  "games": 8
+ },
+ "tuk esports": {
+  "team": "tuk esports",
+  "elo": 1468,
+  "games": 2
+ },
+ "no temptation esports": {
+  "team": "no temptation esports",
+  "elo": 1531,
+  "games": 6
+ },
+ "dead pixel": {
+  "team": "dead pixel",
+  "elo": 1499,
+  "games": 4
+ },
+ "lombards": {
+  "team": "lombards",
+  "elo": 1500,
+  "games": 4
+ },
+ "super soldiers of israel": {
+  "team": "super soldiers of israel",
+  "elo": 1484,
+  "games": 1
+ },
+ "eesti oravate liit": {
+  "team": "eesti oravate liit",
+  "elo": 1553,
+  "games": 5
+ },
+ "tung sahur mid": {
+  "team": "tung sahur mid",
+  "elo": 1593,
+  "games": 9
+ },
+ "lund esports organization ogs": {
+  "team": "lund esports organization ogs",
+  "elo": 1460,
+  "games": 9
+ },
+ "ruddy ultras": {
+  "team": "ruddy ultras",
+  "elo": 1528,
+  "games": 10
+ },
+ "glorp cat": {
+  "team": "glorp cat",
+  "elo": 1486,
+  "games": 9
+ },
+ "acegaming hearts": {
+  "team": "acegaming hearts",
+  "elo": 1483,
+  "games": 3
+ },
+ "berlin 5": {
+  "team": "berlin 5",
+  "elo": 1488,
+  "games": 5
+ },
+ "final level esports academy": {
+  "team": "final level esports academy",
+  "elo": 1444,
+  "games": 21
+ },
+ "saigon warriors": {
+  "team": "saigon warriors",
+  "elo": 1456,
+  "games": 3
+ },
+ "mvk esports academy": {
+  "team": "mvk esports academy",
+  "elo": 1544,
+  "games": 3
+ },
+ "b2u": {
+  "team": "b2u",
+  "elo": 1615,
+  "games": 11
+ },
+ "flamehard": {
+  "team": "flamehard",
+  "elo": 1588,
+  "games": 10
+ },
+ "abyssal randoms": {
+  "team": "abyssal randoms",
+  "elo": 1471,
+  "games": 11
+ },
+ "slam dunk": {
+  "team": "slam dunk",
+  "elo": 1531,
+  "games": 11
+ },
+ "victorious demons": {
+  "team": "victorious demons",
+  "elo": 1551,
+  "games": 10
+ },
+ "no need orga": {
+  "team": "no need orga",
+  "elo": 1497,
+  "games": 12
+ },
+ "aix esports": {
+  "team": "aix esports",
+  "elo": 1487,
+  "games": 5
+ },
+ "kanji esports kin": {
+  "team": "kanji esports kin",
+  "elo": 1531,
+  "games": 2
+ },
+ "black list": {
+  "team": "black list",
+  "elo": 1460,
+  "games": 5
+ },
+ "kia esuba academy": {
+  "team": "kia esuba academy",
+  "elo": 1550,
+  "games": 3
+ },
+ "barcz ca esports babylon": {
+  "team": "barcz ca esports babylon",
+  "elo": 1469,
+  "games": 2
+ },
+ "mental rush": {
+  "team": "mental rush",
+  "elo": 1529,
+  "games": 14
+ },
+ "good chi sakura": {
+  "team": "good chi sakura",
+  "elo": 1469,
+  "games": 2
+ },
+ "vitality rising bees": {
+  "team": "vitality rising bees",
+  "elo": 1631,
+  "games": 10
+ },
+ "inari esports": {
+  "team": "inari esports",
+  "elo": 1517,
+  "games": 11
+ },
+ "turbo gaming": {
+  "team": "turbo gaming",
+  "elo": 1481,
+  "games": 12
+ },
+ "cl nkz v rax": {
+  "team": "cl nkz v rax",
+  "elo": 1514,
+  "games": 3
+ },
+ "ves japan": {
+  "team": "ves japan",
+  "elo": 1615,
+  "games": 11
+ },
+ "solid gaming": {
+  "team": "solid gaming",
+  "elo": 1362,
+  "games": 10
+ },
+ "glacial guardians": {
+  "team": "glacial guardians",
+  "elo": 1501,
+  "games": 8
+ },
+ "nif": {
+  "team": "nif",
+  "elo": 1570,
+  "games": 11
+ },
+ "2 massive": {
+  "team": "2 massive",
+  "elo": 1578,
+  "games": 12
+ },
+ "karolinerna": {
+  "team": "karolinerna",
+  "elo": 1448,
+  "games": 11
+ },
+ "flowenz esports": {
+  "team": "flowenz esports",
+  "elo": 1512,
+  "games": 12
+ },
+ "second time alive revival": {
+  "team": "second time alive revival",
+  "elo": 1487,
+  "games": 5
+ },
+ "neko elite kittens": {
+  "team": "neko elite kittens",
+  "elo": 1554,
+  "games": 4
+ },
+ "docta esports club": {
+  "team": "docta esports club",
+  "elo": 1554,
+  "games": 23
+ },
+ "bitfix gaming": {
+  "team": "bitfix gaming",
+  "elo": 1488,
+  "games": 12
+ },
+ "mazepa": {
+  "team": "mazepa",
+  "elo": 1461,
+  "games": 9
+ },
+ "lundqvist darkside": {
+  "team": "lundqvist darkside",
+  "elo": 1555,
+  "games": 10
+ },
+ "404 multigaming e v": {
+  "team": "404 multigaming e v",
+  "elo": 1462,
+  "games": 7
+ },
+ "black lion": {
+  "team": "black lion",
+  "elo": 1473,
+  "games": 2
+ },
+ "blue otter europe": {
+  "team": "blue otter europe",
+  "elo": 1469,
+  "games": 2
+ },
+ "sk gaming avarosa": {
+  "team": "sk gaming avarosa",
+  "elo": 1507,
+  "games": 7
+ },
+ "g2 hel": {
+  "team": "g2 hel",
+  "elo": 1483,
+  "games": 6
+ },
+ "az rising eterna": {
+  "team": "az rising eterna",
+  "elo": 1483,
+  "games": 3
+ },
+ "pns": {
+  "team": "pns",
+  "elo": 1556,
+  "games": 10
+ },
+ "rich gang": {
+  "team": "rich gang",
+  "elo": 1558,
+  "games": 4
+ },
+ "eintracht spandau zwei": {
+  "team": "eintracht spandau zwei",
+  "elo": 1495,
+  "games": 7
+ },
+ "ascent gaming": {
+  "team": "ascent gaming",
+  "elo": 1475,
+  "games": 14
+ },
+ "team cd": {
+  "team": "team cd",
+  "elo": 1512,
+  "games": 13
+ },
+ "spongecord prime": {
+  "team": "spongecord prime",
+  "elo": 1556,
+  "games": 4
+ },
+ "sissi state punks": {
+  "team": "sissi state punks",
+  "elo": 1421,
+  "games": 6
+ },
+ "viktus": {
+  "team": "viktus",
+  "elo": 1532,
+  "games": 23
+ },
+ "babos gaming academy": {
+  "team": "babos gaming academy",
+  "elo": 1468,
+  "games": 2
+ },
+ "1 esport club frankfurt e v": {
+  "team": "1 esport club frankfurt e v",
+  "elo": 1522,
+  "games": 6
+ },
+ "cl nkz revengers": {
+  "team": "cl nkz revengers",
+  "elo": 1464,
+  "games": 23
+ },
+ "hannover esports e v": {
+  "team": "hannover esports e v",
+  "elo": 1594,
+  "games": 8
+ },
+ "teamorangegaming academy": {
+  "team": "teamorangegaming academy",
+  "elo": 1469,
+  "games": 5
+ },
+ "partizan sangal": {
+  "team": "partizan sangal",
+  "elo": 1464,
+  "games": 3
+ },
+ "socken und sandalen": {
+  "team": "socken und sandalen",
+  "elo": 1469,
+  "games": 6
+ },
+ "baronx": {
+  "team": "baronx",
+  "elo": 1493,
+  "games": 22
+ },
+ "phong v buffalo": {
+  "team": "phong v buffalo",
+  "elo": 1472,
+  "games": 2
+ },
+ "blue otter": {
+  "team": "blue otter",
+  "elo": 1494,
+  "games": 5
+ },
+ "karmine corp": {
+  "team": "karmine corp",
+  "elo": 1603,
+  "games": 11
+ },
+ "cloud9": {
+  "team": "cloud9",
+  "elo": 1444,
+  "games": 9
+ },
+ "mvk esports": {
+  "team": "mvk esports",
+  "elo": 1482,
+  "games": 13
+ },
+ "bvp": {
+  "team": "bvp",
+  "elo": 1358,
+  "games": 12
+ },
+ "team 300": {
+  "team": "team 300",
+  "elo": 1495,
+  "games": 8
+ },
+ "whalepower humpbacks": {
+  "team": "whalepower humpbacks",
+  "elo": 1466,
+  "games": 2
+ },
+ "ground zero gaming": {
+  "team": "ground zero gaming",
+  "elo": 1512,
+  "games": 3
+ },
+ "frank esports": {
+  "team": "frank esports",
+  "elo": 1488,
+  "games": 3
+ },
+ "pvb swiss team": {
+  "team": "pvb swiss team",
+  "elo": 1495,
+  "games": 5
+ },
+ "mt1 esports": {
+  "team": "mt1 esports",
+  "elo": 1449,
+  "games": 12
+ },
+ "team 300 white": {
+  "team": "team 300 white",
+  "elo": 1471,
+  "games": 2
+ },
+ "babos gaming": {
+  "team": "babos gaming",
+  "elo": 1561,
+  "games": 4
+ },
+ "vfb esports": {
+  "team": "vfb esports",
+  "elo": 1515,
+  "games": 3
+ },
+ "locked in dutch team": {
+  "team": "locked in dutch team",
+  "elo": 1518,
+  "games": 5
+ },
+ "cloud esport": {
+  "team": "cloud esport",
+  "elo": 1469,
+  "games": 2
+ },
+ "kanji esports aka": {
+  "team": "kanji esports aka",
+  "elo": 1531,
+  "games": 2
+ },
+ "reset esport": {
+  "team": "reset esport",
+  "elo": 1529,
+  "games": 2
+ },
+ "reh gaming": {
+  "team": "reh gaming",
+  "elo": 1442,
+  "games": 4
+ },
+ "packmiko e sports dach": {
+  "team": "packmiko e sports dach",
+  "elo": 1531,
+  "games": 2
+ },
+ "defiance esports": {
+  "team": "defiance esports",
+  "elo": 1531,
+  "games": 2
+ },
+ "atruvia m nster esports": {
+  "team": "atruvia m nster esports",
+  "elo": 1469,
+  "games": 2
+ },
+ "maze gg": {
+  "team": "maze gg",
+  "elo": 1634,
+  "games": 22
+ },
+ "purple emperor lizards atomic": {
+  "team": "purple emperor lizards atomic",
+  "elo": 1528,
+  "games": 2
+ },
+ "marere academy": {
+  "team": "marere academy",
+  "elo": 1462,
+  "games": 23
+ }
+}
