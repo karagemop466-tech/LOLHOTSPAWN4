@@ -51,12 +51,14 @@ def tier_badge(tier: str, pts: int) -> str:
 
 def render_nav(active_page: str) -> str:
     pages = [
-        ("index.html", "Executive Summary & All Picks"),
-        ("featured.html", "S/A-Tier Bookmaker Picks (11)"),
-        ("originated.html", "Originated Regional Picks (202)"),
-        ("unresolved.html", "Unresolved & Limitations"),
-        ("flagged.html", "Flagged for Review (27)"),
-        ("automation.html", "API & 4–8h Automation"),
+        ("index.html", "🏠 Executive Summary"),
+        ("picks.html", "✅ All Picks (Live)"),
+        ("featured.html", "⭐ S/A-Tier Bookmaker Deep-Dive (11)"),
+        ("originated.html", "📊 Regional Originated Tables (202)"),
+        ("unresolved.html", "⚠️ Unresolved Picks"),
+        ("flagged.html", "🚩 Flagged for Review"),
+        ("methodology.html", "📖 Method & Sources"),
+        ("automation.html", "⚙️ API & 264-vs-213 Audit"),
     ]
     links = []
     for href, label in pages:
@@ -656,7 +658,7 @@ def page_shell(title: str, active_nav: str, body_html: str) -> str:
     {body_html}
   </main>
   {render_footer()}
-  <script src="assets/app.js"></script>
+  <script src="assets/originated-app.js"></script>
 </body>
 </html>
 """
@@ -1302,18 +1304,15 @@ def main():
     assets_dir = Path("assets")
     assets_dir.mkdir(exist_ok=True)
     (assets_dir / "styles.css").write_text(build_css().strip() + "\n", encoding="utf-8")
-    (assets_dir / "app.js").write_text(build_js().strip() + "\n", encoding="utf-8")
+    (assets_dir / "originated-app.js").write_text(build_js().strip() + "\n", encoding="utf-8")
 
-    Path("index.html").write_text(build_index_page(matches, recon), encoding="utf-8")
     Path("featured.html").write_text(build_featured_page(matches), encoding="utf-8")
     Path("originated.html").write_text(build_originated_page(matches, recon), encoding="utf-8")
-    Path("unresolved.html").write_text(build_unresolved_page(recon), encoding="utf-8")
-    Path("flagged.html").write_text(build_flagged_page(matches), encoding="utf-8")
     Path("automation.html").write_text(build_automation_page(), encoding="utf-8")
     Path(".nojekyll").write_text("", encoding="utf-8")
 
-    print("Successfully built all 6 HTML pages + CSS/JS assets:")
-    for p in ["index.html", "featured.html", "originated.html", "unresolved.html", "flagged.html", "automation.html"]:
+    print("Successfully built static deep-dive HTML pages + CSS/JS assets:")
+    for p in ["featured.html", "originated.html", "automation.html"]:
         sz = Path(p).stat().st_size
         print(f"  - {p:18s}: {sz:,} bytes")
 

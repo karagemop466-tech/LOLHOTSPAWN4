@@ -1,35 +1,72 @@
-# LOLHOTSPAWN4 — Hotspawn League of Legends Pick'ems Origination & Probability Hub
+# Hotspawn League of Legends (LoL) Pick'em Win Probability & Pick Origination
 
-Live Mobile-Friendly GitHub Pages Site: **`https://karagemop466-tech.github.io/LOLHOTSPAWN4/`**
+An automated, mobile-friendly intelligence platform providing match-winner probabilities and picks for **every available League of Legends pick** on the [Hotspawn Pick'em Lobby](https://play.hotspawn.com/lobby).
 
-## Executive Summary
+🌐 **Live GitHub Pages Dashboard:** [https://karagemop466-tech.github.io/LOLHOTSPAWN4/](https://karagemop466-tech.github.io/LOLHOTSPAWN4/)
 
-This repository reverse-engineers [`https://play.hotspawn.com/lol-pickems`](https://play.hotspawn.com/lol-pickems) and Hotspawn's WordPress REST APIs (`/wp-json/pickem/v1/fixture/<id>` and `/wp-json/hotspawn/v1/tournaments?game=league-of-legends`) to generate verified, non-crowd-biased win probabilities and obvious picks for **every active League of Legends match on Hotspawn Pick'ems**, automatically refreshing every **6 hours** (within the 4–8 hour schedule window) via GitHub Actions (`.github/workflows/update-pickems.yml`).
+---
 
-### Key Metrics & Reconciliation
-- **213 Active Pickable LoL Matches** rendered in the DOM of `play.hotspawn.com/lol-pickems`:
-  - **27 `Closing Soon` Matches** (October 22, 2026)
-  - **186 `Upcoming` Matches** (October 23 – November 15, 2026)
-- **264 Filter-Bar Fixtures Reconciled Across 24 Tournaments**:
-  - `264 (Filter-Bar Sum) - 53 (Locked/Stale Completed Fixtures) + 2 (Oct 23 Unremoved PRM 2nd Div Ghost Duplicates #1079024 & #1079026) = 213 Active DOM Cards`.
-- **0% Reliance on Hotspawn Community Pick Percentages**:
-  - **9 Featured S-Tier Matches (`Worlds 2026 Main Event` Swiss R1 & `EM 2026 Summer Main Event` Grand Final):** Priced via de-vigged multi-bookmaker decimal odds (*Vave, Thunderpick, SpinBetter, GG.bet, Rainbet, Underdog, CocoBet, Sportsgambler*) and live *Polymarket* orderbooks.
-  - **204 Originated Playoff & Low-Tier Regional Matches Across 11 Leagues:** Originated via a Laplace-smoothed Bayesian Bradley-Terry / Log5 model built from verified [Leaguepedia (`lol.fandom.com`)](https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki) `Data:` series records, game records, head-to-head results, and official forfeit/disqualification rulings.
+## Key Features
 
-## Site Structure & Subpages
+1. **Full Available-Pick Coverage:** Every fixture whose Hotspawn pick-lock time has not passed is listed with a pick and win probability, including lower-tier regional and amateur events. Fixtures already locked out are excluded from the board and listed on the Flagged for Review page for audit (nothing silently dropped).
+2. **Strict Independence from Hotspawn Crowd %:** Hotspawn's public crowd pick percentage is treated strictly as informational context and is **never** used as an indicator or input for match win probability.
+3. **Five-Stage Resolution Waterfall** (highest priority first):
+   - **Esportsbook Market Lines:** Median de-vigged implied probability across commercial bookmakers via OddsPapi (Sport ID 18) — active when an `ODDSPAPI_KEY` secret is configured.
+   - **Prediction Markets:** Polymarket (Gamma API) per-match market mids, exactly as reported; series/moneyline markets preferred, Game-1-only matches flagged.
+   - **Our Derived Line (Kalshi futures):** ratio model `p(A)=f(A)/(f(A)+f(B))` on both teams' open Kalshi KXLOL tournament-futures mids (same event) — clearly labeled as our line.
+   - **Our Originated Elo Model:** Elo (`K=32`, 180-day window) over competitive results from the Leaguepedia Cargo API, with sample-size shrinkage toward 50%. Fetched politely (one batch per refresh, persistent cache; degrades gracefully on rate limits).
+   - **Transparent 50/50 Baseline:** `UNRESOLVED` matches get exactly 50.0% / 50.0% and display **⚖️ No Edge** — no invented favorite.
+4. **Mobile-First UX:**
+   - Executive Summary with direct, finger-friendly navigation to picks by category.
+   - High-contrast win probability bars and prominent pick badges (`✅ PICK: Team (XX%)`).
+   - Dual view modes: **Mobile Card View** and **Tabular Data View**, with search, filters (method/tier), and sorting.
+   - **STALE DATA banner** appears automatically if any source fetch failed on the last refresh.
+5. **Automated Refresh:** Two GitHub Actions workflows run the identical pipeline — `refresh.yml` every 4 hours (primary) and `update-picks.yml` every 6 hours (backup cadence) — within the required 4–8 hour window. Both serialize via a shared concurrency group, validate the schema before committing, and commit the dataset back to `main`, which deploys to GitHub Pages automatically.
 
-| Page | Path | Description |
-| :--- | :--- | :--- |
-| **Executive Summary & All Picks** | [`index.html`](https://karagemop466-tech.github.io/LOLHOTSPAWN4/index.html) | Executive Summary, Top Contrarian Locks, Unresolved Summary, Tournament Breakdown, and Interactive 213-Match Master Table |
-| **S & A Tier Featured Picks** | [`featured.html`](https://karagemop466-tech.github.io/LOLHOTSPAWN4/featured.html) | Worlds 2026 Swiss R1 (8), EMEA Masters Final (1), LCP 2027 Promotion (1), and LGC Rising Final (1) |
-| **Originated Regional Picks** | [`originated.html`](https://karagemop466-tech.github.io/LOLHOTSPAWN4/originated.html) | 202 originated regional matches across Komplettligaen, PRM 2nd/3rd Div, RIVALS, 4 Nations, Tunisian Super League, Arabian League 2nd Div, ARC, and CELOL B |
-| **Unresolved & Limitations** | [`unresolved.html`](https://karagemop466-tech.github.io/LOLHOTSPAWN4/unresolved.html) | Unresolved TBD bracket placeholders (left blank per non-hallucination policy), 264-vs-213 reconciliation, and low-tier origination limitations |
-| **Flagged for Review** | [`flagged.html`](https://karagemop466-tech.github.io/LOLHOTSPAWN4/flagged.html) | 27 flagged active cards (`Solid Gaming` DQ forfeit lock `#1059956`, already-played duplicates `#1079026` & `#1079143`, rescheduled duplicates, team aliases, and slug inversions) |
-| **API & 4–8h Automation** | [`automation.html`](https://karagemop466-tech.github.io/LOLHOTSPAWN4/automation.html) | Technical documentation of Hotspawn's endpoints and the 6-hour GitHub Actions automation workflow |
+---
 
-## Datasets & Scripts
+## Site Pages & Navigation
 
-- `data/matches_active_213.json` & `data/matches_active_213.csv`: All 213 active Pick'em matches with UTC/ET timestamps, team records, win probabilities, fair decimal odds, obvious picks, contrarian edges vs Hotspawn crowd %, and verified source URLs.
-- `data/filter_bar_reconciliation_264.json`: Exact per-tournament reconciliation of all 24 filter-bar tournaments (`264` filter count vs `213` active DOM cards).
-- `data/flagged_irregularities.json`: Structured audit log of all 27 flagged active cards.
-- `scripts/update_pickems.py`: Main 4–8h updater script invoked by `.github/workflows/update-pickems.yml`.
+- **🏠 [Executive Summary](https://karagemop466-tech.github.io/LOLHOTSPAWN4/):** Coverage metrics, direct links to pick categories, dedicated Unresolved Picks & Limitations section, and featured market picks.
+- **✅ [All Picks](https://karagemop466-tech.github.io/LOLHOTSPAWN4/picks.html):** Directory of every available pick with search, method/tier filters, sorting, cards view, and tabular view.
+- **⚠️ [Unresolved Picks](https://karagemop466-tech.github.io/LOLHOTSPAWN4/unresolved.html):** Isolated register of 50/50 fixtures with full limitation disclosures.
+- **🚩 [Flagged for Review](https://karagemop466-tech.github.io/LOLHOTSPAWN4/flagged.html):** Audit register: provisional `WAITING FOR INFORMATION` metadata, unresolved fixtures, Game-1-market proxies, verified team-name aliases, time discrepancies, locked-out (excluded) fixtures, and stale-data handling.
+- **📖 [Methodology & Sources](https://karagemop466-tech.github.io/LOLHOTSPAWN4/methodology.html):** Full mathematical formulation of each stage and the verified source directory.
+
+---
+
+## Verified Official Sources
+
+| Source | Role | Verified Link |
+|---|---|---|
+| **Hotspawn LoL Pick'ems** | Fixture identity, schedule, offered points | [play.hotspawn.com/lobby](https://play.hotspawn.com/lobby) |
+| **Hotspawn Backend API** | Direct REST fixture ingest (match list only — never probabilities) | [Cloudways Fixture API](https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled) |
+| **Hotspawn Rules** | Pick lock timings (5 min pre-match) | [play.hotspawn.com/how-it-works](https://play.hotspawn.com/how-it-works) |
+| **Polymarket Gamma API** | Match-winner prediction markets (LoL tag id 65) | [gamma-api.polymarket.com](https://gamma-api.polymarket.com) |
+| **Kalshi KXLOL Series** | Tournament-futures mids for the derived ratio model | [api.elections.kalshi.com KXLOL](https://api.elections.kalshi.com/trade-api/v2/series/KXLOL) |
+| **Pinnacle Guest API** | Pro-book matchup coverage check (no public price endpoint) | [guest.api.arcadia.pinnacle.com](https://guest.api.arcadia.pinnacle.com/0.1/sports) |
+| **OddsPapi LoL Network** | Bookmaker odds aggregation (Sport ID 18) — with configured key | [oddspapi.io/sports/esports/lol](https://oddspapi.io/sports/esports/lol) |
+| **Leaguepedia Cargo API** | Competitive match histories (`ScoreboardGames`) for the Elo model | [lol.fandom.com/api.php](https://lol.fandom.com/api.php?action=help&modules=cargoquery) |
+| **Leaguepedia Esports Wiki** | Team rosters, tournament structures | [lol.fandom.com](https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki) |
+| **Game of Legends (GOL.gg)** | Resolution source referenced by Polymarket markets | [gol.gg](https://gol.gg/tournament/list/) |
+
+---
+
+## Automation Pipeline
+
+The repository uses two GitHub Actions workflows that run the identical chain:
+
+1. `collector/fetch_hotspawn.py` — verified fixture snapshot → `data/raw/`
+2. `collector/fetch_odds.py` — Polymarket + Kalshi + Pinnacle normalized extracts → `data/raw/` (full Polymarket dump kept as a workflow artifact only)
+3. `scripts/update_picks.py` — resolves every available fixture into `data/picks.json` (the single dataset the site renders), maintaining the Leaguepedia cache in `data/raw/`
+4. Schema verification step (pick present, probabilities sum to 1.0, method allowed, source link present, counts consistent)
+5. Commit with rebase (conflict-safe) → GitHub Pages deploy
+
+- `refresh.yml`: cron `0 */4 * * *` (primary) + `workflow_dispatch` + push-to-main trigger (bot data commits excluded to avoid loops).
+- `update-picks.yml`: cron `0 */6 * * *` (backup) + `workflow_dispatch` + path-limited push trigger.
+- Shared concurrency group `lol-pick-refresh` prevents the two from racing on the data commit.
+- On any fetch failure the previous snapshot is reused, the run fails loudly (traceback surfaced as check annotations + step summary), and the published site keeps the last good data with a STALE banner until the next successful refresh.
+
+## Tests
+
+`test/offline_smoke.py` runs the resolver fully offline against fabricated-but-realistically-shaped snapshots and asserts every tier (market line, verified LØS/LOS alias, Game-1-only flag, Kalshi futures ratio, Elo model, 50/50 no-edge, locked-out exclusion, stale-source surfacing). Run with `python3 test/offline_smoke.py`.

@@ -1,0 +1,35 @@
+{
+ "hotspawn_fixtures_scheduled.json": {
+  "file": "data/raw/hotspawn_fixtures_scheduled.json",
+  "url": "https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled",
+  "fetched_at": "2026-10-21T20:52:58Z",
+  "http_status": 200,
+  "stale": false,
+  "count": 264,
+  "sha256": "19d66a7927c6b6ddcabfa56973cf4943f705eb9325a5a0547cf9903fb6ae1541"
+ },
+ "polymarket_lol_markets.json": {
+  "file": "data/raw/polymarket_lol_markets.json",
+  "url": "https://gamma-api.polymarket.com/events?tag_id=65&closed=false",
+  "fetched_at": "2026-10-21T20:52:58Z",
+  "http_status": 200,
+  "stale": false,
+  "sha256": "43c77630c7e2eaf4396592b511ec2747807120150dfac6560093b7a32a4ac6a7"
+ },
+ "kalshi_lol_markets.json": {
+  "file": "data/raw/kalshi_lol_markets.json",
+  "url": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXLOL&status=open",
+  "fetched_at": "2026-10-21T20:52:58Z",
+  "http_status": 200,
+  "stale": false,
+  "sha256": "f91fda5897ff41e49309c9254156c8fb69145d62dbfcab99e72c6fb5bbcf1cc0"
+ },
+ "pinnacle_lol_matchups.json": {
+  "file": "data/raw/pinnacle_lol_matchups.json",
+  "url": "https://guest.api.arcadia.pinnacle.com/0.1/sports/12/leagues",
+  "fetched_at": "2026-10-21T20:53:00Z",
+  "http_status": 200,
+  "stale": false,
+  "sha256": "3a2231bc7056113a91d56e384bc905eb1e2240023ffabd86e7cfb3f6f676d671"
+ }
+}
