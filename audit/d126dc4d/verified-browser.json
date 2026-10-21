@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-21T21:12:03.741Z",
+  "checked_at": "2026-10-21T21:25:54.439Z",
   "base_url": "http://127.0.0.1:8080/",
   "tests": [
     {
@@ -57,7 +57,7 @@
       "name": "Expired snapshot hides probabilities and picks in the browser",
       "passed": true,
       "detail": {
-        "invalidated_probability_fields": 96
+        "invalidated_probability_fields": 120
       }
     },
     {

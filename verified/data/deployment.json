@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-21T21:15:22Z",
+  "generated_at": "2026-10-21T21:27:58Z",
   "build": {
-    "commit": "ec8ae483a47fb867c70c7734dd18f018074a287e",
-    "run_id": "39677260400",
+    "commit": null,
+    "run_id": null,
     "repository": "karagemop466-tech/LOLHOTSPAWN4",
-    "mode": "original publisher refresh"
+    "mode": "dated receipts / offline"
   },
   "summary": {
     "listed": 264,
     "upcoming": 195,
     "elapsed": 69,
     "locked_or_unknown": 0,
-    "picks": 20,
+    "picks": 26,
     "bookmaker": 2,
-    "prediction_market": 0,
+    "prediction_market": 6,
     "model": 22,
-    "unresolved": 175,
+    "unresolved": 169,
     "needs_review": 264
   },
   "artifact": "verified-only"

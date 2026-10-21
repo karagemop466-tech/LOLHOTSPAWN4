@@ -1,5 +1,12 @@
 # Coordination board — integrated ownership and acceptance record
 
+## First live acceptance / native-history extension (2026-10-21 21:27 UTC)
+
+- **Actions run [39677260400](https://github.com/karagemop466-tech/LOLHOTSPAWN4/actions/runs/39677260400) PASSED** live original-publisher collection, 39 tests, static/source/calculation checks, 28 real mobile/desktop route checks and 14 interaction/expiry checks. Tested receipts retained by bot commit `c59df75`; all **264 canonical match links** now come from the actual WP resolver. Production deploy was intentionally skipped on the preview branch; Pages still uses the historical root.
+- Corrected native Polymarket competition-tail recognition for the actual `Worlds Group Stage` label (without relaxing named outcomes, full-series scope, freshness or start guards). Recalculation from this run's dated inputs yields **26 directional picks, 2 bookmaker + 6 prediction-market rows, 22 model rows (4 supported ties), 169 upcoming without a directional pick**. This is not a new HTTP refresh.
+- Added an independently scoped native community-wiki `Data:`/`MatchSchedule` collector for the low-tier competitions, rather than importing the integrated synthetic game cache/seeded ratings. It requires exact names, declared BO1/3/5, explicit dates, score/winner agreement, same-season/same-format and comparable groups/opponent pools. Future/default/forfeit/DQ and disputed Solid Gaming inputs are excluded; corrections replace old page records. Non-Prime models additionally need a current exact-fixture schedule/format observation. Access restrictions stay visible with original cache dates.
+- **54 tests passed locally**, including native-template, nested-game, future/pre-awarded score, group separation, alias, correction, provider-update freshness and external-start expiry regression checks. Expanded collector has not yet run live; no coverage gain is claimed for it. Existing legacy source files remain untouched; next is live validation, integration and verified-only Pages publication.
+
 ## Autonomous publication gate added (2026-10-21 21:15 UTC)
 
 - Claimed `.github/workflows/verified-pages.yml` now implements one independent **4-hour** source refresh, 39 unit/artifact tests, full internal-link/source/calculation checks, and real Chromium browser gates before uploading **only `verified/`**. Only a tested preview receipt bot may push to this session's fixed branch; production deployment generates/publishes without pushing to main.

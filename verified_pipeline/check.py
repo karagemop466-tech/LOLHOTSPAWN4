@@ -82,7 +82,7 @@ def check_site(site):
                 errors.append("Published primary line differs from source evidence for " + r["id"])
         if r["method"] == "unresolved" and (r["probability_a"] is not None or r["probability_b"] is not None or r["pick"] is not None):
             errors.append("Unsupported fill present for " + r["id"])
-    checks += ["Inventory names/competition/times equal source receipt", "Every model reproduces from dated, eligible official results",
+    checks += ["Inventory names/competition/times equal source receipt", "Every model reproduces from dated, eligible organizer / trusted wiki results",
                "Every accepted market passes identity/scope/time/freshness guards", "All quoted arithmetic and team reversals reproduce",
                "Unsupported probabilities and picks stay null; ties have no forced pick"]
     summary = data["summary"]

@@ -19,17 +19,23 @@ Git for provenance; the Pages artifact includes **only `verified/`**.
   futures, handicaps, live/closed quotes, unsafe source URLs and fuzzy aliases
   cannot become series probabilities.
 - Exact teams, a unique inventory match, competition context, known nearby start
-  times, and an observation no more than eight hours old are mandatory. Any
+  times, and an observation no more than eight hours old are mandatory. When the provider
+  supplies an update timestamp, that must also be fresh. Any
   nonidentical start is a visible review flag, not silently rewritten. Team order
   reversals and raw-price arithmetic are reproducible.
 - Uncovered rows may use the disclosed, uncalibrated Beta(2,2)/log5/shrink-10
-  model over partial, dated official organizer series results. Both exact teams
-  need at least two causal results in the same independently confirmed division
-  and season. No history means nulls, not a neutral fill. Ties have no forced pick.
+  model over partial, dated organizer and native community-wiki series results.
+  Both exact teams need two causal results in the same independently confirmed
+  competition, season, series format and comparable observed opponent pool. No history means nulls, not a neutral fill. Ties have no forced pick.
 - `history.json` contains individually read official result observations, **not
   seeded ratings**. Local organizer dates retain an unknown timezone. Eligibility
   uses a conservative next-day-plus-20h bound, not an invented UTC result time.
-  New automatic observations whose season cannot be established stay ineligible.
+  New organizer observations whose season cannot be established stay ineligible.
+  Recognized native community-wiki MatchSchedule pages are retried each run;
+  corrections replace old page observations. Non-Prime competitions require a
+  fresh exact-team scheduled format. Team codes are not guessed, administrative
+  outcomes are excluded, and duplicate reports cannot inflate sample counts.
+  No synthetic per-game timestamps or league-average opponents are accepted.
 - Source access restrictions are never bypassed. HTTP 200 is not a usable result
   table. Failures preserve actual last-good observation dates, disclose cache use,
   and eventually blank stale probabilities. A missing inventory is a hard failure.

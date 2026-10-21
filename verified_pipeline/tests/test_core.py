@@ -41,7 +41,7 @@ def result(id_, a, b, sa=2, sb=0, day="2026-10-16", **kwargs):
 
 def training():
     return [result("a1", "Alpha", "Opponent 1"), result("a2", "Alpha", "Opponent 2"),
-            result("b1", "Beta", "Opponent 3", 0, 2), result("b2", "Beta", "Opponent 4", 0, 2)]
+            result("b1", "Beta", "Opponent 3", 0, 2), result("b2", "Beta", "Opponent 2", 0, 2)]
 
 
 class InventorySafety(unittest.TestCase):
@@ -261,7 +261,7 @@ class HistorySafety(unittest.TestCase):
 
     def test_equal_partial_records_produce_tie_not_team_a_pick(self):
         records = [result("a1", "Alpha", "O1"), result("a2", "Alpha", "O2", 0, 2),
-                   result("b1", "Beta", "O3"), result("b2", "Beta", "O4", 0, 2)]
+                   result("b1", "Beta", "O3"), result("b2", "Beta", "O2", 0, 2)]
         row = build([raw_fixture(competition="PRM 2nd Division 26-27 Fall")], history=records)["matches"][0]
         self.assertEqual(row["probability_a"], .5)
         self.assertIsNone(row["pick"])

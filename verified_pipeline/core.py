@@ -16,7 +16,7 @@ from urllib.parse import urlparse
 UTC = timezone.utc
 MAX_QUOTE_AGE = timedelta(hours=8)
 MAX_TIME_DIFFERENCE = timedelta(hours=6)
-MODEL_VERSION = "partial-series-log5-beta2-shrink10-v1"
+MODEL_VERSION = "causal-same-format-series-log5-beta2-shrink10-v2"
 MODEL_PARAMETERS = {"prior_wins": 2, "prior_losses": 2, "shrink_samples": 10,
                     "minimum_series_per_team": 2, "lookback_days": 60,
                     "maximum_latest_result_age_days": 14}
@@ -55,7 +55,7 @@ def provisional(value: str) -> bool:
 
 def competition_family(value: str) -> str:
     n = norm(value)
-    if "worldchampionship" in n or "worlds20" in n:
+    if "worldchampionship" in n or "worlds20" in n or n == "worldsgroupstage":
         return "worlds"
     if "emeamasters" in n or re.match(r"em20\d\d", n):
         return "emea"
@@ -67,6 +67,11 @@ def competition_family(value: str) -> str:
         return "komplett"
     if "rivalsleague" in n:
         return "rivals"
+    for token, family in (("4nations", "four-nations"), ("arabianleague2nddivision", "arabian2"),
+                          ("arabianregionalchampionship", "arc"), ("ligaggcelolb", "celol-b"),
+                          ("lgcrising", "lgc"), ("tuniansuperleague", "tunisian"), ("tunisiansuperleague", "tunisian")):
+        if token in n:
+            return family
     return n
 
 
@@ -200,7 +205,7 @@ def polymarket_candidates(markets, *, observed_at, source_url) -> list[dict]:
         seen.add(str(m.get("id")))
         out.append({"provider": "Polymarket", "method": "prediction_market", "scope": "series",
                     "id": str(m["id"]), "team_a": str(names[0]), "team_b": str(names[1]),
-                    "competition": title, "start_utc": iso(start),
+                    "competition": title.rpartition(" - ")[2] or title, "start_utc": iso(start),
                     "probability_a": a / (a + b), "probability_b": b / (a + b),
                     "raw_prices": prices, "source_url": "https://gamma-api.polymarket.com/markets/" + str(m["id"]),
                     "metadata_url": source_url, "observed_at": observed_at,
@@ -219,6 +224,7 @@ def fit(row: dict, evidence: dict, now: datetime) -> tuple[bool, bool]:
             or abs(start - external) > MAX_TIME_DIFFERENCE or evidence.get("scope") != "series"
             or competition_family(row["competition"]) != competition_family(evidence.get("competition", ""))
             or not fresh(evidence.get("observed_at"), now)
+            or (evidence.get("provider_updated_at") is not None and not fresh(evidence["provider_updated_at"], now))
             or not valid_https(evidence.get("source_url")) or not valid_https(evidence.get("metadata_url"))):
         return False, False
     return True, reverse
@@ -231,13 +237,16 @@ def result_eligible(result: dict, cutoff: datetime) -> bool:
         # label the displayed local date as an exact UTC completion timestamp.
         late_bound = datetime.combine(local + timedelta(days=1), datetime.min.time(), UTC) + timedelta(hours=20)
         seen = date.fromisoformat(result.get("observed_on", "9999-12-31"))
-        a, b = result["score_a"], result["score_b"]
-        return (result.get("completed") is True and result.get("best_of") == 3
-                and type(a) is int and type(b) is int and max(a, b) == 2 and 0 <= min(a, b) < 2
+        a, b, bo = result["score_a"], result["score_b"], result.get("best_of")
+        from .wiki import trusted_record
+        source = urlparse(result.get("source_url", ""))
+        organizer = source.hostname == "www.primeleague.gg" and bool(re.match(r"/en/matches/\d+-", source.path))
+        return (result.get("completed") is True and type(bo) is int and bo in {1, 3, 5}
+                and type(a) is int and type(b) is int and max(a, b) == bo//2+1 and 0 <= min(a, b) < bo//2+1
                 and late_bound < cutoff and seen <= cutoff.date()
                 and cutoff - late_bound <= timedelta(days=MODEL_PARAMETERS["lookback_days"])
                 and valid_https(result.get("source_url"))
-                and urlparse(result["source_url"]).hostname == "www.primeleague.gg"
+                and (organizer or trusted_record(result))
                 and not provisional(result["team_a"]) and not provisional(result["team_b"]))
     except (KeyError, ValueError, TypeError):
         return False
@@ -245,17 +254,58 @@ def result_eligible(result: dict, cutoff: datetime) -> bool:
 
 def history_estimate(row: dict, results: list[dict], now: datetime) -> tuple[dict | None, str]:
     family = competition_family(row["competition"])
-    if family not in {"PRM2", "PRM3"} or "26-27" not in row["competition"]:
-        return None, "No dated, independently verified training history for this competition."
+    from .wiki import SEASONS
+    context = row.get("history_context")
+    prime = family in {"PRM2", "PRM3"} and "26-27" in row["competition"]
+    if not prime and (family not in SEASONS or not context or not fresh(context.get("observed_at"), now)):
+        return None, "No fresh exact-fixture format/season context and dated trusted history for this competition."
+    season = "2026/27" if prime else SEASONS[family]
+    target_bo = context["best_of"] if context else 3
+    if context and (context.get("completed") or context.get("result_unusable")):
+        return None, "Trusted schedule already has a result or an unusable administrative score for this listing; confirm fixture identity."
+    # Separate league groups are not interchangeable strength pools. With a
+    # partial archive we require a common stated group, or a connected observed
+    # opponent graph. We never insert a synthetic league-average opponent.
+    eligible = [r for r in results if r.get("competition") == family and r.get("season") == season
+                and r.get("best_of") == target_bo and result_eligible(r, min(dt(row["start_utc"]) or now, now))]
+    groups = [{r["group"] for r in eligible if r.get("group") and norm(team) in {norm(r["team_a"]), norm(r["team_b"])}}
+              for team in (row["team_a"], row["team_b"])]
+    if all(groups) and not groups[0].intersection(groups[1]):
+        return None, "Teams have histories in different stated groups; no cross-group strength assumption."
+    group = context.get("group") if context else None
+    if not group and all(groups):
+        common = groups[0].intersection(groups[1])
+        group = next(iter(common)) if len(common) == 1 else None
+    if group:
+        eligible = [r for r in eligible if not r.get("group") or r["group"] == group]
+    graph, edges = {}, {}
+    for r in eligible:
+        a, b = norm(r["team_a"]), norm(r["team_b"])
+        graph.setdefault(a, set()).add(b); graph.setdefault(b, set()).add(a)
+        edges[(a, b)] = edges[(b, a)] = r
+    first = norm(row["team_a"])
+    connected, todo, parents = {first}, [first], {}
+    while todo:
+        node = todo.pop(0)
+        for neighbor in sorted(graph.get(node, set()) - connected):
+            connected.add(neighbor); todo.append(neighbor); parents[neighbor] = node
+    pool_path, node = [], norm(row["team_b"])
+    while not group and node in parents:
+        previous = parents[node]
+        pool_path.append(edges[(previous, node)])
+        node = previous
     start = dt(row.get("start_utc"))
     if not start or start <= now:
         return None, "Unknown or elapsed fixture time; no prematch estimate."
     cutoff = min(start, now)
     used, wins, losses, dates, seen = [], [0, 0], [0, 0], [[], []], set()
     for r in results:
-        if r.get("id") in seen or r.get("competition") != family or r.get("season") != "2026/27" or not result_eligible(r, cutoff):
+        # Collapse duplicate reports across organizer/wiki sources, not two wins
+        # for the same dated pair. Conservative for same-day doubleheaders.
+        key = (r.get("source_date"), tuple(sorted((norm(r.get("team_a", "")), norm(r.get("team_b", ""))))))
+        if key in seen or r not in eligible:
             continue
-        seen.add(r["id"])
+        seen.add(key)
         contributes = False
         for i, team in enumerate((row["team_a"], row["team_b"])):
             if norm(team) not in {norm(r["team_a"]), norm(r["team_b"])}:
@@ -273,6 +323,8 @@ def history_estimate(row: dict, results: list[dict], now: datetime) -> tuple[dic
         return None, f"Insufficient exact-team organizer history ({counts[0]} and {counts[1]} eligible series; minimum 2 per team). Aliases are not guessed."
     if any((now.date() - max(ds)).days > MODEL_PARAMETERS["maximum_latest_result_age_days"] for ds in dates):
         return None, "Organizer history is stale: at least one team's last confirmed result is more than 14 days old."
+    if not group and norm(row["team_b"]) not in connected:
+        return None, "Partial histories have no stated common group or connected opponent pool; no unsupported cross-pool estimate."
     # Smoothed observed series rates -> log5 matchup -> small-sample shrinkage.
     # These are stated modeling assumptions, NOT a factual or calibrated chance.
     rates = [(w + 2) / (n + 4) for w, n in zip(wins, counts)]
@@ -282,12 +334,14 @@ def history_estimate(row: dict, results: list[dict], now: datetime) -> tuple[dic
     pa = round(.5 + weight * (raw - .5), 6)
     return {"probability_a": pa, "probability_b": round(1 - pa, 6), "version": MODEL_VERSION,
             "counts": counts, "wins": wins, "losses": losses, "parameters": MODEL_PARAMETERS,
-            "training_ids": [r["id"] for r in used], "training_results": used,
+            "training_ids": [r["id"] for r in used], "training_results": used, "target_best_of": target_bo,
+            "target_context": context, "group": group,
+            "pool_context_results": [r for r in pool_path if r["id"] not in {u["id"] for u in used}],
             "latest_dates": [str(max(ds)) for ds in dates], "cutoff_utc": iso(cutoff),
-            "limitations": "Uncalibrated, partial audited series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."}, ""
+            "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."}, ""
 
 
-def build_dataset(inventory, *, inventory_at, now, candidates=(), history=(), permalinks=None, sources=(), findings=()):
+def build_dataset(inventory, *, inventory_at, now, candidates=(), history=(), scheduled=(), permalinks=None, sources=(), findings=()):
     rows = []
     permalinks = permalinks or {}
     inv_fresh = fresh(inventory_at, now)
@@ -310,7 +364,7 @@ def build_dataset(inventory, *, inventory_at, now, candidates=(), history=(), pe
         if not start:
             flags.append("No valid timezone-aware start in the inventory; no probability or pick.")
         if not raw.get("best_of") and not raw.get("series_format"):
-            flags.append("Hotspawn series format is unspecified; only explicitly full-series market evidence is eligible.")
+            flags.append("Inventory series format is unspecified; any probability requires independent full-series or exact-format evidence.")
         row = {"id": str(raw["id"]), "team_a": a, "team_b": b,
                "competition": str(raw.get("competition_name") or ""), "competition_id": raw.get("competition_id"),
                "start_utc": iso(start), "lock_utc": iso(lock), "state": state,
@@ -322,6 +376,14 @@ def build_dataset(inventory, *, inventory_at, now, candidates=(), history=(), pe
             row["reason"] = "Elapsed/locked listing retained for full inventory accountability; no current prematch pick." if state != "unknown_time" else "Start time unconfirmed."
         elif not inv_fresh or any(provisional(t) for t in (a, b)) or norm(a) == norm(b):
             row["reason"] = "Inventory freshness or exact participant identity is unconfirmed."
+        contexts = [c for c in scheduled if c.get("competition") == competition_family(row["competition"])
+                    and {norm(c["team_a"]), norm(c["team_b"])} == {norm(a), norm(b)}
+                    and dt(c.get("scheduled_utc")) and start and abs(dt(c["scheduled_utc"]) - start) <= MAX_TIME_DIFFERENCE]
+        row["history_context"] = contexts[0] if len(contexts) == 1 else None
+        if contexts and len(contexts) != 1:
+            row["flags"].append("Ambiguous trusted schedule context; no external format or team alias inferred.")
+        if row["history_context"] and dt(row["history_context"]["scheduled_utc"]) != start:
+            row["flags"].append(f"Schedule conflict: Hotspawn {row['start_utc']}; community wiki {row['history_context']['scheduled_utc']}. Confirm original schedules.")
         rows.append(row)
     # A quote cannot identify two inventory fixtures. Ambiguous rematches are
     # rejected rather than selecting whichever row happened to be first.

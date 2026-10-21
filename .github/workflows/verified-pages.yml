@@ -49,6 +49,7 @@ jobs:
         run: |
           python -m unittest discover -s verified_pipeline/tests -p 'test_core.py' -v
           python -m unittest discover -s verified_pipeline/tests -p 'test_sources.py' -v
+          python -m unittest discover -s verified_pipeline/tests -p 'test_wiki.py' -v
       - name: Full inventory and original-publisher refresh
         shell: bash
         run: |
