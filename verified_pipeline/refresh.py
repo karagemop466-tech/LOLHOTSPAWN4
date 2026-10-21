@@ -39,6 +39,17 @@ def review_findings(root):
          "status": "needs review", "description": "All source attempts have receipts below. Prime League runner requests previously returned 403; RIVALS and Komplett returned page shells, not usable results. The public feeds do not cover every amateur match. Access restrictions are not proof that a sportsbook has no market. No access controls are bypassed.",
          "sources": ["https://www.primeleague.gg/en/liga3", "https://www.komplettligaen.no/lol/resultater?season=13909&division=18859", "https://www.rivalsleague.gg/lol/teams"]}
     ])
+    mode_path = root / "audit/d126dc4d/verified-public-settings.json"
+    receipt_path = root / "audit/d126dc4d/verified-public.json"
+    if mode_path.exists() and json.loads(mode_path.read_text()).get("build_type") == "legacy":
+        receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else {}
+        run = str(receipt.get("expected_run", ""))
+        finding_sources = ["https://github.com/karagemop466-tech/LOLHOTSPAWN4/actions/workflows/verified-pages.yml"]
+        if run.isdigit():
+            finding_sources.append("https://github.com/karagemop466-tech/LOLHOTSPAWN4/actions/runs/" + run)
+        findings.append({"id": "pages-selector", "title": "Operational review: legacy Pages selector and safe dated root fallback",
+            "status": "needs review", "description": "The Oct21 public acceptance receipt observed the effective legacy/main/root selector, despite successful standard verified-only artifact deployment. It is not marked changed. Historical automatic writers are retired. Every main push and the 4h schedule republishes the tested artifact. Implicit legacy builds use a separately validated, dated safety mirror, never the rejected synthetic/forced-pick UI. The fallback is not a live refresh and retains expiry/observation dates. Public acceptance requires the expected run/commit and verified-only metadata, not the fallback's distinct label.",
+            "sources": finding_sources})
     return findings
 
 

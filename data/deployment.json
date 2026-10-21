@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-10-21T21:58:54Z",
+  "build": {
+    "commit": null,
+    "run_id": null,
+    "repository": "karagemop466-tech/LOLHOTSPAWN4",
+    "mode": "dated receipts / offline"
+  },
+  "summary": {
+    "listed": 264,
+    "upcoming": 195,
+    "elapsed": 69,
+    "locked_or_unknown": 0,
+    "picks": 26,
+    "bookmaker": 2,
+    "prediction_market": 6,
+    "model": 22,
+    "unresolved": 169,
+    "needs_review": 264
+  },
+  "artifact": "verified-legacy-fallback",
+  "publication_note": "Dated validated root safety mirror, not this run's live Pages artifact. Actual production acceptance requires artifact=verified-only and the expected generating run/commit."
+}

@@ -137,7 +137,8 @@ def check_site(site):
         errors.append("Static all-matches page dropped inventory rows")
     checks += ["Every table/card row has original HTTPS sources", "All internal pages/assets/fragments resolve inside verified artifact",
                "Static/no-JavaScript inventory retains every fixture ID", "One primary heading and unique DOM IDs on every page"]
-    return {"passed": not errors, "checked_at": data["generated_at"], "artifact": "verified-only",
+    publication = json.loads((site / "data/deployment.json").read_text())
+    return {"passed": not errors, "checked_at": data["generated_at"], "artifact": publication.get("artifact", "unconfirmed"),
             "html_pages": len(pages), "unique_inventory_ids": len(inventory), "summary": summary, "checks": checks, "errors": errors,
             "limitations": "Original receipts and calculations are checked; this is not a calibration/accuracy guarantee or live external-link uptime test."}
 

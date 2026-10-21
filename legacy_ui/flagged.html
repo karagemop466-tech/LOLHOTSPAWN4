@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flagged for Review — Hotspawn League of Legends Picks</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>🎮 Hotspawn LoL Pick'em — Our Picks</h1>
+      <div class="sub">
+        <span class="live-indicator"><span class="live-dot" style="background:#fbbf24; box-shadow:0 0 8px #fbbf24;"></span> Audit & Quality Assurance</span>
+        <span id="last-updated">Loading…</span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">🏠 Executive Summary</a>
+      <a href="picks.html">✅ All Picks</a>
+      <a href="featured.html">⭐ S/A-Tier Bookmaker Deep-Dive</a>
+      <a href="originated.html">📊 Regional Originated Tables</a>
+      <a href="unresolved.html">⚠️ Unresolved Picks</a>
+      <a href="flagged.html" class="active">🚩 Flagged for Review</a>
+      <a href="methodology.html">📖 Method & Sources</a>
+      <a href="automation.html">⚙️ API & 264-vs-213 Audit</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>🚩 Flagged for Review Register</h2>
+    <p>
+      In accordance with our strict verification standards, every item requiring manual review, carrying provisional metadata, 
+      or lacking external confirmation is cataloged here. <b>These flags do not block live publication</b>, allowing transparent audit.
+    </p>
+
+    <!-- Standing Systemic Flags -->
+    <div class="callout-box warn">
+      <h3 style="color:#fbbf24; margin-top:0;">Standing Irregularities & Operational Flags</h3>
+      <ul>
+        <li>
+          <b>Provisional Tier Metadata (<code>WAITING FOR INFORMATION</code>):</b> Over 65% of Hotspawn LoL lobby fixtures currently display 
+          <code>Tier: WAITING FOR INFORMATION</code>. In our pipeline, we do not guess or infer tournament tiers. They are preserved verbatim and flagged for ongoing verification.
+        </li>
+        <li>
+          <b>External Market Coverage Gap:</b> Established sportsbooks (such as Pinnacle, bet365, BetOnline) and prediction markets (Polymarket) 
+          only trade major tier-1/tier-2 leagues. Low-tier matches (e.g. <i>PRM 3rd Division</i>, <i>Tunisian Super League</i>) receive zero commercial pricing, 
+          necessitating our originated Elo model or a 50/50 baseline.
+        </li>
+        <li>
+          <b>Sandbox Environment Egress:</b> The local development sandbox enforces strict firewall rules (allowing only GitHub, NPM, and PyPI). 
+          Live production scraping is executed in GitHub Actions runners (<code>ubuntu-latest</code>) on a 6-hour schedule.
+        </li>
+        <li>
+          <b>Informational Hotspawn Crowd %:</b> While Hotspawn shows community pick percentages on cards (e.g. <i>90% picked</i>), this is strictly treated as informational context 
+          and is <b>never used</b> as an input to win probability.
+        </li>
+        <li>
+          <b>Game-1 markets as series proxy:</b> For some series (e.g. <i>Galions vs Solary</i>, EMEA Masters Bo5) Polymarket lists only a
+          <b>Game 1 winner</b> market, not a series/moneyline market. The Game-1 price is used as the best available external signal
+          and is labeled &ldquo;Game-1 market only&rdquo; in the row evidence. A Game-1 favorite is not always the series favorite — treat these as lower confidence.
+        </li>
+        <li>
+          <b>Start-time discrepancies (Hotspawn vs markets):</b> Hotspawn's scheduled start times for several Worlds 2026 group matches differ from the
+          market-listed start times by 1–4 hours (e.g. T1 vs LØS: Hotspawn 23:00Z vs Polymarket &ldquo;6:00 PM ET&rdquo; = 22:00Z, verified on the
+          Polymarket event page 2026-10-21). Matches are joined on team names with a same-day time window; the Hotspawn time is shown on the board
+          because picks lock against it.
+        </li>
+        <li>
+          <b>Verified team-name alias (LØS = LOS):</b> Hotspawn spells a Worlds 2026 team &ldquo;LØS&rdquo; (Nordic spelling) while Polymarket
+          (event <code>lol-los-t1-2026-10-23</code>, page verified) and Kalshi (market <code>KXLOL-WORLDS26-LOS</code>) both list it as &ldquo;LOS&rdquo;.
+          This alias is applied in name matching; the underlying match is unambiguous (same tournament, same opponent, same date).
+        </li>
+        <li>
+          <b>Locked-out fixtures are excluded, not dropped:</b> Hotspawn keeps some fixtures in &ldquo;scheduled&rdquo; status after their pick lock time
+          has passed. Those are <b>no longer available picks</b>, so they are removed from the picks board and listed in
+          <a href="#excluded-stale">Excluded Fixtures (Locked Out)</a> below for audit.
+        </li>
+        <li>
+          <b>Stale data handling:</b> If any source fetch fails on a refresh, the pipeline reuses the previous snapshot and the site shows a
+          <b>STALE DATA</b> banner (plus the failed sources here in debug) instead of inventing values.
+        </li>
+        <li>
+          <b>Disqualified Team Still Open in Lobby (<code>#1059956</code> — Solid Gaming vs DMG Esports, Komplettligaen, Oct 22 15:00Z):</b>
+          Official <a href="https://lol.fandom.com/wiki/Data:Komplettligaen/2026_Season/Autumn_Split" target="_blank" rel="noopener">Leaguepedia Data</a> confirms
+          <b>Solid Gaming was removed from the league</b> after Round 2 (<code>|dqteams=Solid Gaming</code>) and their Oct 22 match vs DMG NO is an official
+          <b>0–2 forfeit win (<code>ff=1</code>, <code>winner=2</code>) for DMG Esports</b>, yet 67% of Hotspawn users picked Solid Gaming.
+        </li>
+        <li>
+          <b>Already-Played &amp; Rescheduled Ghost Duplicates in Pick'em Lobby:</b>
+          <code>#1079143</code> (<i>Pegasus Esports vs Team Reds</i>, Arabian League 2nd Div, listed Oct 25) was already played on Oct 10 in Week 2 (Team Reds won 2–1);
+          <code>#1079026</code> (<i>Reveal Multigaming vs ex-A41G</i>, PRM 2nd Div, listed Oct 23) was already played early on Oct 20 after <code>ex-A41G</code> renamed to
+          <code>reGOLD eSport</code> (0–2); and <code>#1079024</code> (<i>Phong Vũ Buffalo vs 404 Multigaming e.V.</i>, Oct 23) is a pre-reschedule duplicate of
+          <code>#1082746</code> (Nov 3), where Swiss team <code>PvB Nation</code> is also misattributed to defunct Vietnamese VCS team <code>Phong Vũ Buffalo</code>.
+          See <a href="originated.html">Regional Originated Tables</a> and <a href="automation.html">264-vs-213 Audit</a> for full per-card links.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Flagged Fixtures Table -->
+    <h2>📋 Flagged Fixtures Breakdown</h2>
+    <p>Fixtures flagged due to provisional metadata (<code>WAITING FOR INFORMATION</code>) or absence of competitive history:</p>
+
+    <div class="controls-container">
+      <div class="controls-row">
+        <input type="search" id="search-box" class="search-input" placeholder="🔍 Search flagged fixtures…" aria-label="Search flagged">
+        <select id="flag-filter" class="filter-select">
+          <option value="">All Flags</option>
+          <option value="tier">Tier: WAITING FOR INFORMATION</option>
+          <option value="unres">Method: UNRESOLVED (50/50)</option>
+          <option value="game1">Game-1 market used as series proxy</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;" id="match-counter-display">
+      Filtering flagged fixtures…
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Start (UTC)</th>
+            <th>Tournament</th>
+            <th>Matchup</th>
+            <th>Flagged Reason</th>
+            <th>Current Pick / Prob</th>
+            <th>Source Link</th>
+            <th>Hotspawn Link</th>
+          </tr>
+        </thead>
+        <tbody id="flagged-table-body">
+          <tr><td colspan="7" class="loading-state">Loading flagged fixtures…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Excluded (locked-out) fixtures register -->
+    <h2 id="excluded-stale">🔒 Excluded Fixtures (Locked Out)</h2>
+    <p>
+      Fixtures Hotspawn still lists as <code>scheduled</code> but whose pick lock time has already passed.
+      They are not available picks, so they are excluded from the picks board and from all counts.
+      Nothing is silently dropped — every excluded fixture is listed here for audit.
+    </p>
+    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;" id="excluded-counter">
+      Loading excluded fixtures…
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Start (UTC)</th>
+            <th>Tournament</th>
+            <th>Matchup</th>
+            <th>Pick Lock (UTC)</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody id="excluded-table-body">
+          <tr><td colspan="5" class="loading-state">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated refresh every 4–6 hours via GitHub Actions.
+      </div>
+      <div>
+        <a href="methodology.html">Methodology & Sources</a> · 
+        <a href="picks.html">All Picks</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script>
+    let FLAGGED_MATCHES = [];
+
+    function renderFlaggedRow(m) {
+      const p1 = Math.round((m.prob_team1 || 0.5) * 100);
+      const p2 = 100 - p1;
+      const formattedStart = formatDate(m.start_utc, m.start_raw);
+
+      let reasons = [];
+      if ((m.tier || '').toUpperCase().includes('WAITING')) {
+        reasons.push('Provisional Tier (WAITING FOR INFORMATION)');
+      }
+      if (m.method === 'UNRESOLVED') {
+        reasons.push('No Market / No Leaguepedia History');
+      }
+
+      let sourceLinkHtml = '—';
+      if (m.source_url) {
+        sourceLinkHtml = `<a href="${m.source_url}" target="_blank" rel="noopener">Wiki / Source ↗</a>`;
+      }
+      let hotspawnLinkHtml = m.hotspawn_url ? `<a href="${m.hotspawn_url}" target="_blank" rel="noopener">Hotspawn Match ↗</a>` : '—';
+
+      return `
+      <tr>
+        <td><b>${formattedStart}</b></td>
+        <td>${m.tournament || 'LoL'}</td>
+        <td><b>${m.team1}</b> vs <b>${m.team2}</b></td>
+        <td><span style="color:#fbbf24; font-weight:600;">${reasons.join(' · ')}</span></td>
+        <td>${m.pick} (${Math.round((m.pick_prob || 0.5)*100)}%)</td>
+        <td>${sourceLinkHtml}</td>
+        <td>${hotspawnLinkHtml}</td>
+      </tr>`;
+    }
+
+    function applyFilter() {
+      const q = (document.getElementById('search-box').value || '').toLowerCase().trim();
+      const flagType = document.getElementById('flag-filter').value;
+
+      let filtered = FLAGGED_MATCHES.filter(m => {
+        if (q) {
+          const hay = `${m.team1} ${m.team2} ${m.tournament}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        if (flagType === 'tier') {
+          if (!(m.tier || '').toUpperCase().includes('WAITING')) return false;
+        } else if (flagType === 'unres') {
+          if (m.method !== 'UNRESOLVED') return false;
+        } else if (flagType === 'game1') {
+          if (!(m.evidence && m.evidence.includes('Game-1 market only'))) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('match-counter-display').textContent = `Showing ${filtered.length} flagged fixtures requiring manual review`;
+
+      const tbody = document.getElementById('flagged-table-body');
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="text-center" style="padding:24px;">No flagged fixtures found matching criteria.</td></tr>';
+      } else {
+        tbody.innerHTML = filtered.map(renderFlaggedRow).join('');
+      }
+    }
+
+    function renderExcludedRow(e) {
+      const start = formatDate(e.start_utc, '');
+      const lock = formatDate(e.lock_utc, '');
+      return `
+      <tr>
+        <td><b>${start}</b></td>
+        <td>${e.tournament || 'LoL'}</td>
+        <td><b>${e.team1}</b> vs <b>${e.team2}</b></td>
+        <td>${lock}</td>
+        <td><small style="color:#94a3b8;">${e.reason || 'Locked out'}</small></td>
+      </tr>`;
+    }
+
+    fetchPicksData().then(data => {
+      showStaleBanner(data);
+      const dt = new Date(data.generated_at);
+      document.getElementById('last-updated').textContent = `Updated: ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()}`;
+
+      // A match is flagged if tier is waiting for information, method is UNRESOLVED, confidence is low,
+      // or a Game-1 market was used as a series proxy
+      FLAGGED_MATCHES = (data.matches || []).filter(m =>
+        (m.tier || '').toUpperCase().includes('WAITING') ||
+        m.method === 'UNRESOLVED' ||
+        (m.confidence && m.confidence.includes('Low')) ||
+        (m.evidence && m.evidence.includes('Game-1 market only'))
+      );
+
+      applyFilter();
+
+      // Excluded (locked-out) fixtures register
+      const excluded = data.excluded_stale || [];
+      const exBody = document.getElementById('excluded-table-body');
+      const exCounter = document.getElementById('excluded-counter');
+      if (exCounter) exCounter.textContent = `Showing ${excluded.length} locked-out fixtures (excluded from the picks board)`;
+      if (exBody) {
+        exBody.innerHTML = excluded.length === 0
+          ? '<tr><td colspan="5" class="text-center" style="padding:24px;">No locked-out fixtures in the current snapshot.</td></tr>'
+          : excluded.map(renderExcludedRow).join('');
+      }
+
+      document.getElementById('search-box').addEventListener('input', applyFilter);
+      document.getElementById('flag-filter').addEventListener('change', applyFilter);
+    }).catch(err => {
+      console.error(err);
+      document.getElementById('flagged-table-body').innerHTML = `<tr><td colspan="7" class="text-center" style="color:#ef4444;">Failed to load flagged data: ${err.message}</td></tr>`;
+    });
+  </script>
+</body>
+</html>

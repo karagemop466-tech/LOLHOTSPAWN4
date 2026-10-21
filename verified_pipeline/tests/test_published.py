@@ -17,6 +17,21 @@ class PublishedArtifact(unittest.TestCase):
         self.assertGreater(report["unique_inventory_ids"], 0)
         self.assertGreaterEqual(report["html_pages"], 7)
 
+    def test_dated_legacy_root_mirror_is_safe_and_original_html_is_preserved(self):
+        import hashlib
+        root = SITE.parent
+        report = check_site(root)
+        self.assertTrue(report["passed"], report["errors"])
+        self.assertEqual(report["artifact"], "verified-legacy-fallback")
+        manifest = json.loads((root / "legacy_ui/manifest.json").read_text())
+        self.assertEqual(len(manifest["sha256"]), 8)
+        for name, digest in manifest["sha256"].items():
+            self.assertEqual(hashlib.sha256((root / "legacy_ui" / name).read_bytes()).hexdigest(), digest)
+        # A dated fallback may never satisfy expected live artifact acceptance.
+        meta = json.loads((root / "data/deployment.json").read_text())
+        with self.assertRaises(ValueError):
+            validate_public(root, expected_run=meta["build"]["run_id"], expected_commit=meta["build"]["commit"])
+
     def test_public_acceptance_matches_exact_artifact_run_and_commit(self):
         build = json.loads((SITE / "data/deployment.json").read_text())["build"]
         metadata, report = validate_public(SITE, expected_run=build["run_id"], expected_commit=build["commit"])

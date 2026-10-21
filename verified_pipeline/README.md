@@ -77,7 +77,15 @@ or another session's branch. A preview-only bot may retain tested receipts on
 `arena/d126dc4d-lolhotspawn4`; it pulls with `--rebase=merges` before that push.
 Source caches persist between refreshes without falsifying their dates.
 
-The repository's Pages build type must be `workflow`, not legacy main/root.
+The preferred Pages build type is `workflow`. The actual Oct21 selector still
+reported legacy main/root even after the settings request, but the standard
+Pages deployment API successfully published the verified-only artifact and its
+public run/commit/hash/browser gate passed. This selector is not marked changed.
+Historical automatic writers are retired. A separately validated dated root
+safety mirror protects implicit legacy builds; it is explicitly labeled
+`verified-legacy-fallback`, cannot satisfy live public acceptance, and retains
+source dates and browser expiry. `legacy_ui/` preserves the original shared HTML
+byte-for-byte; no legacy probabilities are read by this publisher.
 Deployment is not complete until the actual production run succeeds and the
 public `data/deployment.json` identifies `artifact: verified-only`. Source
 restrictions, limited history and any settings-permission blocker must be
@@ -101,4 +109,17 @@ HTML/JSON snapshot versions, and repeats the 28-viewport + 14-functional browser
 gate against the public URL. Bounded CDN retries cannot change the expected
 version. Public-file SHA-256 receipts and browser reports are retained as the
 `verified-public-acceptance-<run>` Actions artifact; build status alone is not
-publication acceptance. The current full unit/artifact suite has 57 tests.
+publication acceptance. The current full unit/artifact suite has 58 tests, including the root safety mirror and archived HTML hashes.
+
+## Explicit dated fallback update (not the production refresh)
+
+```sh
+# Only after a successful verified build/gate; preserves original receipt dates.
+python -m verified_pipeline.mirror
+python -m verified_pipeline.check --site .
+```
+
+The one-time `--archive-legacy` option refuses to overwrite an existing archive.
+The routine 4h workflow does **not** copy or push this mirror to main; it deploys
+fresh tested `verified/` artifacts directly. The fallback is intentionally only
+a dated fail-safe for implicit legacy root builds, not a fresh source claim.
