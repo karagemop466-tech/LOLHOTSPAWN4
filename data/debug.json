@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-10-21T20:23:25.103419+00:00",
+ "generated_at": "2026-10-21T20:34:24.762033+00:00",
  "lobby": "https://play.hotspawn.com/lol-pickems",
  "fixtures_api": "https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled&tenantId=1",
  "lobby_http": 200,
- "parser": "cached-fallback",
- "matches_parsed": 195,
- "polymarket_markets": 0,
+ "parser": "internal-fixtures-api",
+ "matches_parsed": 264,
+ "polymarket_markets": 1573,
  "oddspapi_fixtures_priced": 0,
  "elo_teams": 0
 }
