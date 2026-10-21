@@ -106,9 +106,13 @@ Shared task board and integration record for parallel agent sessions working on
   (39672980094) failed only in its commit step: its rebase hit a
   timestamp-only conflict against the sibling run's identical data commit.
   Pages deploy of the integrated site: **success** (20:45:11Z).
-- **Follow-up #18:** commit step made sibling-conflict-safe (on rebase conflict
-  of two same-chain data commits, the version already on `main` wins and the
-  losing run exits cleanly without pushing). Merged: recorded below.
+- **Follow-up #18 (MERGED 20:49Z, 05a0b9c):** commit step made
+  sibling-conflict-safe (on rebase conflict of two same-chain data commits, the
+  version already on `main` wins and the losing run exits cleanly without
+  pushing). Post-merge validation: both refresh workflows SUCCESS on the
+  20:46Z trigger; latest committed dataset 366868f (20:50:54Z: 195 pickable /
+  9 market lines / 59 Elo / 127 no-edge / 69 excluded, `stale_sources` empty);
+  Pages deploy SUCCESS; live pages + `data/picks.json` fetch-verified.
 - **Pages status:** deployed and verified live at
   https://karagemop466-tech.github.io/LOLHOTSPAWN4/ (pages + `data/picks.json`
   fetch-checked post-merge).
