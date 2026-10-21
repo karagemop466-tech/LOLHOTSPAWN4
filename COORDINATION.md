@@ -95,9 +95,22 @@ Shared task board and integration record for parallel agent sessions working on
   - #12 — collector `NameError` fix + offline smoke test (`arena/0a18d42d`; first successful live data run 39671286429)
   - #14 — Elo seed ratings + 264-match audit (`arena/6b271c44`)
   - #16 — COORDINATION finalization + raw-data refresh (`arena/6b271c44`)
-  - #17 — **final integration** (this PR): canonical `update_picks.py` five-stage resolver (incl. seeded Elo bootstrap), available-pick filter + locked-out register, rate-limit-safe Leaguepedia Elo, Kalshi futures tier, LØS/LOS alias, workflow concurrency/rebase/validation fixes, site enhancements, README + this record.
-- **Merge result #17:** recorded below after merge.
-- **Pages status at integration time:** the other session verified a successful
-  Pages deploy of the pre-integration site at 20:43Z; this integration's deploy
-  is confirmed below after its merge.
+  - #17 — **final integration**: canonical `update_picks.py` five-stage resolver (incl. seeded Elo bootstrap), available-pick filter + locked-out register, rate-limit-safe Leaguepedia Elo, Kalshi futures tier, LØS/LOS alias, workflow concurrency/rebase/validation fixes, site enhancements, README + this record.
+  - #18 — sibling-conflict-safe commit step (both workflows) + this record update.
+- **Merge result #17:** MERGED at 20:44Z (merge commit 4e6762c). Both refresh
+  workflows fired on the merge push: the 6h run (39672980151) succeeded and
+  committed the first live dataset of the integrated pipeline (a86572e,
+  20:45:08Z: 195 pickable, 9 market lines incl. the LØS/T1 alias recovery,
+  59 seeded Elo lines — the runner's polite Leaguepedia fetch succeeded on the
+  first attempt —, 127 no-edge, 69 locked-out excluded). The 4h run
+  (39672980094) failed only in its commit step: its rebase hit a
+  timestamp-only conflict against the sibling run's identical data commit.
+  Pages deploy of the integrated site: **success** (20:45:11Z).
+- **Follow-up #18:** commit step made sibling-conflict-safe (on rebase conflict
+  of two same-chain data commits, the version already on `main` wins and the
+  losing run exits cleanly without pushing). Merged: recorded below.
+- **Pages status:** deployed and verified live at
+  https://karagemop466-tech.github.io/LOLHOTSPAWN4/ (pages + `data/picks.json`
+  fetch-checked post-merge).
+- **Handoff:** complete. No open work items; the desk runs autonomously.
 - **Maintenance cadence:** `refresh.yml` every 4h (primary), `update-picks.yml` every 6h (backup); both auto-deploy to Pages via the `main` data commit. Smoke test: `python3 test/offline_smoke.py` (offline, no network).

@@ -114,8 +114,16 @@ jobs:
             git add data
             git commit -m "data: refresh LoL Hotspawn picks at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
             git fetch origin "${GITHUB_REF_NAME}"
-            git rebase "origin/${GITHUB_REF_NAME}"
-            git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              # A sibling refresh (other cadence) committed regenerated data in
+              # the meantime; the only conflict is regenerated timestamp fields.
+              # Its data is equally fresh, so it wins and we skip the push.
+              git rebase --abort
+              git reset --hard "origin/${GITHUB_REF_NAME}"
+              echo "Sibling refresh committed newer data; keeping its version (no push)."
+            else
+              git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
+            fi
           else
             echo "No data changes; nothing to commit."
           fi
