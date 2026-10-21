@@ -13,6 +13,8 @@ The corrective publisher is **`verified_pipeline/` → `verified/`**. Its workfl
 [Verified LoL refresh and Pages](.github/workflows/verified-pages.yml), refreshes
 at **`17 */4 * * *` (UTC)** and deploys only that tested directory using Pages
 Actions. Schedules are best-effort GitHub schedules, not an availability SLA.
+The two earlier refresh workflows are retained as manual, fixed-branch-only
+comparison tools; they no longer schedule competing main-root data writes.
 The repository root, seed ratings and earlier probability outputs are **not**
 part of the Pages artifact. Other sessions' implementations remain in Git;
 their prior publication records are preserved in [COORDINATION.md](COORDINATION.md).

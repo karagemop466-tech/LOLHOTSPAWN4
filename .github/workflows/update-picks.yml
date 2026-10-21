@@ -1,21 +1,9 @@
-name: Update Hotspawn LoL Picks (every 6h)
+name: Historical resolver chain (manual branch comparison)
 
-# Backup refresh cadence (within the required 4-8h window): runs the SAME
-# pipeline chain as refresh.yml (verified raw fetchers + pick resolver).
-# refresh.yml (every 4h) is the primary cadence. Both workflows share the
-# "lol-pick-refresh" concurrency group so they never run concurrently.
-
+# Historical publisher retained for explicit branch-only comparison.
+# Production is verified-pages.yml (4h, tested verified-only Pages artifact).
 on:
-  schedule:
-    - cron: "0 */6 * * *"
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "scripts/**"
-      - "collector/**"
-      - ".github/workflows/update-picks.yml"
 
 permissions:
   contents: write
@@ -28,7 +16,7 @@ concurrency:
 
 jobs:
   update-picks:
-    if: "!startsWith(github.event.head_commit.message || '', 'data: refresh') && !startsWith(github.event.head_commit.message || '', 'picks: scheduled')"
+    if: github.ref == 'refs/heads/arena/d126dc4d-lolhotspawn4'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
