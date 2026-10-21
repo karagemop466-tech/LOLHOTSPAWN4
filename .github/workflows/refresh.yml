@@ -11,12 +11,18 @@ on:
   schedule:
     - cron: "0 */4 * * *"
   workflow_dispatch:
+  # Pushes to main (e.g., integration merges) refresh immediately. Bot commits
+  # from this workflow are excluded by the job-level `if` below to prevent a
+  # commit -> push -> run -> commit loop.
+  push:
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   refresh:
+    if: github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'data: refresh')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
