@@ -48,7 +48,7 @@ import common  # noqa: E402
 # Polymarket
 # ---------------------------------------------------------------------------
 def fetch_polymarket():
-    log("polymarket: verifying LoL sport entry in /sports")
+    common.log("polymarket: verifying LoL sport entry in /sports")
     sports, status = common.http_get_json(common.POLYMARKET_GAMMA_BASE + "/sports")
     if status != 200 or not isinstance(sports, list):
         raise RuntimeError("polymarket /sports failed (HTTP %s)" % status)
@@ -60,7 +60,7 @@ def fetch_polymarket():
     if lol_sport is None:
         raise RuntimeError("polymarket: no 'lol' sport entry found")
     tag_id = int(lol_sport["primaryTagId"])
-    log("polymarket: LoL sport id=%s slug=%s primaryTagId=%s" %
+    common.log("polymarket: LoL sport id=%s slug=%s primaryTagId=%s" %
         (lol_sport.get("id"), lol_sport.get("sport"), tag_id))
 
     events = []
@@ -78,7 +78,7 @@ def fetch_polymarket():
         offset += limit
         if offset > 5000:  # safety
             break
-    log("polymarket: fetched %d open LoL events" % len(events))
+    common.log("polymarket: fetched %d open LoL events" % len(events))
 
     markets = []
     for ev in events:
@@ -116,7 +116,7 @@ def fetch_polymarket():
                 "api_url": "%s/markets/%s" % (common.POLYMARKET_GAMMA_BASE, m.get("id")),
             })
     open_markets = [m for m in markets if not m["closed"]]
-    log("polymarket: %d open markets extracted" % len(open_markets))
+    common.log("polymarket: %d open markets extracted" % len(open_markets))
 
     payload = {
         "source": "Polymarket (gamma API)",
@@ -135,7 +135,7 @@ def fetch_polymarket():
         with open(os.path.join(artifact, "polymarket_lol_events_full.json"), "w") as f:
             json.dump(events, f)
     except Exception as e:
-        log("warning: could not write artifact: %s" % e)
+        common.log("warning: could not write artifact: %s" % e)
     return payload
 
 
@@ -143,13 +143,13 @@ def fetch_polymarket():
 # Kalshi
 # ---------------------------------------------------------------------------
 def fetch_kalshi():
-    log("kalshi: verifying KXLOL series")
+    common.log("kalshi: verifying KXLOL series")
     series, status = common.http_get_json(
         "%s/series/%s" % (common.KALSHI_API_BASE, common.KALSHI_LOL_SERIES))
     if status != 200 or not isinstance(series, dict) or "series" not in series:
         raise RuntimeError("kalshi /series failed (HTTP %s)" % status)
     s = series["series"]
-    log("kalshi: series %s title=%s category=%s tags=%s" %
+    common.log("kalshi: series %s title=%s category=%s tags=%s" %
         (s.get("ticker"), s.get("title"), s.get("category"), s.get("tags")))
 
     markets = []
@@ -188,7 +188,7 @@ def fetch_kalshi():
         cursor = page.get("cursor")
         if not cursor:
             break
-    log("kalshi: %d open KXLOL markets extracted" % len(markets))
+    common.log("kalshi: %d open KXLOL markets extracted" % len(markets))
 
     payload = {
         "source": "Kalshi (KXLOL series)",
@@ -219,7 +219,7 @@ def urllib_quote(s):
 # Pinnacle
 # ---------------------------------------------------------------------------
 def fetch_pinnacle():
-    log("pinnacle: verifying E Sports sport id")
+    common.log("pinnacle: verifying E Sports sport id")
     sports, status = common.http_get_json(common.PINNACLE_API_BASE + "/sports")
     if status != 200 or not isinstance(sports, list):
         raise RuntimeError("pinnacle /sports failed (HTTP %s)" % status)
@@ -236,7 +236,7 @@ def fetch_pinnacle():
     if status != 200 or not isinstance(leagues, list):
         raise RuntimeError("pinnacle /leagues failed (HTTP %s)" % status)
     lol_leagues = [l for l in leagues if (l.get("name") or "").startswith("League of Legends")]
-    log("pinnacle: %d LoL leagues with lines: %s" %
+    common.log("pinnacle: %d LoL leagues with lines: %s" %
         (len(lol_leagues), [l.get("name") for l in lol_leagues]))
 
     matchups = []
@@ -244,7 +244,7 @@ def fetch_pinnacle():
         mid_url = "%s/leagues/%s/matchups" % (common.PINNACLE_API_BASE, lg["id"])
         page, status = common.http_get_json(mid_url)
         if status != 200 or not isinstance(page, list):
-            log("pinnacle: league %s matchups fetch failed (HTTP %s)" % (lg["id"], status))
+            common.log("pinnacle: league %s matchups fetch failed (HTTP %s)" % (lg["id"], status))
             continue
         for m in page:
             if m.get("type") != "matchup":
@@ -278,7 +278,7 @@ def fetch_pinnacle():
                 "odds": odds,
                 "url": "%s/matchups/%s" % (common.PINNACLE_API_BASE, m.get("id")),
             })
-    log("pinnacle: %d LoL matchups extracted" % len(matchups))
+    common.log("pinnacle: %d LoL matchups extracted" % len(matchups))
 
     payload = {
         "source": "Pinnacle (guest Arcadia API)",
@@ -310,7 +310,7 @@ def main():
         try:
             fn()
         except Exception as e:
-            log("ERROR: %s fetch failed: %s" % (name, e))
+            common.log("ERROR: %s fetch failed: %s" % (name, e))
             failures.append(name)
             try:
                 common.save_snapshot(SNAPSHOT_NAMES[name], "(fetch failed)", None, None)
@@ -320,8 +320,8 @@ def main():
     if failures and len(failures) == 3:
         common.fail("all odds sources failed: %s" % ", ".join(failures))
     if failures:
-        log("WARNING: continuing with degraded sources (failed: %s)" % ", ".join(failures))
-        log("degraded-source state is recorded in data/raw/manifest.json and surfaced on the site")
+        common.log("WARNING: continuing with degraded sources (failed: %s)" % ", ".join(failures))
+        common.log("degraded-source state is recorded in data/raw/manifest.json and surfaced on the site")
 
 
 if __name__ == "__main__":
