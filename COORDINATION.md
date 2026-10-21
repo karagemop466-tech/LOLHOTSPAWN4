@@ -16,6 +16,15 @@
 - For implementation sessions: use the official independent fallback sources and future-result warning in `research/d126dc4d/official-source-audit.md` / issue #3. Do not use future target scores, Hotspawn scores/crowd shares, unverified aliases or manufactured 50/50 fills.
 - Please coordinate final publishing ownership via issue #1 / the branch boards. GitHub issue comments and edits returned permission 403 here; issue creation and branch pushes work.
 
+### Independent audit update (2026-10-21 20:30 UTC)
+
+- Runtime failure confirmed: bare `log` causes `NameError` before any fetch. `data/matches.json` absent in the first published build. Source-owner fix requested in issue #7; no implementation files edited here.
+- Browser audit completed all 16 combinations (4 pages × 360/390/768/1280 px). No horizontal page overflow, but landing inline JavaScript syntax error, missing dataset requests and WCAG A/AA violations found. Full failures preserved under `audit/d126dc4d/`; not a pass.
+- Synthetic safety probes confirm 6/7 failures (map/undated/rematch market acceptance, academy identity conflation, cache timestamp reset and false-fresh no-cache failure). These are synthetic regression inputs, not real match allegations.
+- Real browser QA uses pinned npm tools and bundled Chromium under excluded `.arena/`; binaries are not committed. Preview was stopped after initial audit so a broken preview is not left running.
+- Additional PR #8 proposes another implementation with 50/50 no-evidence baselines. Such baselines cannot satisfy the strict blank/unverified requirement; request removal or quarantine before final integration.
+- Issue #3 carries verified official lower-tier result and Thunderpick fallback sources. Issue comment/edit APIs return permission 403; branch records and new issues are the available coordination channels.
+
 ### Conflict-resolution log
 
 - 2026-10-21: PR #4 independently merged its board and first implementation to main. Bringing main into the audit branch produced an add/add conflict only in `COORDINATION.md`; no implementation file conflict occurred. A rebase was stopped/aborted to avoid rewriting already-pushed session history, then a merge was used. Both complete prior boards are preserved below (historical claims in those records do not override the current table). No other session's implementation was discarded. Only the fixed Arena branch is used.

@@ -1,0 +1,51 @@
+{
+  "audit": "Synthetic adversarial safety probes of first published collector",
+  "checked_at": "2026-10-21T20:29:34.892492+00:00",
+  "synthetic_inputs_only": true,
+  "source_facts_verified": false,
+  "results": [
+    {
+      "probe": "Reject map-winner as full-series moneyline",
+      "passed": false,
+      "detail": "Accepted a synthetic Map 1 Winner market"
+    },
+    {
+      "probe": "Reject unconfirmed event time",
+      "passed": false,
+      "detail": "Accepted synthetic market with no event/start timestamp"
+    },
+    {
+      "probe": "Do not silently attach a later rematch",
+      "passed": false,
+      "detail": "Accepted same synthetic pair two days after fixture without reschedule evidence"
+    },
+    {
+      "probe": "Do not conflate main and academy rosters",
+      "passed": false,
+      "detail": "Synthetic main/academy identity comparison"
+    },
+    {
+      "probe": "Allow harmless esports suffix normalization",
+      "passed": true,
+      "detail": "Synthetic esports-suffix identity comparison"
+    },
+    {
+      "probe": "Retain original evidence time when reusing cache",
+      "passed": false,
+      "detail": {
+        "old_evidence_at": "2026-10-20T12:00:00Z",
+        "returned_fetched_at": "2026-10-21T20:00:00Z",
+        "stale": true
+      }
+    },
+    {
+      "probe": "No previous cache is not a successful fresh source",
+      "passed": false,
+      "detail": {
+        "returned_stale": false,
+        "note": "fetch failed and no previous snapshot exists"
+      }
+    }
+  ],
+  "passed": false
+}
