@@ -34,7 +34,8 @@
       <a href="https://play.hotspawn.com/lol-pickems" target="_blank" rel="noopener">Hotspawn Pick'em Lobby ↗</a>.
       Crucially, <b>Hotspawn crowd percentage is NEVER used as an indicator or input for match win probability</b>. 
       Instead, every match is priced by our multi-layered pipeline: established commercial sportsbooks (Pinnacle/bet365 via OddsPapi), prediction markets (Polymarket), 
-      our own originated Elo model built from official Leaguepedia match results, or a transparent 50/50 baseline for unresolved amateur fixtures.
+      our own derived lines from Kalshi tournament futures, our own originated Elo model built from Leaguepedia competitive match results, 
+      or a transparent 50/50 "no edge" baseline for unresolved amateur fixtures.
     </p>
 
     <!-- Prominent In-Site Links for Mobile and Desktop Users -->
@@ -44,7 +45,7 @@
           <span>🎯 All Picks</span>
           <span>→</span>
         </div>
-        <div class="desc">Browse full list of all 190+ League of Legends matches with win probabilities and clear picks.</div>
+        <div class="desc">Browse the full list of every scheduled League of Legends match with win probabilities and clear picks.</div>
       </a>
       <a href="unresolved.html" class="big-link-card">
         <div class="title">
@@ -93,8 +94,9 @@
       </p>
       <p><b>Resolution Protocol:</b></p>
       <ul>
+        <li><b>Derived Line from Kalshi Futures:</b> If both teams have open tournament-futures markets in the same Kalshi KXLOL event, we originate a transparent ratio line p(A)=f(A)/(f(A)+f(B)) from the futures mids (labeled as our line, not a book line).</li>
         <li><b>Our Originated Elo Model:</b> If either participating team has competitive game logs recorded within the last 180 days on Leaguepedia's Cargo database, we calculate an Elo rating and shrink the probability toward 50% based on sample size.</li>
-        <li><b>50/50 Baseline (No Edge):</b> When neither team possesses any verifiable competitive match history in public esports databases, our system assigns an explicit <b>50.0% / 50.0%</b> win probability. The nominal pick is flagged, and users are cautioned that no analytical edge exists.</li>
+        <li><b>50/50 Baseline (No Edge):</b> When neither team possesses any verifiable competitive match history in public esports databases, our system assigns an explicit <b>50.0% / 50.0%</b> win probability and displays <b>⚖️ No Edge</b> — no analytical edge exists.</li>
       </ul>
       <p><b>Explicit Limitations for Low-Tier & Unresolved Fixtures:</b></p>
       <ul>
@@ -131,7 +133,7 @@
   <footer>
     <div class="footer-inner">
       <div>
-        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated 6-hour refresh via GitHub Actions.
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated refresh every 4–6 hours via GitHub Actions.
       </div>
       <div>
         <a href="methodology.html">Methodology & Verified Sources</a> · 
@@ -143,6 +145,7 @@
   <script src="assets/app.js"></script>
   <script>
     fetchPicksData().then(data => {
+      showStaleBanner(data);
       // Update header
       const dt = new Date(data.generated_at);
       document.getElementById('last-updated').textContent = `Updated: ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()} (${data.count} matches)`;
@@ -151,7 +154,7 @@
       document.getElementById('stat-total').textContent = data.count || 0;
       const c = data.counts_by_method || {};
       document.getElementById('stat-market').textContent = (c.MARKET_BOOKS || 0) + (c.MARKET_POLYMARKET || 0);
-      document.getElementById('stat-model').textContent = c.MODEL_ELO || 0;
+      document.getElementById('stat-model').textContent = (c.MODEL_ELO || 0) + (c.KALSHI_FUTURES || 0);
       document.getElementById('stat-unres').textContent = c.UNRESOLVED || 0;
       
       // Render featured market picks

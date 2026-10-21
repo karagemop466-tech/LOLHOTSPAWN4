@@ -1,35 +1,44 @@
 name: refresh
 
-# Refreshes the LoL Hotspawn pick dataset (match list + external lines) and
-# commits it back to the branch it runs on. GitHub Pages serves main, so the
-# published site updates automatically after each successful run.
+# Refreshes the LoL Hotspawn pick dataset (match list + external lines +
+# resolved picks) and commits it back to the branch it runs on. GitHub Pages
+# serves main, so the published site updates automatically after each
+# successful run.
 #
 # Schedule: every 4 hours (within the required 4-8 hour window).
 # Manual:   gh workflow run refresh.yml --ref <branch>
+#
+# A second workflow (update-picks.yml, every 6h) runs the identical chain as
+# a backup cadence. Both share the concurrency group below, so they never
+# run at the same time and cannot race on the data commit.
 
 on:
   schedule:
     - cron: "0 */4 * * *"
   workflow_dispatch:
-  # Pushes to main (e.g., integration merges) refresh immediately. Bot commits
-  # from this workflow are excluded by the job-level `if` below to prevent a
-  # commit -> push -> run -> commit loop.
+  # Pushes to main (e.g., integration merges) refresh immediately. Bot data
+  # commits from either refresh workflow are excluded by the job-level `if`
+  # below to prevent a commit -> push -> run -> commit loop.
   push:
     branches: [main]
 
 permissions:
   contents: write
 
+concurrency:
+  group: lol-pick-refresh
+  cancel-in-progress: false
+
 jobs:
   refresh:
-    if: "github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'data: refresh')"
+    if: "github.event_name != 'push' || (!startsWith(github.event.head_commit.message, 'data: refresh') && !startsWith(github.event.head_commit.message, 'picks: scheduled'))"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -44,14 +53,47 @@ jobs:
             python collector/fetch_hotspawn.py || echo "FAILED_WITH_EXIT_$?"
             echo '## fetch_odds'
             python collector/fetch_odds.py || echo "FAILED_WITH_EXIT_$?"
-            echo '## build'
-            python collector/build.py || echo "FAILED_WITH_EXIT_$?"
-            echo '## update_picks (our originated Elo lines)'
+            echo '## update_picks (resolve every fixture into picks.json)'
             python3 scripts/update_picks.py || echo "FAILED_WITH_EXIT_$?"
           } 2>&1 | tee "$GITHUB_STEP_SUMMARY"
           if grep -q "FAILED_WITH_EXIT_" "$GITHUB_STEP_SUMMARY"; then
-            echo "::warning::One or more collector steps exited non-zero; fallback data preserved"
+            echo "::error::one or more steps failed; previous data is preserved (site unchanged until fixed)"
+            # Re-emit the tail as annotations so the traceback is retrievable
+            # via the checks API even if the log endpoint is down.
+            tail -40 "$GITHUB_STEP_SUMMARY" | while IFS= read -r line; do
+              echo "::error file=collector/detail.txt::${line}"
+            done
+            exit 1
           fi
+
+      - name: Verify data integrity (picks, probabilities, schema)
+        run: |
+          python3 - <<'PY'
+          import json
+
+          data = json.load(open('data/picks.json', 'r', encoding='utf-8'))
+          count = data.get('count', 0)
+          matches = data.get('matches', [])
+          assert count > 0, "No matches found in data/picks.json"
+          assert len(matches) == count, "count vs matches len mismatch"
+
+          allowed = {'MARKET_BOOKS', 'MARKET_POLYMARKET', 'KALSHI_FUTURES',
+                     'MODEL_ELO', 'UNRESOLVED'}
+          for m in matches:
+              assert m.get('team1'), "Missing team1: %s" % m
+              assert m.get('team2'), "Missing team2: %s" % m
+              assert m.get('pick') in (m['team1'], m['team2']), "Pick not in teams: %s" % m
+              p1 = m.get('prob_team1', 0)
+              p2 = m.get('prob_team2', 0)
+              assert abs((p1 + p2) - 1.0) < 0.01, "Probabilities do not sum to 1.0: %s" % m
+              assert m.get('method') in allowed, "Invalid method: %s" % m
+              assert m.get('source_url') or m.get('market_url') or m.get('hotspawn_url'), \
+                  "Missing source link: %s" % m
+
+          c = data.get('counts_by_method', {})
+          assert c.get('UNRESOLVED', -1) == sum(1 for m in matches if m['method'] == 'UNRESOLVED')
+          print("Data verification passed: %d matches. %s" % (count, c))
+          PY
 
       - name: Upload raw audit artifact
         if: always()
@@ -61,15 +103,18 @@ jobs:
           path: |
             ${{ runner.temp }}/polymarket_lol_events_full.json
             data/raw/manifest.json
+            data/raw/leaguepedia_games.json
           if-no-files-found: ignore
 
       - name: Commit updated data
         run: |
           git config user.name "LOL Hotspawn pick desk"
           git config user.email "pickdesk@users.noreply.github.com"
-          if git status --porcelain -- data docs/data | grep -q .; then
-            git add data docs/data
+          if git status --porcelain -- data | grep -q .; then
+            git add data
             git commit -m "data: refresh LoL Hotspawn picks at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
             git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
           else
             echo "No data changes; nothing to commit."

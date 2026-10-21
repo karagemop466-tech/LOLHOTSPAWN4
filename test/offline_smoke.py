@@ -1,252 +1,288 @@
-"""Offline smoke test for the collector pipeline.
+#!/usr/bin/env python3
+"""Offline smoke test for the canonical pick pipeline (scripts/update_picks.py).
 
-Stubs common.http_get_json with canned responses shaped like the REAL API
-payloads captured during source verification (2026-10-21), runs the three
-collector steps, and asserts the expected matching/pick behaviour.
+Builds a temp-dir replica of the repo with fabricated-but-realistically-shaped
+raw snapshots (matching the verified API payload shapes recorded in
+COORDINATION.md), runs update_picks.py in --offline mode, and asserts:
 
-Run from a scratch copy of the repo (never the live data/ dir):
-    cp -r <repo> /tmp/smoke && cd /tmp/smoke && python3 test/offline_smoke.py
+  * Polymarket match lines: G2/DK 0.395/0.605 -> pick Dplus KIA
+    (plus Pinnacle coverage flag on the same row)
+  * Verified alias: Hotspawn "LØS" == Polymarket/Kalshi "LOS"
+    (T1/LØS market line -> pick T1)
+  * Game-1-only market is used AND flagged (Galions/Solary)
+  * Kalshi futures ratio model (TL 0.015 vs CFO 0.005 -> TL 75%)
+  * Leaguepedia Elo model from the persistent cache (Venus beats Nameless)
+  * UNRESOLVED 50/50 with no_edge (no invented favorite)
+  * Stale (locked-out) fixture moved to excluded_stale, not matches
+  * Manifest stale source surfaced in stale_sources
+
+Run: python3 test/offline_smoke.py   (exits 0 with "SMOKE TEST PASSED" on success)
 """
 
 import json
 import os
 import shutil
+import subprocess
 import sys
 import tempfile
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(REPO, "collector"))
-
-import common  # noqa: E402
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+NOW = datetime.now(timezone.utc)
 
 
-def iso2ms(s):
-    return str(int(datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ")
-                   .replace(tzinfo=timezone.utc).timestamp() * 1000))
+def iso(dt):
+    return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def fx(i, comp, a, b, start, tier="c", stage="waiting for information", pts=10):
+def ms(dt):
+    return str(int(dt.timestamp() * 1000))
+
+
+def fixture(mid, t1, t2, comp, start_dt, lock_dt):
     return {
-        "id": str(i), "competition_id": "999", "competition_name": comp,
-        "sport_alias": "lol", "sport_name": "League of Legends",
+        "id": str(mid),
+        "competition_id": "1",
+        "competition_name": comp,
+        "sport_alias": "lol",
         "status": "scheduled",
-        "scheduled_start_time": iso2ms(start), "lock_time": iso2ms(start),
-        "lock_offset_sec": 300, "offered_points": pts, "base_points": pts,
-        "best_of": None, "series_format": None, "tier": tier, "stage": stage,
-        "points_breakdown": {"game_multiplier": 1.25, "tier_multiplier": 1,
-                             "series_multiplier": 1, "stage_multiplier": 1,
-                             "tournament_multiplier": 1},
-        "start_time": None, "end_time": None, "total_picks": 0,
-        "participants0_id": "1", "participants0_name": a,
-        "participants0_picked_percent": 0, "participants0_score": 0,
-        "participants1_id": "2", "participants1_name": b,
-        "participants1_picked_percent": 0, "participants1_score": 0,
+        "scheduled_start_time": ms(start_dt),
+        "lock_time": ms(lock_dt),
+        "lock_offset_sec": 300,
+        "offered_points": 10,
+        "base_points": 10,
+        "best_of": 1,
+        "tier": "waiting for information",
+        "stage": "waiting for information",
+        "points_breakdown": {"game_multiplier": 1},
+        "participants0_id": "100",
+        "participants0_name": t1,
+        "participants0_picked_percent": 0,
+        "participants0_score": 0,
+        "participants1_id": "101",
+        "participants1_name": t2,
+        "participants1_picked_percent": 0,
+        "participants1_score": 0,
     }
 
 
-# --- canned responses (shapes verified against live APIs 2026-10-21) --------
-HOTSPAWN_FIXTURES = [
-    fx(501, "Benelux Ascend Series 2026 Summer Split", "Mind Blue eSports",
-       "LAST DANCE", "2026-10-21T16:00:00Z"),
-    fx(502, "World Championship 2026", "G2", "Dplus KIA",
-       "2026-10-23T20:00:00Z", tier="s", pts=30),
-    fx(503, "World Championship 2026", "Anyone's Legend", "Karmine Corp",
-       "2026-10-23T19:00:00Z", tier="s", pts=30),
-    fx(504, "World Championship 2026", "T1", "Gen.G",
-       "2026-10-24T11:00:00Z", tier="s", pts=30),
-    fx(505, "EMEA Masters 2026", "Solary", "Galions",
-       "2026-10-22T16:00:00Z", tier="b", stage="playoffs", pts=15),
-    fx(506, "FPL 2026 Summer Playoffs", "Epic Avalanche", "Finnish Red Mafia",
-       "2026-10-22T07:00:00Z"),
-]
-
-POLY_SPORTS = [
-    {"id": 630, "sport": "ufl", "name": "UFL", "primaryTagId": 105925, "series": "12553"},
-    {"id": 39, "sport": "lol", "name": "LoL", "primaryTagId": 65, "series": "10311",
-     "resolution": "https://liquipedia.net/leagueoflegends/Main_Page"},
-]
-
-
-def pm_event(slug, title, start, end, markets):
-    return {"id": "1214242", "slug": slug, "title": title, "startDate": start,
-            "endDate": end, "active": True, "closed": False, "markets": markets}
-
-
-def pm_market(qid, question, outcomes, prices, game_start=None, group=None, vol=1000.0):
-    m = {"id": str(qid), "question": question,
-         "outcomes": json.dumps(outcomes), "outcomePrices": json.dumps(prices),
-         "closed": False, "active": True, "volumeNum": vol}
-    if game_start:
-        m["gameStartTime"] = game_start
-    if group:
-        m["groupItemTitle"] = group
-    return m
-
-
-POLY_EVENTS = [
-    pm_event("lol-g2-dk-2026-10-23",
-             "LoL: G2 Esports vs Dplus KIA (BO1) - Worlds Group Stage",
-             "2026-10-18T20:50:18Z", "2026-10-24T02:00:00Z",
-             [pm_market(5906214,
-                        "LoL: G2 Esports vs Dplus KIA (BO1) - Worlds Group Stage",
-                        ["G2 Esports", "Dplus KIA"], ["0.395", "0.605"],
-                        game_start="2026-10-23 20:00:00+00", vol=290206.78)]),
-    pm_event("worlds-2026-winner", "Worlds 2026: Winner",
-             "2026-09-09T02:42:46Z", "2026-11-29T04:59:00Z",
-             [pm_market(4397022, "Will Gen.G win Worlds 2026?", ["Yes", "No"],
-                        ["0.335", "0.665"], group="Gen.G", vol=198475.99),
-              pm_market(4397025, "Will T1 win Worlds 2026?", ["Yes", "No"],
-                        ["0.155", "0.845"], group="T1", vol=147699.52)]),
-    pm_event("emea-masters-solary-galions", "LoL: Solary vs Galions (BO5) - EMEA Masters",
-             "2026-10-18T00:00:00Z", "2026-10-23T00:00:00Z",
-             [pm_market(6000001, "LoL: Solary vs Galions (BO5) - EMEA Masters",
-                        ["Solary", "Galions"], ["0.55", "0.45"],
-                        game_start="2026-10-22 16:00:00+00", vol=42000.0)]),
-]
-
-KALSHI_SERIES = {"series": {"ticker": "KXLOL", "title": "League of Legends",
-                            "category": "Sports", "tags": ["Esports"],
-                            "settlement_sources": [{"name": "LoL Esports",
-                                                    "url": "https://lolesports.com/en-US/"}]}}
-
-
-def kl_market(ticker, title, sub, event, bid, ask, mid):
-    return {"ticker": ticker, "title": title, "yes_sub_title": sub,
-            "event_ticker": event, "status": "active",
-            "yes_bid_dollars": str(bid), "yes_ask_dollars": str(ask),
-            "last_price_dollars": str(mid), "volume_fp": "100.0"}
-
-
-KALSHI_MARKETS = {"cursor": "", "markets": [
-    kl_market("KXLOL-WORLDS26-T1", "Will T1 win League of Legends Worlds?", "T1",
-              "KXLOL-WORLDS26", 0.17, 0.18, 0.175),
-    kl_market("KXLOL-WORLDS26-GG", "Will Gen.G win League of Legends Worlds?", "Gen.G",
-              "KXLOL-WORLDS26", 0.32, 0.34, 0.33),
-    kl_market("KXLOL-WORLDS26-TL", "Will Team Liquid win League of Legends Worlds?",
-              "Team Liquid", "KXLOL-WORLDS26", 0.01, 0.02, 0.015),
-]}
-
-PINNACLE_SPORTS = [{"id": 12, "name": "E Sports", "matchupCount": 43}]
-PINNACLE_LEAGUES = [
-    {"id": 9587, "name": "League of Legends - World Championship", "matchupCount": 10},
-    {"id": 225201, "name": "League of Legends - EMEA Masters", "matchupCount": 1},
-    {"id": 276139, "name": "CS2 - DraculaN", "matchupCount": 2},
-]
-
-
-def pk_matchup(mid, home, away, start, bo):
-    return {"id": mid, "type": "matchup", "startTime": start, "bestOfX": bo,
-            "status": "pending", "hasMarkets": True, "parent": None,
-            "participants": [{"alignment": "home", "name": home},
-                             {"alignment": "away", "name": away}]}
-
-
-PINNACLE_MATCHUPS = {
-    "9587": [pk_matchup(1638750815, "G2", "Dplus KIA", "2026-10-23T20:00:00Z", 1),
-             pk_matchup(1638750902, "Anyone's Legend", "Karmine Corp",
-                        "2026-10-23T19:00:00Z", 1)],
-    "225201": [pk_matchup(1638709103, "Solary", "Galions", "2026-10-22T16:00:00Z", 5)],
-}
-
-
-def stub_http_get_json(url, timeout=60, retries=3, backoff=5):
-    u = url.split("?")[0]
-    if u.endswith("/api/v1/fixtures"):
-        return list(HOTSPAWN_FIXTURES), 200
-    if u.endswith("/sports") and "polymarket" in url:
-        return list(POLY_SPORTS), 200
-    if u.endswith("/events"):
-        offset = 0
-        if "offset=" in url:
-            offset = int(url.split("offset=")[1].split("&")[0])
-        return POLY_EVENTS[offset:offset + 100], 200
-    if u.endswith("/series/KXLOL"):
-        return KALSHI_SERIES, 200
-    if u.endswith("/markets") and "kalshi" in url:
-        return KALSHI_MARKETS, 200
-    if u.endswith("/sports") and "pinnacle" in url:
-        return list(PINNACLE_SPORTS), 200
-    if u.endswith("/leagues"):
-        return list(PINNACLE_LEAGUES), 200
-    if "/leagues/" in u and u.endswith("/matchups"):
-        lid = u.split("/leagues/")[1].split("/")[0]
-        return PINNACLE_MATCHUPS.get(lid, []), 200
-    if u.endswith("/markets") and "pinnacle" in url:
-        return {"detail": "The requested URL was not found on the server."}, 404
-    raise AssertionError("unexpected URL in smoke test: %s" % url)
+def market(question, outs, prices, url, game_start=None, volume=1000.0, closed=False):
+    return {
+        "question": question,
+        "outcomes": outs,
+        "prices": prices,
+        "url": url,
+        "game_start": game_start,
+        "event_start": None,
+        "volume": volume,
+        "closed": closed,
+    }
 
 
 def main():
-    # isolated scratch repo copy
     tmp = tempfile.mkdtemp(prefix="smoke-")
-    for item in ("collector", "test"):
-        src = os.path.join(REPO, item)
-        dst = os.path.join(tmp, item)
-        shutil.copytree(src, dst)
-    os.chdir(tmp)
-    # re-import the copied common so REPO_ROOT points at tmp
-    for mod in ("common", "fetch_hotspawn", "fetch_odds", "build"):
-        sys.modules.pop(mod, None)
-    sys.path.insert(0, os.path.join(tmp, "collector"))
-    import common as tcommon  # noqa: E402
-    import fetch_hotspawn as fhs  # noqa: E402
-    import fetch_odds as fo  # noqa: E402
-    import build as bld  # noqa: E402
-    tcommon.http_get_json = stub_http_get_json
+    try:
+        # --- replicate repo layout -------------------------------------
+        os.makedirs(os.path.join(tmp, "scripts"))
+        os.makedirs(os.path.join(tmp, "collector"))
+        os.makedirs(os.path.join(tmp, "data", "raw"))
+        shutil.copy(os.path.join(HERE, "scripts", "update_picks.py"),
+                    os.path.join(tmp, "scripts", "update_picks.py"))
+        shutil.copy(os.path.join(HERE, "collector", "common.py"),
+                    os.path.join(tmp, "collector", "common.py"))
 
-    fhs.main()
-    fo.main()
-    bld.main()
+        raw = os.path.join(tmp, "data", "raw")
 
-    data = tcommon.read_json(os.path.join(tmp, "data", "matches.json"))
-    by_id = {m["hotspawn_id"]: m for m in data["matches"]}
+        d_start_g2dk = NOW + timedelta(days=2)
+        d_start_los = NOW + timedelta(days=2, hours=2)
+        d_start_sly = NOW + timedelta(days=1)
+        d_start_cfo = NOW + timedelta(days=3)
+        d_start_mb = NOW + timedelta(days=4)
+        d_start_venus = NOW + timedelta(days=5)
+        d_stale_start = NOW - timedelta(days=10)
 
-    # 1. G2 vs DK -> market line from Polymarket + Pinnacle coverage
-    g2 = by_id["502"]
-    assert g2["pick_basis"] == "market-line", g2
-    assert abs(g2["prob_team_a"] - 0.395) < 1e-9 and abs(g2["prob_team_b"] - 0.605) < 1e-9
-    assert g2["pick"] == "Dplus KIA" and g2["pick_side"] == "b"
-    assert g2["pinnacle_covered"] is True
-    assert any(l["source"] == "Polymarket" and l["kind"] == "match-winner-market"
-               for l in g2["lines"])
-    assert any(l["source"] == "Pinnacle" for l in g2["lines"])
-    pm_link = [l for l in g2["lines"] if l["source"] == "Polymarket"][0]["url"]
-    assert pm_link == "https://polymarket.com/event/lol-g2-dk-2026-10-23"
+        fixtures = [
+            fixture(1, "G2 Esports", "Dplus KIA", "Worlds 2026 Main Event",
+                    d_start_g2dk, d_start_g2dk - timedelta(minutes=5)),
+            fixture(2, "T1", "L\u00d8S", "Worlds 2026 Main Event",
+                    d_start_los, d_start_los - timedelta(minutes=5)),
+            fixture(3, "Galions", "Solary", "EMEA Masters 2026",
+                    d_start_sly, d_start_sly - timedelta(minutes=5)),
+            fixture(4, "Team Liquid", "CTBC Flying Oyster", "Worlds 2026 Main Event",
+                    d_start_cfo, d_start_cfo - timedelta(minutes=5)),
+            fixture(5, "Mind Blue eSports", "LAST DANCE", "Benelux Ascend Series",
+                    d_start_mb, d_start_mb - timedelta(minutes=5)),
+            fixture(6, "Venus", "Nameless", "Benelux Rising Playoffs",
+                    d_start_venus, d_start_venus - timedelta(minutes=5)),
+            fixture(7, "Old Team A", "Old Team B", "Some Old Cup",
+                    d_stale_start, d_stale_start - timedelta(minutes=5)),
+        ]
+        with open(os.path.join(raw, "hotspawn_fixtures_scheduled.json"), "w") as f:
+            json.dump(fixtures, f)
 
-    # 2. AL vs KC -> unresolved (no Polymarket market, no futures inputs)
-    al = by_id["503"]
-    assert al["pick_basis"] is None and al["pick"] is None
-    assert al["prob_team_a"] is None and al["prob_team_b"] is None
-    assert "no-external-market-found" in al["flags"]
-    assert al["pinnacle_covered"] is True
+        with open(os.path.join(raw, "polymarket_lol_markets.json"), "w") as f:
+            json.dump({"source": "test", "markets": [
+                market("LoL: G2 Esports vs Dplus KIA (BO1) - Worlds Group Stage",
+                       ["G2 Esports", "Dplus KIA"], [0.395, 0.605],
+                       "https://polymarket.com/event/lol-g2-dk-test",
+                       iso(d_start_g2dk), 290000.0),
+                market("LoL: LOS vs T1 (BO1) - Worlds Group Stage",
+                       ["LOS", "T1"], [0.125, 0.875],
+                       "https://polymarket.com/event/lol-los-t1-test",
+                       iso(d_start_los), 32000.0),
+                market("LoL: Galions vs Solary - Game 1 Winner",
+                       ["Galions", "Solary"], [0.515, 0.485],
+                       "https://polymarket.com/event/lol-gal-sly-test",
+                       iso(d_start_sly), 41000.0),
+                market("Will a team from LCK win Worlds?",
+                       ["Yes", "No"], [0.725, 0.275],
+                       "https://polymarket.com/event/future-test"),
+            ]}, f)
 
-    # 3. T1 vs Gen.G -> derived estimate from Kalshi futures
-    t1 = by_id["504"]
-    assert t1["pick_basis"] == "derived-estimate", t1
-    exp_a = 0.175 / (0.175 + 0.33)
-    assert abs(t1["prob_team_a"] - exp_a) < 1e-9
-    assert t1["pick"] == "Gen.G"
-    assert any(l["kind"] == "derived-estimate-input" for l in t1["lines"])
+        with open(os.path.join(raw, "kalshi_lol_markets.json"), "w") as f:
+            json.dump({"source": "test", "markets": [
+                {"title": "Will Team Liquid win Worlds?", "subtitle": "Team Liquid",
+                 "ticker": "KXLOL-TEST-TL", "mid": 0.015, "status": "active",
+                 "event_ticker": "KXLOL-TEST",
+                 "url": "https://kalshi.com/markets/KXLOL-TEST-TL"},
+                {"title": "Will CTBC Flying Oyster win Worlds?", "subtitle": "CTBC Flying Oyster",
+                 "ticker": "KXLOL-TEST-CFO", "mid": 0.005, "status": "active",
+                 "event_ticker": "KXLOL-TEST",
+                 "url": "https://kalshi.com/markets/KXLOL-TEST-CFO"},
+                {"title": "Will T1 win Worlds?", "subtitle": "T1",
+                 "ticker": "KXLOL-TEST-T1", "mid": 0.175, "status": "active",
+                 "event_ticker": "KXLOL-TEST",
+                 "url": "https://kalshi.com/markets/KXLOL-TEST-T1"},
+            ]}, f)
 
-    # 4. Solary vs Galions -> EMEA Masters market line
-    sol = by_id["505"]
-    assert sol["pick_basis"] == "market-line" and sol["pick"] == "Solary"
-    assert sol["pinnacle_covered"] is True
+        with open(os.path.join(raw, "pinnacle_lol_matchups.json"), "w") as f:
+            json.dump({"source": "test", "matchups": [
+                {"matchup_id": "1", "league_id": 9587,
+                 "league_name": "League of Legends - World Championship",
+                 "home": "G2 Esports", "away": "Dplus KIA",
+                 "start_time": iso(d_start_g2dk), "best_of": 1, "status": "pending",
+                 "has_markets": True, "public_prices_available": False, "odds": None,
+                 "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1"},
+            ]}, f)
 
-    # 5. Low-tier fixtures -> unresolved, no lines
-    for i in ("501", "506"):
-        m = by_id[i]
-        assert m["pick_basis"] is None and m["lines"] == [] or \
-            all(l["kind"] == "listed-matchup-coverage" for l in m["lines"]), m
+        with open(os.path.join(raw, "leaguepedia_games.json"), "w") as f:
+            games = []
+            base = NOW - timedelta(days=60)
+            for i in range(10):
+                games.append([
+                    "Venus", "Nameless", "1",
+                    (base + timedelta(days=i * 3)).strftime("%Y-%m-%d %H:%M:%S"),
+                ])
+            json.dump({"games": games, "fetched_at": iso(NOW),
+                       "last_fetch_status": "test-seeded", "window_days": 180}, f)
 
-    s = data["summary"]
-    assert s["total_matches"] == 6
-    assert s["market_line"] == 2 and s["derived_estimate"] == 1 and s["unresolved"] == 3
-    assert s["pinnacle_covered"] == 3
-    print("\nSMOKE TEST PASSED:", json.dumps(s))
-    print("scratch dir:", tmp)
+        with open(os.path.join(raw, "manifest.json"), "w") as f:
+            json.dump({
+                "hotspawn_fixtures_scheduled.json": {"stale": False, "fetched_at": iso(NOW)},
+                "polymarket_lol_markets.json": {"stale": False, "fetched_at": iso(NOW)},
+                "kalshi_lol_markets.json": {"stale": True, "fetched_at": iso(NOW - timedelta(hours=30))},
+                "pinnacle_lol_matchups.json": {"stale": False, "fetched_at": iso(NOW)},
+            }, f)
+
+        # --- run the pipeline offline -----------------------------------
+        proc = subprocess.run(
+            [sys.executable, "scripts/update_picks.py", "--offline"],
+            cwd=tmp, capture_output=True, text=True)
+        print(proc.stdout)
+        if proc.returncode != 0:
+            print("STDERR:\n" + proc.stderr)
+            raise SystemExit("update_picks.py exited %d" % proc.returncode)
+
+        data = json.load(open(os.path.join(tmp, "data", "picks.json")))
+        by_pair = {}
+        for m in data["matches"]:
+            by_pair[(m["team1"], m["team2"])] = m
+
+        fails = []
+
+        def check(label, cond, detail=""):
+            if not cond:
+                fails.append("%s %s" % (label, detail))
+
+        check("count==6 pickable", data["count"] == 6,
+              "(got %s)" % data["count"])
+        check("excluded_stale==1", len(data["excluded_stale"]) == 1,
+              "(got %s)" % len(data["excluded_stale"]))
+        check("excluded id", data["excluded_stale"] and
+              data["excluded_stale"][0]["id"] == "7",
+              "(got %s)" % (data["excluded_stale"][:1]))
+        c = data["counts_by_method"]
+        check("counts", c == {"MARKET_BOOKS": 0, "MARKET_POLYMARKET": 3,
+                              "KALSHI_FUTURES": 1, "MODEL_ELO": 1,
+                              "UNRESOLVED": 1}, "(got %s)" % c)
+        check("stale_sources", data["stale_sources"] == ["kalshi_lol_markets.json"],
+              "(got %s)" % data["stale_sources"])
+
+        g2dk = by_pair.get(("G2 Esports", "Dplus KIA"))
+        check("g2dk exists", g2dk is not None)
+        if g2dk:
+            check("g2dk method", g2dk["method"] == "MARKET_POLYMARKET", g2dk["method"])
+            check("g2dk probs", g2dk["prob_team1"] == 0.395 and g2dk["prob_team2"] == 0.605,
+                  "%s/%s" % (g2dk["prob_team1"], g2dk["prob_team2"]))
+            check("g2dk pick", g2dk["pick"] == "Dplus KIA", g2dk["pick"])
+            check("g2dk pinnacle", g2dk.get("pinnacle_listed") is True)
+
+        los = by_pair.get(("T1", "L\u00d8S"))
+        check("los alias match", los is not None,
+              "(teams: %s)" % [k for k in by_pair if "T1" in k[0]])
+        if los:
+            check("los method", los["method"] == "MARKET_POLYMARKET", los["method"])
+            check("los pick", los["pick"] == "T1", los["pick"])
+            check("los prob", los["prob_team1"] == 0.875, str(los["prob_team1"]))
+
+        sly = by_pair.get(("Galions", "Solary"))
+        check("sly exists", sly is not None)
+        if sly:
+            check("sly flagged game-1", "Game-1 market only" in sly["evidence"],
+                  sly["evidence"][:80])
+            check("sly pick", sly["pick"] == "Galions", sly["pick"])
+
+        cfo = by_pair.get(("Team Liquid", "CTBC Flying Oyster"))
+        check("cfo exists", cfo is not None)
+        if cfo:
+            check("cfo method", cfo["method"] == "KALSHI_FUTURES", cfo["method"])
+            check("cfo pick", cfo["pick"] == "Team Liquid", cfo["pick"])
+            check("cfo prob", abs(cfo["prob_team1"] - 0.75) < 0.001,
+                  str(cfo["prob_team1"]))
+
+        mb = by_pair.get(("Mind Blue eSports", "LAST DANCE"))
+        check("mb exists", mb is not None)
+        if mb:
+            check("mb method", mb["method"] == "UNRESOLVED", mb["method"])
+            check("mb 50/50", mb["prob_team1"] == 0.5 and mb["prob_team2"] == 0.5)
+            check("mb no_edge", mb.get("no_edge") is True)
+
+        ven = by_pair.get(("Venus", "Nameless"))
+        check("venus exists", ven is not None)
+        if ven:
+            check("venus method", ven["method"] == "MODEL_ELO", ven["method"])
+            check("venus pick", ven["pick"] == "Venus", ven["pick"])
+            check("venus prob range", 0.6 < ven["prob_team1"] < 0.8,
+                  str(ven["prob_team1"]))
+
+        # schema invariants (same checks as the workflow verification step)
+        for m in data["matches"]:
+            assert m.get("team1") and m.get("team2")
+            assert m.get("pick") in (m["team1"], m["team2"])
+            assert abs((m.get("prob_team1", 0) + m.get("prob_team2", 0)) - 1.0) < 0.01
+            assert m.get("method") in ("MARKET_BOOKS", "MARKET_POLYMARKET",
+                                       "KALSHI_FUTURES", "MODEL_ELO", "UNRESOLVED")
+            assert m.get("source_url") or m.get("market_url") or m.get("hotspawn_url")
+
+        if fails:
+            print("SMOKE TEST FAILED:")
+            for f_ in fails:
+                print("  -", f_)
+            raise SystemExit(1)
+        print("SMOKE TEST PASSED: %s" % json.dumps(c))
+        print("scratch dir: %s" % tmp)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 if __name__ == "__main__":

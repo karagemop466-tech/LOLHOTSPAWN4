@@ -47,7 +47,7 @@
 
     <!-- Multi-Tier Pipeline -->
     <h2>⚙️ Multi-Layer Resolution Hierarchy</h2>
-    <p>Every match listed on Hotspawn is processed through a strict four-tiered resolution waterfall:</p>
+    <p>Every <b>available</b> pick (fixture whose Hotspawn pick-lock time has not passed) is processed through a strict five-stage resolution waterfall. Fixtures already locked out are excluded from the board and listed on the <a href="flagged.html#excluded-stale">Flagged for Review</a> page:</p>
 
     <div class="match-card market" style="margin-bottom:16px;">
       <h3>Tier 1: Commercial Esportsbooks & Sharp Betting Lines (De-vigged)</h3>
@@ -70,21 +70,52 @@
       <h3>Tier 2: Prediction Markets (Polymarket Gamma API)</h3>
       <p>
         For featured matchups traded on decentralized prediction markets, we query the 
-        <a href="https://gamma-api.polymarket.com/events?tag_slug=league-of-legends" target="_blank" rel="noopener">Polymarket Gamma API ↗</a>.
-        Traded outcome token prices directly reflect real-money equilibrium probabilities for match winners.
+        <a href="https://gamma-api.polymarket.com/events?tag_id=65&amp;closed=false" target="_blank" rel="noopener">Polymarket Gamma API ↗</a> (LoL primary tag, id 65 — verified 2026-10-21).
+        Traded outcome token prices directly reflect real-money equilibrium probabilities for match winners. We take the market
+        <b>mids exactly as reported</b> (no adjustment). A series/moneyline market is preferred over a Game-1 market;
+        when only a Game-1 market exists the row is flagged.
+      </p>
+      <p>
+        <b>Team-name matching:</b> markets are joined to fixtures on team names with a conservative matcher plus a small
+        <b>verified alias table</b>. The only current alias is <code>LØS (Hotspawn) = LOS (Polymarket/Kalshi)</code>, verified
+        2026-10-21 from the Polymarket event page <code>lol-los-t1-2026-10-23</code> and Kalshi market
+        <code>KXLOL-WORLDS26-LOS</code>. No unverified guesses are ever added.
       </p>
     </div>
 
     <div class="match-card model" style="margin-bottom:16px;">
-      <h3>Tier 3: Our Own Originated Line Model (Leaguepedia Cargo Elo)</h3>
+      <h3>Tier 3: Our Derived Line from Kalshi Tournament Futures (Ratio Model)</h3>
+      <p>
+        Where no per-match market exists but <b>both teams</b> have open tournament-futures markets in the same
+        <a href="https://api.elections.kalshi.com/trade-api/v2/series/KXLOL" target="_blank" rel="noopener">Kalshi KXLOL series ↗</a>
+        (public, no key; verified 2026-10-21), we originate our own line with a transparent ratio model:
+      </p>
+      <div style="background:#0d1527; padding:10px 14px; border-radius:8px; font-family:monospace; margin:8px 0;">
+        P(Team A) = f(A) / ( f(A) + f(B) )<br>
+        f = futures mid price (same event, both markets active)
+      </div>
+      <p>
+        Each row stores both futures mids, tickers, and links so the input is auditable. This is <b>our</b> line, not a
+        book line — it is labeled as a derived estimate on the board and in the <code>Method</code> filter.
+      </p>
+    </div>
+
+    <div class="match-card model" style="margin-bottom:16px;">
+      <h3>Tier 4: Our Own Originated Line Model (Leaguepedia Cargo Elo)</h3>
       <p>
         For the vast majority of matches that lack commercial sportsbook coverage (especially Tier-2, Tier-3, and European Regional Leagues), 
         <b>we originate our own proprietary lines</b>.
       </p>
       <p>
-        We build a continuous Elo rating system from official League of Legends match results recorded in the 
+        We build a continuous Elo rating system from competitive League of Legends match results recorded in the 
         <a href="https://lol.fandom.com/api.php?action=help&modules=cargoquery" target="_blank" rel="noopener">Leaguepedia Cargo API ↗</a> 
-        (<code>ScoreboardGames</code> table) spanning the past 180 days.
+        (<code>ScoreboardGames</code> table, community esports wiki — verified working 2026-10-21) spanning the past 180 days.
+        The fetch is deliberately polite: <b>one 500-game batch per refresh</b>, merged into a persistent cache
+        (<code>data/raw/leaguepedia_games.json</code>). Fandom rate-limits datacenter clients (observed 2026-10-21),
+        so on any rate-limit or fetch error the previous cache is reused and the model degrades gracefully
+        instead of failing the refresh. While the live cache is still filling, a <b>seeded ratings snapshot</b>
+        (<code>data/seeded_ratings.json</code> — this same model's earlier output, added in PR #14) fills the gaps;
+        seeded teams keep their small sample counts, so rows resolved from the seed are labeled <i>Low confidence</i>.
       </p>
       <ul>
         <li><b>Starting Rating:</b> $R_0 = 1500$</li>
@@ -103,7 +134,7 @@
     </div>
 
     <div class="match-card unresolved" style="margin-bottom:16px;">
-      <h3>Tier 4: Transparent 50/50 Baseline for Unresolved Amateur Matches</h3>
+      <h3>Tier 5: Transparent 50/50 Baseline for Unresolved Amateur Matches</h3>
       <p>
         When an amateur fixture has no external market lines and neither team has recorded games in competitive databases, 
         we refuse to invent probabilities or hallucinate player stats. 
@@ -174,6 +205,18 @@
             <td><a href="https://gol.gg/tournament/list/" target="_blank" rel="noopener">gol.gg ↗</a></td>
           </tr>
           <tr>
+            <td><b>Kalshi KXLOL Series</b></td>
+            <td>Regulated Prediction Market</td>
+            <td>Tournament futures mids for our derived ratio model; per-team futures pages as row source links</td>
+            <td><a href="https://api.elections.kalshi.com/trade-api/v2/series/KXLOL" target="_blank" rel="noopener">api.elections.kalshi.com KXLOL ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Pinnacle Guest API</b></td>
+            <td>Sharp Bookmaker</td>
+            <td>LoL league/matchup coverage check only (no public price endpoint exists — verified 2026-10-21)</td>
+            <td><a href="https://guest.api.arcadia.pinnacle.com/0.1/sports" target="_blank" rel="noopener">guest.api.arcadia.pinnacle.com ↗</a></td>
+          </tr>
+          <tr>
             <td><b>Pinnacle API Documentation</b></td>
             <td>Sharp Bookmaker</td>
             <td>Esports betting structure documentation</td>
@@ -187,7 +230,7 @@
   <footer>
     <div class="footer-inner">
       <div>
-        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated 6-hour refresh via GitHub Actions.
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated refresh every 4–6 hours via GitHub Actions.
       </div>
       <div>
         <a href="index.html">Executive Summary</a> · 
