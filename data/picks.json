@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-21T20:53:00Z",
+ "generated_at": "2026-10-21T21:03:35Z",
  "lobby": "https://play.hotspawn.com/lobby",
  "count": 195,
  "counts_by_method": {
   "MARKET_BOOKS": 0,
   "MARKET_POLYMARKET": 9,
   "KALSHI_FUTURES": 0,
-  "MODEL_ELO": 59,
-  "UNRESOLVED": 127
+  "MODEL_ELO": 170,
+  "UNRESOLVED": 16
  },
  "stale_sources": [],
  "excluded_stale": [
@@ -634,7 +634,7 @@
   }
  ],
  "debug": {
-  "generated_at": "2026-10-21T20:53:00Z",
+  "generated_at": "2026-10-21T21:03:35Z",
   "lobby": "https://play.hotspawn.com/lobby",
   "fixtures_via": "raw-snapshot",
   "polymarket_markets": 781,
@@ -644,16 +644,16 @@
   "pinnacle_matchups": 9,
   "pinnacle_via": "raw-snapshot",
   "oddspapi_fixtures_priced": 0,
-  "leaguepedia_status": "rate-limited/errored (ratelimited) - cache reused",
+  "leaguepedia_status": "offline (cache only)",
   "elo_source": "Leaguepedia cache + seeded bootstrap (19 seed teams)",
-  "elo_teams": 155,
-  "elo_games": 500,
+  "elo_teams": 251,
+  "elo_games": 1069,
   "seeded_teams_used": 19,
   "matches_total": 264,
   "matches_pickable": 195,
   "matches_excluded_stale": 69,
   "stale_sources": [],
-  "offline": false
+  "offline": true
  },
  "matches": [
   {
@@ -701,14 +701,21 @@
    "crowd2": 7,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Ascent Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1475,
+    1531
+   ],
+   "games": [
+    14,
+    2
+   ],
+   "prob_team1": 0.4867,
+   "prob_team2": 0.5133,
+   "pick": "NTNUI Kometkameratene",
+   "pick_prob": 0.5133,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Ascent Gaming (Elo 1475, 14 games) vs NTNUI Kometkameratene (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -729,14 +736,21 @@
    "crowd2": 28,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Solid Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1362,
+    1500
+   ],
+   "games": [
+    10,
+    0
+   ],
+   "prob_team1": 0.4528,
+   "prob_team2": 0.5472,
+   "pick": "DMG Esports Norway",
+   "pick_prob": 0.5472,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Solid Gaming (Elo 1362, 10 games) vs DMG Esports Norway (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -757,14 +771,21 @@
    "crowd2": 7,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Volda E-Sport",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1459,
+    1500
+   ],
+   "games": [
+    15,
+    0
+   ],
+   "prob_team1": 0.4852,
+   "prob_team2": 0.5148,
+   "pick": "CNG Royal",
+   "pick_prob": 0.5148,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Volda E-Sport (Elo 1459, 15 games) vs CNG Royal (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -785,14 +806,21 @@
    "crowd2": 14,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Your Saviours",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1472,
+    1525
+   ],
+   "games": [
+    6,
+    6
+   ],
+   "prob_team1": 0.4715,
+   "prob_team2": 0.5285,
+   "pick": "Mixlag fra Trondheim",
+   "pick_prob": 0.5285,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Your Saviours (Elo 1472, 6 games) vs Mixlag fra Trondheim (Elo 1525, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -813,14 +841,21 @@
    "crowd2": 90,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1481,
+    1413
+   ],
+   "games": [
+    12,
+    9
+   ],
+   "prob_team1": 0.5455,
+   "prob_team2": 0.4545,
    "pick": "Turbo Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5455,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Turbo Gaming (Elo 1481, 12 games) vs Fritt Fall (Elo 1413, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -841,14 +876,21 @@
    "crowd2": 10,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1573,
+    1468
+   ],
+   "games": [
+    7,
+    2
+   ],
+   "prob_team1": 0.5244,
+   "prob_team2": 0.4756,
    "pick": "BlackDivision",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5244,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BlackDivision (Elo 1573, 7 games) vs Babos Gaming Academy (Elo 1468, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -869,14 +911,21 @@
    "crowd2": 80,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1559,
+    1413
+   ],
+   "games": [
+    10,
+    8
+   ],
+   "prob_team1": 0.5885,
+   "prob_team2": 0.4115,
    "pick": "Absolved",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5885,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Absolved (Elo 1559, 10 games) vs The Bandits UK (Elo 1413, 8 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -897,14 +946,21 @@
    "crowd2": 86,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1559,
+    1506
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.5397,
+   "prob_team2": 0.4603,
    "pick": "Brod n Friends",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5397,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Brod n Friends (Elo 1559, 11 games) vs Crownless (Elo 1506, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -925,14 +981,21 @@
    "crowd2": 40,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Good Chi",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1507,
+    1517
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.4924,
+   "prob_team2": 0.5076,
+   "pick": "Inari Esports",
+   "pick_prob": 0.5076,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Good Chi (Elo 1507, 11 games) vs Inari Esports (Elo 1517, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -953,14 +1016,21 @@
    "crowd2": 87,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "HL Tauri Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1428,
+    1521
+   ],
+   "games": [
+    9,
+    10
+   ],
+   "prob_team1": 0.4385,
+   "prob_team2": 0.5615,
+   "pick": "Bulldog Esports",
+   "pick_prob": 0.5615,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): HL Tauri Esports (Elo 1428, 9 games) vs Bulldog Esports (Elo 1521, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -981,14 +1051,21 @@
    "crowd2": 21,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1557,
+    1471
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.5639,
+   "prob_team2": 0.4361,
    "pick": "Rich Gang UK",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5639,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Rich Gang UK (Elo 1557, 11 games) vs Abyssal Randoms (Elo 1471, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1009,14 +1086,21 @@
    "crowd2": 7,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Team Vertex",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1466,
+    1486
+   ],
+   "games": [
+    11,
+    9
+   ],
+   "prob_team1": 0.4862,
+   "prob_team2": 0.5138,
+   "pick": "Glorp Cat",
+   "pick_prob": 0.5138,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team Vertex (Elo 1466, 11 games) vs Glorp Cat (Elo 1486, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1038,20 +1122,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1511,
-    1456
+    1456,
+    1415
    ],
    "games": [
-    5,
-    5
+    10,
+    15
    ],
-   "prob_team1": 0.5261,
-   "prob_team2": 0.4739,
+   "prob_team1": 0.5297,
+   "prob_team2": 0.4703,
    "pick": "Team VDS",
-   "pick_prob": 0.5261,
+   "pick_prob": 0.5297,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team VDS (Elo 1511, 5 games) vs Pegasus Esports (Elo 1456, 5 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team VDS (Elo 1456, 10 games) vs Pegasus Esports (Elo 1415, 15 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1072,14 +1156,21 @@
    "crowd2": 14,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Playwell Rød Q",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1500,
+    1558
+   ],
+   "games": [
+    0,
+    4
+   ],
+   "prob_team1": 0.4792,
+   "prob_team2": 0.5208,
+   "pick": "Rich Gang",
+   "pick_prob": 0.5208,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Playwell Rød Q (Elo 1500, 0 games) vs Rich Gang (Elo 1558, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1100,14 +1191,21 @@
    "crowd2": 93,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Abyssal Randoms",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1471,
+    1507
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.4733,
+   "prob_team2": 0.5267,
+   "pick": "Good Chi",
+   "pick_prob": 0.5267,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Abyssal Randoms (Elo 1471, 11 games) vs Good Chi (Elo 1507, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1128,14 +1226,21 @@
    "crowd2": 7,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Bulldog Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1521,
+    1528
+   ],
+   "games": [
+    10,
+    10
+   ],
+   "prob_team1": 0.4949,
+   "prob_team2": 0.5051,
+   "pick": "Ruddy Ultras",
+   "pick_prob": 0.5051,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Bulldog Esports (Elo 1521, 10 games) vs Ruddy Ultras (Elo 1528, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1156,14 +1261,21 @@
    "crowd2": 40,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1506,
+    1466
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.5301,
+   "prob_team2": 0.4699,
    "pick": "Crownless",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5301,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Crownless (Elo 1506, 11 games) vs Team Vertex (Elo 1466, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1184,14 +1296,21 @@
    "crowd2": 73,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Glorp Cat",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1486,
+    1559
+   ],
+   "games": [
+    9,
+    11
+   ],
+   "prob_team1": 0.451,
+   "prob_team2": 0.549,
+   "pick": "Brod n Friends",
+   "pick_prob": 0.549,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Glorp Cat (Elo 1486, 9 games) vs Brod n Friends (Elo 1559, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1212,14 +1331,21 @@
    "crowd2": 40,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Inari Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1517,
+    1557
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.4694,
+   "prob_team2": 0.5306,
+   "pick": "Rich Gang UK",
+   "pick_prob": 0.5306,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Inari Esports (Elo 1517, 11 games) vs Rich Gang UK (Elo 1557, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1240,14 +1366,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "The Bandits UK",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1413,
+    1556
+   ],
+   "games": [
+    8,
+    10
+   ],
+   "prob_team1": 0.4134,
+   "prob_team2": 0.5866,
+   "pick": "PNS",
+   "pick_prob": 0.5866,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): The Bandits UK (Elo 1413, 8 games) vs PNS (Elo 1556, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1268,14 +1401,21 @@
    "crowd2": 73,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Abyssal Randoms",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1471,
+    1517
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.4657,
+   "prob_team2": 0.5343,
+   "pick": "Inari Esports",
+   "pick_prob": 0.5343,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Abyssal Randoms (Elo 1471, 11 games) vs Inari Esports (Elo 1517, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1296,14 +1436,21 @@
    "crowd2": 47,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Glorp Cat",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1486,
+    1506
+   ],
+   "games": [
+    9,
+    11
+   ],
+   "prob_team1": 0.4865,
+   "prob_team2": 0.5135,
+   "pick": "Crownless",
+   "pick_prob": 0.5135,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Glorp Cat (Elo 1486, 9 games) vs Crownless (Elo 1506, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1324,14 +1471,21 @@
    "crowd2": 7,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Good Chi",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1507,
+    1557
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.4619,
+   "prob_team2": 0.5381,
+   "pick": "Rich Gang UK",
+   "pick_prob": 0.5381,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Good Chi (Elo 1507, 11 games) vs Rich Gang UK (Elo 1557, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1352,14 +1506,21 @@
    "crowd2": 80,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "PNS",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1556,
+    1559
+   ],
+   "games": [
+    10,
+    10
+   ],
+   "prob_team1": 0.4976,
+   "prob_team2": 0.5024,
+   "pick": "Absolved",
+   "pick_prob": 0.5024,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): PNS (Elo 1556, 10 games) vs Absolved (Elo 1559, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1380,14 +1541,21 @@
    "crowd2": 87,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1528,
+    1428
+   ],
+   "games": [
+    10,
+    9
+   ],
+   "prob_team1": 0.566,
+   "prob_team2": 0.434,
    "pick": "Ruddy Ultras",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.566,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Ruddy Ultras (Elo 1528, 10 games) vs HL Tauri Esports (Elo 1428, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1408,14 +1576,21 @@
    "crowd2": 7,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Team Vertex",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1466,
+    1559
+   ],
+   "games": [
+    11,
+    11
+   ],
+   "prob_team1": 0.4314,
+   "prob_team2": 0.5686,
+   "pick": "Brod n Friends",
+   "pick_prob": 0.5686,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team Vertex (Elo 1466, 11 games) vs Brod n Friends (Elo 1559, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1436,14 +1611,21 @@
    "crowd2": 86,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1558,
+    1500
+   ],
+   "games": [
+    4,
+    0
+   ],
+   "prob_team1": 0.5208,
+   "prob_team2": 0.4792,
    "pick": "Rich Gang",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5208,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Rich Gang (Elo 1558, 4 games) vs Phenti (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1464,14 +1646,21 @@
    "crowd2": 20,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1558,
+    1482
+   ],
+   "games": [
+    4,
+    5
+   ],
+   "prob_team1": 0.5311,
+   "prob_team2": 0.4689,
    "pick": "Levelers",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5311,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Levelers (Elo 1558, 4 games) vs MTN ESPORTS TEAM (Elo 1482, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1493,19 +1682,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1510,
-    1555
+    1519,
+    1594
    ],
    "games": [
-    7,
-    4
+    14,
+    8
    ],
-   "prob_team1": 0.4815,
-   "prob_team2": 0.5185,
+   "prob_team1": 0.4533,
+   "prob_team2": 0.5467,
    "pick": "Hannover Esports e.V.",
-   "pick_prob": 0.5185,
+   "pick_prob": 0.5467,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Reveal Multigaming (Elo 1510, 7 games) vs Hannover Esports e.V. (Elo 1555, 4 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Reveal Multigaming (Elo 1519, 14 games) vs Hannover Esports e.V. (Elo 1594, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -1529,18 +1718,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1500,
-    1546
+    1584
    ],
    "games": [
     0,
-    5
+    10
    ],
-   "prob_team1": 0.4834,
-   "prob_team2": 0.5166,
+   "prob_team1": 0.4704,
+   "prob_team2": 0.5296,
    "pick": "The Bandits Prime",
-   "pick_prob": 0.5166,
+   "pick_prob": 0.5296,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs The Bandits Prime (Elo 1546, 5 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs The Bandits Prime (Elo 1584, 10 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -1592,20 +1781,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1465,
-    1456
+    1418,
+    1415
    ],
    "games": [
-    2,
-    5
+    10,
+    15
    ],
-   "prob_team1": 0.5022,
-   "prob_team2": 0.4978,
+   "prob_team1": 0.5027,
+   "prob_team2": 0.4973,
    "pick": "NextGeneration Esports",
-   "pick_prob": 0.5022,
+   "pick_prob": 0.5027,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): NextGeneration Esports (Elo 1465, 2 games) vs Pegasus Esports (Elo 1456, 5 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): NextGeneration Esports (Elo 1418, 10 games) vs Pegasus Esports (Elo 1415, 15 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1627,20 +1816,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1511,
-    1490
+    1456,
+    1470
    ],
    "games": [
-    5,
-    9
+    10,
+    25
    ],
-   "prob_team1": 0.51,
-   "prob_team2": 0.49,
-   "pick": "Team VDS",
-   "pick_prob": 0.51,
+   "prob_team1": 0.4899,
+   "prob_team2": 0.5101,
+   "pick": "Team Reds",
+   "pick_prob": 0.5101,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team VDS (Elo 1511, 5 games) vs Team Reds (Elo 1490, 9 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team VDS (Elo 1456, 10 games) vs Team Reds (Elo 1470, 25 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1691,19 +1880,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1495,
-    1498
+    1476,
+    1495
    ],
    "games": [
-    7,
-    4
+    14,
+    8
    ],
-   "prob_team1": 0.4986,
-   "prob_team2": 0.5014,
+   "prob_team1": 0.4883,
+   "prob_team2": 0.5117,
    "pick": "Team 300",
-   "pick_prob": 0.5014,
+   "pick_prob": 0.5117,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): reGOLD eSport (Elo 1495, 7 games) vs Team 300 (Elo 1498, 4 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): reGOLD eSport (Elo 1476, 14 games) vs Team 300 (Elo 1495, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -1727,18 +1916,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1485,
-    1531
+    1561
    ],
    "games": [
     3,
-    2
+    4
    ],
-   "prob_team1": 0.4891,
-   "prob_team2": 0.5109,
+   "prob_team1": 0.4753,
+   "prob_team2": 0.5247,
    "pick": "Babos Gaming",
-   "pick_prob": 0.5109,
+   "pick_prob": 0.5247,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs Babos Gaming (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs Babos Gaming (Elo 1561, 4 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -1934,14 +2123,21 @@
    "crowd2": 15,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1488,
+    1483
+   ],
+   "games": [
+    5,
+    3
+   ],
+   "prob_team1": 0.5018,
+   "prob_team2": 0.4982,
    "pick": "Berlin 5",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5018,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Berlin 5 (Elo 1488, 5 games) vs AceGaming Hearts (Elo 1483, 3 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1962,14 +2158,21 @@
    "crowd2": 95,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1493,
+    1462
+   ],
+   "games": [
+    22,
+    23
+   ],
+   "prob_team1": 0.5304,
+   "prob_team2": 0.4696,
    "pick": "BaronX",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5304,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BaronX (Elo 1493, 22 games) vs Marere Academy (Elo 1462, 23 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -1990,14 +2193,21 @@
    "crowd2": 96,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Final Level eSports Academy",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1444,
+    1455
+   ],
+   "games": [
+    21,
+    22
+   ],
+   "prob_team1": 0.4884,
+   "prob_team2": 0.5116,
+   "pick": "Infinity Gaming",
+   "pick_prob": 0.5116,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Final Level eSports Academy (Elo 1444, 21 games) vs Infinity Gaming (Elo 1455, 22 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2046,14 +2256,21 @@
    "crowd2": 8,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "JSK Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1469,
+    1500
+   ],
+   "games": [
+    2,
+    0
+   ],
+   "prob_team1": 0.4889,
+   "prob_team2": 0.5111,
+   "pick": "El Menzah Esports",
+   "pick_prob": 0.5111,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Esports (Elo 1469, 2 games) vs El Menzah Esports (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2104,18 +2321,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1500,
-    1502
+    1521
    ],
    "games": [
     0,
-    6
+    16
    ],
-   "prob_team1": 0.4992,
-   "prob_team2": 0.5008,
+   "prob_team1": 0.4924,
+   "prob_team2": 0.5076,
    "pick": "JSK Academy",
-   "pick_prob": 0.5008,
+   "pick_prob": 0.5076,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Simplicity Gaming (Elo 1500, 0 games) vs JSK Academy (Elo 1502, 6 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Simplicity Gaming (Elo 1500, 0 games) vs JSK Academy (Elo 1521, 16 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -2165,14 +2382,21 @@
    "crowd2": 15,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1578,
+    1460
+   ],
+   "games": [
+    12,
+    9
+   ],
+   "prob_team1": 0.5774,
+   "prob_team2": 0.4226,
    "pick": "2 Massive",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5774,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): 2 Massive (Elo 1578, 12 games) vs Lund Esports Organization OGs (Elo 1460, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2193,14 +2417,21 @@
    "crowd2": 96,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "FlameHard",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1588,
+    1615
+   ],
+   "games": [
+    10,
+    11
+   ],
+   "prob_team1": 0.4806,
+   "prob_team2": 0.5194,
+   "pick": "B2U",
+   "pick_prob": 0.5194,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): FlameHard (Elo 1588, 10 games) vs B2U (Elo 1615, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2221,14 +2452,21 @@
    "crowd2": 76,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Karolinerna",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1448,
+    1481
+   ],
+   "games": [
+    11,
+    12
+   ],
+   "prob_team1": 0.4755,
+   "prob_team2": 0.5245,
+   "pick": "Turbo Gaming",
+   "pick_prob": 0.5245,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Karolinerna (Elo 1448, 11 games) vs Turbo Gaming (Elo 1481, 12 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2249,14 +2487,21 @@
    "crowd2": 13,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "OnlyWinByFF",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1379,
+    1449
+   ],
+   "games": [
+    10,
+    9
+   ],
+   "prob_team1": 0.4528,
+   "prob_team2": 0.5472,
+   "pick": "Rich Gang Sweden",
+   "pick_prob": 0.5472,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): OnlyWinByFF (Elo 1379, 10 games) vs Rich Gang Sweden (Elo 1449, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2277,14 +2522,21 @@
    "crowd2": 4,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Team cd",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1512,
+    1593
+   ],
+   "games": [
+    13,
+    9
+   ],
+   "prob_team1": 0.4455,
+   "prob_team2": 0.5545,
+   "pick": "Tung Sahur Mid",
+   "pick_prob": 0.5545,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team cd (Elo 1512, 13 games) vs Tung Sahur Mid (Elo 1593, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2305,14 +2557,21 @@
    "crowd2": 92,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1514,
+    1413
+   ],
+   "games": [
+    9,
+    9
+   ],
+   "prob_team1": 0.5665,
+   "prob_team2": 0.4335,
    "pick": "Team Lucidity Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5665,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team Lucidity Esports (Elo 1514, 9 games) vs Fritt Fall (Elo 1413, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2333,14 +2592,21 @@
    "crowd2": 18,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Whalepower Humpbacks",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1466,
+    1522
+   ],
+   "games": [
+    2,
+    6
+   ],
+   "prob_team1": 0.4867,
+   "prob_team2": 0.5133,
+   "pick": "1. Esport Club Frankfurt e.V.",
+   "pick_prob": 0.5133,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Whalepower Humpbacks (Elo 1466, 2 games) vs 1. Esport Club Frankfurt e.V. (Elo 1522, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2361,14 +2627,21 @@
    "crowd2": 5,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Mazepa",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1461,
+    1615
+   ],
+   "games": [
+    9,
+    11
+   ],
+   "prob_team1": 0.4014,
+   "prob_team2": 0.5986,
+   "pick": "B2U",
+   "pick_prob": 0.5986,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Mazepa (Elo 1461, 9 games) vs B2U (Elo 1615, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2390,20 +2663,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1502,
-    1488
+    1521,
+    1503
    ],
    "games": [
-    6,
-    7
+    16,
+    19
    ],
-   "prob_team1": 0.5074,
-   "prob_team2": 0.4926,
+   "prob_team1": 0.5164,
+   "prob_team2": 0.4836,
    "pick": "JSK Academy",
-   "pick_prob": 0.5074,
+   "pick_prob": 0.5164,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1502, 6 games) vs New Era Team (Elo 1488, 7 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1521, 16 games) vs New Era Team (Elo 1503, 19 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2425,20 +2698,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1569,
-    1517
+    1606,
+    1531
    ],
    "games": [
-    11,
-    3
+    24,
+    11
    ],
-   "prob_team1": 0.5171,
-   "prob_team2": 0.4829,
+   "prob_team1": 0.5554,
+   "prob_team2": 0.4446,
    "pick": "Void Walkers",
-   "pick_prob": 0.5171,
+   "pick_prob": 0.5554,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Void Walkers (Elo 1569, 11 games) vs Slam Dunk (Elo 1517, 3 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Void Walkers (Elo 1606, 24 games) vs Slam Dunk (Elo 1531, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2459,14 +2732,21 @@
    "crowd2": 78,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1554,
+    1464
+   ],
+   "games": [
+    23,
+    23
+   ],
+   "prob_team1": 0.5881,
+   "prob_team2": 0.4119,
    "pick": "Docta Esports Club",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5881,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Docta Esports Club (Elo 1554, 23 games) vs Clã NKZ Revengers (Elo 1464, 23 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2487,14 +2767,21 @@
    "crowd2": 90,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1634,
+    1532
+   ],
+   "games": [
+    22,
+    23
+   ],
+   "prob_team1": 0.5981,
+   "prob_team2": 0.4019,
    "pick": "Maze GG",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5981,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Maze GG (Elo 1634, 22 games) vs Viktus (Elo 1532, 23 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2516,19 +2803,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1531,
-    1555
+    1561,
+    1594
    ],
    "games": [
-    2,
-    4
+    4,
+    8
    ],
-   "prob_team1": 0.4942,
-   "prob_team2": 0.5058,
+   "prob_team1": 0.4865,
+   "prob_team2": 0.5135,
    "pick": "Hannover Esports e.V.",
-   "pick_prob": 0.5058,
+   "pick_prob": 0.5135,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming (Elo 1531, 2 games) vs Hannover Esports e.V. (Elo 1555, 4 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming (Elo 1561, 4 games) vs Hannover Esports e.V. (Elo 1594, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -2551,19 +2838,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1510,
+    1519,
     1485
    ],
    "games": [
-    7,
+    14,
     3
    ],
-   "prob_team1": 0.5081,
-   "prob_team2": 0.4919,
+   "prob_team1": 0.5114,
+   "prob_team2": 0.4886,
    "pick": "Reveal Multigaming",
-   "pick_prob": 0.5081,
+   "pick_prob": 0.5114,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Reveal Multigaming (Elo 1510, 7 games) vs AceGaming (Elo 1485, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Reveal Multigaming (Elo 1519, 14 games) vs AceGaming (Elo 1485, 3 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -2585,14 +2872,21 @@
    "crowd2": 13,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1483,
+    1452
+   ],
+   "games": [
+    3,
+    5
+   ],
+   "prob_team1": 0.5101,
+   "prob_team2": 0.4899,
    "pick": "AceGaming Hearts",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5101,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming Hearts (Elo 1483, 3 games) vs Emperors Bremen (Elo 1452, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2613,14 +2907,21 @@
    "crowd2": 17,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1487,
+    1441
+   ],
+   "games": [
+    5,
+    4
+   ],
+   "prob_team1": 0.5188,
+   "prob_team2": 0.4812,
    "pick": "AIX eSports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5188,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AIX eSports (Elo 1487, 5 games) vs MT1 Vision (Elo 1441, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2641,14 +2942,21 @@
    "crowd2": 17,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Babos Gaming Academy",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1468,
+    1525
+   ],
+   "games": [
+    2,
+    6
+   ],
+   "prob_team1": 0.4864,
+   "prob_team2": 0.5136,
+   "pick": "VfB x Engines Stuttgart",
+   "pick_prob": 0.5136,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming Academy (Elo 1468, 2 games) vs VfB x Engines Stuttgart (Elo 1525, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2669,14 +2977,21 @@
    "crowd2": 65,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1531,
+    1442
+   ],
+   "games": [
+    2,
+    4
+   ],
+   "prob_team1": 0.5209,
+   "prob_team2": 0.4791,
    "pick": "Defiance eSports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5209,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Defiance eSports (Elo 1531, 2 games) vs REH Gaming (Elo 1442, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2697,14 +3012,21 @@
    "crowd2": 17,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1560,
+    1421
+   ],
+   "games": [
+    4,
+    6
+   ],
+   "prob_team1": 0.5542,
+   "prob_team2": 0.4458,
    "pick": "Duplex Silva Pigeons Edition",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5542,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Duplex Silva Pigeons Edition (Elo 1560, 4 games) vs Sissi State Punks (Elo 1421, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2725,14 +3047,21 @@
    "crowd2": 79,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1495,
+    1471
+   ],
+   "games": [
+    7,
+    2
+   ],
+   "prob_team1": 0.5058,
+   "prob_team2": 0.4942,
    "pick": "Eintracht Spandau Zwei",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5058,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Eintracht Spandau Zwei (Elo 1495, 7 games) vs Team 300 White (Elo 1471, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2753,14 +3082,21 @@
    "crowd2": 17,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Neko Elite Kittens",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1554,
+    1556
+   ],
+   "games": [
+    4,
+    4
+   ],
+   "prob_team1": 0.4991,
+   "prob_team2": 0.5009,
+   "pick": "spongecord prime",
+   "pick_prob": 0.5009,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Neko Elite Kittens (Elo 1554, 4 games) vs spongecord prime (Elo 1556, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2782,19 +3118,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1500,
-    1517
+    1558,
+    1549
    ],
    "games": [
-    0,
-    3
+    4,
+    8
    ],
-   "prob_team1": 0.4939,
-   "prob_team2": 0.5061,
-   "pick": "LOOKSMAXXER",
-   "pick_prob": 0.5061,
+   "prob_team1": 0.5038,
+   "prob_team2": 0.4962,
+   "pick": "Rich Gang",
+   "pick_prob": 0.5038,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Rich Gang (Elo 1500, 0 games) vs LOOKSMAXXER (Elo 1517, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Rich Gang (Elo 1558, 4 games) vs LOOKSMAXXER (Elo 1549, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -2816,14 +3152,21 @@
    "crowd2": 9,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Whalepower Humpbacks",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1466,
+    1469
+   ],
+   "games": [
+    2,
+    6
+   ],
+   "prob_team1": 0.4994,
+   "prob_team2": 0.5006,
+   "pick": "Socken und Sandalen",
+   "pick_prob": 0.5006,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Whalepower Humpbacks (Elo 1466, 2 games) vs Socken und Sandalen (Elo 1469, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2844,14 +3187,21 @@
    "crowd2": 88,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Black Lion",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1473,
+    1501
+   ],
+   "games": [
+    2,
+    8
+   ],
+   "prob_team1": 0.4935,
+   "prob_team2": 0.5065,
+   "pick": "Glacial Guardians",
+   "pick_prob": 0.5065,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Black Lion (Elo 1473, 2 games) vs Glacial Guardians (Elo 1501, 8 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2872,14 +3222,21 @@
    "crowd2": 22,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Second Time Alive Revival",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1487,
+    1488
+   ],
+   "games": [
+    5,
+    5
+   ],
+   "prob_team1": 0.4994,
+   "prob_team2": 0.5006,
+   "pick": "Berlin 5",
+   "pick_prob": 0.5006,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Second Time Alive Revival (Elo 1487, 5 games) vs Berlin 5 (Elo 1488, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -2900,14 +3257,21 @@
    "crowd2": 22,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "JSK Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1469,
+    1500
+   ],
+   "games": [
+    2,
+    0
+   ],
+   "prob_team1": 0.4889,
+   "prob_team2": 0.5111,
+   "pick": "Enfida Esports",
+   "pick_prob": 0.5111,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Esports (Elo 1469, 2 games) vs Enfida Esports (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3014,18 +3378,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1500,
-    1502
+    1521
    ],
    "games": [
     0,
-    6
+    16
    ],
-   "prob_team1": 0.4992,
-   "prob_team2": 0.5008,
+   "prob_team1": 0.4924,
+   "prob_team2": 0.5076,
    "pick": "JSK Academy",
-   "pick_prob": 0.5008,
+   "pick_prob": 0.5076,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Zahrouni Esports (Elo 1500, 0 games) vs JSK Academy (Elo 1502, 6 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Zahrouni Esports (Elo 1500, 0 games) vs JSK Academy (Elo 1521, 16 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3047,14 +3411,21 @@
    "crowd2": 5,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "2 Massive",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1578,
+    1593
+   ],
+   "games": [
+    12,
+    9
+   ],
+   "prob_team1": 0.4898,
+   "prob_team2": 0.5102,
+   "pick": "Tung Sahur Mid",
+   "pick_prob": 0.5102,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): 2 Massive (Elo 1578, 12 games) vs Tung Sahur Mid (Elo 1593, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3075,14 +3446,21 @@
    "crowd2": 81,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "OnlyWinByFF",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1379,
+    1461
+   ],
+   "games": [
+    10,
+    9
+   ],
+   "prob_team1": 0.4454,
+   "prob_team2": 0.5546,
+   "pick": "Mazepa",
+   "pick_prob": 0.5546,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): OnlyWinByFF (Elo 1379, 10 games) vs Mazepa (Elo 1461, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3103,14 +3481,21 @@
    "crowd2": 24,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Northern Wolves Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1445,
+    1449
+   ],
+   "games": [
+    4,
+    9
+   ],
+   "prob_team1": 0.4981,
+   "prob_team2": 0.5019,
+   "pick": "Rich Gang Sweden",
+   "pick_prob": 0.5019,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Northern Wolves Esports (Elo 1445, 4 games) vs Rich Gang Sweden (Elo 1449, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3131,14 +3516,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1514,
+    1512
+   ],
+   "games": [
+    9,
+    13
+   ],
+   "prob_team1": 0.5012,
+   "prob_team2": 0.4988,
    "pick": "Team Lucidity Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5012,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team Lucidity Esports (Elo 1514, 9 games) vs Team cd (Elo 1512, 13 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3159,14 +3551,21 @@
    "crowd2": 17,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1573,
+    1531
+   ],
+   "games": [
+    7,
+    2
+   ],
+   "prob_team1": 0.5101,
+   "prob_team2": 0.4899,
    "pick": "BlackDivision",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5101,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BlackDivision (Elo 1573, 7 games) vs Kanji Esports KIN (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3187,14 +3586,21 @@
    "crowd2": 86,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Karolinerna",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1448,
+    1460
+   ],
+   "games": [
+    11,
+    9
+   ],
+   "prob_team1": 0.4917,
+   "prob_team2": 0.5083,
+   "pick": "Lund Esports Organization OGs",
+   "pick_prob": 0.5083,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Karolinerna (Elo 1448, 11 games) vs Lund Esports Organization OGs (Elo 1460, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3216,19 +3622,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1484,
-    1516
+    1462,
+    1515
    ],
    "games": [
-    5,
+    7,
     3
    ],
-   "prob_team1": 0.4896,
-   "prob_team2": 0.5104,
+   "prob_team1": 0.4824,
+   "prob_team2": 0.5176,
    "pick": "VfB eSports",
-   "pick_prob": 0.5104,
+   "pick_prob": 0.5176,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): 404 Multigaming e.V. (Elo 1484, 5 games) vs VfB eSports (Elo 1516, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): 404 Multigaming e.V. (Elo 1462, 7 games) vs VfB eSports (Elo 1515, 3 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3252,18 +3658,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1500,
-    1483
+    1470
    ],
    "games": [
     0,
-    3
+    6
    ],
-   "prob_team1": 0.5062,
-   "prob_team2": 0.4938,
+   "prob_team1": 0.5109,
+   "prob_team2": 0.4891,
    "pick": "Locked IN",
-   "pick_prob": 0.5062,
+   "pick_prob": 0.5109,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs DKB XPERION NXT (Elo 1483, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs DKB XPERION NXT (Elo 1470, 6 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3285,14 +3691,21 @@
    "crowd2": 90,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Lundqvist Darkside",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1555,
+    1615
+   ],
+   "games": [
+    10,
+    11
+   ],
+   "prob_team1": 0.4572,
+   "prob_team2": 0.5428,
+   "pick": "B2U",
+   "pick_prob": 0.5428,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Lundqvist Darkside (Elo 1555, 10 games) vs B2U (Elo 1615, 11 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3313,14 +3726,21 @@
    "crowd2": 58,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Lund Esports Organization OGs",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1460,
+    1593
+   ],
+   "games": [
+    9,
+    9
+   ],
+   "prob_team1": 0.4137,
+   "prob_team2": 0.5863,
+   "pick": "Tung Sahur Mid",
+   "pick_prob": 0.5863,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Lund Esports Organization OGs (Elo 1460, 9 games) vs Tung Sahur Mid (Elo 1593, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3341,14 +3761,21 @@
    "crowd2": 74,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1531,
+    1469
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.5145,
+   "prob_team2": 0.4855,
    "pick": "Packmiko E-Sports DACH",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5145,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Packmiko E-Sports DACH (Elo 1531, 2 games) vs Atruvia Münster Esports (Elo 1469, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3370,20 +3797,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1549,
-    1573
+    1529,
+    1631
    ],
    "games": [
-    7,
-    5
+    14,
+    10
    ],
-   "prob_team1": 0.4887,
-   "prob_team2": 0.5113,
+   "prob_team1": 0.4282,
+   "prob_team2": 0.5718,
    "pick": "Vitality Rising Bees",
-   "pick_prob": 0.5113,
+   "pick_prob": 0.5718,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Mental Rush (Elo 1549, 7 games) vs Vitality Rising Bees (Elo 1573, 5 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Mental Rush (Elo 1529, 14 games) vs Vitality Rising Bees (Elo 1631, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3405,19 +3832,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1483,
-    1500
+    1470,
+    1472
    ],
    "games": [
-    3,
-    0
+    6,
+    2
    ],
-   "prob_team1": 0.4938,
-   "prob_team2": 0.5062,
+   "prob_team1": 0.4994,
+   "prob_team2": 0.5006,
    "pick": "Phong Vũ Buffalo",
-   "pick_prob": 0.5062,
+   "pick_prob": 0.5006,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): DKB XPERION NXT (Elo 1483, 3 games) vs Phong Vũ Buffalo (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): DKB XPERION NXT (Elo 1470, 6 games) vs Phong Vũ Buffalo (Elo 1472, 2 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3440,19 +3867,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1495,
+    1497,
     1485
    ],
    "games": [
-    6,
+    12,
     3
    ],
-   "prob_team1": 0.5035,
-   "prob_team2": 0.4965,
+   "prob_team1": 0.504,
+   "prob_team2": 0.496,
    "pick": "No Need Orga",
-   "pick_prob": 0.5035,
+   "pick_prob": 0.504,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): No Need Orga (Elo 1495, 6 games) vs AceGaming (Elo 1485, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): No Need Orga (Elo 1497, 12 games) vs AceGaming (Elo 1485, 3 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3475,19 +3902,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1555,
-    1495
+    1594,
+    1497
    ],
    "games": [
-    4,
-    6
+    8,
+    12
    ],
-   "prob_team1": 0.5241,
-   "prob_team2": 0.4759,
+   "prob_team1": 0.5602,
+   "prob_team2": 0.4398,
    "pick": "Hannover Esports e.V.",
-   "pick_prob": 0.5241,
+   "pick_prob": 0.5602,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Hannover Esports e.V. (Elo 1555, 4 games) vs No Need Orga (Elo 1495, 6 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Hannover Esports e.V. (Elo 1594, 8 games) vs No Need Orga (Elo 1497, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3510,19 +3937,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1516,
-    1508
+    1515,
+    1535
    ],
    "games": [
     3,
-    7
+    12
    ],
-   "prob_team1": 0.5026,
-   "prob_team2": 0.4974,
-   "pick": "VfB eSports",
-   "pick_prob": 0.5026,
+   "prob_team1": 0.4933,
+   "prob_team2": 0.5067,
+   "pick": "regnum4games",
+   "pick_prob": 0.5067,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB eSports (Elo 1516, 3 games) vs regnum4games (Elo 1508, 7 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB eSports (Elo 1515, 3 games) vs regnum4games (Elo 1535, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3544,14 +3971,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1508,
+    1445
+   ],
+   "games": [
+    11,
+    4
+   ],
+   "prob_team1": 0.5257,
+   "prob_team2": 0.4743,
    "pick": "DMG Esports Sweden",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5257,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): DMG Esports Sweden (Elo 1508, 11 games) vs Northern Wolves Esports (Elo 1445, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3572,14 +4006,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1555,
+    1461
+   ],
+   "games": [
+    10,
+    9
+   ],
+   "prob_team1": 0.5625,
+   "prob_team2": 0.4375,
    "pick": "Lundqvist Darkside",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5625,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Lundqvist Darkside (Elo 1555, 10 games) vs Mazepa (Elo 1461, 9 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3600,14 +4041,21 @@
    "crowd2": 14,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Atruvia Münster Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1469,
+    1531
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.4855,
+   "prob_team2": 0.5145,
+   "pick": "Defiance eSports",
+   "pick_prob": 0.5145,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Atruvia Münster Esports (Elo 1469, 2 games) vs Defiance eSports (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3629,20 +4077,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1517,
-    1488
+    1531,
+    1503
    ],
    "games": [
-    3,
-    7
+    11,
+    19
    ],
-   "prob_team1": 0.5094,
-   "prob_team2": 0.4906,
+   "prob_team1": 0.5215,
+   "prob_team2": 0.4785,
    "pick": "Slam Dunk",
-   "pick_prob": 0.5094,
+   "pick_prob": 0.5215,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Slam Dunk (Elo 1517, 3 games) vs New Era Team (Elo 1488, 7 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Slam Dunk (Elo 1531, 11 games) vs New Era Team (Elo 1503, 19 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3663,14 +4111,21 @@
    "crowd2": 12,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1528,
+    1469
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.5139,
+   "prob_team2": 0.4861,
    "pick": "Purple Emperor Lizards - Atomic",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5139,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Purple Emperor Lizards - Atomic (Elo 1528, 2 games) vs Cloud eSport (Elo 1469, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3692,20 +4147,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1456,
-    1502
+    1415,
+    1521
    ],
    "games": [
-    5,
-    6
+    15,
+    16
    ],
-   "prob_team1": 0.4782,
-   "prob_team2": 0.5218,
+   "prob_team1": 0.4108,
+   "prob_team2": 0.5892,
    "pick": "JSK Academy",
-   "pick_prob": 0.5218,
+   "pick_prob": 0.5892,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Pegasus Esports (Elo 1456, 5 games) vs JSK Academy (Elo 1502, 6 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Pegasus Esports (Elo 1415, 15 games) vs JSK Academy (Elo 1521, 16 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3728,18 +4183,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1485,
-    1495
+    1476
    ],
    "games": [
     3,
-    7
+    14
    ],
-   "prob_team1": 0.4968,
-   "prob_team2": 0.5032,
-   "pick": "reGOLD eSport",
-   "pick_prob": 0.5032,
+   "prob_team1": 0.5029,
+   "prob_team2": 0.4971,
+   "pick": "AceGaming",
+   "pick_prob": 0.5029,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs reGOLD eSport (Elo 1495, 7 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs reGOLD eSport (Elo 1476, 14 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3762,19 +4217,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1510,
-    1498
+    1519,
+    1495
    ],
    "games": [
-    7,
-    4
+    14,
+    8
    ],
-   "prob_team1": 0.5048,
-   "prob_team2": 0.4952,
+   "prob_team1": 0.5158,
+   "prob_team2": 0.4842,
    "pick": "Reveal Multigaming",
-   "pick_prob": 0.5048,
+   "pick_prob": 0.5158,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Reveal Multigaming (Elo 1510, 7 games) vs Team 300 (Elo 1498, 4 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Reveal Multigaming (Elo 1519, 14 games) vs Team 300 (Elo 1495, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3797,20 +4252,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1490,
-    1465
+    1470,
+    1418
    ],
    "games": [
-    9,
-    2
+    25,
+    10
    ],
-   "prob_team1": 0.506,
-   "prob_team2": 0.494,
+   "prob_team1": 0.537,
+   "prob_team2": 0.463,
    "pick": "Team Reds",
-   "pick_prob": 0.506,
+   "pick_prob": 0.537,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team Reds (Elo 1490, 9 games) vs NextGeneration Esports (Elo 1465, 2 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team Reds (Elo 1470, 25 games) vs NextGeneration Esports (Elo 1418, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -3832,19 +4287,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1483,
-    1508
+    1470,
+    1535
    ],
    "games": [
-    3,
-    7
+    6,
+    12
    ],
-   "prob_team1": 0.4917,
-   "prob_team2": 0.5083,
+   "prob_team1": 0.465,
+   "prob_team2": 0.535,
    "pick": "regnum4games",
-   "pick_prob": 0.5083,
+   "pick_prob": 0.535,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): DKB XPERION NXT (Elo 1483, 3 games) vs regnum4games (Elo 1508, 7 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): DKB XPERION NXT (Elo 1470, 6 games) vs regnum4games (Elo 1535, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3867,19 +4322,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1516,
-    1500
+    1515,
+    1472
    ],
    "games": [
     3,
-    0
+    2
    ],
-   "prob_team1": 0.5056,
-   "prob_team2": 0.4944,
+   "prob_team1": 0.5102,
+   "prob_team2": 0.4898,
    "pick": "VfB eSports",
-   "pick_prob": 0.5056,
+   "pick_prob": 0.5102,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB eSports (Elo 1516, 3 games) vs Phong Vũ Buffalo (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB eSports (Elo 1515, 3 games) vs Phong Vũ Buffalo (Elo 1472, 2 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3902,19 +4357,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1502,
+    1521,
     1500
    ],
    "games": [
-    6,
+    16,
     0
    ],
-   "prob_team1": 0.5008,
-   "prob_team2": 0.4992,
+   "prob_team1": 0.5076,
+   "prob_team2": 0.4924,
    "pick": "JSK Academy",
-   "pick_prob": 0.5008,
+   "pick_prob": 0.5076,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1502, 6 games) vs Supreme Leaders (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1521, 16 games) vs Supreme Leaders (Elo 1500, 0 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -3936,14 +4391,21 @@
    "crowd2": 11,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "JSK Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1469,
+    1500
+   ],
+   "games": [
+    2,
+    0
+   ],
+   "prob_team1": 0.4889,
+   "prob_team2": 0.5111,
+   "pick": "Olympique Mnihla",
+   "pick_prob": 0.5111,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Esports (Elo 1469, 2 games) vs Olympique Mnihla (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4049,20 +4511,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1569,
-    1511
+    1606,
+    1456
    ],
    "games": [
-    11,
-    5
+    24,
+    10
    ],
-   "prob_team1": 0.5273,
-   "prob_team2": 0.4727,
+   "prob_team1": 0.6014,
+   "prob_team2": 0.3986,
    "pick": "Void Walkers",
-   "pick_prob": 0.5273,
+   "pick_prob": 0.6014,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Void Walkers (Elo 1569, 11 games) vs Team VDS (Elo 1511, 5 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Void Walkers (Elo 1606, 24 games) vs Team VDS (Elo 1456, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4084,19 +4546,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1498,
-    1555
+    1495,
+    1594
    ],
    "games": [
-    4,
-    4
+    8,
+    8
    ],
-   "prob_team1": 0.4768,
-   "prob_team2": 0.5232,
+   "prob_team1": 0.4384,
+   "prob_team2": 0.5616,
    "pick": "Hannover Esports e.V.",
-   "pick_prob": 0.5232,
+   "pick_prob": 0.5616,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 (Elo 1498, 4 games) vs Hannover Esports e.V. (Elo 1555, 4 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 (Elo 1495, 8 games) vs Hannover Esports e.V. (Elo 1594, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4119,19 +4581,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1531,
-    1495
+    1561,
+    1497
    ],
    "games": [
-    2,
-    6
+    4,
+    12
    ],
-   "prob_team1": 0.5084,
-   "prob_team2": 0.4916,
+   "prob_team1": 0.5258,
+   "prob_team2": 0.4742,
    "pick": "Babos Gaming",
-   "pick_prob": 0.5084,
+   "pick_prob": 0.5258,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming (Elo 1531, 2 games) vs No Need Orga (Elo 1495, 6 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming (Elo 1561, 4 games) vs No Need Orga (Elo 1497, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4153,14 +4615,21 @@
    "crowd2": 12,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "1. Esport Club Frankfurt e.V.",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1522,
+    1558
+   ],
+   "games": [
+    6,
+    4
+   ],
+   "prob_team1": 0.4851,
+   "prob_team2": 0.5149,
+   "pick": "Rich Gang",
+   "pick_prob": 0.5149,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): 1. Esport Club Frankfurt e.V. (Elo 1522, 6 games) vs Rich Gang (Elo 1558, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4181,14 +4650,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1488,
+    1421
+   ],
+   "games": [
+    5,
+    6
+   ],
+   "prob_team1": 0.5317,
+   "prob_team2": 0.4683,
    "pick": "Berlin 5",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5317,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Berlin 5 (Elo 1488, 5 games) vs Sissi State Punks (Elo 1421, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4209,14 +4685,21 @@
    "crowd2": 94,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Black Lion",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1473,
+    1573
+   ],
+   "games": [
+    2,
+    7
+   ],
+   "prob_team1": 0.4768,
+   "prob_team2": 0.5232,
+   "pick": "BlackDivision",
+   "pick_prob": 0.5232,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Black Lion (Elo 1473, 2 games) vs BlackDivision (Elo 1573, 7 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4237,14 +4720,21 @@
    "crowd2": 6,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Cloud eSport",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1469,
+    1531
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.4855,
+   "prob_team2": 0.5145,
+   "pick": "Defiance eSports",
+   "pick_prob": 0.5145,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Cloud eSport (Elo 1469, 2 games) vs Defiance eSports (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4265,14 +4755,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1495,
+    1469
+   ],
+   "games": [
+    7,
+    5
+   ],
+   "prob_team1": 0.5125,
+   "prob_team2": 0.4875,
    "pick": "Eintracht Spandau Zwei",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5125,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Eintracht Spandau Zwei (Elo 1495, 7 games) vs TeamOrangeGaming Academy (Elo 1469, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4293,14 +4790,21 @@
    "crowd2": 6,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Emperors Bremen",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1452,
+    1554
+   ],
+   "games": [
+    5,
+    4
+   ],
+   "prob_team1": 0.4594,
+   "prob_team2": 0.5406,
+   "pick": "Neko Elite Kittens",
+   "pick_prob": 0.5406,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Emperors Bremen (Elo 1452, 5 games) vs Neko Elite Kittens (Elo 1554, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4321,14 +4825,21 @@
    "crowd2": 6,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1501,
+    1441
+   ],
+   "games": [
+    8,
+    4
+   ],
+   "prob_team1": 0.5241,
+   "prob_team2": 0.4759,
    "pick": "Glacial Guardians",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5241,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Glacial Guardians (Elo 1501, 8 games) vs MT1 Vision (Elo 1441, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4349,14 +4860,21 @@
    "crowd2": 19,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "REH Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1442,
+    1531
+   ],
+   "games": [
+    4,
+    2
+   ],
+   "prob_team1": 0.4791,
+   "prob_team2": 0.5209,
+   "pick": "Kanji Esports AKA",
+   "pick_prob": 0.5209,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): REH Gaming (Elo 1442, 4 games) vs Kanji Esports AKA (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4377,14 +4895,21 @@
    "crowd2": 94,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1531,
+    1468
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.5148,
+   "prob_team2": 0.4852,
    "pick": "Kanji Esports KIN",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5148,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Kanji Esports KIN (Elo 1531, 2 games) vs Babos Gaming Academy (Elo 1468, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4406,19 +4931,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1517,
-    1500
+    1549,
+    1466
    ],
    "games": [
-    3,
-    0
+    8,
+    2
    ],
-   "prob_team1": 0.5061,
-   "prob_team2": 0.4939,
+   "prob_team1": 0.5195,
+   "prob_team2": 0.4805,
    "pick": "LOOKSMAXXER",
-   "pick_prob": 0.5061,
+   "pick_prob": 0.5195,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): LOOKSMAXXER (Elo 1517, 3 games) vs Whalepower Humpbacks (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): LOOKSMAXXER (Elo 1549, 8 games) vs Whalepower Humpbacks (Elo 1466, 2 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4440,14 +4965,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Purple Emperor Lizards - Atomic",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1528,
+    1531
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.4994,
+   "prob_team2": 0.5006,
+   "pick": "Packmiko E-Sports DACH",
+   "pick_prob": 0.5006,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Purple Emperor Lizards - Atomic (Elo 1528, 2 games) vs Packmiko E-Sports DACH (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4468,14 +5000,21 @@
    "crowd2": 13,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1487,
+    1483
+   ],
+   "games": [
+    5,
+    3
+   ],
+   "prob_team1": 0.5014,
+   "prob_team2": 0.4986,
    "pick": "Second Time Alive Revival",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5014,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Second Time Alive Revival (Elo 1487, 5 games) vs AceGaming Hearts (Elo 1483, 3 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4496,14 +5035,21 @@
    "crowd2": 13,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "spongecord prime",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1556,
+    1560
+   ],
+   "games": [
+    4,
+    4
+   ],
+   "prob_team1": 0.4983,
+   "prob_team2": 0.5017,
+   "pick": "Duplex Silva Pigeons Edition",
+   "pick_prob": 0.5017,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): spongecord prime (Elo 1556, 4 games) vs Duplex Silva Pigeons Edition (Elo 1560, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4524,14 +5070,21 @@
    "crowd2": 13,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1471,
+    1469
+   ],
+   "games": [
+    2,
+    6
+   ],
+   "prob_team1": 0.5006,
+   "prob_team2": 0.4994,
    "pick": "Team 300 White",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5006,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 White (Elo 1471, 2 games) vs Socken und Sandalen (Elo 1469, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4552,14 +5105,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1525,
+    1487
+   ],
+   "games": [
+    6,
+    5
+   ],
+   "prob_team1": 0.5182,
+   "prob_team2": 0.4818,
    "pick": "VfB x Engines Stuttgart",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5182,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB x Engines Stuttgart (Elo 1525, 6 games) vs AIX eSports (Elo 1487, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4580,14 +5140,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "DMG Esports Sweden",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1508,
+    1588
+   ],
+   "games": [
+    11,
+    10
+   ],
+   "prob_team1": 0.4435,
+   "prob_team2": 0.5565,
+   "pick": "FlameHard",
+   "pick_prob": 0.5565,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): DMG Esports Sweden (Elo 1508, 11 games) vs FlameHard (Elo 1588, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4637,19 +5204,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1502,
+    1521,
     1500
    ],
    "games": [
-    6,
+    16,
     0
    ],
-   "prob_team1": 0.5008,
-   "prob_team2": 0.4992,
+   "prob_team1": 0.5076,
+   "prob_team2": 0.4924,
    "pick": "JSK Academy",
-   "pick_prob": 0.5008,
+   "pick_prob": 0.5076,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1502, 6 games) vs Jendouba Esports (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1521, 16 games) vs Jendouba Esports (Elo 1500, 0 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4699,14 +5266,21 @@
    "crowd2": 6,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1500,
+    1469
+   ],
+   "games": [
+    0,
+    2
+   ],
+   "prob_team1": 0.5111,
+   "prob_team2": 0.4889,
    "pick": "Simplicity Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5111,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Simplicity Gaming (Elo 1500, 0 games) vs JSK Esports (Elo 1469, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4756,19 +5330,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1456,
+    1449,
     1500
    ],
    "games": [
-    9,
+    12,
     0
    ],
-   "prob_team1": 0.4843,
-   "prob_team2": 0.5157,
+   "prob_team1": 0.4819,
+   "prob_team2": 0.5181,
    "pick": "Locked IN",
-   "pick_prob": 0.5157,
+   "pick_prob": 0.5181,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): MT1 Esports (Elo 1456, 9 games) vs Locked IN (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): MT1 Esports (Elo 1449, 12 games) vs Locked IN (Elo 1500, 0 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4791,19 +5365,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1546,
-    1484
+    1584,
+    1462
    ],
    "games": [
-    5,
-    5
+    10,
+    7
    ],
-   "prob_team1": 0.5294,
-   "prob_team2": 0.4706,
+   "prob_team1": 0.5695,
+   "prob_team2": 0.4305,
    "pick": "The Bandits Prime",
-   "pick_prob": 0.5294,
+   "pick_prob": 0.5695,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): The Bandits Prime (Elo 1546, 5 games) vs 404 Multigaming e.V. (Elo 1484, 5 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): The Bandits Prime (Elo 1584, 10 games) vs 404 Multigaming e.V. (Elo 1462, 7 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4826,20 +5400,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1417,
-    1495
+    1358,
+    1497
    ],
    "games": [
-    6,
-    6
+    12,
+    12
    ],
-   "prob_team1": 0.4584,
-   "prob_team2": 0.5416,
+   "prob_team1": 0.3964,
+   "prob_team2": 0.6036,
    "pick": "No Need Orga",
-   "pick_prob": 0.5416,
+   "pick_prob": 0.6036,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BvP (Elo 1417, 6 games) vs No Need Orga (Elo 1495, 6 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BvP (Elo 1358, 12 games) vs No Need Orga (Elo 1497, 12 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4861,19 +5435,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1500,
-    1484
+    1472,
+    1462
    ],
    "games": [
-    0,
-    5
+    2,
+    7
    ],
-   "prob_team1": 0.5056,
-   "prob_team2": 0.4944,
+   "prob_team1": 0.5025,
+   "prob_team2": 0.4975,
    "pick": "Phong Vũ Buffalo",
-   "pick_prob": 0.5056,
+   "pick_prob": 0.5025,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Phong Vũ Buffalo (Elo 1500, 0 games) vs 404 Multigaming e.V. (Elo 1484, 5 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Phong Vũ Buffalo (Elo 1472, 2 games) vs 404 Multigaming e.V. (Elo 1462, 7 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4896,19 +5470,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1456,
-    1483
+    1449,
+    1470
    ],
    "games": [
-    9,
-    3
+    12,
+    6
    ],
-   "prob_team1": 0.4912,
-   "prob_team2": 0.5088,
+   "prob_team1": 0.489,
+   "prob_team2": 0.511,
    "pick": "DKB XPERION NXT",
-   "pick_prob": 0.5088,
+   "pick_prob": 0.511,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): MT1 Esports (Elo 1456, 9 games) vs DKB XPERION NXT (Elo 1483, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): MT1 Esports (Elo 1449, 12 games) vs DKB XPERION NXT (Elo 1470, 6 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -4931,20 +5505,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1508,
-    1546
+    1535,
+    1584
    ],
    "games": [
-    7,
-    5
+    12,
+    10
    ],
-   "prob_team1": 0.4816,
-   "prob_team2": 0.5184,
+   "prob_team1": 0.4653,
+   "prob_team2": 0.5347,
    "pick": "The Bandits Prime",
-   "pick_prob": 0.5184,
+   "pick_prob": 0.5347,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): regnum4games (Elo 1508, 7 games) vs The Bandits Prime (Elo 1546, 5 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): regnum4games (Elo 1535, 12 games) vs The Bandits Prime (Elo 1584, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -4966,19 +5540,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1484,
-    1483
+    1462,
+    1470
    ],
    "games": [
-    5,
-    3
+    7,
+    6
    ],
-   "prob_team1": 0.5005,
-   "prob_team2": 0.4995,
-   "pick": "404 Multigaming e.V.",
-   "pick_prob": 0.5005,
+   "prob_team1": 0.4957,
+   "prob_team2": 0.5043,
+   "pick": "DKB XPERION NXT",
+   "pick_prob": 0.5043,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): 404 Multigaming e.V. (Elo 1484, 5 games) vs DKB XPERION NXT (Elo 1483, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): 404 Multigaming e.V. (Elo 1462, 7 games) vs DKB XPERION NXT (Elo 1470, 6 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5002,18 +5576,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1500,
-    1516
+    1515
    ],
    "games": [
     0,
     3
    ],
-   "prob_team1": 0.4944,
-   "prob_team2": 0.5056,
+   "prob_team1": 0.4946,
+   "prob_team2": 0.5054,
    "pick": "VfB eSports",
-   "pick_prob": 0.5056,
+   "pick_prob": 0.5054,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs VfB eSports (Elo 1516, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs VfB eSports (Elo 1515, 3 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5036,19 +5610,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1417,
-    1531
+    1358,
+    1561
    ],
    "games": [
-    6,
-    2
+    12,
+    4
    ],
-   "prob_team1": 0.4737,
-   "prob_team2": 0.5263,
+   "prob_team1": 0.4251,
+   "prob_team2": 0.5749,
    "pick": "Babos Gaming",
-   "pick_prob": 0.5263,
+   "pick_prob": 0.5749,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BvP (Elo 1417, 6 games) vs Babos Gaming (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BvP (Elo 1358, 12 games) vs Babos Gaming (Elo 1561, 4 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5071,19 +5645,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1498,
+    1495,
     1485
    ],
    "games": [
-    4,
+    8,
     3
    ],
-   "prob_team1": 0.5043,
-   "prob_team2": 0.4957,
+   "prob_team1": 0.5032,
+   "prob_team2": 0.4968,
    "pick": "Team 300",
-   "pick_prob": 0.5043,
+   "pick_prob": 0.5032,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 (Elo 1498, 4 games) vs AceGaming (Elo 1485, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 (Elo 1495, 8 games) vs AceGaming (Elo 1485, 3 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5134,19 +5708,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1502,
-    1500
+    1521,
+    1469
    ],
    "games": [
-    6,
-    0
+    16,
+    2
    ],
-   "prob_team1": 0.5008,
-   "prob_team2": 0.4992,
+   "prob_team1": 0.5124,
+   "prob_team2": 0.4876,
    "pick": "JSK Academy",
-   "pick_prob": 0.5008,
+   "pick_prob": 0.5124,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1502, 6 games) vs JSK Esports (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): JSK Academy (Elo 1521, 16 games) vs JSK Esports (Elo 1469, 2 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5254,18 +5828,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1485,
-    1417
+    1358
    ],
    "games": [
     3,
-    6
+    12
    ],
-   "prob_team1": 0.5222,
-   "prob_team2": 0.4778,
+   "prob_team1": 0.5403,
+   "prob_team2": 0.4597,
    "pick": "AceGaming",
-   "pick_prob": 0.5222,
+   "pick_prob": 0.5403,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs BvP (Elo 1417, 6 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs BvP (Elo 1358, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5288,19 +5862,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1495,
-    1531
+    1476,
+    1561
    ],
    "games": [
-    7,
-    2
+    14,
+    4
    ],
-   "prob_team1": 0.4914,
-   "prob_team2": 0.5086,
+   "prob_team1": 0.466,
+   "prob_team2": 0.534,
    "pick": "Babos Gaming",
-   "pick_prob": 0.5086,
+   "pick_prob": 0.534,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): reGOLD eSport (Elo 1495, 7 games) vs Babos Gaming (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): reGOLD eSport (Elo 1476, 14 games) vs Babos Gaming (Elo 1561, 4 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5322,14 +5896,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "AIX eSports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1487,
+    1573
+   ],
+   "games": [
+    5,
+    7
+   ],
+   "prob_team1": 0.4598,
+   "prob_team2": 0.5402,
+   "pick": "BlackDivision",
+   "pick_prob": 0.5402,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AIX eSports (Elo 1487, 5 games) vs BlackDivision (Elo 1573, 7 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5350,14 +5931,21 @@
    "crowd2": 8,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Babos Gaming Academy",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1468,
+    1501
+   ],
+   "games": [
+    2,
+    8
+   ],
+   "prob_team1": 0.4923,
+   "prob_team2": 0.5077,
+   "pick": "Glacial Guardians",
+   "pick_prob": 0.5077,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming Academy (Elo 1468, 2 games) vs Glacial Guardians (Elo 1501, 8 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5378,14 +5966,22 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
+   "elo": [
+    1531,
+    1531
+   ],
+   "games": [
+    2,
+    2
+   ],
    "prob_team1": 0.5,
    "prob_team2": 0.5,
    "pick": "Defiance eSports",
    "pick_prob": 0.5,
    "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Defiance eSports (Elo 1531, 2 games) vs Kanji Esports AKA (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5406,14 +6002,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1560,
+    1483
+   ],
+   "games": [
+    4,
+    3
+   ],
+   "prob_team1": 0.5252,
+   "prob_team2": 0.4748,
    "pick": "Duplex Silva Pigeons Edition",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5252,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Duplex Silva Pigeons Edition (Elo 1560, 4 games) vs AceGaming Hearts (Elo 1483, 3 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5435,19 +6038,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1517,
-    1500
+    1549,
+    1522
    ],
    "games": [
-    3,
-    0
+    8,
+    6
    ],
-   "prob_team1": 0.5061,
-   "prob_team2": 0.4939,
+   "prob_team1": 0.5145,
+   "prob_team2": 0.4855,
    "pick": "LOOKSMAXXER",
-   "pick_prob": 0.5061,
+   "pick_prob": 0.5145,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): LOOKSMAXXER (Elo 1517, 3 games) vs 1. Esport Club Frankfurt e.V. (Elo 1500, 0 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): LOOKSMAXXER (Elo 1549, 8 games) vs 1. Esport Club Frankfurt e.V. (Elo 1522, 6 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5469,14 +6072,21 @@
    "crowd2": 8,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "MT1 Vision",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1441,
+    1473
+   ],
+   "games": [
+    4,
+    2
+   ],
+   "prob_team1": 0.4923,
+   "prob_team2": 0.5077,
+   "pick": "Black Lion",
+   "pick_prob": 0.5077,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): MT1 Vision (Elo 1441, 4 games) vs Black Lion (Elo 1473, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5497,14 +6107,21 @@
    "crowd2": 92,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1554,
+    1488
+   ],
+   "games": [
+    4,
+    5
+   ],
+   "prob_team1": 0.5267,
+   "prob_team2": 0.4733,
    "pick": "Neko Elite Kittens",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5267,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Neko Elite Kittens (Elo 1554, 4 games) vs Berlin 5 (Elo 1488, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5525,14 +6142,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1531,
+    1469
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.5145,
+   "prob_team2": 0.4855,
    "pick": "Packmiko E-Sports DACH",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5145,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Packmiko E-Sports DACH (Elo 1531, 2 games) vs Cloud eSport (Elo 1469, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5553,14 +6177,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "REH Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1442,
+    1469
+   ],
+   "games": [
+    4,
+    2
+   ],
+   "prob_team1": 0.4933,
+   "prob_team2": 0.5067,
+   "pick": "Atruvia Münster Esports",
+   "pick_prob": 0.5067,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): REH Gaming (Elo 1442, 4 games) vs Atruvia Münster Esports (Elo 1469, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5581,14 +6212,21 @@
    "crowd2": 8,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1558,
+    1471
+   ],
+   "games": [
+    4,
+    2
+   ],
+   "prob_team1": 0.5205,
+   "prob_team2": 0.4795,
    "pick": "Rich Gang",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5205,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Rich Gang (Elo 1558, 4 games) vs Team 300 White (Elo 1471, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5609,14 +6247,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Sissi State Punks",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1421,
+    1487
+   ],
+   "games": [
+    6,
+    5
+   ],
+   "prob_team1": 0.4688,
+   "prob_team2": 0.5312,
+   "pick": "Second Time Alive Revival",
+   "pick_prob": 0.5312,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Sissi State Punks (Elo 1421, 6 games) vs Second Time Alive Revival (Elo 1487, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5637,14 +6282,21 @@
    "crowd2": 92,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Socken und Sandalen",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1469,
+    1495
+   ],
+   "games": [
+    6,
+    7
+   ],
+   "prob_team1": 0.4855,
+   "prob_team2": 0.5145,
+   "pick": "Eintracht Spandau Zwei",
+   "pick_prob": 0.5145,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Socken und Sandalen (Elo 1469, 6 games) vs Eintracht Spandau Zwei (Elo 1495, 7 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5665,14 +6317,21 @@
    "crowd2": 15,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1556,
+    1452
+   ],
+   "games": [
+    4,
+    5
+   ],
+   "prob_team1": 0.5414,
+   "prob_team2": 0.4586,
    "pick": "spongecord prime",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5414,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): spongecord prime (Elo 1556, 4 games) vs Emperors Bremen (Elo 1452, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5693,14 +6352,21 @@
    "crowd2": 8,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "VfB x Engines Stuttgart",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1525,
+    1531
+   ],
+   "games": [
+    6,
+    2
+   ],
+   "prob_team1": 0.4988,
+   "prob_team2": 0.5012,
+   "pick": "Kanji Esports KIN",
+   "pick_prob": 0.5012,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB x Engines Stuttgart (Elo 1525, 6 games) vs Kanji Esports KIN (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5721,14 +6387,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Whalepower Humpbacks",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1466,
+    1469
+   ],
+   "games": [
+    2,
+    5
+   ],
+   "prob_team1": 0.4992,
+   "prob_team2": 0.5008,
+   "pick": "TeamOrangeGaming Academy",
+   "pick_prob": 0.5008,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Whalepower Humpbacks (Elo 1466, 2 games) vs TeamOrangeGaming Academy (Elo 1469, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5750,19 +6423,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1500,
-    1456
+    1472,
+    1449
    ],
    "games": [
-    0,
-    9
+    2,
+    12
    ],
-   "prob_team1": 0.5157,
-   "prob_team2": 0.4843,
+   "prob_team1": 0.5055,
+   "prob_team2": 0.4945,
    "pick": "Phong Vũ Buffalo",
-   "pick_prob": 0.5157,
+   "pick_prob": 0.5055,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Phong Vũ Buffalo (Elo 1500, 0 games) vs MT1 Esports (Elo 1456, 9 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Phong Vũ Buffalo (Elo 1472, 2 games) vs MT1 Esports (Elo 1449, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5785,19 +6458,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1546,
-    1516
+    1584,
+    1515
    ],
    "games": [
-    5,
+    10,
     3
    ],
-   "prob_team1": 0.5102,
-   "prob_team2": 0.4898,
+   "prob_team1": 0.5225,
+   "prob_team2": 0.4775,
    "pick": "The Bandits Prime",
-   "pick_prob": 0.5102,
+   "pick_prob": 0.5225,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): The Bandits Prime (Elo 1546, 5 games) vs VfB eSports (Elo 1516, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): The Bandits Prime (Elo 1584, 10 games) vs VfB eSports (Elo 1515, 3 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5819,14 +6492,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1512,
+    1488
+   ],
+   "games": [
+    3,
+    3
+   ],
+   "prob_team1": 0.5078,
+   "prob_team2": 0.4922,
    "pick": "Ground Zero Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5078,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Ground Zero Gaming (Elo 1512, 3 games) vs Frank Esports (Elo 1488, 3 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5849,18 +6529,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1500,
-    1484
+    1462
    ],
    "games": [
     0,
-    5
+    7
    ],
-   "prob_team1": 0.5056,
-   "prob_team2": 0.4944,
+   "prob_team1": 0.5137,
+   "prob_team2": 0.4863,
    "pick": "Locked IN",
-   "pick_prob": 0.5056,
+   "pick_prob": 0.5137,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs 404 Multigaming e.V. (Elo 1484, 5 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Locked IN (Elo 1500, 0 games) vs 404 Multigaming e.V. (Elo 1462, 7 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5883,20 +6563,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1456,
-    1546
+    1449,
+    1584
    ],
    "games": [
-    9,
-    5
+    12,
+    10
    ],
-   "prob_team1": 0.4576,
-   "prob_team2": 0.5424,
+   "prob_team1": 0.4078,
+   "prob_team2": 0.5922,
    "pick": "The Bandits Prime",
-   "pick_prob": 0.5424,
+   "pick_prob": 0.5922,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): MT1 Esports (Elo 1456, 9 games) vs The Bandits Prime (Elo 1546, 5 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): MT1 Esports (Elo 1449, 12 games) vs The Bandits Prime (Elo 1584, 10 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -5918,19 +6598,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1500,
-    1508
+    1472,
+    1535
    ],
    "games": [
-    0,
-    7
+    2,
+    12
    ],
-   "prob_team1": 0.4972,
-   "prob_team2": 0.5028,
+   "prob_team1": 0.485,
+   "prob_team2": 0.515,
    "pick": "regnum4games",
-   "pick_prob": 0.5028,
+   "pick_prob": 0.515,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Phong Vũ Buffalo (Elo 1500, 0 games) vs regnum4games (Elo 1508, 7 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Phong Vũ Buffalo (Elo 1472, 2 games) vs regnum4games (Elo 1535, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5953,19 +6633,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1516,
-    1483
+    1515,
+    1470
    ],
    "games": [
     3,
-    3
+    6
    ],
-   "prob_team1": 0.5109,
-   "prob_team2": 0.4891,
+   "prob_team1": 0.515,
+   "prob_team2": 0.485,
    "pick": "VfB eSports",
-   "pick_prob": 0.5109,
+   "pick_prob": 0.515,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB eSports (Elo 1516, 3 games) vs DKB XPERION NXT (Elo 1483, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): VfB eSports (Elo 1515, 3 games) vs DKB XPERION NXT (Elo 1470, 6 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -5987,14 +6667,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1483,
+    1421
+   ],
+   "games": [
+    3,
+    6
+   ],
+   "prob_team1": 0.5203,
+   "prob_team2": 0.4797,
    "pick": "AceGaming Hearts",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5203,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming Hearts (Elo 1483, 3 games) vs Sissi State Punks (Elo 1421, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6015,14 +6702,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Atruvia Münster Esports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1469,
+    1531
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.4855,
+   "prob_team2": 0.5145,
+   "pick": "Kanji Esports AKA",
+   "pick_prob": 0.5145,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Atruvia Münster Esports (Elo 1469, 2 games) vs Kanji Esports AKA (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6043,14 +6737,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Babos Gaming Academy",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1468,
+    1487
+   ],
+   "games": [
+    2,
+    5
+   ],
+   "prob_team1": 0.4954,
+   "prob_team2": 0.5046,
+   "pick": "AIX eSports",
+   "pick_prob": 0.5046,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming Academy (Elo 1468, 2 games) vs AIX eSports (Elo 1487, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6071,14 +6772,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1488,
+    1452
+   ],
+   "games": [
+    5,
+    5
+   ],
+   "prob_team1": 0.5171,
+   "prob_team2": 0.4829,
    "pick": "Berlin 5",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5171,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Berlin 5 (Elo 1488, 5 games) vs Emperors Bremen (Elo 1452, 5 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6099,14 +6807,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Black Lion",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1473,
+    1525
+   ],
+   "games": [
+    2,
+    6
+   ],
+   "prob_team1": 0.4876,
+   "prob_team2": 0.5124,
+   "pick": "VfB x Engines Stuttgart",
+   "pick_prob": 0.5124,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Black Lion (Elo 1473, 2 games) vs VfB x Engines Stuttgart (Elo 1525, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6127,14 +6842,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1573,
+    1441
+   ],
+   "games": [
+    7,
+    4
+   ],
+   "prob_team1": 0.5516,
+   "prob_team2": 0.4484,
    "pick": "BlackDivision",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5516,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BlackDivision (Elo 1573, 7 games) vs MT1 Vision (Elo 1441, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6155,14 +6877,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1531,
+    1528
+   ],
+   "games": [
+    2,
+    2
+   ],
+   "prob_team1": 0.5006,
+   "prob_team2": 0.4994,
    "pick": "Defiance eSports",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5006,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Defiance eSports (Elo 1531, 2 games) vs Purple Emperor Lizards - Atomic (Elo 1528, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6184,19 +6913,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1500,
-    1517
+    1495,
+    1549
    ],
    "games": [
-    0,
-    3
+    7,
+    8
    ],
-   "prob_team1": 0.4939,
-   "prob_team2": 0.5061,
+   "prob_team1": 0.4684,
+   "prob_team2": 0.5316,
    "pick": "LOOKSMAXXER",
-   "pick_prob": 0.5061,
+   "pick_prob": 0.5316,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Eintracht Spandau Zwei (Elo 1500, 0 games) vs LOOKSMAXXER (Elo 1517, 3 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Eintracht Spandau Zwei (Elo 1495, 7 games) vs LOOKSMAXXER (Elo 1549, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -6218,14 +6947,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Glacial Guardians",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1501,
+    1531
+   ],
+   "games": [
+    8,
+    2
+   ],
+   "prob_team1": 0.4928,
+   "prob_team2": 0.5072,
+   "pick": "Kanji Esports KIN",
+   "pick_prob": 0.5072,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Glacial Guardians (Elo 1501, 8 games) vs Kanji Esports KIN (Elo 1531, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6246,14 +6982,21 @@
    "crowd2": 92,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1560,
+    1554
+   ],
+   "games": [
+    4,
+    4
+   ],
+   "prob_team1": 0.5025,
+   "prob_team2": 0.4975,
    "pick": "Duplex Silva Pigeons Edition",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5025,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Duplex Silva Pigeons Edition (Elo 1560, 4 games) vs Neko Elite Kittens (Elo 1554, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6274,14 +7017,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "REH Gaming",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1442,
+    1469
+   ],
+   "games": [
+    4,
+    2
+   ],
+   "prob_team1": 0.4933,
+   "prob_team2": 0.5067,
+   "pick": "Cloud eSport",
+   "pick_prob": 0.5067,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): REH Gaming (Elo 1442, 4 games) vs Cloud eSport (Elo 1469, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6302,14 +7052,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1558,
+    1466
+   ],
+   "games": [
+    4,
+    2
+   ],
+   "prob_team1": 0.5216,
+   "prob_team2": 0.4784,
    "pick": "Rich Gang",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5216,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Rich Gang (Elo 1558, 4 games) vs Whalepower Humpbacks (Elo 1466, 2 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6330,14 +7087,21 @@
    "crowd2": 100,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Second Time Alive Revival",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1487,
+    1556
+   ],
+   "games": [
+    5,
+    4
+   ],
+   "prob_team1": 0.472,
+   "prob_team2": 0.528,
+   "pick": "spongecord prime",
+   "pick_prob": 0.528,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Second Time Alive Revival (Elo 1487, 5 games) vs spongecord prime (Elo 1556, 4 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6358,14 +7122,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
-   "pick": "Team 300 White",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "elo": [
+    1471,
+    1522
+   ],
+   "games": [
+    2,
+    6
+   ],
+   "prob_team1": 0.4878,
+   "prob_team2": 0.5122,
+   "pick": "1. Esport Club Frankfurt e.V.",
+   "pick_prob": 0.5122,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 White (Elo 1471, 2 games) vs 1. Esport Club Frankfurt e.V. (Elo 1522, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6386,14 +7157,21 @@
    "crowd2": 0,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.5,
-   "prob_team2": 0.5,
+   "elo": [
+    1469,
+    1469
+   ],
+   "games": [
+    5,
+    6
+   ],
+   "prob_team1": 0.5004,
+   "prob_team2": 0.4996,
    "pick": "TeamOrangeGaming Academy",
-   "pick_prob": 0.5,
-   "no_edge": true,
-   "method": "UNRESOLVED",
-   "evidence": "No external market line and no Leaguepedia match history recorded for either team",
-   "confidence": "Unresolved - 50/50 baseline; no edge",
+   "pick_prob": 0.5004,
+   "method": "MODEL_ELO",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): TeamOrangeGaming Academy (Elo 1469, 5 games) vs Socken und Sandalen (Elo 1469, 6 games), shrunk toward 50% by sample size",
+   "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false
@@ -6416,18 +7194,18 @@
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
     1485,
-    1555
+    1594
    ],
    "games": [
     3,
-    4
+    8
    ],
-   "prob_team1": 0.4771,
-   "prob_team2": 0.5229,
+   "prob_team1": 0.4651,
+   "prob_team2": 0.5349,
    "pick": "Hannover Esports e.V.",
-   "pick_prob": 0.5229,
+   "pick_prob": 0.5349,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs Hannover Esports e.V. (Elo 1555, 4 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): AceGaming (Elo 1485, 3 games) vs Hannover Esports e.V. (Elo 1594, 8 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -6450,19 +7228,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1531,
-    1510
+    1561,
+    1519
    ],
    "games": [
-    2,
-    7
+    4,
+    14
    ],
-   "prob_team1": 0.505,
-   "prob_team2": 0.495,
+   "prob_team1": 0.5168,
+   "prob_team2": 0.4832,
    "pick": "Babos Gaming",
-   "pick_prob": 0.505,
+   "pick_prob": 0.5168,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming (Elo 1531, 2 games) vs Reveal Multigaming (Elo 1510, 7 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Babos Gaming (Elo 1561, 4 games) vs Reveal Multigaming (Elo 1519, 14 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -6485,19 +7263,19 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1498,
-    1495
+    1495,
+    1497
    ],
    "games": [
-    4,
-    6
+    8,
+    12
    ],
-   "prob_team1": 0.501,
-   "prob_team2": 0.499,
-   "pick": "Team 300",
-   "pick_prob": 0.501,
+   "prob_team1": 0.4985,
+   "prob_team2": 0.5015,
+   "pick": "No Need Orga",
+   "pick_prob": 0.5015,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 (Elo 1498, 4 games) vs No Need Orga (Elo 1495, 6 games), shrunk toward 50% by sample size",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): Team 300 (Elo 1495, 8 games) vs No Need Orga (Elo 1497, 12 games), shrunk toward 50% by sample size",
    "confidence": "Low - thin team match history",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
@@ -6520,20 +7298,20 @@
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
    "elo": [
-    1417,
-    1495
+    1358,
+    1476
    ],
    "games": [
-    6,
-    7
+    12,
+    14
    ],
-   "prob_team1": 0.4589,
-   "prob_team2": 0.5411,
+   "prob_team1": 0.4106,
+   "prob_team2": 0.5894,
    "pick": "reGOLD eSport",
-   "pick_prob": 0.5411,
+   "pick_prob": 0.5894,
    "method": "MODEL_ELO",
-   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BvP (Elo 1417, 6 games) vs reGOLD eSport (Elo 1495, 7 games), shrunk toward 50% by sample size",
-   "confidence": "Low - thin team match history",
+   "evidence": "Our originated Elo line (Leaguepedia results, past 180d): BvP (Elo 1358, 12 games) vs reGOLD eSport (Elo 1476, 14 games), shrunk toward 50% by sample size",
+   "confidence": "Medium - historical competitive data",
    "market_url": "",
    "source_url": "https://lol.fandom.com/wiki/Leaguepedia:League_of_Legends_Esports_Wiki",
    "pinnacle_listed": false

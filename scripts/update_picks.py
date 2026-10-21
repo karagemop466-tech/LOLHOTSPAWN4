@@ -482,8 +482,16 @@ def load_seed_ratings():
         return {}
     try:
         seeds = json.load(open(SEED_RATINGS_PATH, "r", encoding="utf-8"))
-        return {k: (float(v.get("elo", 1500.0)), int(v.get("games", 1)))
-                for k, v in seeds.items() if isinstance(v, dict)}
+        out = {}
+        for k, v in seeds.items():
+            if not isinstance(v, dict):
+                continue
+            val = (float(v.get("elo", 1500.0)), int(v.get("games", 1)))
+            out[k] = val
+            ck = canon(v.get("team") or k)
+            if ck:
+                out[ck] = val
+        return out
     except Exception as e:
         log("seed ratings load error: %s" % e)
         return {}
