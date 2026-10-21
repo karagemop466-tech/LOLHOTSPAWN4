@@ -1,0 +1,1502 @@
+{
+  "audit": "Independent rendered responsive and WCAG A/AA smoke test",
+  "checked_at": "2026-10-21T20:29:35.167Z",
+  "base_url": "http://127.0.0.1:8080/",
+  "browser": "153.0.8010.0",
+  "publisher_facts_verified": false,
+  "viewports": [
+    {
+      "route": "index.html",
+      "width": 360,
+      "status": 200,
+      "title": "LOL Hotspawn Pick Desk — Executive Summary",
+      "h1_count": 1,
+      "document_width": 360,
+      "body_width": 360,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [
+        "Invalid or unexpected token"
+      ],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[target=\"_blank\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(1) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".info > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "footer > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "picks.html",
+      "width": 360,
+      "status": 200,
+      "title": "All Picks — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 360,
+      "body_width": 360,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 1,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "aria-required-children",
+          "impact": "critical",
+          "description": "Ensure elements with an ARIA role that require child roles contain them",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".filters"
+              ],
+              "summary": "Fix any of the following:\n  Element has children which are not allowed: button"
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".notebox > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "flagged.html",
+      "width": 360,
+      "status": 200,
+      "title": "Flagged for Review — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 360,
+      "body_width": 360,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".bad > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".warn > a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".table-scroll:nth-child(6)"
+              ],
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(11)"
+              ],
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "methodology.html",
+      "width": 360,
+      "status": 200,
+      "title": "Methodology & Sources — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 360,
+      "body_width": 360,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 2,
+      "page_errors": [],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".lede > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".card:nth-child(8) > p:nth-child(2) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(3) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".table-scroll:nth-child(14)"
+              ],
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "index.html",
+      "width": 390,
+      "status": 200,
+      "title": "LOL Hotspawn Pick Desk — Executive Summary",
+      "h1_count": 1,
+      "document_width": 390,
+      "body_width": 390,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [
+        "Invalid or unexpected token"
+      ],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[target=\"_blank\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(1) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".info > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "footer > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "picks.html",
+      "width": 390,
+      "status": 200,
+      "title": "All Picks — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 390,
+      "body_width": 390,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 1,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "aria-required-children",
+          "impact": "critical",
+          "description": "Ensure elements with an ARIA role that require child roles contain them",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".filters"
+              ],
+              "summary": "Fix any of the following:\n  Element has children which are not allowed: button"
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".notebox > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "flagged.html",
+      "width": 390,
+      "status": 200,
+      "title": "Flagged for Review — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 390,
+      "body_width": 390,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".bad > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".warn > a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".table-scroll:nth-child(6)"
+              ],
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "methodology.html",
+      "width": 390,
+      "status": 200,
+      "title": "Methodology & Sources — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 390,
+      "body_width": 390,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 2,
+      "page_errors": [],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".lede > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".card:nth-child(8) > p:nth-child(2) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(3) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "description": "Ensure elements that have scrollable content are accessible by keyboard in Safari",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/scrollable-region-focusable?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".table-scroll:nth-child(14)"
+              ],
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "index.html",
+      "width": 768,
+      "status": 200,
+      "title": "LOL Hotspawn Pick Desk — Executive Summary",
+      "h1_count": 1,
+      "document_width": 768,
+      "body_width": 768,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [
+        "Invalid or unexpected token"
+      ],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[target=\"_blank\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(1) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".info > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "footer > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "picks.html",
+      "width": 768,
+      "status": 200,
+      "title": "All Picks — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 768,
+      "body_width": 768,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 1,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "aria-required-children",
+          "impact": "critical",
+          "description": "Ensure elements with an ARIA role that require child roles contain them",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".filters"
+              ],
+              "summary": "Fix any of the following:\n  Element has children which are not allowed: button"
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".notebox > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "flagged.html",
+      "width": 768,
+      "status": 200,
+      "title": "Flagged for Review — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 768,
+      "body_width": 768,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".bad > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".warn > a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "methodology.html",
+      "width": 768,
+      "status": 200,
+      "title": "Methodology & Sources — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 768,
+      "body_width": 768,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 2,
+      "page_errors": [],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".lede > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".card:nth-child(8) > p:nth-child(2) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(3) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "index.html",
+      "width": 1280,
+      "status": 200,
+      "title": "LOL Hotspawn Pick Desk — Executive Summary",
+      "h1_count": 1,
+      "document_width": 1280,
+      "body_width": 1280,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [
+        "Invalid or unexpected token"
+      ],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".active"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.75 (foreground color: #c8aa6e, background color: #e6e4de, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[target=\"_blank\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(1) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".info > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "footer > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "picks.html",
+      "width": 1280,
+      "status": 200,
+      "title": "All Picks — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 1280,
+      "body_width": 1280,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 1,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "aria-required-children",
+          "impact": "critical",
+          "description": "Ensure elements with an ARIA role that require child roles contain them",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".filters"
+              ],
+              "summary": "Fix any of the following:\n  Element has children which are not allowed: button"
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href=\"index.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.75 (foreground color: #c8aa6e, background color: #e6e4de, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".notebox > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "flagged.html",
+      "width": 1280,
+      "status": 200,
+      "title": "Flagged for Review — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 1280,
+      "body_width": 1280,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 3,
+      "page_errors": [],
+      "failed_local_requests": [
+        {
+          "url": "http://127.0.0.1:8080/data/matches.json",
+          "status": 404
+        }
+      ],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href=\"index.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".active"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.75 (foreground color: #c8aa6e, background color: #e6e4de, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".bad > a[href$=\"methodology.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".warn > a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "methodology.html",
+      "width": 1280,
+      "status": 200,
+      "title": "Methodology & Sources — LOL Hotspawn Pick Desk",
+      "h1_count": 1,
+      "document_width": 1280,
+      "body_width": 1280,
+      "rendered_match_count": 0,
+      "link_to_picks_count": 2,
+      "page_errors": [],
+      "failed_local_requests": [],
+      "accessibility_violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".brand"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.13 (foreground color: #ffffff, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".lol"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #c8aa6e, background color: #edf1f6, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href=\"index.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"picks.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "nav > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.25 (foreground color: #cfd9e4, background color: #edf1f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".active"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.75 (foreground color: #c8aa6e, background color: #e6e4de, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "help_url": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".lede > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.49:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #5b6b7c)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".table-scroll:nth-child(6) > table > tbody > tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > td:nth-child(3) > a[target=\"_blank\"][rel=\"noopener\"]:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                ".card:nth-child(8) > p:nth-child(2) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            },
+            {
+              "target": [
+                "p:nth-child(3) > a[href$=\"flagged.html\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2:1 with the surrounding text. (Minimum contrast is 3:1, link text: #1d4f8f, surrounding text: #17202b)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "route": "index.html",
+      "width": 360,
+      "issue": "JavaScript runtime error"
+    },
+    {
+      "route": "index.html",
+      "width": 360,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 360,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "picks.html",
+      "width": 360,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 360,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "flagged.html",
+      "width": 360,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "flagged.html",
+      "width": 360,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "flagged.html",
+      "width": 360,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "methodology.html",
+      "width": 360,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "index.html",
+      "width": 390,
+      "issue": "JavaScript runtime error"
+    },
+    {
+      "route": "index.html",
+      "width": 390,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 390,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "picks.html",
+      "width": 390,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 390,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "flagged.html",
+      "width": 390,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "flagged.html",
+      "width": 390,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "flagged.html",
+      "width": 390,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "methodology.html",
+      "width": 390,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "index.html",
+      "width": 768,
+      "issue": "JavaScript runtime error"
+    },
+    {
+      "route": "index.html",
+      "width": 768,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 768,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "picks.html",
+      "width": 768,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 768,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "flagged.html",
+      "width": 768,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "flagged.html",
+      "width": 768,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "flagged.html",
+      "width": 768,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "methodology.html",
+      "width": 768,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "index.html",
+      "width": 1280,
+      "issue": "JavaScript runtime error"
+    },
+    {
+      "route": "index.html",
+      "width": 1280,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 1280,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "picks.html",
+      "width": 1280,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "picks.html",
+      "width": 1280,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "flagged.html",
+      "width": 1280,
+      "issue": "Failed same-site asset/data request"
+    },
+    {
+      "route": "flagged.html",
+      "width": 1280,
+      "issue": "WCAG A/AA automated accessibility violations"
+    },
+    {
+      "route": "flagged.html",
+      "width": 1280,
+      "issue": "Rendered data-load failure"
+    },
+    {
+      "route": "methodology.html",
+      "width": 1280,
+      "issue": "WCAG A/AA automated accessibility violations"
+    }
+  ],
+  "passed": false
+}

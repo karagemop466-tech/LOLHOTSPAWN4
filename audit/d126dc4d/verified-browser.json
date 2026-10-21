@@ -1,0 +1,73 @@
+{
+  "checked_at": "2026-10-21T21:35:46.249Z",
+  "base_url": "http://127.0.0.1:8080/",
+  "tests": [
+    {
+      "name": "Every inventory fixture exists in static card and table representations",
+      "passed": true,
+      "detail": {
+        "fixtures": 264
+      }
+    },
+    {
+      "name": "Each rendered card and table row has an original HTTPS source",
+      "passed": true
+    },
+    {
+      "name": "Fixture ID search is functional and precise",
+      "passed": true
+    },
+    {
+      "name": "Empty search has a readable no-results state",
+      "passed": true
+    },
+    {
+      "name": "Competition filter counts reconcile to dataset",
+      "passed": true
+    },
+    {
+      "name": "Elapsed listings are separately filterable and have blank prematch values",
+      "passed": true
+    },
+    {
+      "name": "Pagination reaches additional fixtures without losing source links",
+      "passed": true
+    },
+    {
+      "name": "A direct fixture fragment reveals a fixture on a later page",
+      "passed": true
+    },
+    {
+      "name": "Mobile table switches correctly and scrolls locally, not the entire page",
+      "passed": true
+    },
+    {
+      "name": "Unconfirmed probabilities render as dashes, never neutral fills",
+      "passed": true
+    },
+    {
+      "name": "Evidence expands to the original sources and review notes",
+      "passed": true
+    },
+    {
+      "name": "No interactive JavaScript errors",
+      "passed": true
+    },
+    {
+      "name": "Expired snapshot hides probabilities and picks in the browser",
+      "passed": true,
+      "detail": {
+        "invalidated_probability_fields": 120
+      }
+    },
+    {
+      "name": "No-JavaScript view retains all inventory rows and source evidence",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "publisher_accuracy_guaranteed": false,
+  "viewport_checks": 28,
+  "viewport_report": "verified-browser-viewports.json",
+  "passed": true
+}

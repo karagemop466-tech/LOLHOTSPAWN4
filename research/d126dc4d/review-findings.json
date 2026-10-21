@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "audit_owner": "arena-d126dc4d",
+  "observed_on": "2026-10-21",
+  "retrieval_method": "Direct original-publisher pages via fetch_page; not search snippets",
+  "not_a_live_feed": true,
+  "findings": [
+    {
+      "id": "independent-audit-future-result-1071212",
+      "severity": "warning",
+      "status": "needs review",
+      "title": "Organizer shows a score for a future Hotspawn fixture",
+      "hotspawn_match_id": "1071212",
+      "description": "Hotspawn lists Rich Gang vs Phenti for 23 October 2026 as upcoming. The official Komplettligaen match page displays Rich Gang 2-0 Phenti XD at the same future date. This audit does not establish why the score is already present, or independently confirm the Phenti/Phenti XD alias.",
+      "required_handling": "Do not use the displayed future result as training data or claim the fixture is settled. Quarantine source state/identity conflict and retain its Hotspawn inventory row.",
+      "sources": [
+        "https://www.komplettligaen.no/lol/kamp/258067",
+        "https://www.hotspawn.com/matches/rich-gang-vs-phenti-komplettligaen-2026-autumn-1071212"
+      ]
+    },
+    {
+      "id": "independent-audit-lobby-count",
+      "severity": "info",
+      "status": "needs review",
+      "title": "Weekly banner and LoL filter counts describe different inventories",
+      "description": "The dedicated LoL lobby retrieval displays 264 in its all-tier/all-tournament filters and 138 in a separate weekly banner. This does not establish 264 unique active matches until all source IDs are reconciled.",
+      "required_handling": "Report actual unique ingested LoL IDs and a separate discovery completeness status. Do not use the weekly banner as the LoL coverage denominator.",
+      "sources": [
+        "https://play.hotspawn.com/lol-pickems"
+      ]
+    },
+    {
+      "id": "independent-audit-ggbet-access",
+      "severity": "info",
+      "status": "needs review",
+      "title": "GG.bet region restriction prevents price verification",
+      "description": "The publisher returned an explicit notice that the site does not accept visitors from this region. No GG.bet line was accepted from that retrieval.",
+      "required_handling": "Label access restricted, not market absent. Do not bypass region controls or fill prices from search snippets.",
+      "sources": [
+        "https://gg.bet/en/esports/league-of-legends"
+      ]
+    },
+    {
+      "id": "independent-audit-zero-history-solid",
+      "severity": "info",
+      "status": "needs review",
+      "title": "Solid Gaming has no played matches in the retrieved organizer standings",
+      "description": "The official Komplettligaen Division 1 table shows Solid Gaming with zero played, won, drawn and lost in this snapshot. This is not evidence of equal strength or of a certain opponent win.",
+      "required_handling": "Require other verified independent history or a matched full-series market. Otherwise leave probabilities and pick blank and publish the insufficient-history limitation.",
+      "sources": [
+        "https://www.komplettligaen.no/lol/tabeller"
+      ]
+    },
+    {
+      "id": "independent-audit-rivals-alias",
+      "severity": "info",
+      "status": "needs review",
+      "title": "RIVALS participant aliases require identity verification",
+      "description": "The organizer has Bardicted to U, B2U Old Timers, Rich Gang SE, Rich Gang NO and other similarly named teams. The Hotspawn B2U alias has not been independently confirmed in this audit.",
+      "required_handling": "Use verified team IDs/rosters and season/division context, not substring/fuzzy matching. Leave unmatched identities unresolved.",
+      "sources": [
+        "https://www.rivalsleague.gg/lol/teams",
+        "https://www.rivalsleague.gg/lol/team/2e5c8bdc-1254-4bb7-a44c-168d1c8830f0"
+      ]
+    },
+    {
+      "id": "independent-audit-thunderpick-state",
+      "severity": "info",
+      "status": "needs review",
+      "title": "Thunderpick snapshot requires event-state and freshness validation",
+      "description": "The exact Solary/Galions event page exposes Main > Match Winner with Solary -122 and Galions -114 (American) and a future October 22 date, but also a generic Live label. Exact provider quote timestamp and displayed timezone were not exposed. The team order is opposite Hotspawn 1081205.",
+      "required_handling": "Re-fetch for each refresh and validate pre-match state, team order and full-series scope. The research quote must not be frozen into the live feed.",
+      "sources": [
+        "https://thunderpick.io/esports/league-of-legends/emea-masters-2026-summer/10747/solary-vs-galions/2829674",
+        "https://www.hotspawn.com/matches/galions-vs-solary-em-2026-summer-main-event-1081205"
+      ]
+    },
+    {
+      "id": "independent-audit-pinnacle-price-endpoint-correction",
+      "severity": "warning",
+      "status": "needs review",
+      "title": "Initial no-public-price-endpoint claim is disproved by direct price responses",
+      "description": "Public leagues/9587/markets/straight and leagues/225201/markets/straight return paired American moneylines, including period0 series lines and separate map lines. Nine exact parent matchups and paired prices were directly checked. A failed guessed route does not establish provider-wide absence.",
+      "required_handling": "Correct methodology and coverage-only notes. Filter moneyline period0 key s;0;m with home/away and parent matchup identity/time checks. Re-fetch, do not hardcode audit snapshots.",
+      "sources": [
+        "https://guest.api.arcadia.pinnacle.com/0.1/leagues/9587/markets/straight",
+        "https://guest.api.arcadia.pinnacle.com/0.1/leagues/225201/markets/straight",
+        "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638709103"
+      ]
+    },
+    {
+      "id": "independent-audit-map-market-5721045",
+      "severity": "warning",
+      "status": "needs review",
+      "title": "Polymarket Game1 market must not be used as a series-winner line",
+      "hotspawn_match_id": "1081205",
+      "description": "Main data/picks.json imported by PR8 cites Game1 Winner for Galions/Solary. Original publisher market5721045 explicitly resolves on Game1 and identifies sportsMarketType child_moneyline. A distinct series-winner market exists. The prices can coincide in one snapshot without making the markets equivalent.",
+      "required_handling": "Reject child/map-winner markets before participant matching. Use the validated series market, with correct eventStartTime and retained provider timestamp.",
+      "sources": [
+        "https://gamma-api.polymarket.com/markets/5721045",
+        "https://gamma-api.polymarket.com/events?slug=lol-gal-sly-2026-10-22",
+        "https://www.hotspawn.com/matches/galions-vs-solary-em-2026-summer-main-event-1081205"
+      ]
+    },
+    {
+      "id": "independent-audit-unverified-50-50-fills",
+      "severity": "warning",
+      "status": "needs review",
+      "title": "Unsupported 50/50 unresolved fills contradict the blank-value requirement",
+      "description": "Main PR8 snapshot contains126 UNRESOLVED rows with0.5/0.5 and an arbitrary first-team pick; generic documentation/wiki-home links are not row-level probability evidence. This is a code/data finding, not a claim that the teams cannot have equal real strength.",
+      "required_handling": "Set unsupported probabilities and picks to null, render a blank/unverified state rather than default50%, and retain the fixture in a separate unresolved view.",
+      "sources": [
+        "https://github.com/karagemop466-tech/LOLHOTSPAWN4/pull/8",
+        "https://github.com/karagemop466-tech/LOLHOTSPAWN4/issues/13"
+      ]
+    }
+  ]
+}
