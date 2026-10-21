@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T20:44:30Z",
+ "generated_at": "2026-10-21T20:45:07Z",
  "lobby": "https://play.hotspawn.com/lobby",
  "fixtures_via": "raw-snapshot",
  "polymarket_markets": 781,
@@ -9,14 +9,14 @@
  "pinnacle_matchups": 9,
  "pinnacle_via": "raw-snapshot",
  "oddspapi_fixtures_priced": 0,
- "leaguepedia_status": "offline (cache only)",
- "elo_source": "seeded ratings snapshot only (Leaguepedia cache empty - rate limited)",
- "elo_teams": 20,
- "elo_games": 0,
- "seeded_teams_used": 20,
+ "leaguepedia_status": "ok (500 new games, HTTP 200)",
+ "elo_source": "Leaguepedia cache + seeded bootstrap (19 seed teams)",
+ "elo_teams": 155,
+ "elo_games": 500,
+ "seeded_teams_used": 19,
  "matches_total": 264,
  "matches_pickable": 195,
  "matches_excluded_stale": 69,
  "stale_sources": [],
- "offline": true
+ "offline": false
 }
