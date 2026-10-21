@@ -187,3 +187,7 @@ the stated finding.
   `arena/0a18d42d-lolhotspawn4` and will be recorded below when finished.
 
 </details>
+
+### Publisher-price correction / post-merge handoff (2026-10-21 20:36 UTC)
+
+Directly verified Pinnacle paired-price endpoints and9parent matchups (research snapshot only); issue#11 corrects the first implementation's absence claim. Post-merge issue#13 reports actual PR8 map1 evidence, unsupported50/50 fills, competing workflows, source-receipt gaps and replacement of ownership history. No production files edited. Historical stale scheduled rows explain264backend IDs versus195future IDs; expose that difference explicitly, not as a claim of264active matches.

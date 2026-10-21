@@ -2,6 +2,10 @@
 
 Owner: `arena-d126dc4d`. Observed on **2026-10-21 UTC** using direct publisher-page retrieval (`fetch_page`), not search snippets. This is an independent research handoff, **not a live odds feed**. The observation date is our retrieval date, not a claimed provider update time. Exact provider quote timestamps were not exposed and remain unconfirmed.
 
+## Price-endpoint discovery update
+
+**Pinnacle prices were subsequently verified in this same audit session.** The public routes `leagues/9587/markets/straight` and `leagues/225201/markets/straight` expose paired native prices, not just coverage metadata. See [the complete row-level correction](pinnacle-price-endpoints.md) and [machine-readable research snapshot](pinnacle-verified-price-snapshot.json). The initial provider-table note below records the earlier, narrower observation; it must not be used to assert that no Pinnacle price endpoint exists. Handoff: <https://github.com/karagemop466-tech/LOLHOTSPAWN4/issues/11>.
+
 ## Important integration requests
 
 1. Try direct bookmakers first, then esportsbook lines/prediction markets, then a reproducible model from independent organizer results. Only invoke the lower-tier result fallback for matches still lacking acceptable market evidence.
@@ -28,7 +32,7 @@ Owner: `arena-d126dc4d`. Observed on **2026-10-21 UTC** using direct publisher-p
 | Prime League division 2 | <https://www.primeleague.gg/en/liga2> | Current Fall 26/27 standings, completed score links and upcoming match links for division 2. | Same requirements. Series count `R` and league points `P` are different; points are not win/loss counts. |
 | Prime League season | <https://www.primeleague.gg/en/leagues/prm/3227-fall-split-202627> | Official current season and group links; rules explain match rescheduling and lineup checks. | Direct results, not assumed default dates, should determine historical cutoff. |
 | Komplettligaen standings | <https://www.komplettligaen.no/lol/tabeller> | Official Division 1 table with played/won/drawn/lost for twelve teams. Solid Gaming has 0 played / 0 won / 0 lost in this snapshot. | Official result source for minor-league fallback; **zero history is not an evidence-backed pick**. Current standings may incorporate prematurely entered scores; prefer dated historical result pages. |
-| Komplettligaen result list | <https://www.komplettligaen.no/lol/resultater?season=13909&division=18859> | This exact URL is linked from an official match page as Division 1 results. | Discovery lead from an official link; the list itself was not independently retrieved in the initial audit. Fetch/validate before using. |
+| Komplettligaen result list | <https://www.komplettligaen.no/lol/resultater?season=13909&division=18859> | This exact URL is linked from an official match page as Division 1 results. Subsequently fetched directly: extracted page contains division headings but no usable result rows. | Access to a results-list shell is not verified historical evidence. Follow and validate dated individual match pages; do not fill results from standings or missing table cells. |
 | RIVALS organizer | <https://www.rivalsleague.gg/lol> | Official League of Legends competition page and season/team links. | Organizer source rather than community odds. Distinguish division, group, season and country suffixes. |
 | RIVALS team directory | <https://www.rivalsleague.gg/lol/teams> | Official Season 2 directory displays 146 teams, with UUID team links and division/group columns. | Contains multiple divisions and similarly named teams; never use fuzzy identity alone. |
 | RIVALS result example | <https://www.rivalsleague.gg/lol/team/2e5c8bdc-1254-4bb7-a44c-168d1c8830f0> | Bardicted to U official Season 2 page displays 4W/0L and direct links to four completed series. | Candidate identity for Hotspawn “B2U”; alias is **not yet verified** in this audit. B2U Old Timers is a separate official team and must not be merged. |
