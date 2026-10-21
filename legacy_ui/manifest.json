@@ -1,0 +1,14 @@
+{
+  "source_commit": "16b25c0dcc4dab936ce304dfec57d224ed4c9e51",
+  "sha256": {
+    "automation.html": "6c8aabafbe7b1eb48690712cc991f0ff1ebfe3149a8a5e68fc9ce0bc2b130ddb",
+    "featured.html": "a991c04820d7e7ea2e1bc9c8a175f0c22ee318e089f4229131a4ab37e25930df",
+    "flagged.html": "80166f9f1d2d663d67d50904aad6b3af2b60923b2fb64443ce25a2629e2465af",
+    "index.html": "a5a5f76947cb16e92723ac69f4b3941282feab1c7d23c8ec97d044112651c376",
+    "methodology.html": "2ec0bfe52f6be658bd5c109c62ae9ee652274926e442eb7d6843b7cb9bc6b609",
+    "originated.html": "6ff0c9065354e6c51f3cd09e8135821e5dab232fca6c5f5609534f4d998f9b71",
+    "picks.html": "3b5a5c0527722c8722f387038bdaf9db324ec653f383cf0ab4c9a6239a5accc9",
+    "unresolved.html": "cd72da991a45247b40f89745881243ddd2e6c42b1651c004396ae2e8ce990cd3"
+  },
+  "note": "Byte-for-byte completed pre-corrective root HTML; archived before the safe fallback copy. Original functional collector/resolver/assets/data remain in place."
+}

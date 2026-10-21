@@ -16,7 +16,13 @@ Actions. Schedules are best-effort GitHub schedules, not an availability SLA.
 The two earlier refresh workflows are retained as manual, fixed-branch-only
 comparison tools; they no longer schedule competing main-root data writes.
 The repository root, seed ratings and earlier probability outputs are **not**
-part of the Pages artifact. Other sessions' implementations remain in Git;
+part of the Pages artifact. The effective settings selector still reports
+`legacy/main/root`; standard artifact deployment has nevertheless passed actual
+public acceptance. Root entrypoints therefore hold a separately tested **dated
+safety mirror**, labeled `verified-legacy-fallback`, so an implicit legacy build
+cannot resurrect the old synthetic/forced-pick UI. Original HTML is preserved
+byte-for-byte in `legacy_ui/` (hash manifest). The mirror is not a second live
+pipeline and retains its original observation dates/expiry. Other sessions' implementations remain in Git;
 their prior publication records are preserved in [COORDINATION.md](COORDINATION.md).
 
 ### Evidence policy
@@ -71,7 +77,7 @@ node verified_pipeline/browser_test.mjs --tools .arena/audit-tools \
   --out audit/d126dc4d/verified-browser.json
 ```
 
-The gate includes **57 unit/artifact tests**, full inventory/source/calculation
+The gate includes **58 unit/artifact tests**, full inventory/source/calculation
 and internal-link checks, **28 Chromium route/viewport/accessibility checks** at
 360/390/768/1280 pixels, and **14 functional checks** including expiry and no-JS
 inventory preservation. All must pass before Pages artifact upload/deployment.

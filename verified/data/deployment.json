@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-21T21:56:04Z",
+  "generated_at": "2026-10-21T22:05:05Z",
   "build": {
-    "commit": "d9eeaf99a8301ed4b0439b79a830f9b30d4f3511",
-    "run_id": "39682677020",
+    "commit": null,
+    "run_id": null,
     "repository": "karagemop466-tech/LOLHOTSPAWN4",
-    "mode": "original publisher refresh"
+    "mode": "dated receipts / offline"
   },
   "summary": {
     "listed": 264,

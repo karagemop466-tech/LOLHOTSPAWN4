@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T21:56:04Z",
+  "generated_at": "2026-10-21T22:05:05Z",
   "inventory_observed_at": "2026-10-21T21:56:05Z",
   "inventory_fresh": true,
   "inventory_source": "https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled",
@@ -25,8 +25,8 @@
       "source_url": "https://www.bwin.com/en/sports/league-of-legends-106",
       "attempted_at": "2026-10-21T21:56:12Z",
       "cache_used": true,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieval failed",
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted"
     },
@@ -34,9 +34,9 @@
       "source_id": "gamma-events-0",
       "source_url": "https://gamma-api.polymarket.com/events?tag_id=65&active=true&closed=false&limit=100&offset=0",
       "attempted_at": "2026-10-21T21:56:10Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:10Z",
       "http_status": 200,
       "final_url": "https://gamma-api.polymarket.com/events?tag_id=65&active=true&closed=false&limit=100&offset=0",
@@ -51,10 +51,10 @@
       "attempted_at": "2026-10-21T21:56:10Z",
       "body_sha256": "b4c0a269262996c78cf0b3f286588ba7ba1d75cf7a0888081a208904843d0e1e",
       "http_status": 200,
-      "status": "retrieved; semantic guards still apply",
-      "cache_used": false,
+      "status": "cached receipt (offline build); no new HTTP request",
+      "cache_used": true,
       "error": null,
-      "offline_build_at": "2026-10-21T21:07:47Z",
+      "offline_build_at": "2026-10-21T22:05:05Z",
       "final_url": "https://gamma-api.polymarket.com/markets/5721049",
       "response_date_header": "Wed, 21 Oct 2026 21:56:10 GMT"
     },
@@ -63,8 +63,8 @@
       "source_url": "https://gg.bet/en/esports/league-of-legends",
       "attempted_at": "2026-10-21T21:56:12Z",
       "cache_used": true,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieval failed",
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted"
     },
@@ -75,10 +75,10 @@
       "attempted_at": "2026-10-21T21:56:04Z",
       "body_sha256": "808ada74cf4d291597059d420e8212be951a2ea483d9f4380bd9d09746f58eab",
       "http_status": 200,
-      "status": "retrieved; semantic guards still apply",
-      "cache_used": false,
+      "status": "cached receipt (offline build); no new HTTP request",
+      "cache_used": true,
       "error": null,
-      "offline_build_at": "2026-10-21T21:07:47Z",
+      "offline_build_at": "2026-10-21T22:05:05Z",
       "final_url": "https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled",
       "response_date_header": "Wed, 21 Oct 2026 21:56:04 GMT"
     },
@@ -86,9 +86,9 @@
       "source_id": "hotspawn-links-0",
       "source_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1053095,1053096,1066214,1053111,1071584,1070209,1070210,1069849,1071167,1071170,1071168,1061779,1069680,1069857,1073030,1053536,1069681,1073172,1070823,1073177,1074627,1075850,1077722,1077723,1077724,1076564,1076565,1071200,1073183,1077726,1077727,1077728,1076566,1077729,1077730,1077731,1079556,1073186,1073184,1079321,1071206,1074636,1074642,1074643,1074639,1074640,1077744,1077745,1077746,1071186,1076570,1076571,1081365,1081369,1079132,1079922,1082001,1082002,1082003,1082004",
       "attempted_at": "2026-10-21T21:56:05Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:06Z",
       "http_status": 200,
       "final_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1053095,1053096,1066214,1053111,1071584,1070209,1070210,1069849,1071167,1071170,1071168,1061779,1069680,1069857,1073030,1053536,1069681,1073172,1070823,1073177,1074627,1075850,1077722,1077723,1077724,1076564,1076565,1071200,1073183,1077726,1077727,1077728,1076566,1077729,1077730,1077731,1079556,1073186,1073184,1079321,1071206,1074636,1074642,1074643,1074639,1074640,1077744,1077745,1077746,1071186,1076570,1076571,1081365,1081369,1079132,1079922,1082001,1082002,1082003,1082004",
@@ -100,9 +100,9 @@
       "source_id": "hotspawn-links-1",
       "source_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1082005,1082006,1081079,1082061,1071217,1082060,1075739,1075757,1079137,1081205,1071214,1071216,1071218,1071219,1074667,1075736,1081651,1081652,1081653,1081654,1081655,1081656,1082105,1071215,1081659,1081660,1081661,1081662,1081663,1081664,1081667,1081668,1081669,1081670,1081671,1081672,1071212,1082745,1082839,1079023,1067878,1079139,1067677,1082106,1079849,1079025,1067680,1067675,1067676,1067879,1067678,1067679,1075719,1081085,1081086,1080923,1080924,1080925,1080926,1080927",
       "attempted_at": "2026-10-21T21:56:06Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:07Z",
       "http_status": 200,
       "final_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1082005,1082006,1081079,1082061,1071217,1082060,1075739,1075757,1079137,1081205,1071214,1071216,1071218,1071219,1074667,1075736,1081651,1081652,1081653,1081654,1081655,1081656,1082105,1071215,1081659,1081660,1081661,1081662,1081663,1081664,1081667,1081668,1081669,1081670,1081671,1081672,1071212,1082745,1082839,1079023,1067878,1079139,1067677,1082106,1079849,1079025,1067680,1067675,1067676,1067879,1067678,1067679,1075719,1081085,1081086,1080923,1080924,1080925,1080926,1080927",
@@ -114,9 +114,9 @@
       "source_id": "hotspawn-links-2",
       "source_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1074652,1074654,1074655,1074657,1074658,1074659,1075731,1082258,1079141,1079142,1081083,1081084,1075747,1075748,1075749,1075752,1075753,1075754,1075755,1075758,1075761,1079027,1079028,1075750,1075759,1080928,1080929,1080930,1080931,1080932,1074660,1074664,1074665,1074666,1075751,1074662,1074663,1079029,1079030,1081831,1075756,1079080,1079031,1079032,1079033,1079034,1082615,1082616,1075734,1079144,1075737,1079145,1079851,1079036,1079147,1079037,1079038,1080933,1080934,1080935",
       "attempted_at": "2026-10-21T21:56:07Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:08Z",
       "http_status": 200,
       "final_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1074652,1074654,1074655,1074657,1074658,1074659,1075731,1082258,1079141,1079142,1081083,1081084,1075747,1075748,1075749,1075752,1075753,1075754,1075755,1075758,1075761,1079027,1079028,1075750,1075759,1080928,1080929,1080930,1080931,1080932,1074660,1074664,1074665,1074666,1075751,1074662,1074663,1079029,1079030,1081831,1075756,1079080,1079031,1079032,1079033,1079034,1082615,1082616,1075734,1079144,1075737,1079145,1079851,1079036,1079147,1079037,1079038,1080933,1080934,1080935",
@@ -128,9 +128,9 @@
       "source_id": "hotspawn-links-3",
       "source_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1080936,1080937,1082107,1079040,1075762,1075763,1075764,1075765,1075766,1075767,1075768,1075769,1075770,1075771,1075772,1075773,1075774,1075775,1075776,1079039,1080938,1080939,1080940,1080941,1080942,1082748,1079041,1079042,1079043,1082746,1079045,1079046,1079047,1079048,1079049,1079050,1080943,1080944,1080945,1080946,1080947,1079051,1079852,1075777,1075778,1075779,1075780,1075781,1075782,1075783,1075784,1075785,1075786,1075787,1075788,1075789,1075790,1075791,1079053,1079054",
       "attempted_at": "2026-10-21T21:56:08Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:09Z",
       "http_status": 200,
       "final_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1080936,1080937,1082107,1079040,1075762,1075763,1075764,1075765,1075766,1075767,1075768,1075769,1075770,1075771,1075772,1075773,1075774,1075775,1075776,1079039,1080938,1080939,1080940,1080941,1080942,1082748,1079041,1079042,1079043,1082746,1079045,1079046,1079047,1079048,1079049,1079050,1080943,1080944,1080945,1080946,1080947,1079051,1079852,1075777,1075778,1075779,1075780,1075781,1075782,1075783,1075784,1075785,1075786,1075787,1075788,1075789,1075790,1075791,1079053,1079054",
@@ -142,9 +142,9 @@
       "source_id": "hotspawn-links-4",
       "source_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1081423,1079055,1079056,1079057,1079058,1075792,1075793,1075794,1075795,1075796,1075797,1075798,1075799,1075800,1075801,1075802,1075803,1075804,1075805,1075806,1079059,1079060,1079062,1079853",
       "attempted_at": "2026-10-21T21:56:09Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:09Z",
       "http_status": 200,
       "final_url": "https://www.hotspawn.com/wp-json/pickem/v1/fixtures?ids=1081423,1079055,1079056,1079057,1079058,1075792,1075793,1075794,1075795,1075796,1075797,1075798,1075799,1075800,1075801,1075802,1075803,1075804,1075805,1075806,1079059,1079060,1079062,1079853",
@@ -156,9 +156,9 @@
       "source_id": "komplett-results",
       "source_url": "https://www.komplettligaen.no/lol/resultater?season=13909&division=18859",
       "attempted_at": "2026-10-21T21:56:12Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:12Z",
       "http_status": 200,
       "final_url": "https://www.komplettligaen.no/lol/resultater?season=13909&division=18859",
@@ -170,9 +170,9 @@
       "source_id": "pinnacle-discovery",
       "source_url": "https://guest.api.arcadia.pinnacle.com/0.1/sports/12/leagues",
       "attempted_at": "2026-10-21T21:56:09Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:09Z",
       "http_status": 200,
       "final_url": "https://guest.api.arcadia.pinnacle.com/0.1/sports/12/leagues",
@@ -187,10 +187,10 @@
       "attempted_at": "2026-10-21T21:56:09Z",
       "body_sha256": "db15b7b8878362c97df260e1f30f5a45af1bceabc23605807b7a23ccfa02a9a5",
       "http_status": 200,
-      "status": "retrieved; semantic guards still apply",
-      "cache_used": false,
+      "status": "cached receipt (offline build); no new HTTP request",
+      "cache_used": true,
       "error": null,
-      "offline_build_at": "2026-10-21T21:07:47Z",
+      "offline_build_at": "2026-10-21T22:05:05Z",
       "final_url": "https://guest.api.arcadia.pinnacle.com/0.1/leagues/225201/matchups",
       "response_date_header": "Wed, 21 Oct 2026 21:56:09 GMT"
     },
@@ -201,10 +201,10 @@
       "attempted_at": "2026-10-21T21:56:09Z",
       "body_sha256": "5d043b04d7b11f56358b407ca2902b564f8f5f4d72e843a03461f48ffb010ca8",
       "http_status": 200,
-      "status": "retrieved; semantic guards still apply",
-      "cache_used": false,
+      "status": "cached receipt (offline build); no new HTTP request",
+      "cache_used": true,
       "error": null,
-      "offline_build_at": "2026-10-21T21:07:47Z",
+      "offline_build_at": "2026-10-21T22:05:05Z",
       "final_url": "https://guest.api.arcadia.pinnacle.com/0.1/leagues/9587/matchups",
       "response_date_header": "Wed, 21 Oct 2026 21:56:09 GMT"
     },
@@ -215,10 +215,10 @@
       "attempted_at": "2026-10-21T21:56:09Z",
       "body_sha256": "5d167fe4dc40ba8238f3049ca4d62e31bc4611784b04b2becbc59061c3a93595",
       "http_status": 200,
-      "status": "retrieved; semantic guards still apply",
-      "cache_used": false,
+      "status": "cached receipt (offline build); no new HTTP request",
+      "cache_used": true,
       "error": null,
-      "offline_build_at": "2026-10-21T21:07:47Z",
+      "offline_build_at": "2026-10-21T22:05:05Z",
       "final_url": "https://guest.api.arcadia.pinnacle.com/0.1/leagues/225201/markets/straight",
       "response_date_header": "Wed, 21 Oct 2026 21:56:09 GMT"
     },
@@ -229,10 +229,10 @@
       "attempted_at": "2026-10-21T21:56:09Z",
       "body_sha256": "fcc31e1110454b1afcf5d53a8ae0b2c75ef164e08213727bbeba4148e7cda9a6",
       "http_status": 200,
-      "status": "retrieved; semantic guards still apply",
-      "cache_used": false,
+      "status": "cached receipt (offline build); no new HTTP request",
+      "cache_used": true,
       "error": null,
-      "offline_build_at": "2026-10-21T21:07:47Z",
+      "offline_build_at": "2026-10-21T22:05:05Z",
       "final_url": "https://guest.api.arcadia.pinnacle.com/0.1/leagues/9587/markets/straight",
       "response_date_header": "Wed, 21 Oct 2026 21:56:10 GMT"
     },
@@ -241,8 +241,8 @@
       "source_url": "https://www.primeleague.gg/en/liga2",
       "attempted_at": "2026-10-21T21:56:10Z",
       "cache_used": true,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieval failed",
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted"
     },
@@ -251,8 +251,8 @@
       "source_url": "https://www.primeleague.gg/en/liga3",
       "attempted_at": "2026-10-21T21:56:11Z",
       "cache_used": true,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieval failed",
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted"
     },
@@ -260,9 +260,9 @@
       "source_id": "rivals-results",
       "source_url": "https://www.rivalsleague.gg/lol/match/08083633-9115-4db9-95de-19940a62b738",
       "attempted_at": "2026-10-21T21:56:12Z",
-      "cache_used": false,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieved; semantic guards still apply",
+      "cache_used": true,
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "observed_at": "2026-10-21T21:56:12Z",
       "http_status": 200,
       "final_url": "https://www.rivalsleague.gg/lol/match/08083633-9115-4db9-95de-19940a62b738",
@@ -275,8 +275,8 @@
       "source_url": "https://thunderpick.io/esports/league-of-legends/emea-masters-2026-summer/10747/solary-vs-galions/2829674",
       "attempted_at": "2026-10-21T21:56:12Z",
       "cache_used": true,
-      "offline_build_at": "2026-10-21T21:07:47Z",
-      "status": "retrieval failed",
+      "offline_build_at": "2026-10-21T22:05:05Z",
+      "status": "cached receipt (offline build); no new HTTP request",
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted"
     },
@@ -287,7 +287,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-arc",
@@ -296,7 +297,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-celol-b",
@@ -305,7 +307,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-celol-b-playoffs",
@@ -314,7 +317,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-four-nations",
@@ -323,7 +327,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-komplett",
@@ -332,7 +337,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-lgc",
@@ -341,7 +347,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-prm2",
@@ -350,7 +357,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-prm3",
@@ -359,7 +367,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-rivals",
@@ -368,7 +377,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     },
     {
       "source_id": "wiki-tunisian",
@@ -377,7 +387,8 @@
       "cache_used": true,
       "http_status": 403,
       "error": "HTTP 403; no access workaround attempted",
-      "status": "retrieval failed"
+      "status": "cached receipt (offline build); no new HTTP request",
+      "offline_build_at": "2026-10-21T22:05:05Z"
     }
   ],
   "findings": [
@@ -528,6 +539,16 @@
         "https://www.primeleague.gg/en/liga3",
         "https://www.komplettligaen.no/lol/resultater?season=13909&division=18859",
         "https://www.rivalsleague.gg/lol/teams"
+      ]
+    },
+    {
+      "id": "pages-selector",
+      "title": "Operational review: legacy Pages selector and safe dated root fallback",
+      "status": "needs review",
+      "description": "The Oct21 public acceptance receipt observed the effective legacy/main/root selector, despite successful standard verified-only artifact deployment. It is not marked changed. Historical automatic writers are retired. Every main push and the 4h schedule republishes the tested artifact. Implicit legacy builds use a separately validated, dated safety mirror, never the rejected synthetic/forced-pick UI. The fallback is not a live refresh and retains expiry/observation dates. Public acceptance requires the expected run/commit and verified-only metadata, not the fallback's distinct label.",
+      "sources": [
+        "https://github.com/karagemop466-tech/LOLHOTSPAWN4/actions/workflows/verified-pages.yml",
+        "https://github.com/karagemop466-tech/LOLHOTSPAWN4/actions/runs/39681845410"
       ]
     }
   ],
@@ -1486,7 +1507,7 @@
           "2026-10-20",
           "2026-10-18"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -1870,7 +1891,7 @@
           "2026-10-20",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -2318,7 +2339,7 @@
           "2026-10-18",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -2972,7 +2993,7 @@
           "2026-10-20",
           "2026-10-18"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -3229,7 +3250,7 @@
           "2026-10-19",
           "2026-10-11"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -3434,7 +3455,7 @@
           "2026-10-20",
           "2026-10-18"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -4226,7 +4247,7 @@
           "2026-10-18",
           "2026-10-13"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -4568,7 +4589,7 @@
           "2026-10-20",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -4995,7 +5016,7 @@
           "2026-10-18",
           "2026-10-11"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -5233,7 +5254,7 @@
           "2026-10-18",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -5568,7 +5589,7 @@
           "2026-10-18",
           "2026-10-19"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -5787,7 +5808,7 @@
           "2026-10-20",
           "2026-10-18"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -6103,7 +6124,7 @@
           "2026-10-20",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -6289,7 +6310,7 @@
           "2026-10-20",
           "2026-10-13"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -6858,7 +6879,7 @@
           "2026-10-19",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -7089,7 +7110,7 @@
           "2026-10-20",
           "2026-10-18"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -7398,7 +7419,7 @@
           "2026-10-18",
           "2026-10-18"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -7825,7 +7846,7 @@
           "2026-10-20",
           "2026-10-11"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -8019,7 +8040,7 @@
           "2026-10-18",
           "2026-10-18"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -8329,7 +8350,7 @@
           "2026-10-19",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -8671,7 +8692,7 @@
           "2026-10-20",
           "2026-10-13"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -8851,7 +8872,7 @@
           "2026-10-20",
           "2026-10-20"
         ],
-        "cutoff_utc": "2026-10-21T21:56:04Z",
+        "cutoff_utc": "2026-10-21T22:05:05Z",
         "limitations": "Uncalibrated, partial same-format series history; very small sample. No strength-of-schedule, roster, draft or patch adjustment. Not bookmaker odds."
       },
       "flags": [
@@ -10726,10 +10747,10 @@
     }
   ],
   "build": {
-    "commit": "d9eeaf99a8301ed4b0439b79a830f9b30d4f3511",
-    "run_id": "39682677020",
+    "commit": null,
+    "run_id": null,
     "repository": "karagemop466-tech/LOLHOTSPAWN4",
-    "mode": "original publisher refresh"
+    "mode": "dated receipts / offline"
   },
   "discovery": {
     "inventory_rows": 264,
