@@ -1,26 +1,9 @@
-name: refresh
+name: Historical raw-layer chain (manual branch comparison)
 
-# Refreshes the LoL Hotspawn pick dataset (match list + external lines +
-# resolved picks) and commits it back to the branch it runs on. GitHub Pages
-# serves main, so the published site updates automatically after each
-# successful run.
-#
-# Schedule: every 4 hours (within the required 4-8 hour window).
-# Manual:   gh workflow run refresh.yml --ref <branch>
-#
-# A second workflow (update-picks.yml, every 6h) runs the identical chain as
-# a backup cadence. Both share the concurrency group below, so they never
-# run at the same time and cannot race on the data commit.
-
+# Historical publisher retained for explicit branch-only comparison.
+# Production is verified-pages.yml (4h, tested verified-only Pages artifact).
 on:
-  schedule:
-    - cron: "0 */4 * * *"
   workflow_dispatch:
-  # Pushes to main (e.g., integration merges) refresh immediately. Bot data
-  # commits from either refresh workflow are excluded by the job-level `if`
-  # below to prevent a commit -> push -> run -> commit loop.
-  push:
-    branches: [main]
 
 permissions:
   contents: write
@@ -31,7 +14,7 @@ concurrency:
 
 jobs:
   refresh:
-    if: "github.event_name != 'push' || (!startsWith(github.event.head_commit.message, 'data: refresh') && !startsWith(github.event.head_commit.message, 'picks: scheduled'))"
+    if: github.ref == 'refs/heads/arena/d126dc4d-lolhotspawn4'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
