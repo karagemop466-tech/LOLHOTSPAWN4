@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flagged for Review — Data Integrity Audit — Hotspawn LoL Pick'ems Intelligence</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-row">
+          <div>
+            <div class="eyebrow">HOTSPAWN LOL PICK'EMS INTELLIGENCE · INDEPENDENT ORIGINATION ENGINE</div>
+            <h1 class="site-title"><a href="index.html">LoL Pick'ems Probability &amp; Origination Hub</a></h1>
+          </div>
+          <div class="sync-box">
+            <div class="sync-pill"><span class="dot-live"></span> Auto-Sync: Every 6h (4–8h Cron)</div>
+            <div class="sync-meta">Snapshot: <strong>2026-10-21 20:45 UTC</strong> · Next: 2026-10-22 00:00 UTC (Every 6 Hours / 4–8h Window)</div>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-link">Executive Summary &amp; All Picks</a><a href="featured.html" class="nav-link">S/A-Tier Bookmaker Picks (11)</a><a href="originated.html" class="nav-link">Originated Regional Picks (202)</a><a href="unresolved.html" class="nav-link">Unresolved &amp; Limitations</a><a href="flagged.html" class="nav-link active">Flagged for Review (27)</a><a href="automation.html" class="nav-link">API &amp; 4–8h Automation</a>
+        </nav>
+      </div>
+    </header>
+    
+  <main class="container">
+    
+    <section class="card-section">
+      <h2 class="section-title">
+        <span>Flagged for Review — Irregularities, Disqualifications, Duplicates &amp; Entity Misattributions (27 Active Cards)</span>
+        <span class="badge badge-med">COMPLETE DATA INTEGRITY AUDIT</span>
+      </h2>
+      <p style="margin-top:0;color:#cbd5e1;">
+        During our line-by-line verification of all 213 active Pick'em cards against <a href="https://www.hotspawn.com/matches" target="_blank" rel="noopener">Hotspawn's Match Feed</a> and <a href="https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki" target="_blank" rel="noopener">Leaguepedia's Official Data Pages</a>, we identified <strong>27 active cards</strong> with data irregularities (plus the 53 stale filter-bar fixtures and unpromoted TBD slots documented on <a href="unresolved.html">Unresolved &amp; Limitations</a>):
+      </p>
+      <ul style="color:#cbd5e1;font-size:13.5px;line-height:1.6;">
+        <li><strong><code>TEAM_DISQUALIFIED_FORFEIT</code> (1 Card — <code>#1059956</code>):</strong> <em>Solid Gaming</em> was officially removed from <em>Komplettligaen 2026 Autumn</em> and forfeited <code>0-2</code> to <em>DMG Esports</em>, yet Hotspawn still lists the match as pickable and 67% of users picked Solid Gaming.</li>
+        <li><strong><code>ALREADY_PLAYED_GHOST_DUPLICATE</code> / <code>ALREADY_PLAYED_STALE</code> (2 Cards — <code>#1079026</code>, <code>#1079143</code>):</strong> <em>Reveal Multigaming vs ex-A41G</em> (<code>#1079026</code>, Oct 23) was already played on Oct 20 under <code>reGOLD eSport</code> (<code>#1079850</code>, 0-2); <em>Pegasus Esports vs Team Reds</em> (<code>#1079143</code>, Oct 25) was already played in Week 2 on Oct 10 (Team Reds won 2-1).</li>
+        <li><strong><code>RESCHEDULED_GHOST_DUPLICATE</code> / <code>RESCHEDULED_DUPLICATE_SLOT</code> (5 Cards — <code>#1079024</code>, <code>#1079703</code>, <code>#1080902</code>, <code>#1079922</code>, <code>#1079923</code>):</strong> <code>#1079024</code> (Oct 23) was rescheduled to Nov 3 (<code>#1082746</code>), leaving both cards active in the Pick'em lobby and causing <em>PRM 2nd Division</em> to render 42 DOM cards vs 40 in the filter bar.</li>
+        <li><strong><code>TEAM_ALIAS_DUPLICATE</code> &amp; <code>TEAM_RENAME_STALE_ALIAS</code> (6 Cards — <code>#1082105</code>, <code>#1082106</code>, <code>#1082107</code>, <code>#1079035</code>, <code>#1079052</code>, <code>#1079061</code>):</strong> Duplicate fixtures created by team tag changes (<code>Victorious Demons</code> → <code>Team VDS</code> in Arabian League 2nd Div; <code>ex-A41G</code> → <code>reGOLD eSport</code> in PRM 2nd Div).</li>
+        <li><strong><code>MISATTRIBUTED_TEAM_ENTITY</code> (11 Cards):</strong> Swiss team <code>PvB Nation</code> in <em>PRM 2nd Division</em> is misattributed to defunct Vietnamese VCS team <code>Phong Vũ Buffalo</code>; German <em>PRM 3rd Division</em> Group B team <code>Rich Gang</code> uses Norwegian <code>Rich NO</code> template metadata.</li>
+        <li><strong><code>REVERSED_SLUG</code> (3 Cards — <code>#1074665</code>, <code>#1079145</code>, <code>#1079057</code>):</strong> The Pick'em card displays Team A vs Team B while the official match URL slug reverses them (Team B vs Team A).</li>
+        <li><strong><code>MARKET_SPLIT</code> (1 Card — <code>#1081205</code>):</strong> Traditional sportsbooks favor <em>Solary</em> (1.75–1.84) while Polymarket (53¢) and Thunderpick (1.68) favor <em>Galions</em>.</li>
+      </ul>
+      <div class="table-wrap">
+        <table class="data-table mobile-cards">
+          <thead>
+            <tr>
+              <th>Match ID &amp; Date</th>
+              <th>Tournament</th>
+              <th>Listed Matchup</th>
+              <th>Irregularity Flag</th>
+              <th>Recommended Pick</th>
+              <th>Audit Explanation &amp; Official Evidence</th>
+              <th>Official Sources</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr id="flag-1081205" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1081205</strong>
+            <div class="sub-meta">Oct 22 · 08:00 ET</div>
+            <div class="sub-meta"><code>2026-10-22T12:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">EM 2026 Summer Main Event</td>
+          <td data-label="Listed Matchup"><strong>Galions</strong> vs <strong>Solary</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MARKET_SPLIT</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Solary (50.6%)</strong>
+            <div class="sub-meta">Crowd: 60% / 40%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Bookmakers (Vave 1.76, Sportsgambler 1.75, Rainbet 1.83, Underdog 1.84, CocoBet 1.83) favor Solary (50.6% consensus), while Polymarket (53¢) and Thunderpick (1.68) favor Galions.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/galions-vs-solary-em-2026-summer-main-event-1081205" target="_blank" rel="noopener" class="src-btn">Hotspawn #1081205 ↗</a>
+            <a href="https://egamersworld.com/lol/bets" target="_blank" rel="noopener" class="src-btn src-primary">EGamersWorld / Polymarket ↗</a>
+            <a href="https://lol.fandom.com/wiki/EMEA_Masters/2026_Season/Summer_Main_Event" target="_blank" rel="noopener" class="src-btn">Leaguepedia EM 2026 Summer ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1059956" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1059956</strong>
+            <div class="sub-meta">Oct 22 · 11:00 ET</div>
+            <div class="sub-meta"><code>2026-10-22T15:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">Komplettligaen 2026 Autumn</td>
+          <td data-label="Listed Matchup"><strong>Solid Gaming</strong> vs <strong>DMG Esports</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ TEAM_DISQUALIFIED_FORFEIT</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ DMG Esports (99.0%)</strong>
+            <div class="sub-meta">Crowd: 67% / 33%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Solid Gaming was officially removed from Komplettligaen 2026 Autumn (&#x27;[[Solid Gaming]] is removed from the league&#x27; on Leaguepedia), and this Oct 22 match is already recorded as a 0-2 forfeit win for DMG NO (ff=1, winner=2). Yet 67% of Hotspawn users picked Solid Gaming!</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/solid-gaming-vs-dmg-esports-komplettligaen-2026-autumn-1059956" target="_blank" rel="noopener" class="src-btn">Hotspawn #1059956 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Komplettligaen/2026_Season/Autumn_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia Komplettligaen 2026 Autumn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Komplettligaen/2026_Season/Autumn_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:Komplettligaen ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1082105" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1082105</strong>
+            <div class="sub-meta">Oct 22 · 14:00 ET</div>
+            <div class="sub-meta"><code>2026-10-22T18:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">Arabian League 2nd Division 2026 Summer</td>
+          <td data-label="Listed Matchup"><strong>Team VDS</strong> vs <strong>Pegasus Esports</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ TEAM_ALIAS_DUPLICATE</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Team VDS (70.8%)</strong>
+            <div class="sub-meta">Crowd: 33% / 67%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Fixture 1082105 uses &#x27;Team VDS&#x27; (Victorious Demons&#x27; Riot client tag in LOLTMNT05_228457) and duplicates the parallel &#x27;Victorious Demons&#x27; fixture on Hotspawn&#x27;s match feed.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/team-vds-vs-pegasus-esports-arabian-league-2nd-division-2026-summer-1082105" target="_blank" rel="noopener" class="src-btn">Hotspawn #1082105 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia Arabian League 2nd Div ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:Arabian 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079024" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079024</strong>
+            <div class="sub-meta">Oct 23 · 12:00 ET</div>
+            <div class="sub-meta"><code>2026-10-23T16:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Phong Vũ Buffalo</strong> vs <strong>404 Multigaming e.V.</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ RESCHEDULED_GHOST_DUPLICATE</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ 404 Multigaming e.V. (51.2%)</strong>
+            <div class="sub-meta">Crowd: 33% / 67%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">PvB Nation (mislabeled by Hotspawn as defunct Vietnamese VCS team &#x27;Phong Vũ Buffalo&#x27;) vs 404 Multigaming was rescheduled from Oct 23 (1079024) to Nov 3 (1082746), leaving 1079024 as an unremoved duplicate card on Oct 23.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/phong-vu-buffalo-vs-404-multigaming-e-v-prm-2nd-division-26-27-fall-1079024" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079024 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079026" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079026</strong>
+            <div class="sub-meta">Oct 23 · 14:30 ET</div>
+            <div class="sub-meta"><code>2026-10-23T18:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Reveal Multigaming</strong> vs <strong>ex-A41G</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ ALREADY_PLAYED_GHOST_DUPLICATE</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Reveal Multigaming (53.8%)</strong>
+            <div class="sub-meta">Crowd: 67% / 33%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">ex-A41G rebranded to reGOLD eSport (REGO), and Reveal Multigaming vs reGOLD eSport was already played early on Oct 20, 2026 (reGOLD won 2-0, Riot IDs LOLTMNT05_228616/228619; Hotspawn finished match 1079850). Leaving 1079026 open on Oct 23 causes PRM 2nd Div to have 42 active cards vs 40 in the filter bar.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/reveal-multigaming-vs-ex-a41g-prm-2nd-division-26-27-fall-1079026" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079026 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079031" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079031</strong>
+            <div class="sub-meta">Oct 27 · 13:00 ET</div>
+            <div class="sub-meta"><code>2026-10-27T17:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>DKB XPERION NXT</strong> vs <strong>Phong Vũ Buffalo</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ DKB XPERION NXT (61.8%)</strong>
+            <div class="sub-meta">Crowd: 67% / 33%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn auto-mapped Swiss Prime League team &#x27;PvB Nation&#x27; (abbreviation PvB) to defunct Vietnamese VCS team &#x27;Phong Vũ Buffalo&#x27; (including VCS team logo 8834.webp).</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/dkb-xperion-nxt-vs-phong-vu-buffalo-prm-2nd-division-26-27-fall-1079031" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079031 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079035" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079035</strong>
+            <div class="sub-meta">Oct 30 · 13:00 ET</div>
+            <div class="sub-meta"><code>2026-10-30T17:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>AceGaming</strong> vs <strong>ex-A41G</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ TEAM_RENAME_STALE_ALIAS</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ AceGaming (56.8%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn lists former team name &#x27;ex-A41G&#x27; on card 1079035; the roster officially competes as &#x27;reGOLD eSport&#x27; (REGO) on Leaguepedia, and a parallel reGOLD eSport fixture exists on Hotspawn&#x27;s tournament page.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/acegaming-vs-ex-a41g-prm-2nd-division-26-27-fall-1079035" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079035 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079038" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079038</strong>
+            <div class="sub-meta">Oct 30 · 15:30 ET</div>
+            <div class="sub-meta"><code>2026-10-30T19:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>VfB eSports</strong> vs <strong>Phong Vũ Buffalo</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ VfB eSports (68.9%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn auto-mapped Swiss Prime League team &#x27;PvB Nation&#x27; (abbreviation PvB) to defunct Vietnamese VCS team &#x27;Phong Vũ Buffalo&#x27; (including VCS team logo 8834.webp).</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/vfb-esports-vs-phong-vu-buffalo-prm-2nd-division-26-27-fall-1079038" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079038 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1082746" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1082746</strong>
+            <div class="sub-meta">Nov 03 · 12:00 ET</div>
+            <div class="sub-meta"><code>2026-11-03T17:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Phong Vũ Buffalo</strong> vs <strong>404 Multigaming e.V.</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ 404 Multigaming e.V. (51.2%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn auto-mapped Swiss Prime League team &#x27;PvB Nation&#x27; (abbreviation PvB) to defunct Vietnamese VCS team &#x27;Phong Vũ Buffalo&#x27; (including VCS team logo 8834.webp).</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/phong-vu-buffalo-vs-404-multigaming-e-v-prm-2nd-division-26-27-fall-1082746" target="_blank" rel="noopener" class="src-btn">Hotspawn #1082746 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079052" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079052</strong>
+            <div class="sub-meta">Nov 08 · 11:00 ET</div>
+            <div class="sub-meta"><code>2026-11-08T16:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>ex-A41G</strong> vs <strong>Babos Gaming</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ TEAM_RENAME_STALE_ALIAS</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Babos Gaming (67.1%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn lists former team name &#x27;ex-A41G&#x27; on card 1079052; the roster officially competes as &#x27;reGOLD eSport&#x27; (REGO) on Leaguepedia, and a parallel reGOLD eSport fixture exists on Hotspawn&#x27;s tournament page.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/ex-a41g-vs-babos-gaming-prm-2nd-division-26-27-fall-1079052" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079052 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079053" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079053</strong>
+            <div class="sub-meta">Nov 08 · 13:30 ET</div>
+            <div class="sub-meta"><code>2026-11-08T18:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Phong Vũ Buffalo</strong> vs <strong>MT1 Esports</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ MT1 Esports (59.2%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn auto-mapped Swiss Prime League team &#x27;PvB Nation&#x27; (abbreviation PvB) to defunct Vietnamese VCS team &#x27;Phong Vũ Buffalo&#x27; (including VCS team logo 8834.webp).</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/phong-vu-buffalo-vs-mt1-esports-prm-2nd-division-26-27-fall-1079053" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079053 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079057" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079057</strong>
+            <div class="sub-meta">Nov 13 · 13:30 ET</div>
+            <div class="sub-meta"><code>2026-11-13T18:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Phong Vũ Buffalo</strong> vs <strong>regnum4games</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ REVERSED_SLUG</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ regnum4games (78.6%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn Pick&#x27;em card displays &#x27;Phong Vũ Buffalo vs regnum4games&#x27;, whereas the official match URL slug reverses participant order (&#x27;regnum4games-vs-phong-vu-buffalo-prm-2nd-division-26-27-fall-1079057&#x27;).</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/regnum4games-vs-phong-vu-buffalo-prm-2nd-division-26-27-fall-1079057" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079057 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079061" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079061</strong>
+            <div class="sub-meta">Nov 15 · 13:30 ET</div>
+            <div class="sub-meta"><code>2026-11-15T18:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 2nd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>BvP</strong> vs <strong>ex-A41G</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ TEAM_RENAME_STALE_ALIAS</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ ex-A41G (80.4%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn lists former team name &#x27;ex-A41G&#x27; on card 1079061; the roster officially competes as &#x27;reGOLD eSport&#x27; (REGO) on Leaguepedia, and a parallel reGOLD eSport fixture exists on Hotspawn&#x27;s tournament page.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/bvp-vs-ex-a41g-prm-2nd-division-26-27-fall-1079061" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079061 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 2nd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1082106" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1082106</strong>
+            <div class="sub-meta">Oct 23 · 14:00 ET</div>
+            <div class="sub-meta"><code>2026-10-23T18:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">Arabian League 2nd Division 2026 Summer</td>
+          <td data-label="Listed Matchup"><strong>Team VDS</strong> vs <strong>Team Reds</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ TEAM_ALIAS_DUPLICATE</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Team VDS (68.3%)</strong>
+            <div class="sub-meta">Crowd: 33% / 67%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Fixture 1082106 uses &#x27;Team VDS&#x27; (Victorious Demons&#x27; Riot client tag in LOLTMNT05_228457) and duplicates the parallel &#x27;Victorious Demons&#x27; fixture on Hotspawn&#x27;s match feed.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/team-vds-vs-team-reds-arabian-league-2nd-division-2026-summer-1082106" target="_blank" rel="noopener" class="src-btn">Hotspawn #1082106 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia Arabian League 2nd Div ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:Arabian 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079703" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079703</strong>
+            <div class="sub-meta">Oct 24 · 11:30 ET</div>
+            <div class="sub-meta"><code>2026-10-24T15:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">RIVALS LEAGUE Season 2</td>
+          <td data-label="Listed Matchup"><strong>FlameHard</strong> vs <strong>OnlyWinByFF</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ RESCHEDULED_DUPLICATE_SLOT</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ FlameHard (91.3%)</strong>
+            <div class="sub-meta">Crowd: 67% / 33%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Fixture 1079703 on Oct 24 is a rescheduled match ID in the Pick&#x27;em lobby whose superseded pre-reschedule ID (1074637/1074641/1074638/1074629) still remains unclosed on Hotspawn&#x27;s tournament page.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/flamehard-vs-onlywinbyff-rivals-league-season-2-1079703" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079703 ↗</a>
+            <a href="https://lol.fandom.com/wiki/RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia RIVALS LEAGUE Season 2 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:RIVALS LEAGUE ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1080902" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1080902</strong>
+            <div class="sub-meta">Oct 25 · 13:00 ET</div>
+            <div class="sub-meta"><code>2026-10-25T17:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">RIVALS LEAGUE Season 2</td>
+          <td data-label="Listed Matchup"><strong>Mazepa</strong> vs <strong>Rich Gang Sweden</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ RESCHEDULED_DUPLICATE_SLOT</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Mazepa (52.4%)</strong>
+            <div class="sub-meta">Crowd: 33% / 67%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Fixture 1080902 on Oct 25 is a rescheduled match ID in the Pick&#x27;em lobby whose superseded pre-reschedule ID (1074637/1074641/1074638/1074629) still remains unclosed on Hotspawn&#x27;s tournament page.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/mazepa-vs-rich-gang-sweden-rivals-league-season-2-1080902" target="_blank" rel="noopener" class="src-btn">Hotspawn #1080902 ↗</a>
+            <a href="https://lol.fandom.com/wiki/RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia RIVALS LEAGUE Season 2 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:RIVALS LEAGUE ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079922" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079922</strong>
+            <div class="sub-meta">Oct 25 · 14:00 ET</div>
+            <div class="sub-meta"><code>2026-10-25T18:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">RIVALS LEAGUE Season 2</td>
+          <td data-label="Listed Matchup"><strong>Fritt Fall</strong> vs <strong>Tung Sahur Mid</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ RESCHEDULED_DUPLICATE_SLOT</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Tung Sahur Mid (87.9%)</strong>
+            <div class="sub-meta">Crowd: 33% / 67%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Fixture 1079922 on Oct 25 is a rescheduled match ID in the Pick&#x27;em lobby whose superseded pre-reschedule ID (1074637/1074641/1074638/1074629) still remains unclosed on Hotspawn&#x27;s tournament page.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/fritt-fall-vs-tung-sahur-mid-rivals-league-season-2-1079922" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079922 ↗</a>
+            <a href="https://lol.fandom.com/wiki/RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia RIVALS LEAGUE Season 2 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:RIVALS LEAGUE ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079143" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079143</strong>
+            <div class="sub-meta">Oct 25 · 15:00 ET</div>
+            <div class="sub-meta"><code>2026-10-25T19:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">Arabian League 2nd Division 2026 Summer</td>
+          <td data-label="Listed Matchup"><strong>Pegasus Esports</strong> vs <strong>Team Reds</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ ALREADY_PLAYED_STALE</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Team Reds (59.7%)</strong>
+            <div class="sub-meta">Crowd: 67% / 33%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Pegasus Esports vs Team Reds already took place in Week 2 on Oct 10, 2026 (Team Reds won 2-1, Riot IDs LOLTMNT05_228194/228199/230106) in this Single Round Robin split.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/pegasus-esports-vs-team-reds-arabian-league-2nd-division-2026-summer-1079143" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079143 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia Arabian League 2nd Div ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:Arabian 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079923" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079923</strong>
+            <div class="sub-meta">Oct 26 · 12:30 ET</div>
+            <div class="sub-meta"><code>2026-10-26T16:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">RIVALS LEAGUE Season 2</td>
+          <td data-label="Listed Matchup"><strong>Fritt Fall</strong> vs <strong>Karolinerna</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ RESCHEDULED_DUPLICATE_SLOT</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Karolinerna (63.6%)</strong>
+            <div class="sub-meta">Crowd: 33% / 67%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Fixture 1079923 on Oct 26 is a rescheduled match ID in the Pick&#x27;em lobby whose superseded pre-reschedule ID (1074637/1074641/1074638/1074629) still remains unclosed on Hotspawn&#x27;s tournament page.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/fritt-fall-vs-karolinerna-rivals-league-season-2-1079923" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079923 ↗</a>
+            <a href="https://lol.fandom.com/wiki/RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia RIVALS LEAGUE Season 2 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:RIVALS LEAGUE ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1075745" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1075745</strong>
+            <div class="sub-meta">Oct 28 · 13:30 ET</div>
+            <div class="sub-meta"><code>2026-10-28T17:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 3rd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>TeamOrangeGaming Academy</strong> vs <strong>Rich Gang</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Rich Gang (85.9%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Leaguepedia&#x27;s Data:Prime_League_3rd_Division/2027_Season/Fall_Split uses the template code &#x27;Rich NO&#x27; (Norwegian Rich Gang) for this German Prime League 3rd Division Group B slot, which Hotspawn renders as &#x27;Rich Gang&#x27;.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/teamorangegaming-academy-vs-rich-gang-prm-3rd-division-26-27-fall-1075745" target="_blank" rel="noopener" class="src-btn">Hotspawn #1075745 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 3rd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 3rd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1079145" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1079145</strong>
+            <div class="sub-meta">Oct 29 · 15:00 ET</div>
+            <div class="sub-meta"><code>2026-10-29T19:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">Arabian League 2nd Division 2026 Summer</td>
+          <td data-label="Listed Matchup"><strong>Pegasus Esports</strong> vs <strong>JSK Academy</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ REVERSED_SLUG</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ JSK Academy (62.4%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn Pick&#x27;em card displays &#x27;Pegasus Esports vs JSK Academy&#x27;, whereas the official match URL slug reverses participant order (&#x27;jsk-academy-vs-pegasus-esports-arabian-league-2nd-division-2026-summer-1079145&#x27;).</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/jsk-academy-vs-pegasus-esports-arabian-league-2nd-division-2026-summer-1079145" target="_blank" rel="noopener" class="src-btn">Hotspawn #1079145 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia Arabian League 2nd Div ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:Arabian 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1082107" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1082107</strong>
+            <div class="sub-meta">Oct 31 · 15:00 ET</div>
+            <div class="sub-meta"><code>2026-10-31T19:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">Arabian League 2nd Division 2026 Summer</td>
+          <td data-label="Listed Matchup"><strong>Void Walkers</strong> vs <strong>Team VDS</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ TEAM_ALIAS_DUPLICATE</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Void Walkers (55.7%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Fixture 1082107 uses &#x27;Team VDS&#x27; (Victorious Demons&#x27; Riot client tag in LOLTMNT05_228457) and duplicates the parallel &#x27;Victorious Demons&#x27; fixture on Hotspawn&#x27;s match feed.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/void-walkers-vs-team-vds-arabian-league-2nd-division-2026-summer-1082107" target="_blank" rel="noopener" class="src-btn">Hotspawn #1082107 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia Arabian League 2nd Div ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:Arabian 2nd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1075758" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1075758</strong>
+            <div class="sub-meta">Nov 01 · 11:00 ET</div>
+            <div class="sub-meta"><code>2026-11-01T16:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 3rd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Rich Gang</strong> vs <strong>LOOKSMAXXER</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Rich Gang (52.0%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Leaguepedia&#x27;s Data:Prime_League_3rd_Division/2027_Season/Fall_Split uses the template code &#x27;Rich NO&#x27; (Norwegian Rich Gang) for this German Prime League 3rd Division Group B slot, which Hotspawn renders as &#x27;Rich Gang&#x27;.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/rich-gang-vs-looksmaxxer-prm-3rd-division-26-27-fall-1075758" target="_blank" rel="noopener" class="src-btn">Hotspawn #1075758 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 3rd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 3rd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1074665" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1074665</strong>
+            <div class="sub-meta">Nov 01 · 12:30 ET</div>
+            <div class="sub-meta"><code>2026-11-01T17:30:00Z</code></div>
+          </td>
+          <td data-label="Tournament">RIVALS LEAGUE Season 2</td>
+          <td data-label="Listed Matchup"><strong>Northern Wolves Esports</strong> vs <strong>Rich Gang Sweden</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ REVERSED_SLUG</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Rich Gang Sweden (68.4%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Hotspawn Pick&#x27;em card displays &#x27;Northern Wolves Esports vs Rich Gang Sweden&#x27;, whereas the official match URL slug reverses participant order (&#x27;rich-gang-sweden-vs-northern-wolves-esports-rivals-league-season-2-1074665&#x27;).</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/rich-gang-sweden-vs-northern-wolves-esports-rivals-league-season-2-1074665" target="_blank" rel="noopener" class="src-btn">Hotspawn #1074665 ↗</a>
+            <a href="https://lol.fandom.com/wiki/RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia RIVALS LEAGUE Season 2 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:RIVALS LEAGUE ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1075762" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1075762</strong>
+            <div class="sub-meta">Nov 08 · 11:00 ET</div>
+            <div class="sub-meta"><code>2026-11-08T16:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 3rd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>1. Esport Club Frankfurt e.V.</strong> vs <strong>Rich Gang</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Rich Gang (55.7%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Leaguepedia&#x27;s Data:Prime_League_3rd_Division/2027_Season/Fall_Split uses the template code &#x27;Rich NO&#x27; (Norwegian Rich Gang) for this German Prime League 3rd Division Group B slot, which Hotspawn renders as &#x27;Rich Gang&#x27;.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/1-esport-club-frankfurt-e-v-vs-rich-gang-prm-3rd-division-26-27-fall-1075762" target="_blank" rel="noopener" class="src-btn">Hotspawn #1075762 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 3rd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 3rd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1075786" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1075786</strong>
+            <div class="sub-meta">Nov 08 · 11:00 ET</div>
+            <div class="sub-meta"><code>2026-11-08T16:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 3rd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Rich Gang</strong> vs <strong>Team 300 White</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Rich Gang (80.3%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Leaguepedia&#x27;s Data:Prime_League_3rd_Division/2027_Season/Fall_Split uses the template code &#x27;Rich NO&#x27; (Norwegian Rich Gang) for this German Prime League 3rd Division Group B slot, which Hotspawn renders as &#x27;Rich Gang&#x27;.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/rich-gang-vs-team-300-white-prm-3rd-division-26-27-fall-1075786" target="_blank" rel="noopener" class="src-btn">Hotspawn #1075786 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 3rd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 3rd Div ↗</a>
+          </td>
+        </tr>
+        
+        <tr id="flag-1075803" class="row-flagged">
+          <td data-label="Match ID &amp; Date">
+            <strong>#1075803</strong>
+            <div class="sub-meta">Nov 15 · 13:00 ET</div>
+            <div class="sub-meta"><code>2026-11-15T18:00:00Z</code></div>
+          </td>
+          <td data-label="Tournament">PRM 3rd Division 26-27 Fall</td>
+          <td data-label="Listed Matchup"><strong>Rich Gang</strong> vs <strong>Whalepower Humpbacks</strong></td>
+          <td data-label="Irregularity Flag"><span class="flag-inline"><a>⚠ MISATTRIBUTED_TEAM_ENTITY</a></span></td>
+          <td data-label="Recommended Pick &amp; Prob">
+            <strong>✓ Rich Gang (79.5%)</strong>
+            <div class="sub-meta">Crowd: 50% / 50%</div>
+          </td>
+          <td data-label="Audit Explanation &amp; Official Evidence">Leaguepedia&#x27;s Data:Prime_League_3rd_Division/2027_Season/Fall_Split uses the template code &#x27;Rich NO&#x27; (Norwegian Rich Gang) for this German Prime League 3rd Division Group B slot, which Hotspawn renders as &#x27;Rich Gang&#x27;.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/matches/rich-gang-vs-whalepower-humpbacks-prm-3rd-division-26-27-fall-1075803" target="_blank" rel="noopener" class="src-btn">Hotspawn #1075803 ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia PRM 3rd Div 26-27 Fall ↗</a>
+            <a href="https://lol.fandom.com/wiki/Data:Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn">Leaguepedia Data:PRM 3rd Div ↗</a>
+          </td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+  
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p><strong>Methodology &amp; Non-Hallucination Guarantee:</strong> Hotspawn community pick percentages (<code>hs_pct</code>) are <strong>never</strong> used as an indicator of win probability. Featured matches use de-vigged multi-bookmaker &amp; Polymarket consensus odds; low-tier regional matches use originated Bradley-Terry / Log5 probabilities derived strictly from official <a href="https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki" target="_blank" rel="noopener">Leaguepedia</a> match &amp; game records. Unverified TBD bracket slots are left blank and flagged.</p>
+        <p class="footer-links">
+          <a href="index.html">Executive Summary</a> ·
+          <a href="featured.html">S/A-Tier Bookmaker Picks</a> ·
+          <a href="originated.html">Originated Regional Picks</a> ·
+          <a href="unresolved.html">Unresolved Picks &amp; Limitations</a> ·
+          <a href="flagged.html">Flagged for Review</a> ·
+          <a href="automation.html">4–8h Automation Architecture</a> ·
+          <a href="data/matches_active_213.json" target="_blank" rel="noopener">JSON Data (213)</a> ·
+          <a href="data/matches_active_213.csv" target="_blank" rel="noopener">CSV Data (213)</a>
+        </p>
+      </div>
+    </footer>
+    
+  <script src="assets/app.js"></script>
+</body>
+</html>

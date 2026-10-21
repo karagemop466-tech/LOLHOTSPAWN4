@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unresolved Picks &amp; Origination Limitations — Hotspawn LoL Pick'ems Intelligence</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-row">
+          <div>
+            <div class="eyebrow">HOTSPAWN LOL PICK'EMS INTELLIGENCE · INDEPENDENT ORIGINATION ENGINE</div>
+            <h1 class="site-title"><a href="index.html">LoL Pick'ems Probability &amp; Origination Hub</a></h1>
+          </div>
+          <div class="sync-box">
+            <div class="sync-pill"><span class="dot-live"></span> Auto-Sync: Every 6h (4–8h Cron)</div>
+            <div class="sync-meta">Snapshot: <strong>2026-10-21 20:45 UTC</strong> · Next: 2026-10-22 00:00 UTC (Every 6 Hours / 4–8h Window)</div>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-link">Executive Summary &amp; All Picks</a><a href="featured.html" class="nav-link">S/A-Tier Bookmaker Picks (11)</a><a href="originated.html" class="nav-link">Originated Regional Picks (202)</a><a href="unresolved.html" class="nav-link active">Unresolved &amp; Limitations</a><a href="flagged.html" class="nav-link">Flagged for Review (27)</a><a href="automation.html" class="nav-link">API &amp; 4–8h Automation</a>
+        </nav>
+      </div>
+    </header>
+    
+  <main class="container">
+    
+    <section class="card-section">
+      <h2 class="section-title">
+        <span>Unresolved Picks, TBD Bracket Placeholders &amp; Origination Limitations</span>
+        <span class="badge badge-med">STRICT NON-HALLUCINATION AUDIT</span>
+      </h2>
+      <p style="margin-top:0;color:#cbd5e1;">
+        A core requirement of our origination pipeline is <strong>never inferring or hallucinating unverified values</strong>. Whenever a fixture on Hotspawn has undetermined participants (<code>Waiting for information vs Waiting for information</code>) or has already locked/completed in the past while still inflating the filter-bar counter, we explicitly document the limitation and leave unverified TBD probabilities blank until official sources confirm the participants.
+      </p>
+
+      <h3 style="color:#fff;font-size:16px;margin:16px 0 8px;">Key Limitations When Generating Picks for Unresolved &amp; Low-Tier LoL Matches</h3>
+      <ol style="color:#cbd5e1;font-size:13.5px;line-height:1.6;">
+        <li><strong>Zero Regulated Sportsbook Coverage Below EMEA Masters / Tier-1 ERLs:</strong> Regulated bookmakers and Polymarket do not offer markets on German Prime League 2nd/3rd Division, Norwegian Komplettligaen, Swedish RIVALS League, UK 4 Nations, Tunisian Super League, or Brazilian CELOL Série B due to low betting liquidity and amateur match-integrity risks. All 202 matches in these leagues require statistical origination from official tournament records.</li>
+        <li><strong>High Walkover / Forfeit (<code>ff</code>) &amp; Disqualification Rates in Amateur Online Leagues:</strong> Semi-pro teams frequently forfeit matches due to roster lock violations or scheduling conflicts—for example, <strong>Solid Gaming</strong> was removed from <em>Komplettligaen 2026 Autumn</em> (forfeiting <code>#1059956</code> vs DMG Esports), <strong>Team Reds</strong> had two 2-1/2-0 victories overturned to <code>0-2</code> forfeits in <em>Arabian League 2nd Division</em> for fielding an ineligible player, and <em>CELOL Série B</em> had 15+ regular-season forfeits.</li>
+        <li><strong>Hotspawn Database Desynchronization (Stale Locks, Ghost Duplicates &amp; Misattributed Teams):</strong> Hotspawn's ingestion pipeline frequently creates new fixture IDs when matches are rescheduled or teams rename (e.g., <code>ex-A41G</code> → <code>reGOLD eSport</code>; <code>Victorious Demons</code> → <code>Team VDS</code>) without deleting the superseded fixture ID, and auto-maps abbreviations like Swiss team <code>PvB Nation</code> to defunct Vietnamese VCS team <code>Phong Vũ Buffalo</code>.</li>
+        <li><strong>Best-of-1 Variance in 4 Nations &amp; Tunisian Super League:</strong> Single-game (Bo1) amateur matches carry significantly higher draft and early-game variance than Best-of-3 (PRM, Komplettligaen, RIVALS, CELOL B) or Best-of-5 (EMEA Masters, LCP Promotion, LGC Rising Finals) series, capping realistic single-game confidence below ~88% unless a team is disqualified.</li>
+      </ol>
+    </section>
+
+    <section class="card-section" id="tbd-placeholders">
+      <h2 class="section-title">
+        <span>Unresolved TBD / Bracket Placeholder Fixtures (Left Blank &amp; Flagged as Unverified)</span>
+      </h2>
+      <div class="table-wrap">
+        <table class="data-table mobile-cards">
+          <thead>
+            <tr>
+              <th>Schedule Window</th>
+              <th>Tournament &amp; Stage</th>
+              <th>Listed Participants</th>
+              <th>Originated Win Prob</th>
+              <th>Recommended Pick</th>
+              <th>Limitation &amp; Verification Note</th>
+              <th>Official Sources</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr class="row-flagged">
+          <td data-label="Schedule Window"><strong>Oct 22, 18:00–20:00 UTC</strong></td>
+          <td data-label="Tournament">4 Nations 2026 Halloween Heist<div class="sub-meta">Group C &amp; D Bye Slots (6 Slots)</div></td>
+          <td data-label="Participants">Waiting for information vs Waiting for information</td>
+          <td data-label="Originated Win Prob"><em></em> <span class="badge badge-med">LEFT BLANK (UNVERIFIED)</span></td>
+          <td data-label="Recommended Pick"><em></em> <span class="flag-inline"><a>⚠ UNVERIFIED_TBD_BYE_SLOT</a></span></td>
+          <td data-label="Limitation &amp; Verification Note">Group C &amp; D only have 3 teams (BDG, Ruddy Ultras, HL Tauri; Absolved, PNS, The Bandits UK) after Impel withdrew; 4th-team slots are empty byes.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/4-nations-2026-halloween-heist" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/4_Nations/2026_Season/Halloween_Heist" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia ↗</a>
+          </td>
+        </tr>
+        
+        <tr class="row-flagged">
+          <td data-label="Schedule Window"><strong>Oct 23–28, 16:00–17:00 UTC</strong></td>
+          <td data-label="Tournament">RIVALS LEAGUE Season 2<div class="sub-meta">Playoff Quarterfinal / Semifinal Placeholders (24 Slots)</div></td>
+          <td data-label="Participants">Waiting for information vs Waiting for information</td>
+          <td data-label="Originated Win Prob"><em></em> <span class="badge badge-med">LEFT BLANK (UNVERIFIED)</span></td>
+          <td data-label="Recommended Pick"><em></em> <span class="flag-inline"><a>⚠ UNVERIFIED_TBD_BRACKET</a></span></td>
+          <td data-label="Limitation &amp; Verification Note">Group A &amp; B regular season runs through Nov 1; playoff bracket seeding is undetermined until Group Stage concludes.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/rivals-league-season-2" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia ↗</a>
+          </td>
+        </tr>
+        
+        <tr class="row-flagged">
+          <td data-label="Schedule Window"><strong>Oct 31 – Nov 08, 15:00 UTC</strong></td>
+          <td data-label="Tournament">LigaGG CELOL B 2026 Split 2 Playoffs<div class="sub-meta">Lower Bracket R2/R3/R4 &amp; Grand Finals (6 Slots)</div></td>
+          <td data-label="Participants">Waiting for information vs Waiting for information</td>
+          <td data-label="Originated Win Prob"><em></em> <span class="badge badge-med">LEFT BLANK (UNVERIFIED)</span></td>
+          <td data-label="Recommended Pick"><em></em> <span class="flag-inline"><a>⚠ UNVERIFIED_TBD_BRACKET</a></span></td>
+          <td data-label="Limitation &amp; Verification Note">Participants depend on outcomes of Oct 24–25 Round 1/2 matches (#1081083–#1081086). Left blank until matchups are set.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/ligagg-celol-b-2026-split-2-playoffs" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LigaGG/CELOL_S%C3%A9rie_B/2026_Season/Split_2_Playoffs" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia ↗</a>
+          </td>
+        </tr>
+        
+        <tr class="row-flagged">
+          <td data-label="Schedule Window"><strong>Nov 10–13, 05:00–09:00 UTC</strong></td>
+          <td data-label="Tournament">LCP 2027 Promotion<div class="sub-meta">Free-for-All Bracket R1, R2 &amp; Finals (4 Slots)</div></td>
+          <td data-label="Participants">DetonatioN FocusMe / TBD vs TBD</td>
+          <td data-label="Originated Win Prob"><em></em> <span class="badge badge-med">LEFT BLANK (UNVERIFIED)</span></td>
+          <td data-label="Recommended Pick"><em></em> <span class="flag-inline"><a>⚠ UNVERIFIED_TBD_BRACKET</a></span></td>
+          <td data-label="Limitation &amp; Verification Note">5-team Free-for-All bracket pairings (DFM, Saigon Warriors, FENNEL, Gromp Esports, Wildcard #1) are not yet drawn on Leaguepedia.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/lcp-2027-promotion" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LCP/2027_Season/Promotion" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia ↗</a>
+          </td>
+        </tr>
+        
+        <tr class="row-flagged">
+          <td data-label="Schedule Window"><strong>Oct 26 – Nov 21, 18:00–20:00 UTC</strong></td>
+          <td data-label="Tournament">4 Nations 2026 Halloween Heist<div class="sub-meta">Stage 2 Day 5 (Oct 26) &amp; Stage 3 Playoffs (18+ Slots)</div></td>
+          <td data-label="Participants">Named Day 5 Teams / Playoff TBDs</td>
+          <td data-label="Originated Win Prob"><em></em> <span class="badge badge-med">LEFT BLANK (UNVERIFIED)</span></td>
+          <td data-label="Recommended Pick"><em></em> <span class="flag-inline"><a>⚠ NOT_YET_IN_PICKEMS_LOBBY</a></span></td>
+          <td data-label="Limitation &amp; Verification Note">Listed on Hotspawn&#x27;s tournament schedule page (#1081651–#1081672) but not yet promoted to play.hotspawn.com/lol-pickems.</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/4-nations-2026-halloween-heist" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/4_Nations/2026_Season/Halloween_Heist" target="_blank" rel="noopener" class="src-btn src-primary">Leaguepedia ↗</a>
+          </td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card-section" id="reconciliation-264">
+      <h2 class="section-title">
+        <span>Complete Reconciliation of All 24 Filter-Bar Tournaments (264 Filter-Bar Sum vs 213 Active DOM Cards)</span>
+      </h2>
+      <p style="margin-top:0;color:#cbd5e1;">
+        Formula: <code>264 (Filter-Bar Checkboxes) - 53 (Locked/Completed Past Fixtures) + 2 (PRM 2nd Div Oct 23 Unremoved Duplicates #1079024 &amp; #1079026) = 213 Active Pickable DOM Cards (27 Closing Soon + 186 Upcoming)</code>.
+      </p>
+      <div class="table-wrap">
+        <table class="data-table mobile-cards">
+          <thead>
+            <tr>
+              <th>Tournament Name</th>
+              <th>Lobby Status</th>
+              <th>Tier &amp; Format</th>
+              <th>Filter Bar Count</th>
+              <th>Active DOM Cards</th>
+              <th>Locked / Stale Count</th>
+              <th>Extra DOM Duplicates</th>
+              <th>Official Sources</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <td data-label="Tournament"><strong>Worlds 2026 Main Event</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-s">S Tier · 30 PTS</span> · Bo1</td>
+          <td data-label="Filter Bar Count"><strong>8</strong></td>
+          <td data-label="Active DOM Cards"><strong>8</strong> (CS: 0, Up: 8)</td>
+          <td data-label="Stale / Locked">0</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/worlds-2026-main-event" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/2026_Season_World_Championship/Main_Event" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>LCP 2027 Promotion</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-s">S Tier · 30 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>1</strong> (CS: 0, Up: 1)</td>
+          <td data-label="Stale / Locked">0</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/lcp-2027-promotion" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LCP/2027_Season/Promotion" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>EM 2026 Summer Main Event</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-a">A Tier · 20 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>1</strong> (CS: 1, Up: 0)</td>
+          <td data-label="Stale / Locked">0</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/em-2026-summer-main-event" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/EMEA_Masters/2026_Season/Summer_Main_Event" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>LGC Rising 2026 Playoffs</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-a">A Tier · 20 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>1</strong> (CS: 0, Up: 1)</td>
+          <td data-label="Stale / Locked">0</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/lgc-rising-2026-playoffs" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LoL_Game_Changers/2026_Season/Playoffs" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Komplettligaen 2026 Autumn</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-c">C Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>13</strong></td>
+          <td data-label="Active DOM Cards"><strong>6</strong> (CS: 5, Up: 1)</td>
+          <td data-label="Stale / Locked">7</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/komplettligaen-2026-autumn" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Komplettligaen/2026_Season/Autumn_Split" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>PRM 2nd Division 26-27 Fall</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-c">C Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>40</strong></td>
+          <td data-label="Active DOM Cards"><strong>42</strong> (CS: 0, Up: 42)</td>
+          <td data-label="Stale / Locked">0</td>
+          <td data-label="DOM Extra Duplicates">2</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/prm-2nd-division-26-27-fall" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_2nd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Arabian Regional Championship 2026: Lebanon-Libya-Syria-Palestine</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-d">D Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>7</strong></td>
+          <td data-label="Active DOM Cards"><strong>1</strong> (CS: 0, Up: 1)</td>
+          <td data-label="Stale / Locked">6</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/arabian-regional-championship-2026-lebanon-libya-syria-palestine" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Arabian_Regional_Championship_2026/Qualifiers/LB-Li-SY-PS" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>PRM 3rd Division 26-27 Fall</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>77</strong></td>
+          <td data-label="Active DOM Cards"><strong>75</strong> (CS: 1, Up: 74)</td>
+          <td data-label="Stale / Locked">2</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/prm-3rd-division-26-27-fall" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Prime_League_3rd_Division/2027_Season/Fall_Split" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>RIVALS LEAGUE Season 2</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>26</strong></td>
+          <td data-label="Active DOM Cards"><strong>21</strong> (CS: 1, Up: 20)</td>
+          <td data-label="Stale / Locked">5</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/rivals-league-season-2" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/RIVALS_LEAGUE/2026_Season/Season_2" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Tunisian Super League 2026</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo1</td>
+          <td data-label="Filter Bar Count"><strong>25</strong></td>
+          <td data-label="Active DOM Cards"><strong>25</strong> (CS: 0, Up: 25)</td>
+          <td data-label="Stale / Locked">0</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/tunisian-super-league-2026" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Tunisian_Super_League/2026_Season" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>4 Nations 2026 Halloween Heist</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo1</td>
+          <td data-label="Filter Bar Count"><strong>19</strong></td>
+          <td data-label="Active DOM Cards"><strong>18</strong> (CS: 18, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/4-nations-2026-halloween-heist" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/4_Nations/2026_Season/Halloween_Heist" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Arabian League 2nd Division 2026 Summer</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>12</strong></td>
+          <td data-label="Active DOM Cards"><strong>10</strong> (CS: 1, Up: 9)</td>
+          <td data-label="Stale / Locked">2</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/arabian-league-2nd-division-2026-summer" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Arabian_League_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>LigaGG CELOL B 2026 Split 2 Playoffs</strong></td>
+          <td data-label="Status"><span class="badge badge-lock">ACTIVE IN LOBBY</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>5</strong></td>
+          <td data-label="Active DOM Cards"><strong>4</strong> (CS: 0, Up: 4)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/ligagg-celol-b-2026-split-2-playoffs" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LigaGG/CELOL_S%C3%A9rie_B/2026_Season/Split_2_Playoffs" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Icelandic Esports League 2026 Autumn</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo1</td>
+          <td data-label="Filter Bar Count"><strong>12</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">12</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/icelandic-esports-league-2026-autumn" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Icelandic_Esports_League/2026_Season/Autumn_Season" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Superstrike League 2026</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>6</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">6</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/superstrike-league-2026" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/superstrike-league-2026" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>POP Masters 2026 Playoffs</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>2</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">2</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/pop-masters-2026-playoffs" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/pop-masters-2026-playoffs" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>LigaGG CELOL A 2026 Split 2</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>2</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">2</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/ligagg-celol-a-2026-split-2" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LigaGG/CELOL_S%C3%A9rie_A/2026_Season/Split_2" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Benelux Ascend Series 2026 Cosmic Clash Playoffs</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-c">C Tier · 10 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/benelux-ascend-series-2026-cosmic-clash-playoffs" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Benelux_Ascend_Series/2026_Season/Cosmic_Clash/Playoffs" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>FPL 2026 Summer Playoffs</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/fpl-2026-summer-playoffs" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/fpl-2026-summer-playoffs" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Hitpoint 2nd Division 2026 Summer</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-d">D Tier · 10 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/hitpoint-2nd-division-2026-summer" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Hitpoint_2nd_Division/2026_Season/Summer_Split" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Legends Academy 2026 Season 1</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/legends-academy-2026-season-1" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/legends-academy-2026-season-1" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>LIT 2027 Promotion</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-c">C Tier · 10 PTS</span> · Bo5</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/lit-2027-promotion" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LIT/2027_Season/Promotion" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>LigaGG CELOL B 2026 Split 2</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-d">D Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/ligagg-celol-b-2026-split-2" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/LigaGG/CELOL_S%C3%A9rie_B/2026_Season/Split_2" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td data-label="Tournament"><strong>Nexus Tour 2026 Etape 5</strong></td>
+          <td data-label="Status"><span class="badge badge-med">0 ACTIVE (STALE ONLY)</span></td>
+          <td data-label="Tier &amp; Format"><span class="badge tier-wfi">WFI Tier · 10 PTS</span> · Bo3</td>
+          <td data-label="Filter Bar Count"><strong>1</strong></td>
+          <td data-label="Active DOM Cards"><strong>0</strong> (CS: 0, Up: 0)</td>
+          <td data-label="Stale / Locked">1</td>
+          <td data-label="DOM Extra Duplicates">0</td>
+          <td data-label="Official Sources">
+            <a href="https://www.hotspawn.com/league-of-legends/tournament/nexus-tour-2026-etape-5" target="_blank" rel="noopener" class="src-btn">Hotspawn ↗</a>
+            <a href="https://lol.fandom.com/wiki/Open_Tour_France/2026_Season/Step_5" target="_blank" rel="noopener" class="src-btn src-primary">Official Wiki ↗</a>
+          </td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+  </main>
+  
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p><strong>Methodology &amp; Non-Hallucination Guarantee:</strong> Hotspawn community pick percentages (<code>hs_pct</code>) are <strong>never</strong> used as an indicator of win probability. Featured matches use de-vigged multi-bookmaker &amp; Polymarket consensus odds; low-tier regional matches use originated Bradley-Terry / Log5 probabilities derived strictly from official <a href="https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki" target="_blank" rel="noopener">Leaguepedia</a> match &amp; game records. Unverified TBD bracket slots are left blank and flagged.</p>
+        <p class="footer-links">
+          <a href="index.html">Executive Summary</a> ·
+          <a href="featured.html">S/A-Tier Bookmaker Picks</a> ·
+          <a href="originated.html">Originated Regional Picks</a> ·
+          <a href="unresolved.html">Unresolved Picks &amp; Limitations</a> ·
+          <a href="flagged.html">Flagged for Review</a> ·
+          <a href="automation.html">4–8h Automation Architecture</a> ·
+          <a href="data/matches_active_213.json" target="_blank" rel="noopener">JSON Data (213)</a> ·
+          <a href="data/matches_active_213.csv" target="_blank" rel="noopener">CSV Data (213)</a>
+        </p>
+      </div>
+    </footer>
+    
+  <script src="assets/app.js"></script>
+</body>
+</html>

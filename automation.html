@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API Reverse Engineering &amp; 4–8h Automation — Hotspawn LoL Pick'ems Intelligence</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-row">
+          <div>
+            <div class="eyebrow">HOTSPAWN LOL PICK'EMS INTELLIGENCE · INDEPENDENT ORIGINATION ENGINE</div>
+            <h1 class="site-title"><a href="index.html">LoL Pick'ems Probability &amp; Origination Hub</a></h1>
+          </div>
+          <div class="sync-box">
+            <div class="sync-pill"><span class="dot-live"></span> Auto-Sync: Every 6h (4–8h Cron)</div>
+            <div class="sync-meta">Snapshot: <strong>2026-10-21 20:45 UTC</strong> · Next: 2026-10-22 00:00 UTC (Every 6 Hours / 4–8h Window)</div>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-link">Executive Summary &amp; All Picks</a><a href="featured.html" class="nav-link">S/A-Tier Bookmaker Picks (11)</a><a href="originated.html" class="nav-link">Originated Regional Picks (202)</a><a href="unresolved.html" class="nav-link">Unresolved &amp; Limitations</a><a href="flagged.html" class="nav-link">Flagged for Review (27)</a><a href="automation.html" class="nav-link active">API &amp; 4–8h Automation</a>
+        </nav>
+      </div>
+    </header>
+    
+  <main class="container">
+    
+    <section class="card-section">
+      <h2 class="section-title">
+        <span>Reverse-Engineering Hotspawn Pick'ems &amp; 4–8 Hour Automation Architecture</span>
+        <span class="badge badge-lock">CRON: EVERY 6 HOURS (00:00, 06:00, 12:00, 18:00 UTC)</span>
+      </h2>
+      <p style="margin-top:0;color:#cbd5e1;">
+        To keep all League of Legends Pick'em probabilities, match locks, and originated regional lines continuously updated within the required <strong>4–8 hour window</strong>, we reverse-engineered Hotspawn's dual-stack architecture and implemented an automated GitHub Actions pipeline (<a href="https://github.com/karagemop466-tech/LOLHOTSPAWN4/blob/main/.github/workflows/update-pickems.yml" target="_blank" rel="noopener"><code>.github/workflows/update-pickems.yml</code></a> + <code>scripts/update_pickems.py</code>).
+      </p>
+
+      <h3 style="color:#fff;font-size:16px;margin:16px 0 8px;">1. Reverse-Engineered Hotspawn Endpoints &amp; Architecture</h3>
+      <div class="table-wrap">
+        <table class="data-table mobile-cards">
+          <thead>
+            <tr>
+              <th>Endpoint / Surface</th>
+              <th>URL Pattern</th>
+              <th>Authentication &amp; Payload Structure</th>
+              <th>Role in 4–8h Pipeline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Surface"><strong>LoL Pick'em SSR Lobby</strong></td>
+              <td data-label="URL"><a href="https://play.hotspawn.com/lol-pickems" target="_blank" rel="noopener"><code>https://play.hotspawn.com/lol-pickems</code></a></td>
+              <td data-label="Structure">Public SSR HTML containing all active <code>id="pickem-card-&lt;id&gt;"</code> DOM cards, tier/tournament filter counts, point badges (30/20/10 PTS), EDT/EST timestamps, and crowd pick %.</td>
+              <td data-label="Role">Primary source of truth for which LoL fixtures are currently open for user picks in the Pick'em lobby.</td>
+            </tr>
+            <tr>
+              <td data-label="Surface"><strong>WP REST Pick'em Fixture API</strong></td>
+              <td data-label="URL"><a href="https://www.hotspawn.com/wp-json/pickem/v1/fixture/1067878" target="_blank" rel="noopener"><code>https://www.hotspawn.com/wp-json/pickem/v1/fixture/&lt;id&gt;</code></a></td>
+              <td data-label="Structure">Public JSON returning <code>fixture_id</code>, <code>total_picks</code>, and per-team <code>count</code> &amp; <code>percentage</code>.</td>
+              <td data-label="Role">Polled to track crowd pick volume &amp; contrarian fade edges (never used as win probability).</td>
+            </tr>
+            <tr>
+              <td data-label="Surface"><strong>WP REST Tournaments API</strong></td>
+              <td data-label="URL"><a href="https://www.hotspawn.com/wp-json/hotspawn/v1/tournaments?game=league-of-legends&page=1" target="_blank" rel="noopener"><code>/wp-json/hotspawn/v1/tournaments?game=league-of-legends</code></a></td>
+              <td data-label="Structure">Paginated JSON returning all 27 LoL tournaments, WordPress post IDs, slugs, tiers, start/end UNIX timestamps, and participant rosters.</td>
+              <td data-label="Role">Maps tournament slugs and metadata across Hotspawn's database.</td>
+            </tr>
+            <tr>
+              <td data-label="Surface"><strong>Hotspawn UTC Match Feed &amp; Tournament Pages</strong></td>
+              <td data-label="URL"><a href="https://www.hotspawn.com/matches" target="_blank" rel="noopener"><code>https://www.hotspawn.com/matches</code></a></td>
+              <td data-label="Structure">SSR HTML with exact UTC timestamps and canonical match slugs (<code>/matches/&lt;slug&gt;-&lt;id&gt;</code>).</td>
+              <td data-label="Role">Verifies exact UTC start times (resolving US EDT/EST Daylight Saving shifts on Nov 1) and canonical URLs.</td>
+            </tr>
+            <tr>
+              <td data-label="Surface"><strong>Leaguepedia Raw Data API</strong></td>
+              <td data-label="URL"><a href="https://lol.fandom.com/wiki/Data:Komplettligaen/2026_Season/Autumn_Split?action=raw" target="_blank" rel="noopener"><code>https://lol.fandom.com/wiki/Data:&lt;Tournament&gt;?action=raw</code></a></td>
+              <td data-label="Structure">Structured MediaWiki <code>{{MatchSchedule}}</code> templates with game scores, points, Riot platform game IDs (<code>LOLTMNT05_*</code>), and forfeit/DQ footnotes.</td>
+              <td data-label="Role">Feeds our Bradley-Terry / Log5 origination engine for all 202 low-tier regional LoL matches.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="color:#fff;font-size:16px;margin:20px 0 8px;">2. Automated 6-Hour Update Workflow (<code>.github/workflows/update-pickems.yml</code>)</h3>
+      <p style="color:#cbd5e1;font-size:13.5px;">
+        Our GitHub Actions workflow executes automatically every 6 hours (<code>cron: '0 */6 * * *'</code> — within the 4–8 hour target window) as well as on every push to <code>main</code> and manual <code>workflow_dispatch</code>:
+      </p>
+      <pre style="background:#0b0f17;border:1px solid var(--border);border-radius:8px;padding:14px;overflow-x:auto;color:#7dd3fc;font-size:12.5px;">name: Update Hotspawn LoL Pick'ems &amp; Deploy Pages
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # Runs every 6 hours (4-8h window)
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+ jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Hotspawn LoL Pick'ems Scraper &amp; Origination Engine
+        run: python3 scripts/update_pickems.py
+      - name: Commit Updated Dataset &amp; Dashboards if Changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add data/ *.html assets/
+            git commit -m "chore(auto): refresh Hotspawn LoL Pick'ems probabilities and site"
+            git push origin HEAD:main || true
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - uses: actions/deploy-pages@v4</pre>
+    </section>
+    
+  </main>
+  
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p><strong>Methodology &amp; Non-Hallucination Guarantee:</strong> Hotspawn community pick percentages (<code>hs_pct</code>) are <strong>never</strong> used as an indicator of win probability. Featured matches use de-vigged multi-bookmaker &amp; Polymarket consensus odds; low-tier regional matches use originated Bradley-Terry / Log5 probabilities derived strictly from official <a href="https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki" target="_blank" rel="noopener">Leaguepedia</a> match &amp; game records. Unverified TBD bracket slots are left blank and flagged.</p>
+        <p class="footer-links">
+          <a href="index.html">Executive Summary</a> ·
+          <a href="featured.html">S/A-Tier Bookmaker Picks</a> ·
+          <a href="originated.html">Originated Regional Picks</a> ·
+          <a href="unresolved.html">Unresolved Picks &amp; Limitations</a> ·
+          <a href="flagged.html">Flagged for Review</a> ·
+          <a href="automation.html">4–8h Automation Architecture</a> ·
+          <a href="data/matches_active_213.json" target="_blank" rel="noopener">JSON Data (213)</a> ·
+          <a href="data/matches_active_213.csv" target="_blank" rel="noopener">CSV Data (213)</a>
+        </p>
+      </div>
+    </footer>
+    
+  <script src="assets/app.js"></script>
+</body>
+</html>
