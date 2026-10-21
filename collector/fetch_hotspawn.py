@@ -31,7 +31,7 @@ import common  # noqa: E402
 
 
 def main():
-    log("fetching %s" % common.HOTSPAWN_FIXTURES_URL)
+    common.log("fetching %s" % common.HOTSPAWN_FIXTURES_URL)
     fixtures, status = common.http_get_json(common.HOTSPAWN_FIXTURES_URL)
     if status != 200:
         common.save_snapshot("hotspawn_fixtures_scheduled.json",
