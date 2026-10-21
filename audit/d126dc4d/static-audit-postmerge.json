@@ -1,0 +1,106 @@
+{
+  "audit": "Independent local static structure and link audit",
+  "checked_at": "2026-10-21T20:40:45.946793+00:00",
+  "site_root": ".",
+  "base_path": "/LOLHOTSPAWN4/",
+  "pages_checked": 10,
+  "data_rows_checked": 24,
+  "original_publisher_link_presence_only": true,
+  "external_urls_discovered": 9,
+  "external_reachability_checked": false,
+  "factual_accuracy_checked": false,
+  "errors": [
+    {
+      "file": "docs/flagged.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 1
+    },
+    {
+      "file": "docs/methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 2
+    },
+    {
+      "file": "docs/methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 5
+    },
+    {
+      "file": "docs/methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 6
+    },
+    {
+      "file": "docs/methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 7
+    },
+    {
+      "file": "docs/methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 8
+    },
+    {
+      "file": "docs/methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 9
+    },
+    {
+      "file": "docs/picks.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 1
+    },
+    {
+      "file": "docs/unresolved.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 1
+    },
+    {
+      "file": "flagged.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 1
+    },
+    {
+      "file": "methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 2
+    },
+    {
+      "file": "methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 5
+    },
+    {
+      "file": "methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 6
+    },
+    {
+      "file": "methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 7
+    },
+    {
+      "file": "methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 8
+    },
+    {
+      "file": "methodology.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 9
+    },
+    {
+      "file": "picks.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 1
+    },
+    {
+      "file": "unresolved.html",
+      "issue": "Data row has no recognized original-publisher source link",
+      "row": 1
+    }
+  ],
+  "warnings": [],
+  "passed": false
+}
