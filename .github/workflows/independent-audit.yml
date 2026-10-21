@@ -1,0 +1,48 @@
+name: Independent source receipts and audit tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [arena/d126dc4d-lolhotspawn4]
+    paths:
+      - research/d126dc4d/collect_source_receipts.py
+      - .github/workflows/independent-audit.yml
+      - audit/d126dc4d/test_*.py
+      - audit/d126dc4d/check_*.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: independent-d126dc4d
+  cancel-in-progress: false
+
+jobs:
+  receipts:
+    # Never write to main or another session's branch. This is research only.
+    if: github.ref == 'refs/heads/arena/d126dc4d-lolhotspawn4'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent auditor unit tests
+        run: python -m unittest discover -s audit/d126dc4d -p 'test_*.py' -v
+      - name: Read original publisher receipts (does not write production data)
+        run: python research/d126dc4d/collect_source_receipts.py
+      - name: Preserve only this session's source receipts
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name "Independent source audit"
+          git config user.email "actions@users.noreply.github.com"
+          git add research/d126dc4d/receipts
+          if ! git diff --cached --quiet; then
+            git commit -m "audit: retain original publisher source receipts"
+            git pull --rebase=merges origin arena/d126dc4d-lolhotspawn4
+            git push origin arena/d126dc4d-lolhotspawn4
+          fi
