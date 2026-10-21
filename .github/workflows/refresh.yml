@@ -38,9 +38,25 @@ jobs:
 
       - name: Fetch sources and build dataset
         run: |
-          python collector/fetch_hotspawn.py
-          python collector/fetch_odds.py
-          python collector/build.py
+          # Run each collector step, mirroring output to the job step summary.
+          # On failure, re-emit the tail as error annotations so the traceback
+          # is retrievable via the checks API even if the log endpoint is down.
+          set +e
+          {
+            echo '## fetch_hotspawn'
+            python collector/fetch_hotspawn.py || echo "FAILED_WITH_EXIT_$?"
+            echo '## fetch_odds'
+            python collector/fetch_odds.py || echo "FAILED_WITH_EXIT_$?"
+            echo '## build'
+            python collector/build.py || echo "FAILED_WITH_EXIT_$?"
+          } 2>&1 | tee "$GITHUB_STEP_SUMMARY"
+          if grep -q "FAILED_WITH_EXIT_" "$GITHUB_STEP_SUMMARY"; then
+            echo "::error::collector failed; traceback tail attached as annotations"
+            tail -25 "$GITHUB_STEP_SUMMARY" | while IFS= read -r line; do
+              echo "::error file=collector/detail.txt::${line}"
+            done
+            exit 1
+          fi
 
       - name: Upload raw audit artifact
         if: always()
