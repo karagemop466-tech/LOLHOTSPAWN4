@@ -1,0 +1,117 @@
+name: Verified LoL refresh and Pages
+
+on:
+  schedule:
+    - cron: "17 */4 * * *" # Best-effort four-hour full-inventory refresh.
+  workflow_dispatch:
+  push:
+    branches: [main, arena/d126dc4d-lolhotspawn4]
+    paths:
+      - "verified/**"
+      - "verified_pipeline/**"
+      - "audit/d126dc4d/check_mobile.mjs"
+      - ".github/workflows/verified-pages.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verified-lol-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # Generated preview receipts are already tested before the bot commit.
+    if: "github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'verified data:')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write # Bot may write ONLY the fixed Arena preview branch below.
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Restore dated last-good source receipts, never their timestamps
+        uses: actions/cache@v4
+        with:
+          path: |
+            verified/data/source-cache.json
+            verified/data/history.json
+          key: verified-receipts-v1-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: verified-receipts-v1-${{ github.ref_name }}-
+      - name: Unit safety gates (no network)
+        run: |
+          python -m unittest discover -s verified_pipeline/tests -p 'test_core.py' -v
+          python -m unittest discover -s verified_pipeline/tests -p 'test_sources.py' -v
+      - name: Full inventory and original-publisher refresh
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m verified_pipeline.refresh 2>&1 | tee "$RUNNER_TEMP/verified-refresh.log"
+          {
+            echo '## Verified-only refresh'
+            echo 'Unsupported values remain null. Source restrictions do not become invented prices.'
+            cat verified/data/integrity.json
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Reproduce every published inventory row and calculation; check all internal links
+        run: |
+          python -m unittest discover -s verified_pipeline/tests -p 'test_*.py' -v
+          python -m verified_pipeline.check --out "$RUNNER_TEMP/verified-static.json"
+      - name: Install pinned, isolated browser acceptance tools
+        run: npm install --prefix "$RUNNER_TEMP/verified-ui" --no-fund --no-audit playwright-core@1.64.1 @sparticuz/chromium@153.0.0 axe-core@4.14.0
+      - name: Real mobile browser, accessibility, filters, source links and expiry gates
+        run: node verified_pipeline/browser_test.mjs --tools "$RUNNER_TEMP/verified-ui" --out "$RUNNER_TEMP/verified-browser.json"
+      - name: Preserve tested preview receipts only on the fixed Arena branch
+        if: github.ref == 'refs/heads/arena/d126dc4d-lolhotspawn4'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Verified source refresh"
+          git config user.email "actions@users.noreply.github.com"
+          git add verified/data verified/*.html verified/.nojekyll
+          if ! git diff --cached --quiet; then
+            git commit -m "verified data: retain tested original-source refresh"
+            git pull --rebase=merges origin arena/d126dc4d-lolhotspawn4
+            git push origin arena/d126dc4d-lolhotspawn4
+          fi
+      - name: Upload independent acceptance reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-acceptance-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/verified-static.json
+            ${{ runner.temp }}/verified-browser*.json
+            ${{ runner.temp }}/verified-refresh.log
+            verified/data/deployment.json
+            verified/data/integrity.json
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Upload ONLY the verified public site (never the repository root)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: verified
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: verified-pages-production
+      cancel-in-progress: false
+    steps:
+      - name: Deploy the tested verified-only artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

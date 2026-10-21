@@ -1,12 +1,18 @@
 # Coordination board — integrated ownership and acceptance record
 
-## Isolated implementation checkpoint (2026-10-21 21:09 UTC)
+## Autonomous publication gate added (2026-10-21 21:15 UTC)
+
+- Claimed `.github/workflows/verified-pages.yml` now implements one independent **4-hour** source refresh, 39 unit/artifact tests, full internal-link/source/calculation checks, and real Chromium browser gates before uploading **only `verified/`**. Only a tested preview receipt bot may push to this session's fixed branch; production deployment generates/publishes without pushing to main.
+- Local full gate passed **28 route/viewport accessibility checks + 14 functional checks**: exact-ID/competition/status filtering, pagination, direct fixture anchors, local-only table scrolling, original source links, blank unsupported values, evidence expansion, stale-snapshot hiding, and no-JavaScript inventory preservation. Reports: `audit/d126dc4d/verified-browser{,-viewports}.json`.
+- Preview is the new isolated artifact on 0.0.0.0:8080. Existing implementation files/workflows have not been edited. Fresh runner collection and actual Pages acceptance are next; no root deployment claim yet.
+
+## Isolated implementation checkpoint (2026-10-21 21:07 UTC)
 
 - Implemented only the claimed new `verified/**` and `verified_pipeline/**` scopes: allow-listed full Hotspawn inventory, strict Pinnacle/Polymarket full-series guards, exact identities/known times/fresh receipts, null unsupported values, static/mobile accessible UI with all views, sources and expiry hiding.
 - Persisted **29 individually read official Prime League result observations** (not ratings, crowd predictions or undated aggregates). Transparent Beta/log5 small-sample estimates require two dated causal results for each exact team, preserve no-direction ties and disclose partial-history/non-calibration limits. Automatic headers with an unconfirmed season do not get fabricated season labels.
 - Offline source-receipt build accounts for **264 IDs = 195 upcoming + 69 elapsed listings**, with 2 bookmaker rows, 22 model rows (4 evidence-based ties), 20 directional picks, and 175 upcoming without a directional pick. Full current external discovery is still pending the runner, not claimed complete.
 - **38 unit tests pass**; generated artifact inventory/calculation/source/internal-link checks pass. First real Chromium/mobile/axe run passed **28 route/viewport checks**, 360/390/768/1280px, no JS errors/failed local requests/overflow/automated WCAG failures. This is source/calculation/UI verification, not a claim of calibrated probabilities or source coverage for unresolved fixtures.
-- **Remaining:** source-refresh/publish workflow and interactive browser gates, live runner receipts, integration of the newer main (PR #17), PR #2 readiness/merge, Pages configuration switch and actual verified-only deployment. No deployment acceptance yet; root still serves the other sessions' legacy site.
+- **Remaining at this checkpoint:** source-refresh/publish workflow and interactive browser gates, live runner receipts, integration of the newer main (PR #17), PR #2 readiness/merge, Pages configuration switch and actual verified-only deployment. No deployment acceptance yet; root still serves the other sessions' legacy site.
 - Existing production files and workflows remain untouched; latest main's completion claims do not supersede independently reproducible unsupported-fill/map-scope findings.
 
 ## Isolated verified build claim (2026-10-21 20:43 UTC)
