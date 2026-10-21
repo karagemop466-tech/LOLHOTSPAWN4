@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All Picks — LOL Hotspawn Pick Desk</title>
+<meta name="description" content="Every League of Legends match open for picks on Hotspawn, with win probabilities, the pick, and source links.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <span class="brand"><span class="lol">LOL</span> Hotspawn Pick Desk</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="picks.html" class="active">All Picks</a>
+      <a href="flagged.html">Flagged for Review</a>
+      <a href="methodology.html">Methodology &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="stale"></div>
+  <h1>All matches &amp; picks</h1>
+  <p class="lede">
+    Sorted by start time (UTC). The green <b>Pick</b> tag marks the favored team; the filled bar
+    shows each team's win probability from the cited source. Numbers are market mids at fetch
+    time and move over time.
+  </p>
+
+  <div id="summaryChips" class="chips"><span class="chip">Loading…</span></div>
+
+  <div class="filters" role="tablist" aria-label="Filter picks">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="line">Market line</button>
+    <button data-filter="derived">Derived (our line)</button>
+    <button data-filter="unresolved">No external market</button>
+  </div>
+
+  <div id="matches"></div>
+
+  <div class="notebox warn">
+    <strong>How to read a card.</strong>
+    <b>Market line</b> = a public per-match market prices both teams (probability is the market
+    mid, linked). <b>Derived (our line)</b> = no per-match market exists, so we originate the line
+    from both teams' tournament-futures prices with a labeled ratio model (low confidence — see
+    <a href="flagged.html">Flagged for Review</a>). <b>No external market</b> = no verified line
+    anywhere we check; the pick is intentionally blank, never guessed.
+  </div>
+</main>
+
+<footer class="site">
+  LOL Hotspawn Pick Desk · <a href="index.html">executive summary</a> ·
+  <a href="flagged.html">flagged for review</a> ·
+  <a href="methodology.html">methodology &amp; sources</a>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+PickDesk.load(function (err, data) {
+  var stale = document.getElementById("stale");
+  if (stale) stale.innerHTML = PickDesk.staleBanners(data || {});
+  if (err || !data) {
+    document.getElementById("matches").innerHTML =
+      '<div class="loading">Could not load data/matches.json. The refresh workflow may still be running.</div>';
+    return;
+  }
+  PickDesk.renderAllMatches(data, "#matches");
+  PickDesk.setFilters("#matches");
+});
+</script>
+</body>
+</html>

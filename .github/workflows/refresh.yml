@@ -1,0 +1,61 @@
+name: refresh
+
+# Refreshes the LoL Hotspawn pick dataset (match list + external lines) and
+# commits it back to the branch it runs on. GitHub Pages serves main, so the
+# published site updates automatically after each successful run.
+#
+# Schedule: every 4 hours (within the required 4-8 hour window).
+# Manual:   gh workflow run refresh.yml --ref <branch>
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch sources and build dataset
+        run: |
+          python collector/fetch_hotspawn.py
+          python collector/fetch_odds.py
+          python collector/build.py
+
+      - name: Upload raw audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-audit-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/polymarket_lol_events_full.json
+            data/raw/manifest.json
+          if-no-files-found: ignore
+
+      - name: Commit updated data
+        run: |
+          git config user.name "LOL Hotspawn pick desk"
+          git config user.email "pickdesk@users.noreply.github.com"
+          if git status --porcelain -- data | grep -q .; then
+            git add data
+            git commit -m "data: refresh LoL Hotspawn picks at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
+          else
+            echo "No data changes; nothing to commit."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
