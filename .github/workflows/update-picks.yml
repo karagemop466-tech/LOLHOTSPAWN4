@@ -1,0 +1,75 @@
+name: Update Hotspawn LoL Picks (every 6h)
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # every 6 hours (within the required 4-8h window)
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/**"
+      - ".github/workflows/update-picks.yml"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: picks-update
+  cancel-in-progress: false
+
+jobs:
+  update-picks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ingest Hotspawn fixtures and originate lines
+        env:
+          ODDSPAPI_KEY: "${{ secrets.ODDSPAPI_KEY }}"
+        run: |
+          python3 scripts/update_picks.py
+
+      - name: Verify data integrity (picks, probabilities, and schema)
+        run: |
+          python3 - <<'PY'
+          import json, sys
+
+          for path in ['data/picks.json', 'docs/data/picks.json']:
+              with open(path, 'r', encoding='utf-8') as f:
+                  data = json.load(f)
+              count = data.get('count', 0)
+              assert count > 0, f"No matches found in {path}"
+              matches = data.get('matches', [])
+              assert len(matches) == count, f"Mismatch count vs matches len in {path}"
+              
+              for m in matches:
+                  assert m.get('team1'), f"Missing team1 in {m}"
+                  assert m.get('team2'), f"Missing team2 in {m}"
+                  assert m.get('pick') in (m['team1'], m['team2']), f"Pick not in teams: {m}"
+                  p1 = m.get('prob_team1', 0)
+                  p2 = m.get('prob_team2', 0)
+                  assert abs((p1 + p2) - 1.0) < 0.01, f"Probabilities do not sum to 1.0: {m}"
+                  assert m.get('method') in ('MARKET_BOOKS', 'MARKET_POLYMARKET', 'MODEL_ELO', 'UNRESOLVED'), f"Invalid method in {m}"
+                  assert m.get('source_url') or m.get('market_url') or m.get('hotspawn_url'), f"Missing source link in {m}"
+
+          print(f"Data verification passed successfully for {count} matches!")
+          print("Method counts:", data.get('counts_by_method'))
+          PY
+
+      - name: Commit and push updated picks
+        run: |
+          git config user.name "picks-bot"
+          git config user.email "actions@github.com"
+          git add data docs/data
+          git diff --cached --quiet || git commit -m "picks: scheduled 6h automated update [skip ci]"
+          git pull --rebase origin ${{ github.ref_name }} || true
+          git push origin HEAD:${{ github.ref_name }} || true

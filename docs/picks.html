@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Picks — Hotspawn League of Legends Match Win Probabilities</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>🎮 Hotspawn LoL Pick'em — Our Picks</h1>
+      <div class="sub">
+        <span class="live-indicator"><span class="live-dot"></span> Full Fixture Coverage</span>
+        <span id="last-updated">Loading matches…</span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">🏠 Executive Summary</a>
+      <a href="picks.html" class="active">✅ All Picks</a>
+      <a href="unresolved.html">⚠️ Unresolved Picks</a>
+      <a href="flagged.html">🚩 Flagged for Review</a>
+      <a href="methodology.html">📖 Method & Sources</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>✅ All League of Legends Picks & Win Probabilities</h2>
+    <p>
+      Complete list of all matches currently listed on Hotspawn. Win probabilities are derived from external betting markets or our own originated Elo model. 
+      Hotspawn crowd % is <b>never</b> used. Every pick is prominently highlighted.
+    </p>
+
+    <!-- Search & Filter Controls -->
+    <div class="controls-container">
+      <div class="controls-row">
+        <input type="search" id="search-box" class="search-input" placeholder="🔍 Search by team name, tournament, or tier…" aria-label="Search matches">
+      </div>
+      <div class="controls-row" style="flex-wrap: wrap;">
+        <select id="filter-method" class="filter-select" aria-label="Filter by method">
+          <option value="">All Resolution Methods</option>
+          <option value="MARKET">💰 Betting Markets (Polymarket / Books)</option>
+          <option value="MODEL_ELO">🧮 Our Originated Elo Model</option>
+          <option value="UNRESOLVED">⚠️ Unresolved (50/50 Baseline)</option>
+        </select>
+
+        <select id="filter-tier" class="filter-select" aria-label="Filter by tier">
+          <option value="">All Tiers</option>
+          <option value="S">Tier S</option>
+          <option value="A">Tier A</option>
+          <option value="B">Tier B</option>
+          <option value="C">Tier C</option>
+          <option value="D">Tier D</option>
+          <option value="WAITING FOR INFORMATION">Tier Waiting for Info</option>
+        </select>
+
+        <select id="sort-select" class="filter-select" aria-label="Sort matches">
+          <option value="time">Sort by: Start Time (Earliest first)</option>
+          <option value="confidence">Sort by: Pick Confidence (Highest first)</option>
+          <option value="points">Sort by: Hotspawn Points (Highest first)</option>
+        </select>
+
+        <div class="view-toggles" style="margin-left: auto;">
+          <button id="btn-view-cards" class="btn-toggle active" onclick="switchView('cards')">📱 Cards</button>
+          <button id="btn-view-table" class="btn-toggle" onclick="switchView('table')">📊 Table</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Match Counter -->
+    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;" id="match-counter-display">
+      Showing all matches…
+    </div>
+
+    <!-- Cards Container -->
+    <div id="cards-container">
+      <div class="loading-state">Loading match cards…</div>
+    </div>
+
+    <!-- Table Container -->
+    <div id="table-container" class="table-wrapper hidden">
+      <table>
+        <thead>
+          <tr>
+            <th>Start (UTC)</th>
+            <th>Tournament</th>
+            <th>Tier</th>
+            <th>Matchup (Win Probabilities)</th>
+            <th>Pick</th>
+            <th>Method</th>
+            <th>Confidence</th>
+            <th>Evidence Source</th>
+            <th>Hotspawn Link</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr><td colspan="9" class="loading-state">Loading table data…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated 6-hour refresh via GitHub Actions.
+      </div>
+      <div>
+        <a href="methodology.html">Methodology & Sources</a> · 
+        <a href="unresolved.html">Unresolved Picks</a> · 
+        <a href="flagged.html">Flagged for Review</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script>
+    let ALL_MATCHES = [];
+
+    function applyFiltersAndRender() {
+      const query = (document.getElementById('search-box').value || '').toLowerCase().trim();
+      const methodFilter = document.getElementById('filter-method').value;
+      const tierFilter = document.getElementById('filter-tier').value;
+      const sortBy = document.getElementById('sort-select').value;
+
+      let filtered = ALL_MATCHES.filter(m => {
+        // Query match
+        if (query) {
+          const haystack = `${m.team1} ${m.team2} ${m.tournament} ${m.tier}`.toLowerCase();
+          if (!haystack.includes(query)) return false;
+        }
+        // Method filter
+        if (methodFilter) {
+          if (methodFilter === 'MARKET') {
+            if (!m.method || !m.method.startsWith('MARKET')) return false;
+          } else if (m.method !== methodFilter) {
+            return false;
+          }
+        }
+        // Tier filter
+        if (tierFilter) {
+          if ((m.tier || '').toUpperCase() !== tierFilter.toUpperCase()) return false;
+        }
+        return true;
+      });
+
+      // Sort
+      if (sortBy === 'confidence') {
+        filtered.sort((a, b) => (b.pick_prob || 0.5) - (a.pick_prob || 0.5));
+      } else if (sortBy === 'points') {
+        filtered.sort((a, b) => parseInt(b.points || 0) - parseInt(a.points || 0));
+      } else {
+        // time
+        filtered.sort((a, b) => (a.start_utc || '9999').localeCompare(b.start_utc || '9999'));
+      }
+
+      // Update counter
+      document.getElementById('match-counter-display').textContent = `Displaying ${filtered.length} of ${ALL_MATCHES.length} matches`;
+
+      // Render cards
+      const cardsContainer = document.getElementById('cards-container');
+      if (filtered.length === 0) {
+        cardsContainer.innerHTML = '<div class="callout-box">No matches match your current filters.</div>';
+      } else {
+        cardsContainer.innerHTML = filtered.map(renderCard).join('');
+      }
+
+      // Render table
+      const tableBody = document.getElementById('table-body');
+      if (filtered.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="9" class="text-center" style="padding:24px;">No matches match your current filters.</td></tr>';
+      } else {
+        tableBody.innerHTML = filtered.map(renderTableRow).join('');
+      }
+    }
+
+    // Initialize
+    fetchPicksData().then(data => {
+      GLOBAL_DATA = data;
+      ALL_MATCHES = data.matches || [];
+      
+      const dt = new Date(data.generated_at);
+      document.getElementById('last-updated').textContent = `Updated: ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()} (${ALL_MATCHES.length} matches)`;
+
+      // URL query params support (e.g. picks.html?f=MARKET)
+      const urlParams = new URLSearchParams(window.location.search);
+      const fParam = urlParams.get('f');
+      if (fParam) {
+        document.getElementById('filter-method').value = fParam;
+      }
+      const tParam = urlParams.get('tier');
+      if (tParam) {
+        document.getElementById('filter-tier').value = tParam;
+      }
+
+      applyFiltersAndRender();
+
+      // Listeners
+      document.getElementById('search-box').addEventListener('input', applyFiltersAndRender);
+      document.getElementById('filter-method').addEventListener('change', applyFiltersAndRender);
+      document.getElementById('filter-tier').addEventListener('change', applyFiltersAndRender);
+      document.getElementById('sort-select').addEventListener('change', applyFiltersAndRender);
+    }).catch(err => {
+      console.error(err);
+      document.getElementById('cards-container').innerHTML = `<div class="callout-box warn">Failed to load picks data: ${err.message}</div>`;
+    });
+  </script>
+</body>
+</html>
