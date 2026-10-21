@@ -1,0 +1,102 @@
+{
+ "teamvds": {
+  "team": "Team VDS",
+  "elo": 1531,
+  "games": 2
+ },
+ "pegasusesports": {
+  "team": "Pegasus Esports",
+  "elo": 1515,
+  "games": 3
+ },
+ "revealmultigaming": {
+  "team": "Reveal Multigaming",
+  "elo": 1483,
+  "games": 3
+ },
+ "hannoveresportsev": {
+  "team": "Hannover Esports e.V.",
+  "elo": 1485,
+  "games": 3
+ },
+ "nextgenerationesports": {
+  "team": "NextGeneration Esports",
+  "elo": 1517,
+  "games": 3
+ },
+ "acegaming": {
+  "team": "AceGaming",
+  "elo": 1485,
+  "games": 3
+ },
+ "babosgaming": {
+  "team": "Babos Gaming",
+  "elo": 1531,
+  "games": 2
+ },
+ "ls": {
+  "team": "L\u00d8S",
+  "elo": 1469,
+  "games": 2
+ },
+ "t1": {
+  "team": "T1",
+  "elo": 1560,
+  "games": 9
+ },
+ "jskesports": {
+  "team": "JSK Esports",
+  "elo": 1469,
+  "games": 2
+ },
+ "jskacademy": {
+  "team": "JSK Academy",
+  "elo": 1483,
+  "games": 3
+ },
+ "spongecordprime": {
+  "team": "spongecord prime",
+  "elo": 1469,
+  "games": 2
+ },
+ "looksmaxxer": {
+  "team": "LOOKSMAXXER",
+  "elo": 1517,
+  "games": 3
+ },
+ "vfbesports": {
+  "team": "VfB eSports",
+  "elo": 1442,
+  "games": 4
+ },
+ "dkbxperionnxt": {
+  "team": "DKB XPERION NXT",
+  "elo": 1444,
+  "games": 4
+ },
+ "regnum4games": {
+  "team": "regnum4games",
+  "elo": 1556,
+  "games": 4
+ },
+ "teamorangegamingacademy": {
+  "team": "TeamOrangeGaming Academy",
+  "elo": 1531,
+  "games": 2
+ },
+ "mt1esports": {
+  "team": "MT1 Esports",
+  "elo": 1515,
+  "games": 3
+ },
+ "groundzerogaming": {
+  "team": "Ground Zero Gaming",
+  "elo": 1444,
+  "games": 4
+ },
+ "frankesports": {
+  "team": "Frank Esports",
+  "elo": 1558,
+  "games": 8
+ }
+}

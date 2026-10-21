@@ -27,11 +27,7 @@ from datetime import datetime, timezone, timedelta
 from html.parser import HTMLParser
 
 UA = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 "
-        "(compatible; LOLHOTSPAWN4-picks/1.0; +https://github.com/karagemop466-tech/LOLHOTSPAWN4)"
-    ),
+    "User-Agent": "Mozilla/5.0 (compatible; LOLHOTSPAWN4-picks/1.0; +https://github.com/karagemop466-tech/LOLHOTSPAWN4)",
     "Accept": "text/html,application/json,*/*",
 }
 
@@ -401,6 +397,18 @@ def build_elo_model():
     ratings = {}
     games = {}
     recent = {}
+
+    # Seed baseline ratings if available
+    seed_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "seeded_ratings.json")
+    if os.path.exists(seed_path):
+        try:
+            seeds = json.load(open(seed_path, "r", encoding="utf-8"))
+            for k, v in seeds.items():
+                ratings[k] = float(v.get("elo", 1500.0))
+                games[k] = int(v.get("games", 1))
+        except Exception as e:
+            print(f"Seed ratings load error: {e}", file=sys.stderr)
+
     since = (NOW - timedelta(days=180)).strftime("%Y-%m-%d %H:%M:%S")
     offset = 0
     
@@ -488,7 +496,7 @@ def main():
     
     # 3. Resolve probability for every single match
     resolved_rows = []
-    is_offline = (len(poly_idx) == 0 and len(oddspapi_fixtures) == 0 and len(ratings) == 0)
+    market_offline = (len(poly_idx) == 0 and len(oddspapi_fixtures) == 0)
     
     for m in matches:
         t1 = m["team1"]
@@ -499,8 +507,8 @@ def main():
         row = dict(m)
         row["crowd_note"] = "Hotspawn crowd % shown on lobby is context only and is NEVER used as a probability input."
         
-        # If running offline and match already has a resolved method, preserve it
-        if is_offline and m.get("method") and m.get("prob_team1") is not None:
+        # If running without market API access and match already has a market method, preserve it
+        if market_offline and m.get("method") and m.get("method").startswith("MARKET") and m.get("prob_team1") is not None:
             resolved_rows.append(row)
             continue
             
@@ -609,7 +617,7 @@ def main():
     }
     
     # Save to data/picks.json, docs/data/picks.json, and data/debug.json
-    for path in ["data/picks.json", "docs/data/picks.json"]:
+    for path in ["data/picks.json", "docs/data/picks.json", "data/matches.json", "docs/data/matches.json"]:
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             json.dump(payload, f, indent=1, ensure_ascii=False)
