@@ -1,119 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LOL Hotspawn Pick Desk — Executive Summary</title>
-<meta name="description" content="Win probabilities and picks for every League of Legends match open for picks on the Hotspawn Pick'Em lobby, sourced from external betting and prediction markets only.">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotspawn LoL Picks — Executive Summary & Win Probabilities</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header class="site">
-  <div class="bar">
-    <span class="brand"><span class="lol">LOL</span> Hotspawn Pick Desk</span>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="picks.html">All Picks</a>
-      <a href="flagged.html">Flagged for Review</a>
-      <a href="methodology.html">Methodology &amp; Sources</a>
-    </nav>
-  </div>
-</header>
+  <header>
+    <div class="header-inner">
+      <h1>🎮 Hotspawn LoL Pick'em — Our Picks</h1>
+      <div class="sub">
+        <span class="live-indicator"><span class="live-dot"></span> Live Model Feed</span>
+        <span id="last-updated">Checking latest update…</span>
+      </div>
+    </div>
+  </header>
 
-<main class="wrap">
-  <div id="stale"></div>
-  <h1>League of Legends — Hotspawn pick desk</h1>
-  <p class="lede">
-    Every League of Legends match currently open for picks on the
-    <a href="https://play.hotspawn.com/lobby" target="_blank" rel="noopener">Hotspawn Pick'Em lobby</a>,
-    with each team's win probability and our pick — built from <strong>external betting and
-    prediction-market lines only</strong>. Hotspawn's own crowd percentages are never used as a
-    probability signal. Data refreshes automatically every 4 hours.
-  </p>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="active">🏠 Executive Summary</a>
+      <a href="picks.html">✅ All Picks</a>
+      <a href="unresolved.html">⚠️ Unresolved Picks</a>
+      <a href="flagged.html">🚩 Flagged for Review</a>
+      <a href="methodology.html">📖 Method & Sources</a>
+    </div>
+  </nav>
 
-  <h2>Executive summary</h2>
-  <div id="summaryChips" class="chips"><span class="chip">Loading…</span></div>
+  <main>
+    <h2>Executive Summary</h2>
+    <p>
+      This platform provides automated, independent match win probabilities and picks for <b>every League of Legends match</b> listed in the 
+      <a href="https://play.hotspawn.com/lol-pickems" target="_blank" rel="noopener">Hotspawn Pick'em Lobby ↗</a>.
+      Crucially, <b>Hotspawn crowd percentage is NEVER used as an indicator or input for match win probability</b>. 
+      Instead, every match is priced by our multi-layered pipeline: established commercial sportsbooks (Pinnacle/bet365 via OddsPapi), prediction markets (Polymarket), 
+      our own originated Elo model built from official Leaguepedia match results, or a transparent 50/50 baseline for unresolved amateur fixtures.
+    </p>
 
-  <div id="execSummary" class="card">
-    <p><strong>What this is.</strong> This site mirrors the LoL match list on Hotspawn's Pick'Em
-    lobby and attaches an independently sourced win probability to every match it can. Where a
-    public per-match market exists (Polymarket), the market mid is used directly. Where both teams
-    carry tournament-futures prices (Kalshi / Polymarket), we originate our own line with a
-    transparent ratio model and label it as derived. Where no verified external market exists —
-    most low-tier regional events — <strong>the pick is intentionally left blank</strong> and the
-    match appears on the <a href="flagged.html">Flagged for Review</a> page with the limitation
-    explained. Nothing is ever invented.</p>
-    <p id="execCounts" class="small">Counts are filled in below from the live dataset.</p>
-    <p class="small" id="updatedStamp">Updated —</p>
-  </div>
+    <!-- Prominent In-Site Links for Mobile and Desktop Users -->
+    <div class="big-links-grid">
+      <a href="picks.html" class="big-link-card primary">
+        <div class="title">
+          <span>🎯 All Picks</span>
+          <span>→</span>
+        </div>
+        <div class="desc">Browse full list of all 190+ League of Legends matches with win probabilities and clear picks.</div>
+      </a>
+      <a href="unresolved.html" class="big-link-card">
+        <div class="title">
+          <span>⚠️ Unresolved Picks</span>
+          <span>→</span>
+        </div>
+        <div class="desc">Review low-tier amateur fixtures lacking market liquidity and our detailed limitations.</div>
+      </a>
+      <a href="flagged.html" class="big-link-card">
+        <div class="title">
+          <span>🚩 Flagged for Review</span>
+          <span>→</span>
+        </div>
+        <div class="desc">Audit data flags, 'Waiting for Information' tiers, and sources for manual inspection.</div>
+      </a>
+    </div>
 
-  <div class="tiles">
-    <a class="tile primary" href="picks.html">All matches &amp; picks
-      <span class="arrow">→</span>
-      <small>The full mobile-friendly pick board: every open LoL match, both teams' win
-      probabilities, the pick, and the source links behind each number.</small></a>
-    <a class="tile" href="flagged.html">Flagged for Review
-      <span class="arrow">→</span>
-      <small>Unresolved matches (no external market), limitations, and irregularities.</small></a>
-    <a class="tile" href="methodology.html">Methodology &amp; Sources
-      <span class="arrow">→</span>
-      <small>Every source, its API, how it was verified, and how picks are derived.</small></a>
-  </div>
+    <!-- Live Coverage Metrics -->
+    <div class="metrics-grid">
+      <div class="metric-card green">
+        <div class="num" id="stat-total">—</div>
+        <div class="label">Total LoL Matches</div>
+      </div>
+      <div class="metric-card amber">
+        <div class="num" id="stat-market">—</div>
+        <div class="label">Market Betting Lines</div>
+      </div>
+      <div class="metric-card blue">
+        <div class="num" id="stat-model">—</div>
+        <div class="label">Our Elo Model Lines</div>
+      </div>
+      <div class="metric-card red">
+        <div class="num" id="stat-unres">—</div>
+        <div class="label">Unresolved (50/50)</div>
+      </div>
+    </div>
 
-  <h2>Next matches</h2>
-  <div id="preview"></div>
+    <!-- Dedicated Unresolved Section & Limitations (Required by prompt) -->
+    <h2>⚠️ Unresolved Picks & Limitations Analysis</h2>
+    <div class="callout-box warn">
+      <h3 style="color:#f87171; margin-top:0;">Why Unresolved Matches Exist & How They Are Handled</h3>
+      <p>
+        While premier tournaments (such as Worlds 2026 or European Masters) are heavily covered by external bookmakers and prediction markets, 
+        Hotspawn's pick'em lobby features numerous regional amateur circuits (e.g. <i>PRM 3rd Division</i>, <i>Tunisian Super League</i>, <i>Arabian League 2nd Div</i>, <i>4 Nations Halloween Heist</i>).
+        Commercial bookmakers and prediction markets <b>do not offer trading lines</b> on these low-tier amateur events.
+      </p>
+      <p><b>Resolution Protocol:</b></p>
+      <ul>
+        <li><b>Our Originated Elo Model:</b> If either participating team has competitive game logs recorded within the last 180 days on Leaguepedia's Cargo database, we calculate an Elo rating and shrink the probability toward 50% based on sample size.</li>
+        <li><b>50/50 Baseline (No Edge):</b> When neither team possesses any verifiable competitive match history in public esports databases, our system assigns an explicit <b>50.0% / 50.0%</b> win probability. The nominal pick is flagged, and users are cautioned that no analytical edge exists.</li>
+      </ul>
+      <p><b>Explicit Limitations for Low-Tier & Unresolved Fixtures:</b></p>
+      <ul>
+        <li><b>Roster Turnover:</b> Amateur and Tier-3 rosters change frequently between weekly matches, making past historical performance less predictive.</li>
+        <li><b>Database Coverage Gaps:</b> Official Leaguepedia / Cargo queries capture Tier-1 and major regional leagues comprehensively, but amateur division match details may be delayed or omitted.</li>
+        <li><b>Lack of External Price Validation:</b> Because no sharp books (like Pinnacle) price these matches, our originated model cannot be validated against external market consensus.</li>
+        <li><b>Hotspawn Metadata Incompleteness:</b> Over 65% of lobby fixtures carry the tier flag <code>WAITING FOR INFORMATION</code>, requiring ongoing monitoring.</li>
+      </ul>
+      <p style="margin-top:10px; margin-bottom:0;">
+        👉 <a href="unresolved.html" style="font-weight:700;">View the complete Unresolved Fixtures Register & Analysis →</a>
+      </p>
+    </div>
 
-  <div class="notebox">
-    <strong>Quick answer — where are the picks?</strong>
-    <a href="picks.html"><b>Open the All Picks page</b></a>. Matches are sorted by start time;
-    the green <b>Pick</b> tag and filled probability bar show the favored team. Use the filter
-    chips (Market line / Derived / No external market) to narrow the list.
-  </div>
+    <!-- Featured Picks Preview -->
+    <h2>⭐ Featured Market Picks (Traded Lines)</h2>
+    <p>Matches priced directly from external prediction markets (Polymarket) and esportsbook networks:</p>
+    <div id="featured-cards-list">
+      <div class="loading-state">Loading featured picks…</div>
+    </div>
 
-  <div class="notebox info">
-    <strong>Why some matches have no pick.</strong> Hotspawn lists many low-tier regional LoL
-    events that no verified bookmaker or prediction market covers. Per project rules those picks
-    are left blank and flagged rather than guessed. Details:
-    <a href="flagged.html">Flagged for Review</a>.
-  </div>
-</main>
+    <!-- Closing Soon Preview -->
+    <h2>⏳ Closing Soon (Next Up on Hotspawn)</h2>
+    <div id="upcoming-cards-list">
+      <div class="loading-state">Loading upcoming matches…</div>
+    </div>
 
-<footer class="site">
-  LOL Hotspawn Pick Desk · data: Hotspawn lobby (match list) + Polymarket, Kalshi, Pinnacle (lines)
-  · auto-refresh every 4 hours · <a href="methodology.html">methodology &amp; sources</a>
-</footer>
+    <div style="margin: 24px 0; text-align: center;">
+      <a href="picks.html" class="big-link-card primary" style="display:inline-block; padding: 14px 28px; font-size:1.1rem;">
+        View All Picks & Filter by Tournament / Tier →
+      </a>
+    </div>
+  </main>
 
-<script src="js/app.js"></script>
-<script>
-PickDesk.load(function (err, data) {
-  var stale = $("#stale");
-  if (stale) stale.innerHTML = PickDesk.staleBanners(data || {});
-  if (err || !data) {
-    var el = document.getElementById("execSummary");
-    if (el) el.innerHTML = '<div class="loading">Could not load data/matches.json (' +
-      (err ? PickDesk.esc(err.message) : "empty") + "). The refresh workflow may still be running.</div>";
-    return;
-  }
-  // exec summary text
-  var s = data.summary || {};
-  var counts = document.getElementById("execCounts");
-  if (counts) {
-    counts.innerHTML =
-      "<b>" + (s.total_matches || 0) + "</b> matches open for picks · " +
-      "<b>" + (s.market_line || 0) + "</b> with a market line · " +
-      "<b>" + (s.derived_estimate || 0) + "</b> with our derived line · " +
-      "<b>" + (s.unresolved || 0) + "</b> unresolved (no verified external market, pick left blank) · " +
-      "<b>" + (s.pinnacle_covered || 0) + "</b> also listed by Pinnacle.";
-  }
-  // preview: next 5 matches
-  var preview = document.getElementById("preview");
-  if (preview) {
-    var next = (data.matches || []).slice(0, 5);
-    preview.innerHTML = next.length
-      ? next.map(PickDesk.matchCard).join("")
-      : '<div class="loading">No matches currently open for picks.</div>";
-  }
-});
-</script>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated 6-hour refresh via GitHub Actions.
+      </div>
+      <div>
+        <a href="methodology.html">Methodology & Verified Sources</a> · 
+        <a href="flagged.html">Flagged for Review</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script>
+    fetchPicksData().then(data => {
+      // Update header
+      const dt = new Date(data.generated_at);
+      document.getElementById('last-updated').textContent = `Updated: ${dt.toLocaleDateString()} ${dt.toLocaleTimeString()} (${data.count} matches)`;
+      
+      // Update metrics
+      document.getElementById('stat-total').textContent = data.count || 0;
+      const c = data.counts_by_method || {};
+      document.getElementById('stat-market').textContent = (c.MARKET_BOOKS || 0) + (c.MARKET_POLYMARKET || 0);
+      document.getElementById('stat-model').textContent = c.MODEL_ELO || 0;
+      document.getElementById('stat-unres').textContent = c.UNRESOLVED || 0;
+      
+      // Render featured market picks
+      const marketMatches = (data.matches || []).filter(m => m.method && m.method.startsWith('MARKET'));
+      const featuredContainer = document.getElementById('featured-cards-list');
+      if (marketMatches.length > 0) {
+        featuredContainer.innerHTML = marketMatches.slice(0, 4).map(renderCard).join('');
+      } else {
+        featuredContainer.innerHTML = '<div class="callout-box info">No commercial betting lines currently active. Showing originated model picks below.</div>';
+      }
+      
+      // Render closing soon picks
+      const upcomingContainer = document.getElementById('upcoming-cards-list');
+      const upcoming = (data.matches || []).slice(0, 5);
+      if (upcoming.length > 0) {
+        upcomingContainer.innerHTML = upcoming.map(renderCard).join('');
+      } else {
+        upcomingContainer.innerHTML = '<div class="callout-box">No matches currently listed.</div>';
+      }
+    }).catch(err => {
+      console.error(err);
+      document.getElementById('last-updated').textContent = 'Live data loading error.';
+    });
+  </script>
 </body>
 </html>

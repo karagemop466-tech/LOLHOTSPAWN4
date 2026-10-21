@@ -11,12 +11,18 @@ on:
   schedule:
     - cron: "0 */4 * * *"
   workflow_dispatch:
+  # Pushes to main (e.g., integration merges) refresh immediately. Bot commits
+  # from this workflow are excluded by the job-level `if` below to prevent a
+  # commit -> push -> run -> commit loop.
+  push:
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   refresh:
+    if: "github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'data: refresh')"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -32,9 +38,20 @@ jobs:
 
       - name: Fetch sources and build dataset
         run: |
-          python collector/fetch_hotspawn.py
-          python collector/fetch_odds.py
-          python collector/build.py
+          set +e
+          {
+            echo '## fetch_hotspawn'
+            python collector/fetch_hotspawn.py || echo "FAILED_WITH_EXIT_$?"
+            echo '## fetch_odds'
+            python collector/fetch_odds.py || echo "FAILED_WITH_EXIT_$?"
+            echo '## build'
+            python collector/build.py || echo "FAILED_WITH_EXIT_$?"
+            echo '## update_picks (our originated Elo lines)'
+            python3 scripts/update_picks.py || echo "FAILED_WITH_EXIT_$?"
+          } 2>&1 | tee "$GITHUB_STEP_SUMMARY"
+          if grep -q "FAILED_WITH_EXIT_" "$GITHUB_STEP_SUMMARY"; then
+            echo "::warning::One or more collector steps exited non-zero; fallback data preserved"
+          fi
 
       - name: Upload raw audit artifact
         if: always()
@@ -50,8 +67,8 @@ jobs:
         run: |
           git config user.name "LOL Hotspawn pick desk"
           git config user.email "pickdesk@users.noreply.github.com"
-          if git status --porcelain -- data | grep -q .; then
-            git add data
+          if git status --porcelain -- data docs/data | grep -q .; then
+            git add data docs/data
             git commit -m "data: refresh LoL Hotspawn picks at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
             git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}"
           else

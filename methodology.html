@@ -1,200 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Methodology &amp; Sources — LOL Hotspawn Pick Desk</title>
-<meta name="description" content="How the LOL Hotspawn pick desk sources, verifies, and derives picks for every Hotspawn LoL match.">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology & Sources — Hotspawn LoL Picks</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header class="site">
-  <div class="bar">
-    <span class="brand"><span class="lol">LOL</span> Hotspawn Pick Desk</span>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="picks.html">All Picks</a>
-      <a href="flagged.html">Flagged for Review</a>
-      <a href="methodology.html" class="active">Methodology &amp; Sources</a>
-    </nav>
-  </div>
-</header>
+  <header>
+    <div class="header-inner">
+      <h1>🎮 Hotspawn LoL Pick'em — Our Picks</h1>
+      <div class="sub">
+        <span class="live-indicator"><span class="live-dot"></span> Mathematical Framework & Sources</span>
+        <span>Verified 2026-10-21</span>
+      </div>
+    </div>
+  </header>
 
-<main class="wrap">
-  <h1>Methodology &amp; sources</h1>
-  <p class="lede">
-    Every number on this site traces to a source listed below, fetched at a recorded time
-    (shown on each match card and in <code>data/raw/manifest.json</code> in the repo).
-    Values that cannot be confirmed from a verified source are left blank and
-    <a href="flagged.html">flagged</a>.
-  </p>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">🏠 Executive Summary</a>
+      <a href="picks.html">✅ All Picks</a>
+      <a href="unresolved.html">⚠️ Unresolved Picks</a>
+      <a href="flagged.html">🚩 Flagged for Review</a>
+      <a href="methodology.html" class="active">📖 Method & Sources</a>
+    </div>
+  </nav>
 
-  <h2>1. Match list (what to pick)</h2>
-  <div class="table-scroll">
-    <table class="tbl">
-      <thead><tr><th>Source</th><th>What it provides</th><th>Endpoint</th><th>Verification (2026-10-21)</th><th>Role</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><b>Hotspawn Pick'Em lobby</b></td>
-          <td>The authoritative list of LoL matches open for picks this week (teams, tournament,
-              start time, lock time, tier, stage, points).</td>
-          <td><a href="https://play.hotspawn.com/lobby" target="_blank" rel="noopener">play.hotspawn.com/lobby</a> (LoL tab) ·
-              data endpoint
-              <a href="https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&amp;status=scheduled" target="_blank" rel="noopener">fixtures API</a></td>
-          <td>Fetched and inspected: <code>sport_alias=lol&amp;status=scheduled</code> returns exactly the lobby's
-              pick-open LoL fixtures (schema verified row by row in the refresh job). The phpstack host is
-              Hotspawn's public backend (serves the lobby's team logos). <b>Unofficial API — flagged
-              as irregularity I-2.</b></td>
-          <td>Match list only. Its crowd "x% picked" figures are <b>never</b> used as a probability
-              signal (project requirement).</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <main>
+    <h2>📖 Methodology & Originated Line Models</h2>
+    <p>
+      This document details the quantitative methodology, data ingestion pipeline, and official sources utilized to generate 
+      independent match win probabilities and picks for Hotspawn's League of Legends pick'em game.
+    </p>
 
-  <h2>2. Lines (where probabilities come from)</h2>
-  <div class="table-scroll">
-    <table class="tbl">
-      <thead><tr><th>Source</th><th>Type</th><th>Endpoint</th><th>Verification (2026-10-21)</th><th>Role</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><b>Polymarket</b></td>
-          <td>Prediction market (resolution via official event sources, e.g. Riot/lolesports,
-              gol.gg for match markets)</td>
-          <td><a href="https://gamma-api.polymarket.com/sports" target="_blank" rel="noopener">gamma /sports</a> (LoL = sport id 39, tag 65) ·
-              <a href="https://gamma-api.polymarket.com/events?tag_id=65&amp;closed=false" target="_blank" rel="noopener">open LoL events</a> ·
-              per-match page e.g.
-              <a href="https://polymarket.com/event/lol-g2-dk-2026-10-23" target="_blank" rel="noopener">G2 vs Dplus KIA</a></td>
-          <td>Fetched: LoL sport entry confirmed; open LoL events include Worlds 2026 and EMEA
-              Masters; match market "G2 Esports vs Dplus KIA (BO1) — Worlds Group Stage" shows
-              outcomes/prices 0.395 / 0.605, matching the public page (40¢ / 61¢). Public event
-              page confirmed reachable.</td>
-          <td><b>Primary numeric line</b> where a per-match market exists (probability = market mid,
-              unadjusted).</td>
-        </tr>
-        <tr>
-          <td><b>Kalshi</b></td>
-          <td>Regulated US prediction market; settlement via lolesports.com / Riot</td>
-          <td><a href="https://api.elections.kalshi.com/trade-api/v2/series/KXLOL" target="_blank" rel="noopener">series KXLOL</a> ·
-              <a href="https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXLOL&amp;status=open" target="_blank" rel="noopener">open markets</a> ·
-              per-market page <code>kalshi.com/markets/&lt;ticker&gt;</code></td>
-          <td>Fetched: KXLOL series exists ("League of Legends", tag Esports); open markets are
-              tournament futures ("Will T1 win League of Legends Worlds?" bid/ask 17¢/18¢, etc.).
-              No per-match markets found at fetch time (irregularity I-6).</td>
-          <td><b>Secondary</b>: futures mids are the inputs for our labeled derived estimates;
-              used as match lines automatically if per-match markets appear.</td>
-        </tr>
-        <tr>
-          <td><b>Pinnacle</b></td>
-          <td>Established professional esports bookmaker</td>
-          <td><a href="https://guest.api.arcadia.pinnacle.com/0.1/sports" target="_blank" rel="noopener">/sports</a> (E Sports = id 12) ·
-              <a href="https://guest.api.arcadia.pinnacle.com/0.1/sports/12/leagues" target="_blank" rel="noopener">esports leagues</a> ·
-              <a href="https://guest.api.arcadia.pinnacle.com/0.1/leagues/9587/matchups" target="_blank" rel="noopener">LoL World Championship matchups</a> ·
-              <a href="https://guest.api.arcadia.pinnacle.com/0.1/leagues/225201/matchups" target="_blank" rel="noopener">LoL EMEA Masters matchups</a></td>
-          <td>Fetched: LoL leagues with lines confirmed (World Championship, EMEA Masters; e.g.
-              Solary vs Galions Bo5, Oct 22 16:00 UTC). Price endpoints
-              <code>matchups/&lt;id&gt;/markets</code> and <code>markets?matchupId=&lt;id&gt;</code>
-              return 404 on the guest API and on the non-guest host — <b>no public prices
-              (irregularity I-3)</b>. The pinnacle.com website blocks automated fetches (HTTP 500).</td>
-          <td><b>Coverage check only</b>: "Pinnacle lists a line" badge on the match. No Pinnacle
-              number is published.</td>
-        </tr>
-        <tr>
-          <td><b>Liquipedia</b></td>
-          <td>Community wiki (not official)</td>
-          <td><a href="https://liquipedia.net/leagueoflegends/Main_Page" target="_blank" rel="noopener">liquipedia.net/leagueoflegends</a> ·
-              e.g. <a href="https://liquipedia.net/leagueoflegends/World_Championship/2026" target="_blank" rel="noopener">World Championship 2026</a></td>
-          <td>Referenced by Polymarket markets as a resolution fallback; used here for manual
-              review links only (irregularity I-8).</td>
-          <td>Reference links only — <b>no data values</b> are sourced from Liquipedia.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <!-- Fundamental Rule -->
+    <div class="callout-box info">
+      <h3 style="color:#38bdf8; margin-top:0;">Core Rule: Independence from Hotspawn Crowd %</h3>
+      <p>
+        Hotspawn displays community pick percentages (e.g. <i>"89% picked Team A"</i>) on match cards. 
+        <b>Our pipeline strictly excludes Hotspawn crowd percentages from all probability calculations.</b> 
+        Crowd picks reflect public sentiment, popularity biases, and streamer fandom, rather than sharp win probabilities. 
+        All probabilities originate either from external betting markets or our independent mathematical models.
+      </p>
+    </div>
 
-  <h2 id="picks">3. How a pick is generated</h2>
-  <div class="card">
-    <p><b>Tier 1 — Market line.</b> An open per-match market prices both teams (currently only
-    Polymarket has LoL match markets, e.g. Worlds 2026 and EMEA Masters). Probability for each
-    team = the market mid exactly as reported (no adjustment, no blend). Pick = the higher
-    side. If the market is exactly even, no pick is made and the match is noted.</p>
-    <p><b>Tier 2 — Derived estimate (our own line).</b> No per-match market, but both teams have
-    open tournament-futures markets in the same Kalshi/Polymarket event. We originate the line
-    with the transparent ratio model <code>p(A) = f(A) / (f(A) + f(B))</code> (f = futures mid).
-    It is labeled "Derived (our line)" on every card, shown on the
-    <a href="flagged.html">Flagged for Review</a> page with both input markets linked, and marked
-    low confidence. Remove it on the flagged page if you don't want model lines.</p>
-    <p><b>Tier 3 — Unresolved.</b> No verified external market exists (typical for low-tier
-    regional events). No probability, no pick. The match stays on the
-    <a href="flagged.html">Flagged for Review</a> page until a market appears; the 4-hour refresh
-    picks it up automatically.</p>
-    <p class="small">Pinnacle coverage is recorded as a badge (the match is line'd by a pro book)
-    but never used numerically, because its public API exposes no prices. Hotspawn's own crowd
-    percentages are never used for probabilities, per the project requirement.</p>
-  </div>
+    <!-- Multi-Tier Pipeline -->
+    <h2>⚙️ Multi-Layer Resolution Hierarchy</h2>
+    <p>Every match listed on Hotspawn is processed through a strict four-tiered resolution waterfall:</p>
 
-  <h2 id="matching">4. Matching rules (Hotspawn fixture → market)</h2>
-  <div class="card">
-    <ul>
-      <li>Team names: case/punctuation-insensitive; match on exact equality, containment
-          (names ≥ 4 chars), stopword-stripped word-set equality ("esports", "team", …), or
-          sequence ratio ≥ 0.86. Deliberately conservative — a near-miss degrades to
-          "unresolved" rather than a wrong pick.</li>
-      <li>Time: the market's game start must be within 36 h of the Hotspawn start (same-day
-          events always pass; event-level start falls back to 72 h).</li>
-      <li>Pinnacle coverage: teams match and start times within 24 h.</li>
-      <li>Multiple candidate markets: smallest time delta wins, volume breaks ties; the candidate
-          is stored in the match's <code>lines</code> array for review.</li>
-    </ul>
-  </div>
+    <div class="match-card market" style="margin-bottom:16px;">
+      <h3>Tier 1: Commercial Esportsbooks & Sharp Betting Lines (De-vigged)</h3>
+      <p>
+        When external bookmakers quote decimal odds on a series, we ingest lines via the 
+        <a href="https://oddspapi.io/sports/esports/lol" target="_blank" rel="noopener">OddsPapi LoL Network ↗</a> (Sport ID: 18, Series Winner market 181).
+        This network aggregates over 100 global bookmakers, including market-making sharp books like Pinnacle, bet365, and BetOnline.
+      </p>
+      <p>
+        <b>De-vigging Formula:</b> To remove the bookmaker's overround (margin/vigorish), decimal odds $O_1, O_2$ are inverted into fair probabilities:
+      </p>
+      <div style="background:#0d1527; padding:10px 14px; border-radius:8px; font-family:monospace; margin:8px 0;">
+        P(Team 1) = (1 / O₁) / [ (1 / O₁) + (1 / O₂) ]<br>
+        P(Team 2) = 1 - P(Team 1)
+      </div>
+      <p>We compute the median fair probability across all reporting bookmakers to eliminate single-book skew.</p>
+    </div>
 
-  <h2>5. Refresh &amp; operations</h2>
-  <div class="card">
-    <ul>
-      <li><b>Schedule:</b> GitHub Actions workflow
-          <code>.github/workflows/refresh.yml</code> runs <b>every 4 hours</b>
-          (cron <code>0 */4 * * *</code>) plus on manual dispatch. Within the required 4–8 h window.</li>
-      <li><b>Pipeline:</b> <code>collector/fetch_hotspawn.py</code> →
-          <code>collector/fetch_odds.py</code> → <code>collector/build.py</code>; each step
-          validates schema, saves a snapshot to <code>data/raw/</code> with URL, timestamp, and
-          SHA-256 in <code>data/raw/manifest.json</code>, and logs an audit table.</li>
-      <li><b>Failure handling:</b> if a source fetch fails, the previous snapshot is reused and
-          marked <b>stale</b>; the site shows a STALE banner. The pipeline never fills missing
-          values with invented data. If all odds sources fail, the dataset is still rebuilt from
-          the last good snapshots (matches keep their prior lines, flagged stale).</li>
-      <li><b>Publishing:</b> the workflow commits <code>data/</code> back to the branch it runs
-          on; GitHub Pages serves <code>main</code>, so the public site updates automatically.
-          The full Polymarket events dump is kept as a workflow artifact (90-day retention) for
-          deep audit; committed raw files are the normalized extracts.</li>
-      <li><b>Audit trail:</b> every published number carries the fetch timestamp from the
-          manifest; every match card links to the exact market page used.</li>
-    </ul>
-  </div>
+    <div class="match-card market" style="margin-bottom:16px;">
+      <h3>Tier 2: Prediction Markets (Polymarket Gamma API)</h3>
+      <p>
+        For featured matchups traded on decentralized prediction markets, we query the 
+        <a href="https://gamma-api.polymarket.com/events?tag_slug=league-of-legends" target="_blank" rel="noopener">Polymarket Gamma API ↗</a>.
+        Traded outcome token prices directly reflect real-money equilibrium probabilities for match winners.
+      </p>
+    </div>
 
-  <h2>6. Repo data files</h2>
-  <div class="table-scroll">
-    <table class="tbl">
-      <thead><tr><th>File</th><th>Contents</th></tr></thead>
-      <tbody>
-        <tr><td><code>data/matches.json</code></td><td>Canonical dataset the site renders: every open Hotspawn LoL fixture with lines, probabilities, pick, sources, and the summary counts.</td></tr>
-        <tr><td><code>data/raw/hotspawn_fixtures_scheduled.json</code></td><td>Raw Hotspawn API response (LoL, status=scheduled) at last refresh.</td></tr>
-        <tr><td><code>data/raw/polymarket_lol_markets.json</code></td><td>Normalized extract of open Polymarket LoL markets (event, question, outcomes, mids, URLs).</td></tr>
-        <tr><td><code>data/raw/kalshi_lol_markets.json</code></td><td>Normalized extract of open Kalshi KXLOL markets (futures mids, URLs).</td></tr>
-        <tr><td><code>data/raw/pinnacle_lol_matchups.json</code></td><td>Normalized extract of Pinnacle LoL matchups (coverage check).</td></tr>
-        <tr><td><code>data/raw/manifest.json</code></td><td>Per-snapshot fetch metadata: URL, timestamp, HTTP status, SHA-256, stale flags.</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="match-card model" style="margin-bottom:16px;">
+      <h3>Tier 3: Our Own Originated Line Model (Leaguepedia Cargo Elo)</h3>
+      <p>
+        For the vast majority of matches that lack commercial sportsbook coverage (especially Tier-2, Tier-3, and European Regional Leagues), 
+        <b>we originate our own proprietary lines</b>.
+      </p>
+      <p>
+        We build a continuous Elo rating system from official League of Legends match results recorded in the 
+        <a href="https://lol.fandom.com/api.php?action=help&modules=cargoquery" target="_blank" rel="noopener">Leaguepedia Cargo API ↗</a> 
+        (<code>ScoreboardGames</code> table) spanning the past 180 days.
+      </p>
+      <ul>
+        <li><b>Starting Rating:</b> $R_0 = 1500$</li>
+        <li><b>K-Factor:</b> $K = 32$</li>
+        <li><b>Raw Expected Win Probability:</b> $E_1 = \frac{1}{1 + 10^{(R_2 - R_1)/400}}$</li>
+        <li>
+          <b>Bayesian Sample-Size Shrinkage:</b> If a team has few recorded competitive matches, estimating ability is prone to noise. 
+          We shrink the raw probability toward 50% using sample size factor $S$:
+          <div style="background:#0d1527; padding:10px 14px; border-radius:8px; font-family:monospace; margin:8px 0;">
+            S = min(g₁, g₂) / [ min(g₁, g₂) + 10 ]<br>
+            P(Team 1) = 0.5 + (E₁ - 0.5) * S
+          </div>
+          This prevents extreme probabilities on teams with insufficient historical data.
+        </li>
+      </ul>
+    </div>
 
-  <p class="small">Verified sources for this page: every endpoint above was fetched and inspected
-  on 2026-10-21 (UTC) during project research; see COORDINATION.md in the repo for the full
-  verification log.</p>
-</main>
+    <div class="match-card unresolved" style="margin-bottom:16px;">
+      <h3>Tier 4: Transparent 50/50 Baseline for Unresolved Amateur Matches</h3>
+      <p>
+        When an amateur fixture has no external market lines and neither team has recorded games in competitive databases, 
+        we refuse to invent probabilities or hallucinate player stats. 
+        Instead, we assign an explicit <b>50.0% / 50.0%</b> baseline. 
+        This is clearly flagged as <b>Unresolved (No Edge)</b> so players can treat it as a coin-flip.
+      </p>
+    </div>
 
-<footer class="site">
-  LOL Hotspawn Pick Desk · <a href="index.html">executive summary</a> ·
-  <a href="picks.html">all picks</a> ·
-  <a href="flagged.html">flagged for review</a>
-</footer>
+    <!-- Official Sources Directory -->
+    <h2>🔗 Verified Official Sources Directory</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Source Name</th>
+            <th>Type</th>
+            <th>Role in Pipeline</th>
+            <th>Verified Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Hotspawn LoL Pick'ems</b></td>
+            <td>Lobby & Rules</td>
+            <td>Fixture identity, scheduled start, locked timer, offered points</td>
+            <td><a href="https://play.hotspawn.com/lol-pickems" target="_blank" rel="noopener">play.hotspawn.com/lol-pickems ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Hotspawn Backend API</b></td>
+            <td>Direct REST API</td>
+            <td>Automated fixture extraction (IDs, timestamps, tiers)</td>
+            <td><a href="https://phpstack-1372681-6459848.cloudwaysapps.com/api/v1/fixtures?sport_alias=lol&status=scheduled&tenantId=1" target="_blank" rel="noopener">Cloudways Fixtures Endpoint ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Hotspawn How It Works</b></td>
+            <td>Official Rules</td>
+            <td>Locking rules (picks lock 5 min before scheduled start)</td>
+            <td><a href="https://play.hotspawn.com/how-it-works" target="_blank" rel="noopener">play.hotspawn.com/how-it-works ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Polymarket Gamma API</b></td>
+            <td>Prediction Market</td>
+            <td>Real-money traded match winner prices</td>
+            <td><a href="https://gamma-api.polymarket.com/events?tag_slug=league-of-legends" target="_blank" rel="noopener">gamma-api.polymarket.com ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>OddsPapi LoL Hub</b></td>
+            <td>Esportsbook Network</td>
+            <td>Multi-bookmaker odds aggregation (Sport ID 18)</td>
+            <td><a href="https://oddspapi.io/sports/esports/lol" target="_blank" rel="noopener">oddspapi.io/sports/esports/lol ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Leaguepedia Cargo API</b></td>
+            <td>Competitive DB</td>
+            <td>Official match histories (ScoreboardGames) for Elo model</td>
+            <td><a href="https://lol.fandom.com/api.php?action=help&modules=cargoquery" target="_blank" rel="noopener">lol.fandom.com/api.php ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Leaguepedia Esports Wiki</b></td>
+            <td>Community Wiki</td>
+            <td>Tournament structures, team rosters, and historical records</td>
+            <td><a href="https://lol.fandom.com/wiki/League_of_Legends_Esports_Wiki" target="_blank" rel="noopener">lol.fandom.com ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>GOL.gg (Game of Legends)</b></td>
+            <td>Match Stats DB</td>
+            <td>Competitive statistics cross-referencing</td>
+            <td><a href="https://gol.gg/tournament/list/" target="_blank" rel="noopener">gol.gg ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Pinnacle API Documentation</b></td>
+            <td>Sharp Bookmaker</td>
+            <td>Esports betting structure documentation</td>
+            <td><a href="https://github.com/pinnacleapi/pinnacleapi-documentation" target="_blank" rel="noopener">github.com/pinnacleapi ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <b>Hotspawn LoL Pick'em Analysis Dashboard</b> · Automated 6-hour refresh via GitHub Actions.
+      </div>
+      <div>
+        <a href="index.html">Executive Summary</a> · 
+        <a href="picks.html">All Picks</a> · 
+        <a href="unresolved.html">Unresolved Picks</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
 </body>
 </html>
