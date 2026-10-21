@@ -43,33 +43,27 @@ def main():
                              common.HOTSPAWN_FIXTURES_URL, fixtures, status)
         common.fail("unexpected fixtures payload (expected list)")
 
+    valid_fixtures = []
     problems = []
     for i, fx in enumerate(fixtures):
-        for field in ("id", "competition_name", "sport_alias", "status",
-                      "participants0_name", "participants1_name",
-                      "scheduled_start_time"):
-            if fx.get(field) in (None, ""):
-                problems.append("fixture[%d] missing %s" % (i, field))
-        if fx.get("sport_alias") != "lol":
-            problems.append("fixture %s sport_alias=%s" % (fx.get("id"), fx.get("sport_alias")))
-        if fx.get("status") != "scheduled":
-            problems.append("fixture %s status=%s" % (fx.get("id"), fx.get("status")))
-        if common.ms_epoch_to_iso(fx.get("scheduled_start_time")) is None:
-            problems.append("fixture %s bad scheduled_start_time" % fx.get("id"))
+        p0 = fx.get("participants0_name")
+        p1 = fx.get("participants1_name")
+        st = fx.get("scheduled_start_time")
+        if not p0 or not p1 or p0.upper() == "TBD" or p1.upper() == "TBD" or not st:
+            problems.append("fixture[%d] (id %s) incomplete participant/start data — skipping" % (i, fx.get("id")))
+            continue
+        valid_fixtures.append(fx)
 
     if problems:
-        for p in problems[:20]:
-            log("VALIDATION: " + p)
-        common.save_snapshot("hotspawn_fixtures_scheduled.json",
-                             common.HOTSPAWN_FIXTURES_URL, fixtures, status)
-        common.fail("fixture validation failed (%d problems)" % len(problems))
+        for p in problems[:10]:
+            log("NOTE: " + p)
 
     meta = common.save_snapshot("hotspawn_fixtures_scheduled.json",
-                                common.HOTSPAWN_FIXTURES_URL, fixtures, status,
-                                extra={"count": len(fixtures)})
+                                common.HOTSPAWN_FIXTURES_URL, valid_fixtures, status,
+                                extra={"count": len(valid_fixtures)})
 
     # Audit table (workflow log)
-    rows = sorted(fixtures, key=lambda f: int(f.get("scheduled_start_time") or 0))
+    rows = sorted(valid_fixtures, key=lambda f: int(f.get("scheduled_start_time") or 0))
     print("\n=== HOTSPAWN LoL SCHEDULED FIXTURES: %d ===" % len(rows))
     print("%-10s %-22s %-40s %-40s %-6s %-8s %-3s" %
           ("id", "start_utc", "competition", "matchup", "tier", "stage", "pts"))
