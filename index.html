@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LOL Hotspawn Pick Desk — Executive Summary</title>
+<meta name="description" content="Win probabilities and picks for every League of Legends match open for picks on the Hotspawn Pick'Em lobby, sourced from external betting and prediction markets only.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <span class="brand"><span class="lol">LOL</span> Hotspawn Pick Desk</span>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="picks.html">All Picks</a>
+      <a href="flagged.html">Flagged for Review</a>
+      <a href="methodology.html">Methodology &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="stale"></div>
+  <h1>League of Legends — Hotspawn pick desk</h1>
+  <p class="lede">
+    Every League of Legends match currently open for picks on the
+    <a href="https://play.hotspawn.com/lobby" target="_blank" rel="noopener">Hotspawn Pick'Em lobby</a>,
+    with each team's win probability and our pick — built from <strong>external betting and
+    prediction-market lines only</strong>. Hotspawn's own crowd percentages are never used as a
+    probability signal. Data refreshes automatically every 4 hours.
+  </p>
+
+  <h2>Executive summary</h2>
+  <div id="summaryChips" class="chips"><span class="chip">Loading…</span></div>
+
+  <div id="execSummary" class="card">
+    <p><strong>What this is.</strong> This site mirrors the LoL match list on Hotspawn's Pick'Em
+    lobby and attaches an independently sourced win probability to every match it can. Where a
+    public per-match market exists (Polymarket), the market mid is used directly. Where both teams
+    carry tournament-futures prices (Kalshi / Polymarket), we originate our own line with a
+    transparent ratio model and label it as derived. Where no verified external market exists —
+    most low-tier regional events — <strong>the pick is intentionally left blank</strong> and the
+    match appears on the <a href="flagged.html">Flagged for Review</a> page with the limitation
+    explained. Nothing is ever invented.</p>
+    <p id="execCounts" class="small">Counts are filled in below from the live dataset.</p>
+    <p class="small" id="updatedStamp">Updated —</p>
+  </div>
+
+  <div class="tiles">
+    <a class="tile primary" href="picks.html">All matches &amp; picks
+      <span class="arrow">→</span>
+      <small>The full mobile-friendly pick board: every open LoL match, both teams' win
+      probabilities, the pick, and the source links behind each number.</small></a>
+    <a class="tile" href="flagged.html">Flagged for Review
+      <span class="arrow">→</span>
+      <small>Unresolved matches (no external market), limitations, and irregularities.</small></a>
+    <a class="tile" href="methodology.html">Methodology &amp; Sources
+      <span class="arrow">→</span>
+      <small>Every source, its API, how it was verified, and how picks are derived.</small></a>
+  </div>
+
+  <h2>Next matches</h2>
+  <div id="preview"></div>
+
+  <div class="notebox">
+    <strong>Quick answer — where are the picks?</strong>
+    <a href="picks.html"><b>Open the All Picks page</b></a>. Matches are sorted by start time;
+    the green <b>Pick</b> tag and filled probability bar show the favored team. Use the filter
+    chips (Market line / Derived / No external market) to narrow the list.
+  </div>
+
+  <div class="notebox info">
+    <strong>Why some matches have no pick.</strong> Hotspawn lists many low-tier regional LoL
+    events that no verified bookmaker or prediction market covers. Per project rules those picks
+    are left blank and flagged rather than guessed. Details:
+    <a href="flagged.html">Flagged for Review</a>.
+  </div>
+</main>
+
+<footer class="site">
+  LOL Hotspawn Pick Desk · data: Hotspawn lobby (match list) + Polymarket, Kalshi, Pinnacle (lines)
+  · auto-refresh every 4 hours · <a href="methodology.html">methodology &amp; sources</a>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+PickDesk.load(function (err, data) {
+  var stale = $("#stale");
+  if (stale) stale.innerHTML = PickDesk.staleBanners(data || {});
+  if (err || !data) {
+    var el = document.getElementById("execSummary");
+    if (el) el.innerHTML = '<div class="loading">Could not load data/matches.json (' +
+      (err ? PickDesk.esc(err.message) : "empty") + "). The refresh workflow may still be running.</div>";
+    return;
+  }
+  // exec summary text
+  var s = data.summary || {};
+  var counts = document.getElementById("execCounts");
+  if (counts) {
+    counts.innerHTML =
+      "<b>" + (s.total_matches || 0) + "</b> matches open for picks · " +
+      "<b>" + (s.market_line || 0) + "</b> with a market line · " +
+      "<b>" + (s.derived_estimate || 0) + "</b> with our derived line · " +
+      "<b>" + (s.unresolved || 0) + "</b> unresolved (no verified external market, pick left blank) · " +
+      "<b>" + (s.pinnacle_covered || 0) + "</b> also listed by Pinnacle.";
+  }
+  // preview: next 5 matches
+  var preview = document.getElementById("preview");
+  if (preview) {
+    var next = (data.matches || []).slice(0, 5);
+    preview.innerHTML = next.length
+      ? next.map(PickDesk.matchCard).join("")
+      : '<div class="loading">No matches currently open for picks.</div>";
+  }
+});
+</script>
+</body>
+</html>
