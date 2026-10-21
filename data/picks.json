@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T20:50:53Z",
+ "generated_at": "2026-10-21T20:53:00Z",
  "lobby": "https://play.hotspawn.com/lobby",
  "count": 195,
  "counts_by_method": {
@@ -634,7 +634,7 @@
   }
  ],
  "debug": {
-  "generated_at": "2026-10-21T20:50:53Z",
+  "generated_at": "2026-10-21T20:53:00Z",
   "lobby": "https://play.hotspawn.com/lobby",
   "fixtures_via": "raw-snapshot",
   "polymarket_markets": 781,
