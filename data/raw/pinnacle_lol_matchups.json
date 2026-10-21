@@ -30,20 +30,6 @@
    "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638709103"
   },
   {
-   "matchup_id": "1638750902",
-   "league_id": 9587,
-   "league_name": "League of Legends - World Championship",
-   "home": "Anyone's Legend",
-   "away": "Karmine Corp",
-   "start_time": "2026-10-23T19:00:00Z",
-   "best_of": 1,
-   "status": "pending",
-   "has_markets": true,
-   "public_prices_available": false,
-   "odds": null,
-   "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638750902"
-  },
-  {
    "matchup_id": "1638748200",
    "league_id": 9587,
    "league_name": "League of Legends - World Championship",
@@ -72,6 +58,20 @@
    "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638754606"
   },
   {
+   "matchup_id": "1638755459",
+   "league_id": 9587,
+   "league_name": "League of Legends - World Championship",
+   "home": "Bilibili",
+   "away": "Movistar KOI",
+   "start_time": "2026-10-24T00:00:00Z",
+   "best_of": 1,
+   "status": "pending",
+   "has_markets": true,
+   "public_prices_available": false,
+   "odds": null,
+   "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638755459"
+  },
+  {
    "matchup_id": "1638748205",
    "league_id": 9587,
    "league_name": "League of Legends - World Championship",
@@ -86,6 +86,20 @@
    "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638748205"
   },
   {
+   "matchup_id": "1638750902",
+   "league_id": 9587,
+   "league_name": "League of Legends - World Championship",
+   "home": "Anyone's Legend",
+   "away": "Karmine Corp",
+   "start_time": "2026-10-23T19:00:00Z",
+   "best_of": 1,
+   "status": "pending",
+   "has_markets": true,
+   "public_prices_available": false,
+   "odds": null,
+   "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638750902"
+  },
+  {
    "matchup_id": "1638748203",
    "league_id": 9587,
    "league_name": "League of Legends - World Championship",
@@ -98,20 +112,6 @@
    "public_prices_available": false,
    "odds": null,
    "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638748203"
-  },
-  {
-   "matchup_id": "1638755459",
-   "league_id": 9587,
-   "league_name": "League of Legends - World Championship",
-   "home": "Bilibili",
-   "away": "Movistar KOI",
-   "start_time": "2026-10-24T00:00:00Z",
-   "best_of": 1,
-   "status": "pending",
-   "has_markets": true,
-   "public_prices_available": false,
-   "odds": null,
-   "url": "https://guest.api.arcadia.pinnacle.com/0.1/matchups/1638755459"
   },
   {
    "matchup_id": "1638750814",
