@@ -1,5 +1,14 @@
 # Coordination board — integrated ownership and acceptance record
 
+## Isolated implementation checkpoint (2026-10-21 21:09 UTC)
+
+- Implemented only the claimed new `verified/**` and `verified_pipeline/**` scopes: allow-listed full Hotspawn inventory, strict Pinnacle/Polymarket full-series guards, exact identities/known times/fresh receipts, null unsupported values, static/mobile accessible UI with all views, sources and expiry hiding.
+- Persisted **29 individually read official Prime League result observations** (not ratings, crowd predictions or undated aggregates). Transparent Beta/log5 small-sample estimates require two dated causal results for each exact team, preserve no-direction ties and disclose partial-history/non-calibration limits. Automatic headers with an unconfirmed season do not get fabricated season labels.
+- Offline source-receipt build accounts for **264 IDs = 195 upcoming + 69 elapsed listings**, with 2 bookmaker rows, 22 model rows (4 evidence-based ties), 20 directional picks, and 175 upcoming without a directional pick. Full current external discovery is still pending the runner, not claimed complete.
+- **38 unit tests pass**; generated artifact inventory/calculation/source/internal-link checks pass. First real Chromium/mobile/axe run passed **28 route/viewport checks**, 360/390/768/1280px, no JS errors/failed local requests/overflow/automated WCAG failures. This is source/calculation/UI verification, not a claim of calibrated probabilities or source coverage for unresolved fixtures.
+- **Remaining:** source-refresh/publish workflow and interactive browser gates, live runner receipts, integration of the newer main (PR #17), PR #2 readiness/merge, Pages configuration switch and actual verified-only deployment. No deployment acceptance yet; root still serves the other sessions' legacy site.
+- Existing production files and workflows remain untouched; latest main's completion claims do not supersede independently reproducible unsupported-fill/map-scope findings.
+
 ## Isolated verified build claim (2026-10-21 20:43 UTC)
 
 `arena/d126dc4d-lolhotspawn4` now claims **new, non-overlapping** `verified/**`, `verified_pipeline/**`, and `.github/workflows/verified-pages.yml` for a strict source-backed build and final Pages artifact integration. Existing `collector/`, `scripts/`, `data/`, `assets/`, root HTML, `docs/` and the other sessions' refresh workflows remain untouched. This avoids overwriting the still-active broad implementation claim while correcting unsupported fills in a separately testable build. Pages must serve only the verified artifact after all tests pass; no legacy/unverified public dataset will be included in that artifact. If Pages settings permissions prevent the switch, report that limitation, not a successful root deployment.

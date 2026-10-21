@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-21T21:07:47Z",
+  "passed": true,
+  "checks": [
+    "nonempty unique LoL inventory IDs",
+    "no dropped inventory fixtures",
+    "null unsupported values",
+    "exact identities; no fuzzy aliases",
+    "full-series scope",
+    "known nearby external starts",
+    "fresh receipt dates",
+    "paired probabilities and honest tie picks",
+    "dated causal model inputs"
+  ],
+  "summary": {
+    "listed": 264,
+    "upcoming": 195,
+    "elapsed": 69,
+    "locked_or_unknown": 0,
+    "picks": 20,
+    "bookmaker": 2,
+    "prediction_market": 0,
+    "model": 22,
+    "unresolved": 175,
+    "needs_review": 264
+  },
+  "source_receipts": 20,
+  "limitations": "Calculation/inventory integrity is not a claim of calibrated probabilities or exhaustive bookmaker access."
+}
