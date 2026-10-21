@@ -82,7 +82,7 @@
    "yes_ask": 0.18,
    "mid": 0.175,
    "last_price": 0.17,
-   "volume": "119884.71",
+   "volume": "120081.14",
    "rules_primary": "If T1 is the 2026 League of Legends Worlds champion, then the market resolves to Yes.",
    "url": "https://kalshi.com/markets/KXLOL-WORLDS26-T1",
    "api_url": "https://api.elections.kalshi.com/trade-api/v2/markets/KXLOL-WORLDS26-T1"

@@ -49,7 +49,7 @@
     0.775
    ],
    "game_start": null,
-   "volume": 153943.677728,
+   "volume": 153943.67772799998,
    "closed": false,
    "url": "https://polymarket.com/event/lol-worlds-2026-winning-region-226",
    "api_url": "https://gamma-api.polymarket.com/markets/1059067"
@@ -72,7 +72,7 @@
     0.9585
    ],
    "game_start": null,
-   "volume": 88363.19831800002,
+   "volume": 88363.19831799998,
    "closed": false,
    "url": "https://polymarket.com/event/lol-worlds-2026-winning-region-226",
    "api_url": "https://gamma-api.polymarket.com/markets/1059068"
@@ -118,7 +118,7 @@
     0.988
    ],
    "game_start": null,
-   "volume": 102548.98554599998,
+   "volume": 102548.985546,
    "closed": false,
    "url": "https://polymarket.com/event/lol-worlds-2026-winning-region-226",
    "api_url": "https://gamma-api.polymarket.com/markets/1059070"
@@ -141,7 +141,7 @@
     0.9985
    ],
    "game_start": null,
-   "volume": 71054.04136199999,
+   "volume": 71054.04136200002,
    "closed": false,
    "url": "https://polymarket.com/event/lol-worlds-2026-winning-region-226",
    "api_url": "https://gamma-api.polymarket.com/markets/1059071"
@@ -164,7 +164,7 @@
     0.9835
    ],
    "game_start": null,
-   "volume": 93479.71808599998,
+   "volume": 93479.71808600001,
    "closed": false,
    "url": "https://polymarket.com/event/will-t1-beat-grok-ai-in-2026",
    "api_url": "https://gamma-api.polymarket.com/markets/1371094"
@@ -187,7 +187,7 @@
     0.9445
    ],
    "game_start": null,
-   "volume": 124211.90622799999,
+   "volume": 124211.906228,
    "closed": false,
    "url": "https://polymarket.com/event/will-faker-win-a-finals-mvp-award-at-an-international-event-in-2026",
    "api_url": "https://gamma-api.polymarket.com/markets/1494713"
@@ -321,8 +321,8 @@
     "No"
    ],
    "prices": [
-    0.486,
-    0.514
+    0.495,
+    0.505
    ],
    "game_start": null,
    "volume": 782.271958,
@@ -348,7 +348,7 @@
     0.74
    ],
    "game_start": null,
-   "volume": 8718.417732999998,
+   "volume": 8718.417733,
    "closed": false,
    "url": "https://polymarket.com/event/league-of-legends-global-power-rankings-post-worlds-rank-1-20260729165154424",
    "api_url": "https://gamma-api.polymarket.com/markets/3236055"
@@ -367,8 +367,8 @@
     "No"
    ],
    "prices": [
-    0.29,
-    0.71
+    0.28,
+    0.72
    ],
    "game_start": null,
    "volume": 15042.921914000002,
@@ -394,7 +394,7 @@
     0.685
    ],
    "game_start": null,
-   "volume": 33181.479285999994,
+   "volume": 33181.479286,
    "closed": false,
    "url": "https://polymarket.com/event/league-of-legends-global-power-rankings-post-worlds-rank-1-20260729165154424",
    "api_url": "https://gamma-api.polymarket.com/markets/3236057"
@@ -486,7 +486,7 @@
     0.9945
    ],
    "game_start": null,
-   "volume": 7660.272654999999,
+   "volume": 7660.272655,
    "closed": false,
    "url": "https://polymarket.com/event/league-of-legends-global-power-rankings-post-worlds-rank-1-20260729165154424",
    "api_url": "https://gamma-api.polymarket.com/markets/3236061"
@@ -1149,8 +1149,8 @@
     "No"
    ],
    "prices": [
-    0.9295,
-    0.0705
+    0.874,
+    0.126
    ],
    "game_start": null,
    "volume": 965.934286,
@@ -1310,8 +1310,8 @@
     "No"
    ],
    "prices": [
-    0.9135,
-    0.0865
+    0.9145,
+    0.0855
    ],
    "game_start": null,
    "volume": 808.95,
@@ -1356,8 +1356,8 @@
     "No"
    ],
    "prices": [
-    0.58,
-    0.42
+    0.59,
+    0.41
    ],
    "game_start": null,
    "volume": 1648.0732050000001,
@@ -1379,8 +1379,8 @@
     "No"
    ],
    "prices": [
-    0.415,
-    0.585
+    0.41,
+    0.59
    ],
    "game_start": null,
    "volume": 1573.7616010000002,
@@ -1586,8 +1586,8 @@
     "No"
    ],
    "prices": [
-    0.655,
-    0.345
+    0.71,
+    0.29
    ],
    "game_start": null,
    "volume": 263,
@@ -1632,11 +1632,11 @@
     "No"
    ],
    "prices": [
-    0.215,
-    0.785
+    0.21,
+    0.79
    ],
    "game_start": null,
-   "volume": 1690.144005,
+   "volume": 1699.477339,
    "closed": false,
    "url": "https://polymarket.com/event/which-teams-will-make-a-roster-change-before-december-20260806154016844",
    "api_url": "https://gamma-api.polymarket.com/markets/3380910"
@@ -1701,8 +1701,8 @@
     "No"
    ],
    "prices": [
-    0.735,
-    0.265
+    0.505,
+    0.495
    ],
    "game_start": null,
    "volume": 40,
@@ -1747,8 +1747,8 @@
     "No"
    ],
    "prices": [
-    0.865,
-    0.135
+    0.855,
+    0.145
    ],
    "game_start": null,
    "volume": 69.761905,
@@ -1770,8 +1770,8 @@
     "No"
    ],
    "prices": [
-    0.695,
-    0.305
+    0.69,
+    0.31
    ],
    "game_start": null,
    "volume": 40,
@@ -1793,8 +1793,8 @@
     "No"
    ],
    "prices": [
-    0.645,
-    0.355
+    0.65,
+    0.35
    ],
    "game_start": null,
    "volume": 611,
@@ -1816,8 +1816,8 @@
     "No"
    ],
    "prices": [
-    0.893,
-    0.107
+    0.8935,
+    0.1065
    ],
    "game_start": null,
    "volume": 375.141291,
@@ -1931,8 +1931,8 @@
     "No"
    ],
    "prices": [
-    0.785,
-    0.215
+    0.78,
+    0.22
    ],
    "game_start": null,
    "volume": 629.9958809999999,
@@ -1977,8 +1977,8 @@
     "No"
    ],
    "prices": [
-    0.63,
-    0.37
+    0.51,
+    0.49
    ],
    "game_start": null,
    "volume": 60,
@@ -2000,8 +2000,8 @@
     "No"
    ],
    "prices": [
-    0.2575,
-    0.7425
+    0.258,
+    0.742
    ],
    "game_start": null,
    "volume": 145,
@@ -2395,7 +2395,7 @@
     0.845
    ],
    "game_start": null,
-   "volume": 148414.597595,
+   "volume": 148477.222595,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397025"
@@ -2418,7 +2418,7 @@
     0.815
    ],
    "game_start": null,
-   "volume": 150145.602699,
+   "volume": 150465.60269899998,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397027"
@@ -2437,11 +2437,11 @@
     "No"
    ],
    "prices": [
-    0.0665,
-    0.9335
+    0.0675,
+    0.9325
    ],
    "game_start": null,
-   "volume": 177999.16040600004,
+   "volume": 178113.76040599996,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397030"
@@ -2464,7 +2464,7 @@
     0.845
    ],
    "game_start": null,
-   "volume": 188852.897071,
+   "volume": 188852.89707099998,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397033"
@@ -2483,11 +2483,11 @@
     "No"
    ],
    "prices": [
-    0.0385,
-    0.9615
+    0.0375,
+    0.9625
    ],
    "game_start": null,
-   "volume": 145146.30960999997,
+   "volume": 145194.97960999998,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397035"
@@ -2556,7 +2556,7 @@
     0.9995
    ],
    "game_start": null,
-   "volume": 61436.74257199999,
+   "volume": 61436.742572,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397042"
@@ -2602,7 +2602,7 @@
     0.9925
    ],
    "game_start": null,
-   "volume": 130230.68825899999,
+   "volume": 130230.68825900002,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397048"
@@ -2625,7 +2625,7 @@
     0.9725
    ],
    "game_start": null,
-   "volume": 122676.85585699999,
+   "volume": 122676.855857,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-winner",
    "api_url": "https://gamma-api.polymarket.com/markets/4397050"
@@ -2782,11 +2782,11 @@
     "No"
    ],
    "prices": [
-    0.047,
-    0.953
+    0.0465,
+    0.9535
    ],
    "game_start": null,
-   "volume": 1659.9831960000001,
+   "volume": 1659.983196,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-finals-mvp",
    "api_url": "https://gamma-api.polymarket.com/markets/4397241"
@@ -2832,7 +2832,7 @@
     0.855
    ],
    "game_start": null,
-   "volume": 6875.845717000001,
+   "volume": 6875.845716999999,
    "closed": false,
    "url": "https://polymarket.com/event/worlds-2026-finals-mvp",
    "api_url": "https://gamma-api.polymarket.com/markets/4397243"
@@ -2874,8 +2874,8 @@
     "No"
    ],
    "prices": [
-    0.0425,
-    0.9575
+    0.0445,
+    0.9555
    ],
    "game_start": null,
    "volume": 286.095,
@@ -3058,8 +3058,8 @@
     "No"
    ],
    "prices": [
-    0.062,
-    0.938
+    0.049,
+    0.951
    ],
    "game_start": null,
    "volume": 1412.569239,
@@ -3081,8 +3081,8 @@
     "No"
    ],
    "prices": [
-    0.0605,
-    0.9395
+    0.0595,
+    0.9405
    ],
    "game_start": null,
    "volume": 1542.329962,
@@ -3104,8 +3104,8 @@
     "No"
    ],
    "prices": [
-    0.0375,
-    0.9625
+    0.033,
+    0.967
    ],
    "game_start": null,
    "volume": 684.37538,
@@ -3311,8 +3311,8 @@
     "No"
    ],
    "prices": [
-    0.0365,
-    0.9635
+    0.027,
+    0.973
    ],
    "game_start": null,
    "volume": 922.060693,
@@ -3357,8 +3357,8 @@
     "No"
    ],
    "prices": [
-    0.0495,
-    0.9505
+    0.043,
+    0.957
    ],
    "game_start": null,
    "volume": 1600.19482,
@@ -3426,8 +3426,8 @@
     "No"
    ],
    "prices": [
-    0.027,
-    0.973
+    0.0265,
+    0.9735
    ],
    "game_start": null,
    "volume": 377.08711800000003,
@@ -3472,8 +3472,8 @@
     "No"
    ],
    "prices": [
-    0.0175,
-    0.9825
+    0.017,
+    0.983
    ],
    "game_start": null,
    "volume": 261.09,
@@ -4714,8 +4714,8 @@
     "No"
    ],
    "prices": [
-    0.39,
-    0.61
+    0.385,
+    0.615
    ],
    "game_start": null,
    "volume": null,
@@ -4806,8 +4806,8 @@
     "No"
    ],
    "prices": [
-    0.52,
-    0.48
+    0.51,
+    0.49
    ],
    "game_start": null,
    "volume": null,
@@ -4994,7 +4994,7 @@
     0.0705
    ],
    "game_start": null,
-   "volume": 9982.628939,
+   "volume": 9982.628939000002,
    "closed": false,
    "url": "https://polymarket.com/event/lol-offseason-deft-next-team-1790107563296",
    "api_url": "https://gamma-api.polymarket.com/markets/4885083"
@@ -5542,8 +5542,8 @@
     "No"
    ],
    "prices": [
-    0.92,
-    0.08
+    0.93,
+    0.07
    ],
    "game_start": null,
    "volume": 526.5452369999999,
@@ -5956,8 +5956,8 @@
     "No"
    ],
    "prices": [
-    0.325,
-    0.675
+    0.295,
+    0.705
    ],
    "game_start": null,
    "volume": 247.838666,
@@ -8095,8 +8095,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.44,
+    0.56
    ],
    "game_start": null,
    "volume": 244.56862800000002,
@@ -8118,8 +8118,8 @@
     "No"
    ],
    "prices": [
-    0.16,
-    0.84
+    0.165,
+    0.835
    ],
    "game_start": null,
    "volume": 168.523158,
@@ -8141,8 +8141,8 @@
     "No"
    ],
    "prices": [
-    0.155,
-    0.845
+    0.495,
+    0.505
    ],
    "game_start": null,
    "volume": 115.882353,
@@ -8210,8 +8210,8 @@
     "No"
    ],
    "prices": [
-    0.2365,
-    0.7635
+    0.237,
+    0.763
    ],
    "game_start": null,
    "volume": 201.391165,
@@ -8256,8 +8256,8 @@
     "No"
    ],
    "prices": [
-    0.0415,
-    0.9585
+    0.041,
+    0.959
    ],
    "game_start": null,
    "volume": 97.820513,
@@ -8302,8 +8302,8 @@
     "No"
    ],
    "prices": [
-    0.043,
-    0.957
+    0.041,
+    0.959
    ],
    "game_start": null,
    "volume": 85,
@@ -8440,8 +8440,8 @@
     "No"
    ],
    "prices": [
-    0.2,
-    0.8
+    0.2005,
+    0.7995
    ],
    "game_start": null,
    "volume": 112.546667,
@@ -8509,8 +8509,8 @@
     "No"
    ],
    "prices": [
-    0.2015,
-    0.7985
+    0.2155,
+    0.7845
    ],
    "game_start": null,
    "volume": 103,
@@ -8693,8 +8693,8 @@
     "No"
    ],
    "prices": [
-    0.252,
-    0.748
+    0.2445,
+    0.7555
    ],
    "game_start": null,
    "volume": 144.55196999999998,
@@ -8739,8 +8739,8 @@
     "No"
    ],
    "prices": [
-    0.202,
-    0.798
+    0.364,
+    0.636
    ],
    "game_start": null,
    "volume": 103.66205,
@@ -8762,8 +8762,8 @@
     "No"
    ],
    "prices": [
-    0.3395,
-    0.6605
+    0.244,
+    0.756
    ],
    "game_start": null,
    "volume": 94.879178,
@@ -8900,8 +8900,8 @@
     "No"
    ],
    "prices": [
-    0.0425,
-    0.9575
+    0.041,
+    0.959
    ],
    "game_start": null,
    "volume": 85,
@@ -9176,8 +9176,8 @@
     "No"
    ],
    "prices": [
-    0.043,
-    0.957
+    0.041,
+    0.959
    ],
    "game_start": null,
    "volume": 85,
@@ -9314,8 +9314,8 @@
     "No"
    ],
    "prices": [
-    0.196,
-    0.804
+    0.21,
+    0.79
    ],
    "game_start": null,
    "volume": 113,
@@ -10717,8 +10717,8 @@
     "No"
    ],
    "prices": [
-    0.585,
-    0.415
+    0.59,
+    0.41
    ],
    "game_start": null,
    "volume": 105.64692400000001,
@@ -10970,8 +10970,8 @@
     "No"
    ],
    "prices": [
-    0.4345,
-    0.5655
+    0.3825,
+    0.6175
    ],
    "game_start": null,
    "volume": 81.55,
@@ -11016,8 +11016,8 @@
     "No"
    ],
    "prices": [
-    0.48,
-    0.52
+    0.5,
+    0.5
    ],
    "game_start": null,
    "volume": null,
@@ -11108,8 +11108,8 @@
     "No"
    ],
    "prices": [
-    0.865,
-    0.135
+    0.87,
+    0.13
    ],
    "game_start": null,
    "volume": 973.647361,
@@ -11131,8 +11131,8 @@
     "No"
    ],
    "prices": [
-    0.88,
-    0.12
+    0.885,
+    0.115
    ],
    "game_start": null,
    "volume": 197.088175,
@@ -11154,8 +11154,8 @@
     "No"
    ],
    "prices": [
-    0.65,
-    0.35
+    0.655,
+    0.345
    ],
    "game_start": null,
    "volume": 505.574223,
@@ -11246,8 +11246,8 @@
     "No"
    ],
    "prices": [
-    0.225,
-    0.775
+    0.22,
+    0.78
    ],
    "game_start": null,
    "volume": 980.489347,
@@ -11269,8 +11269,8 @@
     "No"
    ],
    "prices": [
-    0.13,
-    0.87
+    0.135,
+    0.865
    ],
    "game_start": null,
    "volume": 1167.565114,
@@ -11292,8 +11292,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": 779.551567,
@@ -11361,8 +11361,8 @@
     "No"
    ],
    "prices": [
-    0.68,
-    0.32
+    0.7,
+    0.3
    ],
    "game_start": null,
    "volume": 153.93188500000002,
@@ -11384,8 +11384,8 @@
     "No"
    ],
    "prices": [
-    0.16,
-    0.84
+    0.18,
+    0.82
    ],
    "game_start": null,
    "volume": 316.554094,
@@ -11430,8 +11430,8 @@
     "No"
    ],
    "prices": [
-    0.05,
-    0.95
+    0.049,
+    0.951
    ],
    "game_start": null,
    "volume": 549,
@@ -11499,8 +11499,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": 202.008191,
@@ -11568,8 +11568,8 @@
     "No"
    ],
    "prices": [
-    0.12,
-    0.88
+    0.125,
+    0.875
    ],
    "game_start": null,
    "volume": null,
@@ -11591,8 +11591,8 @@
     "No"
    ],
    "prices": [
-    0.021,
-    0.979
+    0.0205,
+    0.9795
    ],
    "game_start": null,
    "volume": null,
@@ -11637,8 +11637,8 @@
     "No"
    ],
    "prices": [
-    0.03,
-    0.97
+    0.0295,
+    0.9705
    ],
    "game_start": null,
    "volume": 10,
@@ -11683,8 +11683,8 @@
     "No"
    ],
    "prices": [
-    0.0205,
-    0.9795
+    0.021,
+    0.979
    ],
    "game_start": null,
    "volume": 1095.410012,
@@ -11936,8 +11936,8 @@
     "No"
    ],
    "prices": [
-    0.0475,
-    0.9525
+    0.047,
+    0.953
    ],
    "game_start": null,
    "volume": 1665.736317,
@@ -12005,8 +12005,8 @@
     "No"
    ],
    "prices": [
-    0.415,
-    0.585
+    0.42,
+    0.58
    ],
    "game_start": null,
    "volume": 70.02326099999999,
@@ -12074,8 +12074,8 @@
     "No"
    ],
    "prices": [
-    0.1945,
-    0.8055
+    0.2,
+    0.8
    ],
    "game_start": null,
    "volume": 355,
@@ -12143,8 +12143,8 @@
     "No"
    ],
    "prices": [
-    0.485,
-    0.515
+    0.25,
+    0.75
    ],
    "game_start": null,
    "volume": 5.263158,
@@ -12258,8 +12258,8 @@
     "No"
    ],
    "prices": [
-    0.38,
-    0.62
+    0.345,
+    0.655
    ],
    "game_start": null,
    "volume": null,
@@ -12281,8 +12281,8 @@
     "No"
    ],
    "prices": [
-    0.4,
-    0.6
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": null,
@@ -12304,8 +12304,8 @@
     "No"
    ],
    "prices": [
-    0.335,
-    0.665
+    0.345,
+    0.655
    ],
    "game_start": null,
    "volume": null,
@@ -12396,8 +12396,8 @@
     "No"
    ],
    "prices": [
-    0.585,
-    0.415
+    0.565,
+    0.435
    ],
    "game_start": null,
    "volume": null,
@@ -12465,8 +12465,8 @@
     "No"
    ],
    "prices": [
-    0.2,
-    0.8
+    0.25,
+    0.75
    ],
    "game_start": null,
    "volume": 40,
@@ -12534,8 +12534,8 @@
     "No"
    ],
    "prices": [
-    0.101,
-    0.899
+    0.2055,
+    0.7945
    ],
    "game_start": null,
    "volume": null,
@@ -12557,8 +12557,8 @@
     "No"
    ],
    "prices": [
-    0.206,
-    0.794
+    0.1955,
+    0.8045
    ],
    "game_start": null,
    "volume": null,
@@ -12580,8 +12580,8 @@
     "No"
    ],
    "prices": [
-    0.155,
-    0.845
+    0.035,
+    0.965
    ],
    "game_start": null,
    "volume": null,
@@ -12603,8 +12603,8 @@
     "No"
    ],
    "prices": [
-    0.2115,
-    0.7885
+    0.2165,
+    0.7835
    ],
    "game_start": null,
    "volume": null,
@@ -12626,8 +12626,8 @@
     "No"
    ],
    "prices": [
-    0.2055,
-    0.7945
+    0.1955,
+    0.8045
    ],
    "game_start": null,
    "volume": null,
@@ -12649,8 +12649,8 @@
     "No"
    ],
    "prices": [
-    0.035,
-    0.965
+    0.0305,
+    0.9695
    ],
    "game_start": null,
    "volume": null,
@@ -12672,8 +12672,8 @@
     "No"
    ],
    "prices": [
-    0.2505,
-    0.7495
+    0.2465,
+    0.7535
    ],
    "game_start": null,
    "volume": 20,
@@ -12695,8 +12695,8 @@
     "No"
    ],
    "prices": [
-    0.035,
-    0.965
+    0.0305,
+    0.9695
    ],
    "game_start": null,
    "volume": null,
@@ -12718,8 +12718,8 @@
     "No"
    ],
    "prices": [
-    0.19,
-    0.81
+    0.1875,
+    0.8125
    ],
    "game_start": null,
    "volume": 160,
@@ -12741,8 +12741,8 @@
     "No"
    ],
    "prices": [
-    0.034,
-    0.966
+    0.431,
+    0.569
    ],
    "game_start": null,
    "volume": null,
@@ -12764,8 +12764,8 @@
     "No"
    ],
    "prices": [
-    0.0375,
-    0.9625
+    0.377,
+    0.623
    ],
    "game_start": null,
    "volume": null,
@@ -12787,8 +12787,8 @@
     "No"
    ],
    "prices": [
-    0.035,
-    0.965
+    0.034,
+    0.966
    ],
    "game_start": null,
    "volume": null,
@@ -12810,8 +12810,8 @@
     "No"
    ],
    "prices": [
-    0.136,
-    0.864
+    0.0365,
+    0.9635
    ],
    "game_start": null,
    "volume": null,
@@ -12833,8 +12833,8 @@
     "No"
    ],
    "prices": [
-    0.0355,
-    0.9645
+    0.036,
+    0.964
    ],
    "game_start": null,
    "volume": null,
@@ -12856,8 +12856,8 @@
     "No"
    ],
    "prices": [
-    0.0255,
-    0.9745
+    0.3955,
+    0.6045
    ],
    "game_start": null,
    "volume": 41.58,
@@ -12879,8 +12879,8 @@
     "No"
    ],
    "prices": [
-    0.026,
-    0.974
+    0.0255,
+    0.9745
    ],
    "game_start": null,
    "volume": null,
@@ -12902,8 +12902,8 @@
     "No"
    ],
    "prices": [
-    0.0265,
-    0.9735
+    0.3775,
+    0.6225
    ],
    "game_start": null,
    "volume": null,
@@ -12925,8 +12925,8 @@
     "No"
    ],
    "prices": [
-    0.0905,
-    0.9095
+    0.24,
+    0.76
    ],
    "game_start": null,
    "volume": 55,
@@ -12948,8 +12948,8 @@
     "No"
    ],
    "prices": [
-    0.196,
-    0.804
+    0.191,
+    0.809
    ],
    "game_start": null,
    "volume": null,
@@ -12994,8 +12994,8 @@
     "No"
    ],
    "prices": [
-    0.0285,
-    0.9715
+    0.03,
+    0.97
    ],
    "game_start": null,
    "volume": null,
@@ -13017,8 +13017,8 @@
     "No"
    ],
    "prices": [
-    0.1145,
-    0.8855
+    0.2205,
+    0.7795
    ],
    "game_start": null,
    "volume": null,
@@ -13040,8 +13040,8 @@
     "No"
    ],
    "prices": [
-    0.03,
-    0.97
+    0.031,
+    0.969
    ],
    "game_start": null,
    "volume": null,
@@ -13063,11 +13063,11 @@
     "No"
    ],
    "prices": [
-    0.1255,
-    0.8745
+    0.205,
+    0.795
    ],
    "game_start": null,
-   "volume": null,
+   "volume": 27.5,
    "closed": false,
    "url": "https://polymarket.com/event/lol-offseason-diable-next-team-1791819428713",
    "api_url": "https://gamma-api.polymarket.com/markets/5677011"
@@ -13086,8 +13086,8 @@
     "No"
    ],
    "prices": [
-    0.0305,
-    0.9695
+    0.031,
+    0.969
    ],
    "game_start": null,
    "volume": null,
@@ -13109,8 +13109,8 @@
     "No"
    ],
    "prices": [
-    0.1955,
-    0.8045
+    0.2055,
+    0.7945
    ],
    "game_start": null,
    "volume": null,
@@ -13132,8 +13132,8 @@
     "No"
    ],
    "prices": [
-    0.1255,
-    0.8745
+    0.1955,
+    0.8045
    ],
    "game_start": null,
    "volume": null,
@@ -13155,8 +13155,8 @@
     "No"
    ],
    "prices": [
-    0.116,
-    0.884
+    0.206,
+    0.794
    ],
    "game_start": null,
    "volume": null,
@@ -13178,8 +13178,8 @@
     "No"
    ],
    "prices": [
-    0.126,
-    0.874
+    0.191,
+    0.809
    ],
    "game_start": null,
    "volume": null,
@@ -13201,8 +13201,8 @@
     "No"
    ],
    "prices": [
-    0.1255,
-    0.8745
+    0.1955,
+    0.8045
    ],
    "game_start": null,
    "volume": null,
@@ -13247,8 +13247,8 @@
     "No"
    ],
    "prices": [
-    0.1255,
-    0.8745
+    0.1905,
+    0.8095
    ],
    "game_start": null,
    "volume": null,
@@ -13477,8 +13477,8 @@
     "Solary"
    ],
    "prices": [
-    0.505,
-    0.495
+    0.5,
+    0.5
    ],
    "game_start": "2026-10-22 12:00:00+00",
    "volume": 151.727273,
@@ -13500,11 +13500,11 @@
     "Solary"
    ],
    "prices": [
-    0.515,
-    0.485
+    0.555,
+    0.445
    ],
    "game_start": "2026-10-22 12:00:00+00",
-   "volume": 25638.817403,
+   "volume": 28876.011039999998,
    "closed": false,
    "url": "https://polymarket.com/event/lol-gal-sly-2026-10-22",
    "api_url": "https://gamma-api.polymarket.com/markets/5721049"
@@ -14190,11 +14190,11 @@
     "Galions"
    ],
    "prices": [
-    0.315,
-    0.685
+    0.325,
+    0.675
    ],
    "game_start": "2026-10-22 12:00:00+00",
-   "volume": 132,
+   "volume": 221.375,
    "closed": false,
    "url": "https://polymarket.com/event/lol-gal-sly-2026-10-22",
    "api_url": "https://gamma-api.polymarket.com/markets/6009244"
@@ -14236,8 +14236,8 @@
     "Under"
    ],
    "prices": [
-    0.715,
-    0.285
+    0.72,
+    0.28
    ],
    "game_start": "2026-10-22 12:00:00+00",
    "volume": null,
@@ -14305,11 +14305,11 @@
     "Under"
    ],
    "prices": [
-    0.275,
-    0.725
+    0.59,
+    0.41
    ],
    "game_start": "2026-10-22 12:00:00+00",
-   "volume": 6,
+   "volume": 2296.389831,
    "closed": false,
    "url": "https://polymarket.com/event/lol-gal-sly-2026-10-22",
    "api_url": "https://gamma-api.polymarket.com/markets/6009249"
@@ -14328,8 +14328,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -14351,8 +14351,8 @@
     "No"
    ],
    "prices": [
-    0.415,
-    0.585
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -14374,8 +14374,8 @@
     "No"
    ],
    "prices": [
-    0.47,
-    0.53
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -14397,8 +14397,8 @@
     "No"
    ],
    "prices": [
-    0.47,
-    0.53
+    0.475,
+    0.525
    ],
    "game_start": null,
    "volume": 10,
@@ -14420,8 +14420,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.475,
+    0.525
    ],
    "game_start": null,
    "volume": 10,
@@ -14443,8 +14443,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -14466,8 +14466,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -14512,8 +14512,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -14535,8 +14535,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -14558,8 +14558,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -14581,8 +14581,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.485,
+    0.515
    ],
    "game_start": null,
    "volume": 10,
@@ -14604,8 +14604,8 @@
     "No"
    ],
    "prices": [
-    0.475,
-    0.525
+    0.49,
+    0.51
    ],
    "game_start": null,
    "volume": 10,
@@ -14627,8 +14627,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.42,
+    0.58
    ],
    "game_start": null,
    "volume": 10,
@@ -14650,8 +14650,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -14673,8 +14673,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -14696,8 +14696,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -14719,8 +14719,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -14742,8 +14742,8 @@
     "No"
    ],
    "prices": [
-    0.455,
-    0.545
+    0.435,
+    0.565
    ],
    "game_start": null,
    "volume": 10,
@@ -14765,8 +14765,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -14788,8 +14788,8 @@
     "No"
    ],
    "prices": [
-    0.455,
-    0.545
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -14811,8 +14811,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -14857,8 +14857,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -14880,8 +14880,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -14903,8 +14903,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -14926,8 +14926,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.435,
+    0.565
    ],
    "game_start": null,
    "volume": 10,
@@ -14949,8 +14949,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -14972,8 +14972,8 @@
     "No"
    ],
    "prices": [
-    0.455,
-    0.545
+    0.44,
+    0.56
    ],
    "game_start": null,
    "volume": 10,
@@ -14995,8 +14995,8 @@
     "No"
    ],
    "prices": [
-    0.43,
-    0.57
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15064,8 +15064,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -15087,8 +15087,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15110,8 +15110,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15133,8 +15133,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -15156,8 +15156,8 @@
     "No"
    ],
    "prices": [
-    0.47,
-    0.53
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -15179,8 +15179,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15202,8 +15202,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -15225,8 +15225,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -15248,8 +15248,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.485,
+    0.515
    ],
    "game_start": null,
    "volume": 10,
@@ -15271,8 +15271,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -15294,8 +15294,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.435,
+    0.565
    ],
    "game_start": null,
    "volume": 10,
@@ -15317,8 +15317,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15409,8 +15409,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -15432,8 +15432,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15455,8 +15455,8 @@
     "No"
    ],
    "prices": [
-    0.47,
-    0.53
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15478,8 +15478,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -15524,8 +15524,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -15547,8 +15547,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -15570,8 +15570,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -15593,8 +15593,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -15616,8 +15616,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15639,8 +15639,8 @@
     "No"
    ],
    "prices": [
-    0.44,
-    0.56
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -15662,8 +15662,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.47,
+    0.53
    ],
    "game_start": null,
    "volume": 10,
@@ -15685,8 +15685,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.44,
+    0.56
    ],
    "game_start": null,
    "volume": 10,
@@ -15731,8 +15731,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -15754,8 +15754,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.485,
+    0.515
    ],
    "game_start": null,
    "volume": 10,
@@ -15777,8 +15777,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -15800,8 +15800,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": 10,
@@ -15846,8 +15846,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -15869,8 +15869,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.47,
+    0.53
    ],
    "game_start": null,
    "volume": 10,
@@ -15892,8 +15892,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": 10,
@@ -15915,8 +15915,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15938,8 +15938,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.42,
+    0.58
    ],
    "game_start": null,
    "volume": 10,
@@ -15961,8 +15961,8 @@
     "No"
    ],
    "prices": [
-    0.47,
-    0.53
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -15984,8 +15984,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -16007,8 +16007,8 @@
     "No"
    ],
    "prices": [
-    0.47,
-    0.53
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16030,8 +16030,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -16053,8 +16053,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.41,
+    0.59
    ],
    "game_start": null,
    "volume": 10,
@@ -16076,8 +16076,8 @@
     "No"
    ],
    "prices": [
-    0.475,
-    0.525
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -16099,8 +16099,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": 10,
@@ -16122,8 +16122,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -16145,8 +16145,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16168,8 +16168,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -16191,8 +16191,8 @@
     "No"
    ],
    "prices": [
-    0.455,
-    0.545
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16214,8 +16214,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -16237,8 +16237,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16260,8 +16260,8 @@
     "No"
    ],
    "prices": [
-    0.47,
-    0.53
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16283,8 +16283,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -16306,8 +16306,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.47,
+    0.53
    ],
    "game_start": null,
    "volume": 10,
@@ -16329,8 +16329,8 @@
     "No"
    ],
    "prices": [
-    0.465,
-    0.535
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16352,8 +16352,8 @@
     "No"
    ],
    "prices": [
-    0.445,
-    0.555
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16375,8 +16375,8 @@
     "No"
    ],
    "prices": [
-    0.455,
-    0.545
+    0.44,
+    0.56
    ],
    "game_start": null,
    "volume": 10,
@@ -16398,8 +16398,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -16421,8 +16421,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -16444,8 +16444,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.42,
+    0.58
    ],
    "game_start": null,
    "volume": 10,
@@ -16467,8 +16467,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": 10,
@@ -16490,8 +16490,8 @@
     "No"
    ],
    "prices": [
-    0.435,
-    0.565
+    0.47,
+    0.53
    ],
    "game_start": null,
    "volume": 10,
@@ -16513,8 +16513,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.42,
+    0.58
    ],
    "game_start": null,
    "volume": 10,
@@ -16536,8 +16536,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.43,
+    0.57
    ],
    "game_start": null,
    "volume": 10,
@@ -16559,8 +16559,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.45,
+    0.55
    ],
    "game_start": null,
    "volume": 10,
@@ -16582,8 +16582,8 @@
     "No"
    ],
    "prices": [
-    0.455,
-    0.545
+    0.445,
+    0.555
    ],
    "game_start": null,
    "volume": 10,
@@ -16628,8 +16628,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.41,
+    0.59
    ],
    "game_start": null,
    "volume": 10,
@@ -16651,8 +16651,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.44,
+    0.56
    ],
    "game_start": null,
    "volume": 10,
@@ -16674,8 +16674,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.435,
+    0.565
    ],
    "game_start": null,
    "volume": 10,
@@ -16697,8 +16697,8 @@
     "No"
    ],
    "prices": [
-    0.46,
-    0.54
+    0.465,
+    0.535
    ],
    "game_start": null,
    "volume": 10,
@@ -16720,8 +16720,8 @@
     "No"
    ],
    "prices": [
-    0.45,
-    0.55
+    0.46,
+    0.54
    ],
    "game_start": null,
    "volume": 10,
@@ -16885,7 +16885,7 @@
     0.225
    ],
    "game_start": "2026-10-23 17:00:00+00",
-   "volume": 72083.36719199999,
+   "volume": 72098.038316,
    "closed": false,
    "url": "https://polymarket.com/event/lol-gen-ig1-2026-10-23",
    "api_url": "https://gamma-api.polymarket.com/markets/5906195"
@@ -17023,7 +17023,7 @@
     0.285
    ],
    "game_start": "2026-10-23 18:00:00+00",
-   "volume": 19079.010868999998,
+   "volume": 19380.399758,
    "closed": false,
    "url": "https://polymarket.com/event/lol-tl2-cfo-2026-10-23",
    "api_url": "https://gamma-api.polymarket.com/markets/5906201"
@@ -17299,7 +17299,7 @@
     0.605
    ],
    "game_start": "2026-10-23 20:00:00+00",
-   "volume": 290226.701375,
+   "volume": 290360.751375,
    "closed": false,
    "url": "https://polymarket.com/event/lol-g2-dk-2026-10-23",
    "api_url": "https://gamma-api.polymarket.com/markets/5906214"
@@ -17437,7 +17437,7 @@
     0.225
    ],
    "game_start": "2026-10-23 21:00:00+00",
-   "volume": 63497.54012899999,
+   "volume": 64020.207062999994,
    "closed": false,
    "url": "https://polymarket.com/event/lol-hle1-tes-2026-10-23",
    "api_url": "https://gamma-api.polymarket.com/markets/5906220"
@@ -17575,7 +17575,7 @@
     0.875
    ],
    "game_start": "2026-10-23 22:00:00+00",
-   "volume": 32923.766054,
+   "volume": 33114.919901,
    "closed": false,
    "url": "https://polymarket.com/event/lol-los-t1-2026-10-23",
    "api_url": "https://gamma-api.polymarket.com/markets/5906226"
@@ -17851,7 +17851,7 @@
     0.175
    ],
    "game_start": "2026-10-24 00:00:00+00",
-   "volume": 15138.926706000002,
+   "volume": 15393.926706000002,
    "closed": false,
    "url": "https://polymarket.com/event/lol-blg-mkoi-2026-10-23",
    "api_url": "https://gamma-api.polymarket.com/markets/5906238"

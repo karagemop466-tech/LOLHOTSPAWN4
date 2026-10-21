@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T21:06:00Z",
+ "generated_at": "2026-10-21T21:40:25Z",
  "lobby": "https://play.hotspawn.com/lobby",
  "count": 195,
  "counts_by_method": {
@@ -634,7 +634,7 @@
   }
  ],
  "debug": {
-  "generated_at": "2026-10-21T21:06:00Z",
+  "generated_at": "2026-10-21T21:40:25Z",
   "lobby": "https://play.hotspawn.com/lobby",
   "fixtures_via": "raw-snapshot",
   "polymarket_markets": 781,
@@ -672,10 +672,10 @@
    "crowd2": 14,
    "source_lobby": "https://play.hotspawn.com/lobby",
    "crowd_note": "Hotspawn crowd % shown on the lobby is context only and is NEVER used as a probability input.",
-   "prob_team1": 0.515,
-   "prob_team2": 0.485,
+   "prob_team1": 0.555,
+   "prob_team2": 0.445,
    "pick": "Galions",
-   "pick_prob": 0.515,
+   "pick_prob": 0.555,
    "method": "MARKET_POLYMARKET",
    "evidence": "Polymarket market: LoL: Galions vs Solary (BO5) - EMEA Masters Playoffs",
    "confidence": "High - prediction-market traded price",
