@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   refresh:
-    if: github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'data: refresh')
+    if: "github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'data: refresh')"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
