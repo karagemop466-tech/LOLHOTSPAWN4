@@ -45,12 +45,15 @@ const check = async (name, fn) => {
 };
 let browser;
 try {
+  const data = await (await fetch(new URL('data/matches.json', base), { cache: 'no-store' })).json();
+  const expectedRun = value('--expected-run', '');
+  if (expectedRun) assert.equal(String(data.build?.run_id), String(expectedRun), 'Public JSON is not the expected deployed run');
   // The static server needs its Node event loop. Spawn asynchronously rather
   // than blocking it while the audit browser requests the site.
   const { spawn } = await import('node:child_process');
   const viewportOut = out.replace(/\.json$/, '-viewports.json');
   const child = spawn(process.execPath, ['audit/d126dc4d/check_mobile.mjs', '--url', base,
-    '--pages', routes, '--out', viewportOut, '--tools', tools, '--expect-data'], { stdio: 'inherit' });
+    '--pages', routes, '--out', viewportOut, '--tools', tools, '--expect-data', '--generated-at', data.generated_at], { stdio: 'inherit' });
   const code = await new Promise((resolve) => child.on('exit', resolve));
   const viewports = JSON.parse(fs.readFileSync(viewportOut, 'utf8'));
   report.viewport_checks = viewports.viewports.length;
@@ -65,7 +68,6 @@ try {
   browser = await playwright.launch({ executablePath: await chromium.executablePath(),
     args: chromium.args.filter((arg) => arg !== '--single-process'), headless: true,
     env: { ...process.env, LD_LIBRARY_PATH: path.join(libs, 'lib') + ':' + (process.env.LD_LIBRARY_PATH || '') } });
-  const data = await (await fetch(new URL('data/matches.json', base))).json();
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   const errors = [];
@@ -74,6 +76,20 @@ try {
   await check('Every inventory fixture exists in static card and table representations', async () => {
     assert.equal(await page.locator('#match-cards > article').count(), data.matches.length);
     assert.equal(await page.locator('#match-table tbody > tr').count(), data.matches.length);
+    assert.equal(await page.locator('body').getAttribute('data-generated-at'), data.generated_at);
+    const rendered = await page.locator('#match-cards > article').evaluateAll((items) => items.map((r) => ({
+      id: r.dataset.matchId, invalidated: r.dataset.invalidated === 'true',
+      probabilities: [...r.querySelectorAll('.current-probability')].map((p) => p.textContent)
+    })));
+    const byId = new Map(data.matches.map((r) => [r.id, r]));
+    for (const row of rendered) {
+      const expected = byId.get(row.id);
+      assert.ok(expected, 'Unexpected fixture ' + row.id);
+      for (const [index, key] of ['probability_a', 'probability_b'].entries()) {
+        if (expected[key] === null || row.invalidated) assert.equal(row.probabilities[index], '—');
+        else assert.ok(Math.abs(parseFloat(row.probabilities[index]) - expected[key] * 100) <= 0.051, 'Rendered probability differs from snapshot: ' + row.id);
+      }
+    }
     return { fixtures: data.matches.length };
   });
   await check('Each rendered card and table row has an original HTTPS source', async () => {

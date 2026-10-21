@@ -22,6 +22,7 @@ const out = value('--out', 'audit/d126dc4d/browser-audit.json');
 const pages = value('--pages', 'index.html,picks.html,flagged.html,methodology.html').split(',');
 const widths = value('--widths', '360,390,768,1280').split(',').map(Number);
 const expectData = args.includes('--expect-data');
+const generatedAt = value('--generated-at', '');
 const require = createRequire(path.resolve(value('--tools', '.arena/audit-tools'), 'package.json'));
 const mod = require('@sparticuz/chromium');
 const chromium = mod.default || mod;
@@ -61,6 +62,7 @@ try {
       await page.evaluate(() => document.fonts.ready);
       const metrics = await page.evaluate(() => ({
         title: document.title,
+        generated_at: document.body.dataset.generatedAt,
         h1_count: document.querySelectorAll('h1').length,
         viewport_width: window.innerWidth,
         document_width: document.documentElement.scrollWidth,
@@ -77,6 +79,7 @@ try {
       const record = {
         route, width, status: response?.status(),
         title: metrics.title,
+        generated_at: metrics.generated_at,
         h1_count: metrics.h1_count,
         document_width: metrics.document_width,
         body_width: metrics.body_width,
@@ -90,6 +93,7 @@ try {
       const fail = (issue) => result.failures.push({ route, width, issue });
       if (response?.status() !== 200) fail('Page response is not 200');
       if (metrics.document_width > width + 1 || metrics.body_width > width + 1) fail('Page-wide horizontal overflow');
+      if (generatedAt && metrics.generated_at !== generatedAt) fail('HTML/JSON snapshot version mismatch');
       if (metrics.h1_count !== 1) fail('Expected one rendered primary heading');
       if (pageErrors.length) fail('JavaScript runtime error');
       if (failedLocalRequests.length) fail('Failed same-site asset/data request');

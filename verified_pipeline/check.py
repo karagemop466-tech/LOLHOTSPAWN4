@@ -17,9 +17,14 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids, self.duplicates, self.links, self.rows, self.active = set(), [], [], [], []
         self.h1 = 0
+        self.generated_at = None
+        self.inventory_at = None
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == "body":
+            self.generated_at = a.get("data-generated-at")
+            self.inventory_at = a.get("data-inventory-at")
         if a.get("id"):
             if a["id"] in self.ids:
                 self.duplicates.append(a["id"])
@@ -101,6 +106,8 @@ def check_site(site):
         parser = Page()
         parser.feed(path.read_text())
         pages[path.name] = parser
+        if parser.generated_at != data["generated_at"] or parser.inventory_at != data["inventory_observed_at"]:
+            errors.append(path.name + ": HTML/JSON snapshot timestamps differ")
         if parser.h1 != 1:
             errors.append(path.name + ": expected one primary heading")
         if parser.duplicates:

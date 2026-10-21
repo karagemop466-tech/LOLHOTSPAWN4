@@ -91,3 +91,14 @@ unconfirmed identities leave many amateur matches unresolved. The partial
 history archive can be selection-biased and does not adjust for strength of
 schedule, roster, draft or patch. These limits are visible in the executive
 summary, every model card, methodology, and Flagged for Review.
+
+## Actual public-site acceptance
+
+After `actions/deploy-pages`, the production job downloads the actual public
+HTML/assets/data into a temporary directory, checks the **expected run + commit**,
+reproduces all inventory/calculations/source rows/internal links, rejects mixed
+HTML/JSON snapshot versions, and repeats the 28-viewport + 14-functional browser
+gate against the public URL. Bounded CDN retries cannot change the expected
+version. Public-file SHA-256 receipts and browser reports are retained as the
+`verified-public-acceptance-<run>` Actions artifact; build status alone is not
+publication acceptance. The current full unit/artifact suite has 57 tests.

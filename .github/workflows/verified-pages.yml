@@ -103,7 +103,9 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
@@ -116,3 +118,28 @@ jobs:
       - name: Deploy the tested verified-only artifact
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify actual public artifact, expected run/commit, populated inventory and all internal links
+        env:
+          PUBLIC_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python -m verified_pipeline.public_check --url "$PUBLIC_URL" --run "${{ github.run_id }}" --commit "${{ github.sha }}" --out "$RUNNER_TEMP/verified-public.json"
+      - name: Install isolated public-browser acceptance tools
+        run: npm install --prefix "$RUNNER_TEMP/verified-ui" --no-fund --no-audit playwright-core@1.64.1 @sparticuz/chromium@153.0.0 axe-core@4.14.0
+      - name: Run the mobile and functional gate against the actual public Pages URL
+        env:
+          PUBLIC_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node verified_pipeline/browser_test.mjs --url "$PUBLIC_URL" --expected-run "${{ github.run_id }}" --tools "$RUNNER_TEMP/verified-ui" --out "$RUNNER_TEMP/verified-public-browser.json"
+      - name: Preserve public deployment acceptance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-public-acceptance-${{ github.run_id }}
+          path: ${{ runner.temp }}/verified-public*.json
+          retention-days: 30
+          if-no-files-found: warn
