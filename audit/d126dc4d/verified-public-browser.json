@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-10-22T04:42:27.691Z",
+  "checked_at": "2026-10-22T13:47:32.849Z",
   "base_url": "https://karagemop466-tech.github.io/LOLHOTSPAWN4/",
   "tests": [
     {
       "name": "Every inventory fixture exists in static card and table representations",
       "passed": true,
       "detail": {
-        "fixtures": 264
+        "fixtures": 262
       }
     },
     {
