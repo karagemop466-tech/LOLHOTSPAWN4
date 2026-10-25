@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-25T19:03:42.030Z",
+  "checked_at": "2026-10-25T22:33:48.067Z",
   "base_url": "https://karagemop466-tech.github.io/LOLHOTSPAWN4/",
   "tests": [
     {
@@ -57,7 +57,7 @@
       "name": "Expired snapshot hides probabilities and picks in the browser",
       "passed": true,
       "detail": {
-        "invalidated_probability_fields": 84
+        "invalidated_probability_fields": 80
       }
     },
     {
