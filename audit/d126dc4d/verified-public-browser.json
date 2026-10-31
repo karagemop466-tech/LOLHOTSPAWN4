@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-10-30T20:48:01.719Z",
+  "checked_at": "2026-10-31T05:38:07.400Z",
   "base_url": "https://karagemop466-tech.github.io/LOLHOTSPAWN4/",
   "tests": [
     {
       "name": "Every inventory fixture exists in static card and table representations",
       "passed": true,
       "detail": {
-        "fixtures": 210
+        "fixtures": 206
       }
     },
     {
@@ -57,7 +57,7 @@
       "name": "Expired snapshot hides probabilities and picks in the browser",
       "passed": true,
       "detail": {
-        "invalidated_probability_fields": 44
+        "invalidated_probability_fields": 40
       }
     },
     {
