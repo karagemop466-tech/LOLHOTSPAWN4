@@ -1,40 +1,40 @@
 {
   "passed": true,
-  "checked_at": "2026-11-07T05:56:47Z",
+  "checked_at": "2026-11-07T14:54:29Z",
   "public_url": "https://karagemop466-tech.github.io/LOLHOTSPAWN4/",
-  "expected_run": "42344735483",
+  "expected_run": "42383677742",
   "expected_commit": "89dc394b66ab2c5e171690af0e8f9e5b977bb284",
   "attempt": 1,
   "artifact": "verified-only",
   "summary": {
-    "listed": 183,
+    "listed": 186,
     "upcoming": 93,
-    "elapsed": 89,
-    "locked_or_unknown": 1,
+    "elapsed": 93,
+    "locked_or_unknown": 0,
     "picks": 0,
     "bookmaker": 0,
     "prediction_market": 0,
     "model": 0,
     "unresolved": 93,
-    "needs_review": 183
+    "needs_review": 186
   },
   "static_acceptance": {
     "passed": true,
-    "checked_at": "2026-11-07T05:55:27Z",
+    "checked_at": "2026-11-07T14:53:13Z",
     "artifact": "verified-only",
     "html_pages": 8,
-    "unique_inventory_ids": 183,
+    "unique_inventory_ids": 186,
     "summary": {
-      "listed": 183,
+      "listed": 186,
       "upcoming": 93,
-      "elapsed": 89,
-      "locked_or_unknown": 1,
+      "elapsed": 93,
+      "locked_or_unknown": 0,
       "picks": 0,
       "bookmaker": 0,
       "prediction_market": 0,
       "model": 0,
       "unresolved": 93,
-      "needs_review": 183
+      "needs_review": 186
     },
     "checks": [
       "All original inventory IDs accounted for, including stale-listed rows",
@@ -53,22 +53,22 @@
     "limitations": "Original receipts and calculations are checked; this is not a calibration/accuracy guarantee or live external-link uptime test."
   },
   "public_file_sha256": {
-    "data/deployment.json": "5a8946af8631d2ed5cec9ad45b7c8dec4f42565a6b02e7beeb6caed8ea4582d8",
-    "index.html": "6414f6ed2a8ad7418d4daaa5da550825cff0475c5bf3f0a91afa502fe93a2ea6",
-    "picks.html": "dda8bacf4bc1f01778e7bfbbcff56fed78bb964883e6604d52b8e36645fbe58e",
-    "featured.html": "c7d3eb1eff96bb7d417aa876bc2a4b6d53d8ff4568c590d8a34dbd20a7e9ff6e",
-    "fallback.html": "2000f6ed204fbdf1aa991260a34a9d3ea1ea459ca92555ea03c6c1838d1fbe8c",
-    "unresolved.html": "e9153dff04cb95e4616e9abbc22bc30ba29e04ee36d6eba805d25d2edb6e4788",
-    "flagged.html": "393069b712c79b19066718bff7aae480c09be1c2567ecc582664f49b684b2d91",
-    "methodology.html": "aedfd2e306e9b790000fc44a73ea03f024e7735c2991d26a7337d61c104150e4",
-    "404.html": "ba0c2b9f2d3157fec1e3e9b6021f453cb9e8dd9d6bed095952ccca41a569fd49",
+    "data/deployment.json": "4e39eff736fb650712f34b438b945e6bdd2078181e2c80a44a0b1b797fae66d4",
+    "index.html": "f2a501faaf27bac95d97f276c2f0b772ed931e76be0cddaa2d28ef41fd9fe0fd",
+    "picks.html": "3dee27a364532234ad086bd21b0a86c0d064305a79495961ffa5deea94b9cade",
+    "featured.html": "48447a332e4e414e0ad9833041bc8f8060b4855f4513ca05e28dbc88a15e5f6a",
+    "fallback.html": "79fd92df91fcf4fee1bce5c3e89aa674b9b14327ef8c9a4a3eed8f0daba9cc05",
+    "unresolved.html": "e4c8e45fa097202ae4a86bcf22ebad733e7ea2a59dc66f910a7fbb93a3b852a8",
+    "flagged.html": "24bdc9b8501884d6fdf301cf771b508fbff8b8e5cfef3d361790316c1888915e",
+    "methodology.html": "86880b2621c827b286c0f98de080d257a57d50f7a7fe92e8744b67780f8370a3",
+    "404.html": "37946884f0693a84183f1c99b8e703b39f525e23bad24c3e7bffea968af80491",
     "assets/site.css": "cd29ebe965bdbb6c0577f69ebc42bc6337c82ace8ca4ad548daab0a28b9e6aa6",
     "assets/site.js": "df694d46fd03bd3e9b42bc97c23d8c2222c535b7764daf6f7a3e25e51ee76594",
     "assets/mark.svg": "f7d3ed0612501beb55f617168a2bfc32b50b037d8eda433b36bee2abe44dc4ab",
-    "data/matches.json": "cf6c7bc7b7e9a529f7bc0415fc15e516f64dc0961c93c8f9faee58ec825191f4",
+    "data/matches.json": "60c73754c0599fd575e978f157d250d8afa6dfecead74b3a98a87f3c69164ff7",
     "data/history.json": "92e503d6bedbb2379a5c03b2626ddbfad36c0779b2fe1463faa0cd91a268a679",
-    "data/integrity.json": "29151c795f0aae6c219204f00390245933b48ee1131ac76427e651d94f33e1f4",
-    "data/source-cache.json": "74d5f5caa441fb79d7c141092dc1407be9ee805549edcef6f85768df3e24af68"
+    "data/integrity.json": "5d87f18b2921e5fb619578756c5cadd00932d93b6cac4511b2341f4f861679e1",
+    "data/source-cache.json": "e37ad6de89914aa8884c62482397535394e2fdc3dd402766a13ba510d705e2d0"
   },
   "limitations": "Confirms public bytes, inventory, source provenance and calculations; not source uptime, model calibration or outcome accuracy."
 }
